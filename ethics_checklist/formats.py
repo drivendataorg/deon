@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 
 # File types
 class Format(object):
@@ -122,6 +124,51 @@ class JupyterNotebook(Markdown):
 
         with open(filepath, "w") as f:
             json.dump(nbdata, f)
+
+
+class Html(Format):
+    template = "<h1>{title}</h1> <br/> <br/> {sections} <br/> <br/>"
+    section_template = """<h2>{title}</h2>
+<hr/>
+<ul>
+{lines}
+</ul>"""
+    
+    section_delimiter = "<br/><br/>"
+
+    line_template = "<li><input type='checkbox'>{line}</input></li>"
+    line_delimiter = "\n"
+
+    doc_template = """
+<html>
+<body>
+{text}
+</body>
+</html>
+"""
+
+    def write(self, filepath, overwrite=False):
+        """ If notebook does not exist (or `overwrite=True`), create a blank
+            notebook and add the checklist. Otherwise append a cell with a
+            horizontal rule and another cell with the checklist.
+        """
+        filepath = Path(filepath)
+
+        if filepath.exists() and not overwrite:
+            # insert at end of body
+            checklist = self.render()
+
+            with open(filepath, "r") as f:
+                soup = BeautifulSoup(f)
+
+            # add checklist to end of body
+            soup.body.append(checklist)
+            text = soup.prettify()
+        else:
+            text = self.doc_template.format(text=self.render())
+
+        with open(filepath, "w") as f:
+            f.write(text)
 
 
 FORMATS = {
