@@ -2,6 +2,8 @@ import click
 import os
 from pathlib import Path
 
+import xerox
+
 from .parser import Checklist, Section
 from .formats import FORMATS, EXTENSIONS
 
@@ -37,7 +39,7 @@ def main(checklist, format, output, clipboard, overwrite):
     if output:
         template.write(output, overwrite=overwrite)
     elif clipboard:
-        raise NotImplementedError("Output to clipboard NYI.")
+        xerox.copy(template.render())
     else:
         click.echo(template.render())
 
