@@ -47,5 +47,3 @@ def main(checklist, format, output, clipboard, overwrite):
 if __name__ == '__main__':
     main()
 
-
-

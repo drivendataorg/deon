@@ -1,3 +1,5 @@
 -r requirements.txt
 
 -e .
+
+pytest==3.6.4

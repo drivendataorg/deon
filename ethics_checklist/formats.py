@@ -69,7 +69,7 @@ class Markdown(Format):
     section_template = """## {title}
 ------
 {lines}"""
-    
+
     section_delimiter = "\n\n"
 
     line_template = " - [ ] {line}"
@@ -89,7 +89,7 @@ class JupyterNotebook(Markdown):
 
     def render(self):
         """ Creates a cell with rendered Markdown of the
-            checklist. 
+            checklist.
         """
         text = super().render()
         return {
@@ -133,7 +133,7 @@ class Html(Format):
 <ul>
 {lines}
 </ul>"""
-    
+
     section_delimiter = "<br/><br/>"
 
     line_template = "<li><input type='checkbox'>{line}</input></li>"
@@ -174,10 +174,12 @@ class Html(Format):
 FORMATS = {
     'markdown': Markdown,
     'jupyter': JupyterNotebook,
+    'html': Html,
 }
 
 EXTENSIONS = {
     '.md': 'markdown',
     '.ipynb': 'jupyter',
+    '.html': 'html',
 }
 
