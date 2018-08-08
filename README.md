@@ -1,5 +1,5 @@
 
-#Using this package
+# Using this package
 
 The `ethics-checklist` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support appending a checklist to existing analyses in [many formats](#Supported_file_types) or generating new files with a checklist that is ready to fill out or review. The checklist was inspired by an article published by O'Reilly: ["Checklists"]().
 
@@ -24,7 +24,7 @@ $ethics-checklist -o my-analysis.ipynb  # appends cells to end of notebook
 This checklist can be used by individuals or teams to ensure that reviewing the ethical implications of their work is part of every project. The checklist is meant as a jumping-off point, and it should spark deeper and more thourough discussions rather than replace those discussions.
 
 
-#Supported file types
+# Supported file types
 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
@@ -32,6 +32,7 @@ Here are the currently supported file types. We will accept pull requests with n
  - RST
  - Jupyter Notebooks
  - LaTeX
+ - HTML
  - Rich Text (Can be used for Microsoft Word docs and Google Docs)
 
 
@@ -42,6 +43,33 @@ Here are the currently supported file types. We will accept pull requests with n
  - `-f / --format [FORMAT]` - Useful with `--clipboard` since format is usually determined from the output file.
  - `-w / --overwrite` - Normally we append to an output file if it exists; if this flag is passed, we write a new file.
  - `-i / --checklist [PATH]` - If you want to override the built-in checklist with your own.
+
+# Default Checklist
+
+### Data collection
+
+ - informed consent
+ - anonymization
+ - only collecting what you need
+
+### Data storage
+ - plans for data encryption
+ - access controls
+ - can a person request to be removed
+
+### EDA
+ - intellectual honesty in visualization, summary 
+ - ensure data is fair in its representation
+
+### Modeling
+ - have we tested for fairness with respect to different user groups
+ - have we built a model where we can explain results if we need to
+
+### Deployment
+ - can we turn it off
+ - do we have a mechanism for redress
+ - do we test for drift
+ - have we thought about how it can be attacked?
 
 # Changing the Checklist
 
