@@ -127,14 +127,19 @@ class JupyterNotebook(Markdown):
 
 
 class Html(Format):
-    template = "<h1>{title}</h1> <br/> <br/> {sections} <br/> <br/>"
+    template = """<h1>{title}</h1>
+<br/> <br/>
+{sections}
+<br/> <br/>"""
     section_template = """<h2>{title}</h2>
 <hr/>
 <ul>
 {lines}
 </ul>"""
 
-    section_delimiter = "<br/><br/>"
+    section_delimiter = """
+<br/><br/>
+"""
 
     line_template = "<li><input type='checkbox'>{line}</input></li>"
     line_delimiter = "\n"
