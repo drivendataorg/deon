@@ -1,4 +1,5 @@
-import json
+import yaml
+
 
 class Checklist(object):
     """ Stores a checklist data parsed from a yaml file.
@@ -10,7 +11,7 @@ class Checklist(object):
     @classmethod
     def read(cls, filepath):
         with open(filepath, "r") as f:
-            data = json.load(f)
+            data = yaml.load(f)
 
         title = data['title']
         sections = [Section(s['title'], s['lines']) for s in data['sections']]
