@@ -12,5 +12,8 @@ examples: reqs
 docs:
 	echo "NYI"
 
-test:
+test: lint
 	py.test
+
+lint:
+	flake8 .

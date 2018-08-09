@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import setuptools
 from setuptools import setup
 
 setup(
@@ -9,16 +10,16 @@ setup(
     author="DrivenData",
     author_email="info@drivendata.org",
 
-    description = 'Data Science Ethics Checklist',
+    description='Data Science Ethics Checklist',
     long_description=open('README.md').read(),
 
-    license = 'MIT',
+    license='MIT',
     packages=setuptools.find_packages(),
 
     install_requires=[],
 
-    entry_points = {
-        'console_scripts':[ 
+    entry_points={
+        'console_scripts': [
             'ethics-checklist=ethics_checklist.ethics_checklist:main',
         ]
     },

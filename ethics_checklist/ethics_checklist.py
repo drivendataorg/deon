@@ -4,7 +4,7 @@ from pathlib import Path
 
 import xerox
 
-from .parser import Checklist, Section
+from .parser import Checklist
 from .formats import FORMATS, EXTENSIONS
 
 DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.yml'
@@ -14,7 +14,8 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 @click.command()
 @click.option('--checklist', default=None, type=click.Path(exists=True), help='Override checklist file.')
-@click.option('--format', default=None, type=str, help='Output format. Default is "markdown". File extesion used if --output is passed.')
+@click.option('--format', default=None, type=str, help='Output format. Default is "markdown". \
+                                                        File extesion used if --output is passed.')
 @click.option('--output', default=None, type=click.Path(), help='Output file path.')
 @click.option('--clipboard', is_flag=True, default=False, help='Whether or not to output to clipboard.')
 @click.option('--overwrite', is_flag=True, default=False, help='Overwrite output file if it exists. Default is False.')
