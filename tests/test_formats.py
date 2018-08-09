@@ -1,5 +1,4 @@
 from pytest import fixture
-from pathlib import Path
 import json
 
 from ethics_checklist.parser import Checklist, Section
