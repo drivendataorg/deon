@@ -27,7 +27,7 @@ def test_markdown(checklist, tmpdir):
     m = Markdown(checklist)
     assert m.render() == known_good
 
-    # when no file exists
+    # no existing file
     temp_file_path = tmpdir.join('test.md')
     m.write(temp_file_path)
     assert temp_file_path.read() == known_good
@@ -72,24 +72,45 @@ def test_jupyter(checklist, tmpdir):
 
 def test_html(checklist, tmpdir):
     known_good = """<html>
-<body>
-<h1>My Checklist</h1>
-<br/> <br/>
-<h2>Section 1</h2>
-<hr/>
-<ul>
-<li><input type='checkbox'>first</input></li>
-<li><input type='checkbox'>second</input></li>
-</ul>
-<br/><br/>
-<h2>Section 2</h2>
-<hr/>
-<ul>
-<li><input type='checkbox'>third</input></li>
-<li><input type='checkbox'>fourth</input></li>
-</ul>
-<br/> <br/>
-</body>
+ <body>
+  <h1>
+   My Checklist
+  </h1>
+  <br/>
+  <br/>
+  <h2>
+   Section 1
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    first
+   </li>
+   <li>
+    <input type="checkbox"/>
+    second
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
+   Section 2
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    third
+   </li>
+   <li>
+    <input type="checkbox"/>
+    fourth
+   </li>
+  </ul>
+  <br/>
+  <br/>
+ </body>
 </html>
 """
     existing_text = """<html>
@@ -99,32 +120,52 @@ There is existing text in this file.
 </html>
 """
     inserted_known_good = """<html>
-<body>
-There is existing text in this file.
-<h1>My Checklist</h1>
-<br/> <br/>
-<h2>Section 1</h2>
-<hr/>
-<ul>
-<li><input type='checkbox'>first</input></li>
-<li><input type='checkbox'>second</input></li>
-</ul>
-<br/><br/>
-<h2>Section 2</h2>
-<hr/>
-<ul>
-<li><input type='checkbox'>third</input></li>
-<li><input type='checkbox'>fourth</input></li>
-</ul>
-<br/> <br/>
-</body>
+ <body>
+  There is existing text in this file.
+  <h1>
+   My Checklist
+  </h1>
+  <br/>
+  <br/>
+  <h2>
+   Section 1
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    first
+   </li>
+   <li>
+    <input type="checkbox"/>
+    second
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
+   Section 2
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    third
+   </li>
+   <li>
+    <input type="checkbox"/>
+    fourth
+   </li>
+  </ul>
+  <br/>
+  <br/>
+ </body>
 </html>
 """
     # no existing file
     h = Html(checklist)
     temp_file_path = tmpdir.join('test.html')
-    # temp_file_path = 'test.html'
-    h.write(temp_file_path, overwrite=True)
+    h.write(temp_file_path)
     with open(temp_file_path, 'r') as tempf:
         assert tempf.read() == known_good
 
@@ -136,3 +177,6 @@ There is existing text in this file.
         assert tempf.read() == inserted_known_good
 
     # overwrite existing file
+    h.write(temp_file_path, overwrite=True)
+    with open(temp_file_path, 'r') as tempf:
+        assert tempf.read() == known_good
