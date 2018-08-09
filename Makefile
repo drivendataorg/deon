@@ -12,5 +12,5 @@ examples: reqs
 docs:
 	echo "NYI"
 
-test: reqs
-	echo "NYI"
+test:
+	py.test
