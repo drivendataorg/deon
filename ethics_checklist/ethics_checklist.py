@@ -7,7 +7,7 @@ import xerox
 from .parser import Checklist, Section
 from .formats import FORMATS, EXTENSIONS
 
-DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.json'
+DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.yml'
 
 CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
@@ -46,4 +46,3 @@ def main(checklist, format, output, clipboard, overwrite):
 
 if __name__ == '__main__':
     main()
-

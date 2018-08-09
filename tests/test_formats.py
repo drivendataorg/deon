@@ -13,10 +13,34 @@ def checklist():
     return cl
 
 
-# def test_format(checklist):
-#     t = Format(checklist)
-#     t.write('test.txt')
-#     # assert t.render() == known_good
+def test_format(checklist, tmpdir):
+    known_good = """My Checklist:
+Section 1:
+* first
+* second
+
+Section 2:
+* third
+* fourth"""
+    existing_text = 'There is existing text in this file.'
+
+    t = Format(checklist)
+
+    # no existing file
+    temp_file_path = tmpdir.join('test.txt')
+    assert t.render() == known_good
+    t.write(temp_file_path)
+    assert temp_file_path.read() == known_good
+
+    # append to existing file
+    with open(temp_file_path, 'w') as f:
+        f.write(existing_text)
+    t.write(temp_file_path, overwrite=False)
+    assert temp_file_path.read() == existing_text + Format.append_delimiter + known_good
+
+    # overwrite existing file
+    t.write(temp_file_path, overwrite=True)
+    assert temp_file_path.read() == known_good
 
 
 def test_markdown(checklist, tmpdir):
@@ -36,7 +60,7 @@ def test_markdown(checklist, tmpdir):
     with open(temp_file_path, 'w') as f:
         f.write(existing_text)
     m.write(temp_file_path, overwrite=False)
-    assert temp_file_path.read() == existing_text + known_good
+    assert temp_file_path.read() == existing_text + Markdown.append_delimiter + known_good
 
     # overwrite existing file
     m.write(temp_file_path, overwrite=True)
@@ -62,11 +86,28 @@ def test_jupyter(checklist, tmpdir):
 
     j = JupyterNotebook(checklist)
     assert j.render() == known_good
-
     temp_file_path = tmpdir.join('test.ipynb')
+
+    # no existing file
+    j.write(temp_file_path)
+    with open(temp_file_path, 'r') as f:
+        nbdata = json.load(f)
+    assert nbdata['cells'] == [known_good]
+
+    # append to existing file
+    j.write(temp_file_path, overwrite=False)
+    with open(temp_file_path, 'r') as f:
+        nbdata = json.load(f)
+    assert len(nbdata['cells']) == 3
+    assert nbdata['cells'][0] == known_good
+    assert nbdata['cells'][1] == JupyterNotebook.append_delimiter
+    assert nbdata['cells'][0] == nbdata['cells'][-1]
+
+    # overwrite existing file
     j.write(temp_file_path, overwrite=True)
     with open(temp_file_path, 'r') as f:
         nbdata = json.load(f)
+    print(json.dumps(nbdata, indent=4))
     assert nbdata['cells'] == [known_good]
 
 

@@ -13,13 +13,15 @@ class Format(object):
         below. For other formats, override `render`
         and `write`.
     """
-    template = "{title}: {sections}"
-    section_template = "{title}: {lines}"
+    template = "{title}:\n{sections}"
+    append_delimiter = "\n\n"
+
+    section_template = "{title}:\n{lines}"
     section_delimiter = "\n\n"
 
     line_template = "* {line}"
-    section_delimiter = "\n\n"
-    
+    line_delimiter = "\n"
+
     def __init__(self, checklist):
         self.checklist = checklist
 
@@ -37,13 +39,12 @@ class Format(object):
                 title=section.title,
                 lines=rendered_lines
             )
-            
+
             rendered_sections.append(rendered_section)
 
         all_sections = self.section_delimiter.join(rendered_sections)
 
         return self.template.format(title=self.checklist.title, sections=all_sections)
-
 
     def write(self, filepath, overwrite=False):
         """ Renders template and writes to `filepath`.
@@ -57,6 +58,8 @@ class Format(object):
         text = self.render()
 
         mode = 'w' if not filepath.exists() or overwrite else 'a'
+        if mode == 'a':
+            text = self.append_delimiter + text
 
         with open(filepath, mode) as f:
             f.write(text)
@@ -77,14 +80,13 @@ class Markdown(Format):
 
 
 class JupyterNotebook(Markdown):
-    """ Markdown template items
+    """ Jupyter notebook template items
     """
-    # if new notebook, needs these properties
-    nb_file_base = {
-        'nbformat': 4,
-        'nbformat_minor': 2,
-        'metadata': {},
-        'cells': []
+
+    append_delimiter = {
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": ["-----\n"]
     }
 
     def render(self):
@@ -111,13 +113,16 @@ class JupyterNotebook(Markdown):
             with open(filepath, 'r') as f:
                 nbdata = json.load(f)
 
-            nbdata['cells'].append({
-                "cell_type": "markdown",
-                "metadata": {},
-                "source": ["-----\n"]
-            })
+            nbdata['cells'].append(self.append_delimiter)
         else:
-            nbdata = self.nb_file_base
+            # if new notebook, needs these properties
+            blank_jupyter_notebook = {
+                'nbformat': 4,
+                'nbformat_minor': 2,
+                'metadata': {},
+                'cells': []
+            }
+            nbdata = blank_jupyter_notebook
 
         cell = self.render()
         nbdata['cells'].append(cell)
@@ -163,13 +168,15 @@ class Html(Format):
             checklist = self.render()
 
             with open(filepath, "r") as f:
-                soup = BeautifulSoup(f)
+                soup = BeautifulSoup(f, 'html.parser')
 
             # add checklist to end of body
-            soup.body.append(checklist)
-            text = soup.prettify()
+            soup.body.append(BeautifulSoup(checklist, 'html.parser'))
         else:
-            text = self.doc_template.format(text=self.render())
+            rendered_html = self.doc_template.format(text=self.render())
+            soup = BeautifulSoup(rendered_html, 'html.parser')
+
+        text = soup.prettify()
 
         with open(filepath, "w") as f:
             f.write(text)
@@ -186,4 +193,3 @@ EXTENSIONS = {
     '.ipynb': 'jupyter',
     '.html': 'html',
 }
-
