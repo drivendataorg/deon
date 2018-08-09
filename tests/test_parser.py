@@ -1,4 +1,4 @@
-from ethics_checklist.parser import Checklist, Section
+from ethics_checklist.parser import Checklist
 
 
 def test_checklist():

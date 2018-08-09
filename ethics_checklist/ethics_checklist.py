@@ -4,7 +4,7 @@ from pathlib import Path
 
 import xerox
 
-from .parser import Checklist, Section
+from .parser import Checklist
 from .formats import FORMATS, EXTENSIONS
 
 DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.yml'
