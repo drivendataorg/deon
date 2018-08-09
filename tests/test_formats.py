@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 from ethics_checklist.parser import Checklist, Section
-from ethics_checklist.formats import Markdown, JupyterNotebook
+from ethics_checklist.formats import Markdown, JupyterNotebook, Html
 
 
 @fixture
@@ -56,3 +56,33 @@ def test_jupyter(checklist, tmpdir):
     with open(temp_file_path, 'r') as f:
         nbdata = json.load(f)
     assert nbdata['cells'] == [known_good]
+
+
+def test_html(checklist, tmpdir):
+    known_good = """<html>
+<body>
+<h1>My Checklist</h1>
+<br/> <br/>
+<h2>Section 1</h2>
+<hr/>
+<ul>
+<li><input type='checkbox'>first</input></li>
+<li><input type='checkbox'>second</input></li>
+</ul>
+<br/><br/>
+<h2>Section 2</h2>
+<hr/>
+<ul>
+<li><input type='checkbox'>third</input></li>
+<li><input type='checkbox'>fourth</input></li>
+</ul>
+<br/> <br/>
+</body>
+</html>
+"""
+    h = Html(checklist)
+    temp_file_path = tmpdir.join('test.html')
+    h.write(temp_file_path, overwrite=True)
+    with open(temp_file_path, 'r') as f:
+        html_text = f.read()
+    assert html_text == known_good

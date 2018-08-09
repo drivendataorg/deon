@@ -144,8 +144,7 @@ class Html(Format):
     line_template = "<li><input type='checkbox'>{line}</input></li>"
     line_delimiter = "\n"
 
-    doc_template = """
-<html>
+    doc_template = """<html>
 <body>
 {text}
 </body>
