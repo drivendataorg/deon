@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from bs4 import BeautifulSoup
+# from m2r import convert
 
 
 # File types
@@ -73,10 +74,15 @@ class Markdown(Format):
 ------
 {lines}"""
 
-    section_delimiter = "\n\n"
-
     line_template = " - [ ] {line}"
-    line_delimiter = "\n"
+
+
+class RST(Format):
+    """reStructuredText template items
+    """
+    template = "\n{title}\n============\n\n{sections}\n\n"
+    section_template = """{title}\n---------\n\n----\n\n{lines}"""
+    line_template = "* [ ] {line}"
 
 
 class JupyterNotebook(Markdown):
