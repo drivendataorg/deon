@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 from bs4 import BeautifulSoup
-# from m2r import convert
 
 
 # File types
@@ -77,7 +76,7 @@ class Markdown(Format):
     line_template = " - [ ] {line}"
 
 
-class RST(Format):
+class Rst(Format):
     """reStructuredText template items
     """
     template = "\n{title}\n============\n\n{sections}\n\n"
@@ -190,12 +189,14 @@ class Html(Format):
 
 FORMATS = {
     'markdown': Markdown,
+    'restructuredtext': Rst,
     'jupyter': JupyterNotebook,
     'html': Html,
 }
 
 EXTENSIONS = {
     '.md': 'markdown',
+    '.rst': 'restructuredtext',
     '.ipynb': 'jupyter',
     '.html': 'html',
 }
