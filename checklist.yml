@@ -17,7 +17,7 @@ sections:
     - Do we have a mechanisms through which a person can request to be removed?
   - title: Exploratory Analysis
     lines:
-    - Have we studied and understood possible sources of bias in our data, including those relating to the data collection process?
+    - Have we studied and understood possible sources of bias in our data, including those introduced in the data collection process?
     - Are our visualizations designed to honestly represent the underlying data?
     - Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
     - Have we made resonable efforts to document data transformations?
