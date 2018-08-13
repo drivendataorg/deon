@@ -5,35 +5,33 @@ sections:
       - Does our team reflect diversity of opinions, backgrounds, and kinds of thought?
   - title: Data Collection
     lines:
-    - If there are human subjects, have those subjects have given informed consent? 
-    - Do we have a mechanism for gathering consent from users?
-    - Have we explained clearly what users are consenting to?
-    - Has the data been appropriately anonymized?
-    - Have we ensured that data collection does not collect PII which is not relevant to the analysis?
+    - If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
+    - Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+    - Have we ensured that data collection does not collect personally identifable information (PII) which is not relevant to the analysis?
+    - Has the data been appropriately anonymized before being stored?
   - title: Data Storage
     lines:
-    - Do we have a plan to protect and secure data (e.g. encryption)? 
-    - Have we set appropriate access controls?
-    - Do we have a mechanisms through which a person can request to be removed?
+    - Do we have a plan to protect and secure data (e.g. encryption, up-to-date software)? 
+    - Have we set up appropriate access controls and means to monitor access?
+    - Do we have a mechanism through which an individual can request their personal information be removed?
+    - Is there a schedule or plan to delete the data after it is no longer needed?
   - title: Exploratory Analysis
     lines:
-    - Have we studied and understood possible sources of bias in our data, including those introduced in the data collection process?
-    - Are our visualizations designed to honestly represent the underlying data?
+    - Have we studied and understood possible sources of bias in our data?
+    - Are our visualizations, summary statistics, and reports designed to honestly represent the underlying data?
     - Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
-    - Have we made resonable efforts to document data transformations?
+    - Is the process of generating the analysis auditable if we discover issues in the future?
   - title: Modeling
     lines:
-    - Have we recognized the limitations of the team's backgrounds and engaged with experts to inform varaible selection?
-    - Have we engaged the community impacted by this work?
-    - Have we tested our training data to ensure it is fair and representative?
-    - Have we tested model resutls for fairness with respect to different user groups (e.g. tested for disparate error rates)?
-    - Have we built a model where we can explain results if we need to?
-    - Have we considered the impact of a false positive or negative for those affected?
-    - Have we examined the implications of the model defaults, assmuptions, and optimization strategy?
+    - Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g. affected community and subject matter experts)?
+    - Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminative?
+    - Have we tested model results for fairness with respect to different affected groups (e.g. tested for disparate error rates)?
+    - Have we considered the effects of the assumptions built into our model and the effects of optimizing for our defined metrics?
+    - Can we explain in understandable terms a decision the model made in cases where a justification is needed?
   - title: Deployment
     lines:
-    - Can we shut down this software in production if necessary?
+    - Is there a way to turn off or roll back the model in production if necessary?
     - Do we have a mechanism for redress if users are harmed by the results?
     - Do we test and monitor for model drift to ensure it remains fair over time?
-    - Have we thought about how it can be attacked, abused, or used in unintended ways?
-    - Have we made people using the model aware of its shortcomings and biases?
+    - Have we taken steps to identify and prevent abuse, unintended uses, and malicious attacks on the model?
+    - Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
