@@ -1,10 +1,39 @@
 title: Data Science Ethics Checklist
 sections: 
+  - title: Team Composition
+    lines:
+      - Does our team reflect diversity of opinions, backgrounds, and kinds of thought?
   - title: Data Collection
     lines:
-    - If there are human subjects, those subjects have given informed consent.
-    - Data collection does not collect PII which is not relevant to the analysis.
+    - If there are human subjects, have those subjects have given informed consent? 
+    - Do we have a mechanism for gathering consent from users?
+    - Have we explained clearly what users are consenting to?
+    - Has the data been appropriately anonymized?
+    - Have we ensured that data collection does not collect PII which is not relevant to the analysis?
+  - title: Data Storage
+    lines:
+    - Do we have a plan to protect and secure data (e.g. encryption)? 
+    - Have we set appropriate access controls?
+    - Do we have a mechanisms through which a person can request to be removed?
   - title: Exploratory Analysis
     lines:
-    - Visualizations are designed to honestly represent the underlying data.
-    - Fields with PII are not used or displayed unless necessary for the analysis.
+    - Have we studied and understood possible sources of bias in our data, including those relating to the data collection process?
+    - Are our visualizations designed to honestly represent the underlying data?
+    - Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
+    - Have we made resonable efforts to document data transformations?
+  - title: Modeling
+    lines:
+    - Have we recognized the limitations of the team's backgrounds and engaged with experts to inform varaible selection?
+    - Have we engaged the community impacted by this work?
+    - Have we tested our training data to ensure it is fair and representative?
+    - Have we tested model resutls for fairness with respect to different user groups (e.g. tested for disparate error rates)?
+    - Have we built a model where we can explain results if we need to?
+    - Have we considered the impact of a false positive or negative for those affected?
+    - Have we examined the implications of the model defaults, assmuptions, and optimization strategy?
+  - title: Deployment
+    lines:
+    - Can we shut down this software in production if necessary?
+    - Do we have a mechanism for redress if users are harmed by the results?
+    - Do we test and monitor for model drift to ensure it remains fair over time?
+    - Have we thought about how it can be attacked, abused, or used in unintended ways?
+    - Have we made people using the model aware of its shortcomings and biases?
