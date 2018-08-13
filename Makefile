@@ -7,7 +7,7 @@ examples: reqs
 	ethics-checklist --output examples/ethics.md --overwrite
 	ethics-checklist --output examples/ethics.ipynb --overwrite
 	ethics-checklist --output examples/ethics.html --overwrite
-
+	ethics-checklist --output examples/ethics.rst --overwrite
 
 docs:
 	echo "NYI"

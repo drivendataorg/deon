@@ -2,7 +2,7 @@ from pytest import fixture
 import json
 
 from ethics_checklist.parser import Checklist, Section
-from ethics_checklist.formats import Format, Markdown, JupyterNotebook, Html
+from ethics_checklist.formats import Format, Markdown, JupyterNotebook, Html, Rst
 
 
 @fixture
@@ -64,6 +64,30 @@ def test_markdown(checklist, tmpdir):
 
     # overwrite existing file
     m.write(temp_file_path, overwrite=True)
+    assert temp_file_path.read() == known_good
+
+
+def test_rst(checklist, tmpdir):
+    known_good = '\nMy Checklist\n============\n\nSection 1\n---------\n\n----\n\n* [ ] first\n' \
+                 '* [ ] second\n\nSection 2\n---------\n\n----\n\n* [ ] third\n* [ ] fourth\n\n'
+    existing_text = 'There is existing text in this file.'
+
+    r = Rst(checklist)
+    assert r.render() == known_good
+
+    # no existing file
+    temp_file_path = tmpdir.join('test.rst')
+    r.write(temp_file_path)
+    assert temp_file_path.read() == known_good
+
+    # append to existing file
+    with open(temp_file_path, 'w') as f:
+        f.write(existing_text)
+    r.write(temp_file_path, overwrite=False)
+    assert temp_file_path.read() == existing_text + Rst.append_delimiter + known_good
+
+    # overwrite existing file
+    r.write(temp_file_path, overwrite=True)
     assert temp_file_path.read() == known_good
 
 

@@ -73,10 +73,15 @@ class Markdown(Format):
 ------
 {lines}"""
 
-    section_delimiter = "\n\n"
-
     line_template = " - [ ] {line}"
-    line_delimiter = "\n"
+
+
+class Rst(Format):
+    """reStructuredText template items
+    """
+    template = "\n{title}\n============\n\n{sections}\n\n"
+    section_template = """{title}\n---------\n\n----\n\n{lines}"""
+    line_template = "* [ ] {line}"
 
 
 class JupyterNotebook(Markdown):
@@ -184,12 +189,14 @@ class Html(Format):
 
 FORMATS = {
     'markdown': Markdown,
+    'restructuredtext': Rst,
     'jupyter': JupyterNotebook,
     'html': Html,
 }
 
 EXTENSIONS = {
     '.md': 'markdown',
+    '.rst': 'restructuredtext',
     '.ipynb': 'jupyter',
     '.html': 'html',
 }
