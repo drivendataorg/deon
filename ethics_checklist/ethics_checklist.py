@@ -18,7 +18,8 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
                                                         File extesion used if --output is passed.')
 @click.option('--output', '-o', default=None, type=click.Path(), help='Output file path.')
 @click.option('--clipboard', '-c', is_flag=True, default=False, help='Whether or not to output to clipboard.')
-@click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. Default is False.')
+@click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
+                                                                Default is False.')
 def main(checklist, format, output, clipboard, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
