@@ -6,17 +6,61 @@
   <br/>
   <br/>
   <h2>
+   Team Composition
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    Does our team reflect diversity of opinions, backgrounds, and kinds of thought?
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
    Data Collection
   </h2>
   <hr/>
   <ul>
    <li>
     <input type="checkbox"/>
-    If there are human subjects, those subjects have given informed consent.
+    If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
    </li>
    <li>
     <input type="checkbox"/>
-    Data collection does not collect PII which is not relevant to the analysis.
+    Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we ensured that data collection does not collect personally identifable information (PII) which is not relevant to the analysis?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Has the data been appropriately anonymized before being stored?
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
+   Data Storage
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    Do we have a plan to protect and secure data (e.g. encryption, up-to-date software)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we set up appropriate access controls and means to monitor access?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Do we have a mechanism through which an individual can request their personal information be removed?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Is there a schedule or plan to delete the data after it is no longer needed?
    </li>
   </ul>
   <br/>
@@ -28,11 +72,75 @@
   <ul>
    <li>
     <input type="checkbox"/>
-    Visualizations are designed to honestly represent the underlying data.
+    Have we studied and understood possible sources of bias in our data?
    </li>
    <li>
     <input type="checkbox"/>
-    Fields with PII are not used or displayed unless necessary for the analysis.
+    Are our visualizations, summary statistics, and reports designed to honestly represent the underlying data?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Is the process of generating the analysis auditable if we discover issues in the future?
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
+   Modeling
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g. affected community and subject matter experts)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminative?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we tested model results for fairness with respect to different affected groups (e.g. tested for disparate error rates)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we considered the effects of the assumptions built into our model and the effects of optimizing for our defined metrics?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <h2>
+   Deployment
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    Is there a way to turn off or roll back the model in production if necessary?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Do we have a mechanism for redress if users are harmed by the results?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Do we test and monitor for model drift to ensure it remains fair over time?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we taken steps to identify and prevent abuse, unintended uses, and malicious attacks on the model?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
    </li>
   </ul>
   <br/>
