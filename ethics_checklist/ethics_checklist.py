@@ -13,12 +13,13 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 
 @click.command()
-@click.option('--checklist', default=None, type=click.Path(exists=True), help='Override checklist file.')
-@click.option('--format', default=None, type=str, help='Output format. Default is "markdown". \
+@click.option('--checklist', '-i', default=None, type=click.Path(exists=True), help='Override checklist file.')
+@click.option('--format', '-f', default=None, type=str, help='Output format. Default is "markdown". \
                                                         File extesion used if --output is passed.')
-@click.option('--output', default=None, type=click.Path(), help='Output file path.')
-@click.option('--clipboard', is_flag=True, default=False, help='Whether or not to output to clipboard.')
-@click.option('--overwrite', is_flag=True, default=False, help='Overwrite output file if it exists. Default is False.')
+@click.option('--output', '-o', default=None, type=click.Path(), help='Output file path.')
+@click.option('--clipboard', '-c', is_flag=True, default=False, help='Whether or not to output to clipboard.')
+@click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
+                                                                Default is False.')
 def main(checklist, format, output, clipboard, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
