@@ -23,7 +23,7 @@ sections:
     - Have we tested model results for fairness with respect to different affected groups (e.g. tested for disparate error rates)?
     - Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
     - Can we explain in understandable terms a decision the model made in cases where a justification is needed?
-     - Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
+    - Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
   - title: Deployment
     lines:
     - Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
