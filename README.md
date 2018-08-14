@@ -91,45 +91,53 @@ To request a change, please file an issue with a title that starts with one of: 
 
 
 Data collection
-1. Informed consent -- Tuskagee study http://www.socialworker.com/feature-articles/ethics-articles/The_Tuskegee_Syphilis_Study_and_Its_Implications_for_the_21st_Century/
+1. Informed consent
+- African-American men were enrolled in the [Tuskagee Study](https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment) on the progression of syphillis without being told the true purpose of the study or that treatment for syphillis was being withheld.
 2. Bias in collection and survey design 
 - AI voices https://www.technologyreview.com/s/608619/ai-programs-are-learning-to-exclude-some-african-american-voices/
-- face recognition cameras http://content.time.com/time/business/article/0,8599,1954643,00.html, https://www.reuters.com/article/us-newzealand-passport-error/new-zealand-passport-robot-tells-applicant-of-asian-descent-to-open-eyes-idUSKBN13W0RL
-3. Collecting non relevant PII
-4. Appropriate anonymization -- Netflix https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+- Face recognition cameras used for passport control [register Asian's eyes as closed](http://content.time.com/time/business/article/0,8599,1954643,00.html). [addtl link](https://www.reuters.com/article/us-newzealand-passport-error/new-zealand-passport-robot-tells-applicant-of-asian-descent-to-open-eyes-idUSKBN13W0RL)
+3. Minimize exposure of PII
+- Netflix prize dataset is easily [de-anonymized](https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/) through cross referencing with other publicly available datasets
 
 Data storage
-1. Secure data -- Equifax
-2. Appropriate access controls
+1. Protect and secure data
+- Personal and financial data for more than 147 million people was stolen in the Equifax data breach.
+- [AOL releases 20 million search queries from 658,000 customers](https://www.wired.com/2006/08/faq-aols-search-gaffe-and-you/)
 3. Abilitly to be removed
 4. Data deletion
 
 Exploratory analysis
-1. Sources of bias in data
--- criminal justice system https://www.washingtonpost.com/opinions/big-data-may-be-reinforcing-racial-bias-in-the-criminal-justice-system/2017/02/10/d63de518-ee3a-11e6-9973-c5efb7ccfb0d_story.html?utm_term=.0ae23a0f7c49 (opinion)
-2. Honest visualizations
-3. PII not displayed
-4. Auditable analysis
+1. Blindspots
+- When Apple's HealthKit came out in 2014, women couldn't [track menstruation](https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track)
+2. Sources of bias
+-- criminal sentencing https://www.washingtonpost.com/opinions/big-data-may-be-reinforcing-racial-bias-in-the-criminal-justice-system/2017/02/10/d63de518-ee3a-11e6-9973-c5efb7ccfb0d_story.html?utm_term=.0ae23a0f7c49 (opinion)
+- Women are more likely to be [shown lower-paying jobs](https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study) than men in Google ads.
+3. Honest visualizations
+4. PII not displayed
+5. Auditable analysis
 
 Modeling
-1. Address blindspots -- Apple health https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
-2. Proxies
-3. Fairness wrt different groups
-- Gorillas tag -- https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
-- Criminal sentencing -- https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+1. Proxies
+2. Fairness wrt different groups
+- Google Photos tags two African_Americas as [gorillas](https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d)
+- Racial bias in [criminal sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
 - lending -- https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
-4. Assumptions and optimization implications
-5. Explainability -- https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/
+- Google's speech recognition software doesn't recognize women's voices as well as men's.[link](https://www.dailydot.com/debug/google-voice-recognition-gender-bias/)
+- Facial recognition software is significanty worse at identifying people with darker skin. [link](https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/), [study](http://proceedings.mlr.press/v81/buolamwini18a.html)
+- word2vec, trained on Google News corpus, reinforces gender stereotypes. [study](https://arxiv.org/abs/1607.06520), [article](https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/), [related blog](https://blog.kjamistan.com/embedded-isms-in-vector-based-natural-language-processing/)
+- Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names [article](https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/), [study](https://arxiv.org/abs/1301.6822)
+3. Optimization implications -- false negative / false positive
+4. Explainability -- https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/
+5. Communicate bias
 
 Deployment
-1. Ability to turn off
-2. Mechanism for redress
+1. Reponse to harm
+2. Ability to turn off
 3. Model drift
-4. Abuse, unintended use, attacks -- AI "gaydar"
+4. Abuse, unintended use -- AI "gaydar"
 - https://www.nytimes.com/2017/10/09/science/stanford-sexual-orientation-study.html
 - https://osf.io/zn79k/
 - https://www.kqed.org/futureofyou/435378/can-facial-recognition-detect-sexual-orientation-controversial-stanford-study-now-under-ethical-review
-5. Communicate bias
 
 
 Resources
