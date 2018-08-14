@@ -88,3 +88,50 @@ To request a change, please file an issue with a title that starts with one of: 
 # References, reading, and more!
 
  A robust discussion of data ethics is important for the profession. The goal of this tool is to make it easier to implement ethics review within technical projects. There are lots of great resources if you want to think about data ethics, and we encourage you to do so!
+
+
+Data collection
+1. Informed consent -- Tuskagee study http://www.socialworker.com/feature-articles/ethics-articles/The_Tuskegee_Syphilis_Study_and_Its_Implications_for_the_21st_Century/
+2. Bias in collection and survey design 
+- AI voices https://www.technologyreview.com/s/608619/ai-programs-are-learning-to-exclude-some-african-american-voices/
+- face recognition cameras http://content.time.com/time/business/article/0,8599,1954643,00.html, https://www.reuters.com/article/us-newzealand-passport-error/new-zealand-passport-robot-tells-applicant-of-asian-descent-to-open-eyes-idUSKBN13W0RL
+3. Collecting non relevant PII
+4. Appropriate anonymization -- Netflix https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+
+Data storage
+1. Secure data -- Equifax
+2. Appropriate access controls
+3. Abilitly to be removed
+4. Data deletion
+
+Exploratory analysis
+1. Sources of bias in data
+-- criminal justice system https://www.washingtonpost.com/opinions/big-data-may-be-reinforcing-racial-bias-in-the-criminal-justice-system/2017/02/10/d63de518-ee3a-11e6-9973-c5efb7ccfb0d_story.html?utm_term=.0ae23a0f7c49 (opinion)
+2. Honest visualizations
+3. PII not displayed
+4. Auditable analysis
+
+Modeling
+1. Address blindspots -- Apple health https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
+2. Proxies
+3. Fairness wrt different groups
+- Gorillas tag -- https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
+- Criminal sentencing -- https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+- lending -- https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
+4. Assumptions and optimization implications
+5. Explainability -- https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/
+
+Deployment
+1. Ability to turn off
+2. Mechanism for redress
+3. Model drift
+4. Abuse, unintended use, attacks -- AI "gaydar"
+- https://www.nytimes.com/2017/10/09/science/stanford-sexual-orientation-study.html
+- https://osf.io/zn79k/
+- https://www.kqed.org/futureofyou/435378/can-facial-recognition-detect-sexual-orientation-controversial-stanford-study-now-under-ethical-review
+5. Communicate bias
+
+
+Resources
+- Terminology guide: http://www.datascienceassn.org/code-of-conduct.html
+- 
