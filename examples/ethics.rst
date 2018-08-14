@@ -39,7 +39,8 @@ Modeling
 * [ ] Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
 * [ ] Have we tested model results for fairness with respect to different affected groups (e.g. tested for disparate error rates)?
 * [ ] Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
-* [ ] Can we explain in understandable terms a decision the model made in cases where a justification is needed? - Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
+* [ ] Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+* [ ] Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
 
 Deployment
 ---------
