@@ -3,52 +3,50 @@ lines:
   - [African-American men were enrolled in the Tuskagee Study on the progression of syphillis without being told the true purpose of the study or that treatment for syphillis was being withheld.](https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment)
 - 1.2 
   - [Facial recognition cameras used for passport control register Asian's eyes as closed](http://content.time.com/time/business/article/0,8599,1954643,00.html). [addtl link](https://www.reuters.com/article/us-newzealand-passport-error/new-zealand-passport-robot-tells-applicant-of-asian-descent-to-open-eyes-idUSKBN13W0RL)
-  - pothole (smartphone based app)
+  - [StreetBump, a smartphone app to passively detect potholes, may direct public resources to wealthy and younger areas where smartphone penetration is higher](https://hbr.org/2013/04/the-hidden-biases-in-big-data)
 - 1.3
   - [Personal information on taxi drivers can be accessed in poorly anonymized taxi trips dataset released by New York City.](https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn)
   - [Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.](https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/)
 - 2.1 
-  - Personal and financial data for more than 147 million people was stolen in the Equifax data breach.
+  - [Personal and financial data for more than 146 million people was stolen in Equifax data breach.](https://www.nbcnews.com/news/us-news/equifax-breaks-down-just-how-bad-last-year-s-data-n872496)
   - [AOL accidentally released 20 million search queries from 658,000 customers](https://www.wired.com/2006/08/faq-aols-search-gaffe-and-you/)
 - 2.2
-  - GDPR discussion / ignore request to be removed
+  - [The EU's General Data Protection Regulation (GDRP) includes the "right to be forgotten."](https://www.eugdpr.org/the-regulation.html)
 - 2.3
-  - [FedEx exposed private information belonging to thousands of customers after a legacy s3 server was left open without a password.](https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/)
+  - [FedEx exposed private information of thousands of customers after a legacy s3 server was left open without a password.](https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/)
 - 3.1
-  - [When Apple's HealthKit came out in 2014, women couldn't track menstruation](https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track)
+  - [When Apple's HealthKit came out in 2014, women couldn't track menstruation.](https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track)
 - 3.2
   - [word2vec, trained on Google News corpus, reinforces gender stereotypes.](https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/) [study](https://arxiv.org/abs/1607.06520), [related blog](https://blog.kjamistan.com/embedded-isms-in-vector-based-natural-language-processing/)
-  - [Criminal sentencing](https://www.washingtonpost.com/opinions/big-data-may-be-reinforcing-racial-bias-in-the-criminal-justice-system/2017/02/10/d63de518-ee3a-11e6-9973-c5efb7ccfb0d_story.html?utm_term=.0ae23a0f7c49)
-  - [Women are more likely to be [shown lower-paying jobs than men in Google ads](https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study).
+  - [Women are more likely to be shown lower-paying jobs than men in Google ads](https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study).
+  - [Creditworthiness algorithms based on nontraditional criteria such as grammatic habits, preferred grocery stores, and friends' credit scores can perpetuate systemic bias.](https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know)
 - 3.3
   - [Misleading chart shown at Planned Parenthood hearing distorts actual trends of abortions vs. cancer screenings and preventative services.](https://www.politifact.com/truth-o-meter/statements/2015/oct/01/jason-chaffetz/chart-shown-planned-parenthood-hearing-misleading-/)
 - 3.4
   - [Strava heatmap of exercise routes reveals sensitive information on military bases and spy outposts.](https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases)
 - 3.5
-  - austerity policy spreadsheet economics excel error
+  - [Excel error in well-known economics paper undermines justification of austerity measures.](https://www.bbc.com/news/magazine-22223190)
 - 4.1
   - [lending](https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know) -- NPR article
+  - [Criminal sentencing risk asessments don't ask directly about race or income, but other demographic factors can end up being proxies](https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing)
 - 4.2
   - [Google Photos tags two African-Americans as gorillas](https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d)
-  - [Racial bias in criminal sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+  - [With COMPAS, a risk-assessment algorithm used in criminal sentencing, black defendants are almost twice as likely to be mislabeled as likely to reoffend](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
   - [Google's speech recognition software doesn't recognize women's voices as well as men's.](https://www.dailydot.com/debug/google-voice-recognition-gender-bias/)
   - [Facial recognition software is significanty worse at identifying people with darker skin.](https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/) [study](http://proceedings.mlr.press/v81/buolamwini18a.html)
   - [Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names](https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/) [study](https://arxiv.org/abs/1301.6822)
 - 4.3
-  - proxy means tests for benefits / death row convictions
-  - look for side effects due to one metric being optimized
+  - proxy means tests for benefits / look for side effects due to one metric being optimized
 - 4.4
-  - https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/
   - ML in medical work
 - 4.5
   - [Google Flu claims to accurately predict weekly influenza activity and then misses the 2009 swine flu pandemic.](https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/#6fa6a1925535)
 - 5.1
-  - facebook newsfeed
+  - [Software mistakes result in healthcare cuts for people with diabetes or cerebral palsy](https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy)
 - 5.2
-  - people getting put on watchlists incorrectly and can't get off
+  - people getting put on watchlists incorrectly and can't get off -- ? https://www.nytimes.com/2010/01/14/nyregion/14watchlist.html
 - 5.3
   - model drift
 - 5.4
-  - surveillance state in china / facial recognition
-  - Tay bot
-  - deep fakes
+  - [Microsoft's Twitter chatbot Tay quickly becomes racist](https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay)
+  - [Deepfakes -- realistic but fake videos generated through AI -- span the gammut from celebrity porn to presidential statements](http://theweek.com/articles/777592/rise-deepfakes)

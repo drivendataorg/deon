@@ -90,3 +90,10 @@ To request a change, please file an issue with a title that starts with one of: 
  A robust discussion of data ethics is important for the profession. The goal of this tool is to make it easier to implement ethics review within technical projects. There are lots of great resources if you want to think about data ethics, and we encourage you to do so!
 
 [[**yaml magic here**]]
+
+### Checklist citations and recommended reading
+- [Of oaths and checklists](https://www.oreilly.com/ideas/of-oaths-and-checklists)
+- How to Build Ethics into AI [Part I](https://medium.com/salesforce-ux/how-to-build-ethics-into-ai-part-i-bf35494cce9) and [Part II](https://medium.com/salesforce-ux/how-to-build-ethics-into-ai-part-ii-a563f3372447)
+- [An Ethical Checklist for Data Science](https://dssg.uchicago.edu/2015/09/18/an-ethical-checklist-for-data-science/)
+- [How to Recognize Exclusion in AI](https://medium.com/microsoft-design/how-to-recognize-exclusion-in-ai-ec2d6d89f850)
+- [Technology Is Biased Too. How Do We Fix It?](https://fivethirtyeight.com/features/technology-is-biased-too-how-do-we-fix-it/)
