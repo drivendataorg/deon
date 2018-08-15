@@ -1,27 +1,29 @@
 from pytest import fixture
 import json
 
-from ethics_checklist.parser import Checklist, Section
+from ethics_checklist.parser import Checklist, Section, Line
 from ethics_checklist.formats import Format, Markdown, JupyterNotebook, Html, Rst
 
 
 @fixture
 def checklist():
-    s1 = Section('Section 1', ['first', 'second'])
-    s2 = Section('Section 2', ['third', 'fourth'])
+    s1 = Section('First section', 'A', [Line('A.1', 'First A line'),
+                                        Line('A.2', 'Second A line')])
+    s2 = Section('Second section', 'B', [Line('B.1', 'First B line'),
+                                         Line('B.2', 'Second B line')])
     cl = Checklist('My Checklist', [s1, s2])
     return cl
 
 
 def test_format(checklist, tmpdir):
     known_good = """My Checklist:
-Section 1:
-* first
-* second
+A. First section:
+* A.1 First A line
+* A.2 Second A line
 
-Section 2:
-* third
-* fourth"""
+B. Second section:
+* B.1 First B line
+* B.2 Second B line"""
     existing_text = 'There is existing text in this file.'
 
     t = Format(checklist)
@@ -44,8 +46,20 @@ Section 2:
 
 
 def test_markdown(checklist, tmpdir):
-    known_good = '# My Checklist\n\n## Section 1\n------\n - [ ] first\n - [ ] ' \
-                 'second\n\n## Section 2\n------\n - [ ] third\n - [ ] fourth\n\n'
+    known_good = """# My Checklist
+
+## A. First section
+------
+ - [ ] A.1 First A line
+ - [ ] A.2 Second A line
+
+## B. Second section
+------
+ - [ ] B.1 First B line
+ - [ ] B.2 Second B line
+
+"""
+
     existing_text = 'There is existing text in this file.'
 
     m = Markdown(checklist)
@@ -68,8 +82,28 @@ def test_markdown(checklist, tmpdir):
 
 
 def test_rst(checklist, tmpdir):
-    known_good = '\nMy Checklist\n============\n\nSection 1\n---------\n\n----\n\n* [ ] first\n' \
-                 '* [ ] second\n\nSection 2\n---------\n\n----\n\n* [ ] third\n* [ ] fourth\n\n'
+    known_good = """
+My Checklist
+============
+
+A. First section
+---------
+
+----
+
+* [ ] A.1 First A line
+* [ ] A.2 Second A line
+
+B. Second section
+---------
+
+----
+
+* [ ] B.1 First B line
+* [ ] B.2 Second B line
+
+"""
+
     existing_text = 'There is existing text in this file.'
 
     r = Rst(checklist)
@@ -93,18 +127,18 @@ def test_rst(checklist, tmpdir):
 
 def test_jupyter(checklist, tmpdir):
     known_good = ({'cell_type': 'markdown',
-                  'metadata': {},
+                   'metadata': {},
                    'source': ['# My Checklist\n',
                               '\n',
-                              '## Section 1\n',
+                              '## A. First section\n',
                               '------\n',
-                              ' - [ ] first\n',
-                              ' - [ ] second\n',
+                              ' - [ ] A.1 First A line\n',
+                              ' - [ ] A.2 Second A line\n',
                               '\n',
-                              '## Section 2\n',
+                              '## B. Second section\n',
                               '------\n',
-                              ' - [ ] third\n',
-                              ' - [ ] fourth\n',
+                              ' - [ ] B.1 First B line\n',
+                              ' - [ ] B.2 Second B line\n',
                               '\n',
                               '\n']})
 
@@ -144,33 +178,33 @@ def test_html(checklist, tmpdir):
   <br/>
   <br/>
   <h2>
-   Section 1
+   A. First section
   </h2>
   <hr/>
   <ul>
    <li>
     <input type="checkbox"/>
-    first
+    A.1 First A line
    </li>
    <li>
     <input type="checkbox"/>
-    second
+    A.2 Second A line
    </li>
   </ul>
   <br/>
   <br/>
   <h2>
-   Section 2
+   B. Second section
   </h2>
   <hr/>
   <ul>
    <li>
     <input type="checkbox"/>
-    third
+    B.1 First B line
    </li>
    <li>
     <input type="checkbox"/>
-    fourth
+    B.2 Second B line
    </li>
   </ul>
   <br/>
@@ -193,33 +227,33 @@ There is existing text in this file.
   <br/>
   <br/>
   <h2>
-   Section 1
+   A. First section
   </h2>
   <hr/>
   <ul>
    <li>
     <input type="checkbox"/>
-    first
+    A.1 First A line
    </li>
    <li>
     <input type="checkbox"/>
-    second
+    A.2 Second A line
    </li>
   </ul>
   <br/>
   <br/>
   <h2>
-   Section 2
+   B. Second section
   </h2>
   <hr/>
   <ul>
    <li>
     <input type="checkbox"/>
-    third
+    B.1 First B line
    </li>
    <li>
     <input type="checkbox"/>
-    fourth
+    B.2 Second B line
    </li>
   </ul>
   <br/>
@@ -229,6 +263,7 @@ There is existing text in this file.
 """
     # no existing file
     h = Html(checklist)
+
     temp_file_path = tmpdir.join('test.html')
     h.write(temp_file_path)
     with open(temp_file_path, 'r') as tempf:

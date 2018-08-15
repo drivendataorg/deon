@@ -14,7 +14,11 @@ class Checklist(object):
             data = yaml.load(f)
 
         title = data['title']
-        sections = [Section(s['title'], s['lines']) for s in data['sections']]
+
+        sections = []
+        for s in data['sections']:
+            lines = [Line(l['line_id'], l['line']) for l in s['lines']]
+            sections.append(Section(s['title'], s['section_id'], lines))
 
         return cls(title, sections)
 
@@ -23,6 +27,14 @@ class Section(object):
     """ Stores the sections of the checklist that are read in
         from a file.
     """
-    def __init__(self, title, lines):
+    def __init__(self, title, section_id, lines):
         self.title = title
+        self.section_id = section_id
         self.lines = lines
+
+
+class Line(object):
+    """ Store information about a line in a section."""
+    def __init__(self, line_id, line):
+        self.line_id = line_id
+        self.line = line
