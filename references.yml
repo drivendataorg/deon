@@ -96,11 +96,11 @@
       url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
 - line_id: E.2
   links:
-    - text: people getting put on watchlists incorrectly and can't get off
-      url: TBD
+    - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology
+      url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
 - line_id: E.3
   links: 
-    - text: model drift
+    - text: NEEDS LINK
       url: TBD
 - line_id: E.4
   links:
