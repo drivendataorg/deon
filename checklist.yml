@@ -15,7 +15,7 @@ sections:
         - line_id: B.1
           line: Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls, access logs, and up-to-date software)?
         - line_id: B.2
-          line: Do we have a mechanism through which an indivline_idual can request their personal information be removed?
+          line: Do we have a mechanism through which an individual can request their personal information be removed?
         - line_id: B.3
           line: Is there a schedule or plan to delete the data after it is no longer needed?
   - title: Analysis

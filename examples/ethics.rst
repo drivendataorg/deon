@@ -17,7 +17,7 @@ B. Data Storage
 ----
 
 * [ ] B.1 Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls, access logs, and up-to-date software)?
-* [ ] B.2 Do we have a mechanism through which an indivline_idual can request their personal information be removed?
+* [ ] B.2 Do we have a mechanism through which an individual can request their personal information be removed?
 * [ ] B.3 Is there a schedule or plan to delete the data after it is no longer needed?
 
 C. Analysis
