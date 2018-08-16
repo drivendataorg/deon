@@ -23,12 +23,13 @@ def make_table_of_links():
     for checklist_item in refs:
         line_id = checklist_item['line_id']
 
-        for link in checklist_item['links']:
+        for i, link in enumerate(checklist_item['links']):
             text = link['text']
             url = link['url']
 
+            row_id = '' if i != 0 else line_id
             row = (line_template.format(
-                    line_id=line_id,
+                    line_id=row_id,
                     hyperlink=f"[{text}]({url})"))
             formatted_rows.append(row)
 
