@@ -18,7 +18,7 @@ def make_table_of_links():
     with open(root / 'references.yml', 'r') as f:
         refs = yaml.load(f)
 
-    template = """ Checklist Question | Preventable Ethical Issues
+    template = """ Checklist Question | Examples of Ethical Issues
 --- | ---
 {lines}
 """
