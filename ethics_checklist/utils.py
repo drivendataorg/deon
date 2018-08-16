@@ -18,7 +18,7 @@ def make_table_of_links():
     with open(root / 'references.yml', 'r') as f:
         refs = yaml.load(f)
 
-    template = """ Checklist Question | Examples
+    template = """ Checklist Question | Preventable Ethical Issues
 --- | ---
 {lines}
 """
@@ -28,16 +28,21 @@ def make_table_of_links():
     formatted_rows = []
     for checklist_item in refs:
 
+        line_id = checklist_item['line_id']
+        question = question_dict[line_id]
+
+        bulleted_list = []
         for i, link in enumerate(checklist_item['links']):
-            line_id = checklist_item['line_id']
-            question = question_dict[line_id]
             text = link['text']
             url = link['url']
-            question_text = '' if i != 0 else f"{line_id}. {question}"
-            row = (line_template.format(
-                    line_id=question_text,
-                    row_text=f"[{text}]({url})"))
-            formatted_rows.append(row)
+            bullet_hyperlink = f"<li>[{text}]({url})</li>"
+            bulleted_list.append(bullet_hyperlink)
+        formatted_bullets = ''.join(bulleted_list)
+
+        row = (line_template.format(
+                line_id=f"**{line_id}**. {question}",
+                row_text=f"<ul>{formatted_bullets}</ul>"))
+        formatted_rows.append(row)
 
     all_rows = line_delimiter.join(formatted_rows)
     return template.format(lines=all_rows)

@@ -4,7 +4,7 @@
       url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
 - line_id: A.2 
   links:
-    - text: StreetBump, a smartphone app to passively detect potholes, may direct public resources to wealthy and younger areas where smartphone penetration is higher.
+    - text: StreetBump, a smartphone app to passively detect potholes, may fail to direct public resources to areas where smartphone penetration is lower, such as lower income areas or areas with a larger elderly population.
       url: https://hbr.org/2013/04/the-hidden-biases-in-big-data
     - text: Facial recognition cameras used for passport control register Asian's eyes as closed.
       url: http://content.time.com/time/business/article/0,8599,1954643,00.html
@@ -82,7 +82,7 @@
       url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
 - line_id: D.4
   links:
-    - text: Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit and this intensive care lowers their risk of dying from pneumonia compared with the general population. However, this led neural networks to incorrectly learn that asthmatics have a lower risk of dying and can be sent home. The neural nets were deemed too risky for use on patients and a logistic regression model was used instead.
+    - text: Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit as they have a high risk of dying from pneumonia. Given the success of the intensive care, neural networks predicted that asthmatics had a lower risk of dying and could therefore be sent home. Without explanatory models to identify this issues, patients would have been sent home to die.
       url: http://people.dbmi.columbia.edu/noemie/papers/15kdd.pdf
     - text: GDPR includes a "right to explanation," i.e. meaningful information on the logic underlying automated decisions.
       url: hhttps://academic.oup.com/idpl/article/7/4/233/4762325
