@@ -1,8 +1,8 @@
-- line_id: A.1 
+- line_id: A.1
   links:
     - text: African-American men were enrolled in the Tuskagee Study on the progression of syphillis without being told the true purpose of the study or that treatment for syphillis was being withheld.
       url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
-- line_id: A.2 
+- line_id: A.2
   links:
     - text: StreetBump, a smartphone app to passively detect potholes, may fail to direct public resources to areas where smartphone penetration is lower, such as lower income areas or areas with a larger elderly population.
       url: https://hbr.org/2013/04/the-hidden-biases-in-big-data
@@ -14,7 +14,7 @@
       url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
     - text: Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.
       url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
-- line_id: B.1 
+- line_id: B.1
   links:
     - text: Personal and financial data for more than 146 million people was stolen in Equifax data breach.
       url: https://www.nbcnews.com/news/us-news/equifax-breaks-down-just-how-bad-last-year-s-data-n872496
