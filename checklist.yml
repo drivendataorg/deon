@@ -6,9 +6,9 @@ sections:
         - line_id: A.1
           line: If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
         - line_id: A.2
-          line: Have we consline_idered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+          line: Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
         - line_id: A.3
-          line: Have we consline_idered ways to to minimize exposure of PII for example through anonymization or not collecting information that isn't relevant for analysis?
+          line: Have we considered ways to to minimize exposure of PII for example through anonymization or not collecting information that isn't relevant for analysis?
   - title: Data Storage
     section_id: B
     lines:
@@ -39,7 +39,7 @@ sections:
         - line_id: D.2
           line: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
         - line_id: D.3
-          line: Have we consline_idered the effects of optimizing for our defined metrics and consline_idered additional metrics?
+          line: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
         - line_id: D.4
           line: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
         - line_id: D.5
@@ -54,4 +54,4 @@ sections:
         - line_id: E.3
           line: Do we test and monitor for model drift to ensure it remains fair over time?
         - line_id: E.4
-          line: Have we taken steps to line_identify and prevent unintended uses and abuse of the model?
+          line: Have we taken steps to identify and prevent unintended uses and abuse of the model?

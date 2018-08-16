@@ -3,8 +3,8 @@
 ## A. Data Collection
 ------
  - [ ] A.1 If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
- - [ ] A.2 Have we consline_idered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
- - [ ] A.3 Have we consline_idered ways to to minimize exposure of PII for example through anonymization or not collecting information that isn't relevant for analysis?
+ - [ ] A.2 Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+ - [ ] A.3 Have we considered ways to to minimize exposure of PII for example through anonymization or not collecting information that isn't relevant for analysis?
 
 ## B. Data Storage
 ------
@@ -24,7 +24,7 @@
 ------
  - [ ] D.1 Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
  - [ ] D.2 Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
- - [ ] D.3 Have we consline_idered the effects of optimizing for our defined metrics and consline_idered additional metrics?
+ - [ ] D.3 Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
  - [ ] D.4 Can we explain in understandable terms a decision the model made in cases where a justification is needed?
  - [ ] D.5 Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
 
@@ -33,5 +33,5 @@
  - [ ] E.1 Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
  - [ ] E.2 Is there a way to turn off or roll back the model in production if necessary?
  - [ ] E.3 Do we test and monitor for model drift to ensure it remains fair over time?
- - [ ] E.4 Have we taken steps to line_identify and prevent unintended uses and abuse of the model?
+ - [ ] E.4 Have we taken steps to identify and prevent unintended uses and abuse of the model?
 
