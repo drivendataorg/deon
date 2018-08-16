@@ -2,35 +2,41 @@ from pathlib import Path
 
 import yaml
 
-# from parser import Checklist
+from .parser import Checklist
 
 
 def make_table_of_links():
     root = Path(__file__).parents[1]
-    # cl = Checklist.read(root / 'checklist.yml')
+    cl = Checklist.read(root / 'checklist.yml')
+
+    # create dictionary of line ids and checklist questions
+    question_dict = dict()
+    for s in cl.sections:
+        for l in s.lines:
+            question_dict[l.line_id] = l.line
 
     with open(root / 'references.yml', 'r') as f:
         refs = yaml.load(f)
 
-    template = """Question | Link
+    template = """ Checklist Question | Examples
 --- | ---
 {lines}
 """
-    line_template = "{line_id} | {hyperlink}"
+    line_template = "{line_id} | {row_text}"
     line_delimiter = "\n"
 
     formatted_rows = []
     for checklist_item in refs:
-        line_id = checklist_item['line_id']
 
         for i, link in enumerate(checklist_item['links']):
+            line_id = checklist_item['line_id']
+            question = question_dict[line_id]
             text = link['text']
             url = link['url']
-
-            row_id = '' if i != 0 else line_id
+            question_text = '' if i != 0 else f"{line_id}. {question}"
             row = (line_template.format(
-                    line_id=row_id,
-                    hyperlink=f"[{text}]({url})"))
+                    line_id=question_text,
+                    row_text=f"[{text}]({url})"))
             formatted_rows.append(row)
 
     all_rows = line_delimiter.join(formatted_rows)
