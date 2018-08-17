@@ -4,6 +4,8 @@ import json
 from ethics_checklist.parser import Checklist, Section, Line
 from ethics_checklist.formats import Format, Markdown, JupyterNotebook, Html, Rst
 
+from ethics_checklist import assets
+
 
 @fixture
 def checklist():
@@ -16,15 +18,8 @@ def checklist():
 
 
 def test_format(checklist, tmpdir):
-    known_good = """My Checklist:
-A. First section:
-* A.1 First A line
-* A.2 Second A line
-
-B. Second section:
-* B.1 First B line
-* B.2 Second B line"""
-    existing_text = 'There is existing text in this file.'
+    known_good = assets.known_good_default
+    existing_text = assets.existing_text
 
     t = Format(checklist)
 
@@ -46,21 +41,8 @@ B. Second section:
 
 
 def test_markdown(checklist, tmpdir):
-    known_good = """# My Checklist
-
-## A. First section
-------
- - [ ] A.1 First A line
- - [ ] A.2 Second A line
-
-## B. Second section
-------
- - [ ] B.1 First B line
- - [ ] B.2 Second B line
-
-"""
-
-    existing_text = 'There is existing text in this file.'
+    known_good = assets.known_good_markdown
+    existing_text = assets.existing_text
 
     m = Markdown(checklist)
     assert m.render() == known_good
@@ -82,29 +64,8 @@ def test_markdown(checklist, tmpdir):
 
 
 def test_rst(checklist, tmpdir):
-    known_good = """
-My Checklist
-============
-
-A. First section
----------
-
-----
-
-* [ ] A.1 First A line
-* [ ] A.2 Second A line
-
-B. Second section
----------
-
-----
-
-* [ ] B.1 First B line
-* [ ] B.2 Second B line
-
-"""
-
-    existing_text = 'There is existing text in this file.'
+    known_good = assets.known_good_rst
+    existing_text = assets.existing_text
 
     r = Rst(checklist)
     assert r.render() == known_good
@@ -126,21 +87,7 @@ B. Second section
 
 
 def test_jupyter(checklist, tmpdir):
-    known_good = ({'cell_type': 'markdown',
-                   'metadata': {},
-                   'source': ['# My Checklist\n',
-                              '\n',
-                              '## A. First section\n',
-                              '------\n',
-                              ' - [ ] A.1 First A line\n',
-                              ' - [ ] A.2 Second A line\n',
-                              '\n',
-                              '## B. Second section\n',
-                              '------\n',
-                              ' - [ ] B.1 First B line\n',
-                              ' - [ ] B.2 Second B line\n',
-                              '\n',
-                              '\n']})
+    known_good = assets.known_good_jupyter
 
     j = JupyterNotebook(checklist)
     assert j.render() == known_good
@@ -170,97 +117,9 @@ def test_jupyter(checklist, tmpdir):
 
 
 def test_html(checklist, tmpdir):
-    known_good = """<html>
- <body>
-  <h1>
-   My Checklist
-  </h1>
-  <br/>
-  <br/>
-  <h2>
-   A. First section
-  </h2>
-  <hr/>
-  <ul>
-   <li>
-    <input type="checkbox"/>
-    A.1 First A line
-   </li>
-   <li>
-    <input type="checkbox"/>
-    A.2 Second A line
-   </li>
-  </ul>
-  <br/>
-  <br/>
-  <h2>
-   B. Second section
-  </h2>
-  <hr/>
-  <ul>
-   <li>
-    <input type="checkbox"/>
-    B.1 First B line
-   </li>
-   <li>
-    <input type="checkbox"/>
-    B.2 Second B line
-   </li>
-  </ul>
-  <br/>
-  <br/>
- </body>
-</html>
-"""
-    existing_text = """<html>
-<body>
-There is existing text in this file.
-</body>
-</html>
-"""
-    inserted_known_good = """<html>
- <body>
-  There is existing text in this file.
-  <h1>
-   My Checklist
-  </h1>
-  <br/>
-  <br/>
-  <h2>
-   A. First section
-  </h2>
-  <hr/>
-  <ul>
-   <li>
-    <input type="checkbox"/>
-    A.1 First A line
-   </li>
-   <li>
-    <input type="checkbox"/>
-    A.2 Second A line
-   </li>
-  </ul>
-  <br/>
-  <br/>
-  <h2>
-   B. Second section
-  </h2>
-  <hr/>
-  <ul>
-   <li>
-    <input type="checkbox"/>
-    B.1 First B line
-   </li>
-   <li>
-    <input type="checkbox"/>
-    B.2 Second B line
-   </li>
-  </ul>
-  <br/>
-  <br/>
- </body>
-</html>
-"""
+    known_good = assets.known_good_html
+    existing_text = assets.existing_text_html
+    inserted_known_good = assets.known_good_inserted_html
     # no existing file
     h = Html(checklist)
 
