@@ -197,7 +197,7 @@ class Html(Format):
 
 FORMATS = {
     'markdown': Markdown,
-    'restructuredtext': Rst,
+    'rst': Rst,
     'jupyter': JupyterNotebook,
     'html': Html,
 }

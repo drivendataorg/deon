@@ -30,12 +30,14 @@ def main(checklist, format, output, clipboard, overwrite):
     # get format by file extesion
     if output:
         ext = output.suffix
-        format = EXTENSIONS[ext]
+        output_format = EXTENSIONS[ext]
 
     if not format:
-        format = 'markdown'
+        output_format = 'markdown'
+    else:
+        output_format = format
 
-    template = FORMATS[format](cl)
+    template = FORMATS[output_format](cl)
 
     # write output or print to stdout
     if output:
