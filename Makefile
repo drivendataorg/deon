@@ -1,4 +1,4 @@
-.PHONY = reqs examples docs test
+.PHONY: reqs examples docs test
 
 reqs:
 	pip install -r dev-requirements.txt
@@ -10,7 +10,7 @@ examples: reqs
 	ethics-checklist --output examples/ethics.rst --overwrite
 
 docs:
-	echo "NYI"
+	cd docs && mkdocs build
 
 test: lint
 	py.test

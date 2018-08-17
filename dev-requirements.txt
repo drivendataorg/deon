@@ -3,4 +3,6 @@
 -e .
 
 flake8==3.5.0
+mkdocs==1.0.1
+mkdocs-bootstrap==0.2.0
 pytest==3.6.4
