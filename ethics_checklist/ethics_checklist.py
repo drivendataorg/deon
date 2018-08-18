@@ -27,17 +27,18 @@ def main(checklist, format, output, clipboard, overwrite):
 
     output = Path(output) if output else None
 
-    # get format by file extesion
+    # if have output and format, output extension is given priority
     if output:
+        # get format by file extension
         ext = output.suffix
         output_format = EXTENSIONS[ext]
-
-    if not format:
-        output_format = 'markdown'
-    else:
+    elif format:
         output_format = format
+    else:
+        output_format = 'markdown'
 
     template = FORMATS[output_format](cl)
+    print(template)
 
     # write output or print to stdout
     if output:
