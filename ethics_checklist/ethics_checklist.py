@@ -27,7 +27,7 @@ def main(checklist, format, output, clipboard, overwrite):
 
     output = Path(output) if output else None
 
-    # if have output and format, output extension is given priority
+    # output extension is given priority if differing format is included
     if output:
         # get format by file extension
         ext = output.suffix

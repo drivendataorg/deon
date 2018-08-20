@@ -204,7 +204,7 @@ FORMATS = {
 
 EXTENSIONS = {
     '.md': 'markdown',
-    '.rst': 'restructuredtext',
+    '.rst': 'rst',
     '.ipynb': 'jupyter',
     '.html': 'html',
 }
