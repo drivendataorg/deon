@@ -3,7 +3,7 @@ from click.testing import CliRunner
 
 import yaml
 import json
-# import xerox
+import xerox
 
 from ethics_checklist.ethics_checklist import main
 from ethics_checklist import assets
@@ -49,7 +49,6 @@ def test_dict():
 
 def test_output(checklist, tmpdir, test_dict):
     runner = CliRunner()
-
     for k, v in test_dict.items():
         temp_file_path = tmpdir.join(v[0])
         result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path])
@@ -62,36 +61,35 @@ def test_output(checklist, tmpdir, test_dict):
                 nbdata = json.load(f)
             assert nbdata['cells'][0] == v[1]
 
+    unsupported_output = tmpdir.join('test.doc')
+    result = runner.invoke(main, ['--checklist', checklist, '--output', unsupported_output])
+    assert result.exit_code == 2
+    assert "Error" in result.output
+
+    temp_file_path = tmpdir.join('checklist.html')
+    result = runner.invoke(main, ['--checklist', checklist, '-o', temp_file_path])
+    assert temp_file_path.read() == assets.known_good_html
+
 
 def test_format(checklist, tmpdir, test_dict):
     runner = CliRunner()
-
     for k, v in test_dict.items():
-        temp_file_path = tmpdir.join(v[0])
-        result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path, '--format', k])
+        result = runner.invoke(main, ['--checklist', checklist, '--format', k])
         assert result.exit_code == 0
+        if k != 'html':  # full doc for html not returned with format
+            # echo includes new line at end hence checking if known asset is in stdout
+            assert str(v[1]) in result.output  # requires string for testing as jupyter known asset is a dict
 
-        if k != 'jupyter':
-            assert temp_file_path.read() == v[1]
-        else:
-            with open(temp_file_path, 'r') as f:
-                nbdata = json.load(f)
-            assert nbdata['cells'][0] == v[1]
+    result = runner.invoke(main, ['--checklist', checklist, '--format', 'doc'])
+    assert result.exit_code == 2
+    assert "File format is not supported" in result.output
 
-
-# finish fixing this
-def test_clipboard(checklist, tmpdir, test_dict):
-    runner = CliRunner()
-    for k, v in test_dict.items():
-        temp_file_path = tmpdir.join(v[0])
-        result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path, '--clipboard'])
-        assert result.exit_code == 0
-        # print(xerox.paste())
+    result = runner.invoke(main, ['--checklist', checklist, '-f', 'rst'])
+    assert assets.known_good_rst in result.output
 
 
 def test_overwrite(checklist, tmpdir, test_dict):
     runner = CliRunner()
-
     for k, v in test_dict.items():
         temp_file_path = tmpdir.join(v[0])
         with open(temp_file_path, 'w') as f:
@@ -105,6 +103,25 @@ def test_overwrite(checklist, tmpdir, test_dict):
             with open(temp_file_path, 'r') as f:
                 nbdata = json.load(f)
             assert nbdata['cells'][0] == v[1]
+
+    temp_file_path = tmpdir.join('checklist.md')
+    with open(temp_file_path, 'w') as f:
+            f.write(assets.existing_text)
+    result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path, '-w'])
+    assert temp_file_path.read() == assets.known_good_markdown
+
+
+def test_clipboard(checklist, tmpdir, test_dict):
+    runner = CliRunner()
+    for k, v in test_dict.items():
+        result = runner.invoke(main, ['--checklist', checklist, '--clipboard', '--format', k])
+        assert result.exit_code == 0
+        if k != 'html':  # full doc for html not returned with format
+            assert xerox.paste() == str(v[1])
+
+    result = runner.invoke(main, ['--checklist', checklist, '-c'])
+    assert result.exit_code == 0
+    assert xerox.paste() == assets.known_good_markdown
 
 
 def test_checklist(tmpdir, test_dict):
@@ -125,11 +142,18 @@ def test_checklist(tmpdir, test_dict):
     runner = CliRunner()
     result = runner.invoke(main, ['--checklist', abridged_checklist])
     assert result.exit_code == 0
+    result = runner.invoke(main, ['-i', abridged_checklist])
+    assert result.exit_code == 0
 
 
 def test_default(checklist):
-    # test what prints to stdout
     runner = CliRunner()
     result = runner.invoke(main, ['--checklist', checklist])
     assert result.exit_code == 0
     assert assets.known_good_markdown in result.output
+
+
+def test_multiple_options(checklist):
+    runner = CliRunner()
+    runner.invoke(main, ['--checklist', checklist, '-c', '-f', 'rst'])
+    assert xerox.paste() == assets.known_good_rst

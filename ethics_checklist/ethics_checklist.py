@@ -31,20 +31,25 @@ def main(checklist, format, output, clipboard, overwrite):
     if output:
         # get format by file extension
         ext = output.suffix
-        output_format = EXTENSIONS[ext]
+        if ext in EXTENSIONS.keys():
+            output_format = EXTENSIONS[ext]
+        else:
+            raise click.UsageError('Output requires a file name with a supported extension.')
     elif format:
-        output_format = format
+        if format in FORMATS.keys():
+            output_format = format
+        else:
+            raise click.UsageError('File format is not supported.')
     else:
         output_format = 'markdown'
 
     template = FORMATS[output_format](cl)
-    print(template)
 
     # write output or print to stdout
     if output:
         template.write(output, overwrite=overwrite)
     elif clipboard:
-        xerox.copy(template.render())
+        xerox.copy(str(template.render()))
     else:
         click.echo(template.render())
 
