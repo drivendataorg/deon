@@ -36,7 +36,7 @@
   links:
     - text: word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
-    - text: (Study)
+    - text: -- Related academic study
       url: https://arxiv.org/abs/1607.06520
     - text: Women are more likely to be shown lower-paying jobs than men in Google ads.
       url: https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study
@@ -72,11 +72,11 @@
       url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
     - text: Facial recognition software is significanty worse at identifying people with darker skin.
       url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
-    - text: (Study)
+    - text: -- Related academic study
       url: http://proceedings.mlr.press/v81/buolamwini18a.html
     - text: Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names.
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
-    - text: (Study)
+    - text: -- Related academic study
       url: https://arxiv.org/abs/1301.6822
 - line_id: D.3
   links:
@@ -110,5 +110,5 @@
   links:
     - text: Microsoft's Twitter chatbot Tay quickly becomes racist.
       url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
-    - text: Deepfakes -- realistic but fake videos generated through AI -- span the gammut from celebrity porn to presidential statements.
+    - text: Deepfakes — realistic but fake videos generated through AI — span the gammut from celebrity porn to presidential statements.
       url: http://theweek.com/articles/777592/rise-deepfakes

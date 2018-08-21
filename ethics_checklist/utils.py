@@ -15,6 +15,10 @@ def make_table_of_links():
         for l in s.lines:
             question_dict[l.line_id] = l.line
 
+    section_dict = dict()
+    for s in cl.sections:
+        section_dict[s.section_id] = s.title
+
     with open(root / 'references.yml', 'r') as f:
         refs = yaml.load(f)
 
@@ -30,6 +34,14 @@ def make_table_of_links():
 
         line_id = checklist_item['line_id']
         question = question_dict[line_id]
+
+        # if have first item of a section, first include section title
+        if line_id.split('.')[1] == '1':
+            # break
+            section_title = section_dict[line_id.split('.')[0]]
+            row = line_template.format(line_id='',
+                                       row_text=f"<center>**{section_title}**</center>")
+            formatted_rows.append(row)
 
         bulleted_list = []
         for i, link in enumerate(checklist_item['links']):

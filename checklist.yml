@@ -52,6 +52,6 @@ sections:
         - line_id: E.2
           line: Is there a way to turn off or roll back the model in production if necessary?
         - line_id: E.3
-          line: Do we test and monitor for model drift to ensure it remains fair over time?
+          line: Do we test and monitor for concept drift to ensure the model remains fair over time?
         - line_id: E.4
-          line: Have we taken steps to identify and prevent unintended uses and abuse of the model?
+          line: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
