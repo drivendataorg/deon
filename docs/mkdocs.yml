@@ -7,3 +7,4 @@ copyright: Project maintained by the friendly folks at <a target=_blanks href="h
 theme: cosmo
 nav:
   - Home: index.md
+  - Examples: references.md

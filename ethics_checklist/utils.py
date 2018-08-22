@@ -22,7 +22,7 @@ def make_table_of_links():
     with open(root / 'references.yml', 'r') as f:
         refs = yaml.load(f)
 
-    template = """ Checklist Question | Examples of Ethical Issues
+    template = """<center>Checklist Question</center> | <center>Examples of Ethical Issues</center>
 --- | ---
 {lines}
 """
