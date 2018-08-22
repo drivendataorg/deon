@@ -13,12 +13,13 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 
 @click.command()
-@click.option('--checklist', default=None, type=click.Path(exists=True), help='Override checklist file.')
-@click.option('--format', default=None, type=str, help='Output format. Default is "markdown". \
+@click.option('--checklist', '-l', default=None, type=click.Path(exists=True), help='Override checklist file.')
+@click.option('--format', '-f', default=None, type=str, help='Output format. Default is "markdown". \
                                                         File extesion used if --output is passed.')
-@click.option('--output', default=None, type=click.Path(), help='Output file path.')
-@click.option('--clipboard', is_flag=True, default=False, help='Whether or not to output to clipboard.')
-@click.option('--overwrite', is_flag=True, default=False, help='Overwrite output file if it exists. Default is False.')
+@click.option('--output', '-o', default=None, type=click.Path(), help='Output file path.')
+@click.option('--clipboard', '-c', is_flag=True, default=False, help='Whether or not to output to clipboard.')
+@click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
+                                                                      Default is False.')
 def main(checklist, format, output, clipboard, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
@@ -26,21 +27,29 @@ def main(checklist, format, output, clipboard, overwrite):
 
     output = Path(output) if output else None
 
-    # get format by file extesion
+    # output extension is given priority if differing format is included
     if output:
+        # get format by file extension
         ext = output.suffix
-        format = EXTENSIONS[ext]
+        if ext in EXTENSIONS.keys():
+            output_format = EXTENSIONS[ext]
+        else:
+            raise click.UsageError('Output requires a file name with a supported extension.')
+    elif format:
+        if format in FORMATS:
+            output_format = format
+        else:
+            raise click.UsageError('File format is not supported.')
+    else:
+        output_format = 'markdown'
 
-    if not format:
-        format = 'markdown'
-
-    template = FORMATS[format](cl)
+    template = FORMATS[output_format](cl)
 
     # write output or print to stdout
     if output:
         template.write(output, overwrite=overwrite)
     elif clipboard:
-        xerox.copy(template.render())
+        xerox.copy(str(template.render()))
     else:
         click.echo(template.render())
 

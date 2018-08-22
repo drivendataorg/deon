@@ -1,0 +1,122 @@
+- line_id: A.1
+  links:
+    - text: African-American men were enrolled in the Tuskagee Study on the progression of syphillis without being told the true purpose of the study or that treatment for syphillis was being withheld.
+      url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
+- line_id: A.2
+  links:
+    - text: StreetBump, a smartphone app to passively detect potholes, may fail to direct public resources to areas where smartphone penetration is lower, such as lower income areas or areas with a larger elderly population.
+      url: https://hbr.org/2013/04/the-hidden-biases-in-big-data
+    - text: Facial recognition cameras used for passport control register Asian's eyes as closed.
+      url: http://content.time.com/time/business/article/0,8599,1954643,00.html
+- line_id: A.3
+  links: 
+    - text: Personal information on taxi drivers can be accessed in poorly anonymized taxi trips dataset released by New York City.
+      url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
+    - text: Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.
+      url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+- line_id: B.1
+  links:
+    - text: Personal and financial data for more than 146 million people was stolen in Equifax data breach.
+      url: https://www.nbcnews.com/news/us-news/equifax-breaks-down-just-how-bad-last-year-s-data-n872496
+    - text: Cambridge Analytica harvested private information from over 50 million Facebook profiles without users' permission.
+      url: https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html
+    - text: AOL accidentally released 20 million search queries from 658,000 customers.
+      url: https://www.wired.com/2006/08/faq-aols-search-gaffe-and-you/
+- line_id: B.2
+  links:
+    - text: The EU's General Data Protection Regulation (GDPR) includes the "right to be forgotten."
+      url: https://www.eugdpr.org/the-regulation.html
+- line_id: B.3
+  links:
+    - text: FedEx exposes private information of thousands of customers after a legacy s3 server was left open without a password.
+      url: https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/
+- line_id: C.1
+  links:
+    - text: When Apple's HealthKit came out in 2014, women couldn't track menstruation.
+      url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
+- line_id: C.2
+  links:
+    - text: word2vec, trained on Google News corpus, reinforces gender stereotypes.
+      url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
+    - text: -- Related academic study.
+      url: https://arxiv.org/abs/1607.06520
+    - text: Women are more likely to be shown lower-paying jobs than men in Google ads.
+      url: https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study
+- line_id: C.3
+  links:
+    - text: Misleading chart shown at Planned Parenthood hearing distorts actual trends of abortions vs. cancer screenings and preventative services.
+      url: https://www.politifact.com/truth-o-meter/statements/2015/oct/01/jason-chaffetz/chart-shown-planned-parenthood-hearing-misleading-/
+- line_id: C.4
+  links:
+    - text: Strava heatmap of exercise routes reveals sensitive information on military bases and spy outposts.
+      url: https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases
+- line_id: C.5
+  links:
+    - text: Excel error in well-known economics paper undermines justification of austerity measures.
+      url: https://www.bbc.com/news/magazine-22223190
+- line_id: D.1
+  links:
+    - text: In six major cities, Amamazon's same day delivery service excludes many predominantly black neighborhoods.
+      url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
+    - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
+      url: https://www.wired.com/story/excerpt-from-automating-inequality/
+    - text: Criminal sentencing risk asessments don't ask directly about race or income, but other demographic factors can end up being proxies.
+      url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
+    - text: Creditworthiness algorithms based on nontraditional criteria such as grammatic habits, preferred grocery stores, and friends' credit scores can perpetuate systemic bias.
+      url: https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
+- line_id: D.2
+  links:
+    - text: Google Photos tags two African-Americans as gorillas.
+      url: https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
+    - text: With COMPAS, a risk-assessment algorithm used in criminal sentencing, black defendants are more likely to be mislabeled as likely to reoffend than white defendants.
+      url: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+    - text: -- Northpointe's rebuttal to ProPublica article.
+      url: https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html
+    - text: -- Related academic study.
+      url: https://www.liebertpub.com/doi/pdf/10.1089/big.2016.0047
+    - text: Google's speech recognition software doesn't recognize women's voices as well as men's.
+      url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
+    - text: Facial recognition software is significanty worse at identifying people with darker skin.
+      url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
+    - text: -- Related academic study.
+      url: http://proceedings.mlr.press/v81/buolamwini18a.html
+    - text: Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names.
+      url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
+    - text: -- Related academic study.
+      url: https://arxiv.org/abs/1301.6822
+- line_id: D.3
+  links:
+    - text: Facebook seeks to optimize "time well spent", prioritizing interaction over popularity.
+      url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
+    - text: YouTube's search autofill suggests pedophiliac phrases due to high viewership of related videos.
+      url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
+- line_id: D.4
+  links:
+    - text: Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit as they have a high risk of dying from pneumonia. Given the success of the intensive care, neural networks predicted asthmatics had a low risk of dying and could therefore be sent home. Without explanatory models to identify this issue, patients may have been sent home to die.
+      url: http://people.dbmi.columbia.edu/noemie/papers/15kdd.pdf
+    - text: GDPR includes a "right to explanation," i.e. meaningful information on the logic underlying automated decisions.
+      url: hhttps://academic.oup.com/idpl/article/7/4/233/4762325
+- line_id: D.5
+  links:
+    - text: Google Flu claims to accurately predict weekly influenza activity and then misses the 2009 swine flu pandemic.
+      url: https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/#6fa6a1925535
+- line_id: E.1
+  links:
+    - text: Software mistakes result in healthcare cuts for people with diabetes or cerebral palsy.
+      url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
+- line_id: E.2
+  links:
+    - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology.
+      url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
+- line_id: E.3
+  links: 
+    - text: Sending police officers to areas of high predicted crime skews future training data collection as police are repeatedly sent back to the same neighborhoods regardless of the true crime rate.
+      url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
+    - text: -- Related academic study.
+      url: https://arxiv.org/abs/1706.09847
+- line_id: E.4
+  links:
+    - text: Microsoft's Twitter chatbot Tay quickly becomes racist.
+      url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
+    - text: Deepfakes—realistic but fake videos generated through AI—span the gammut from celebrity porn to presidential statements.
+      url: http://theweek.com/articles/777592/rise-deepfakes

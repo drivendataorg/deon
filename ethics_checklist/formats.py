@@ -22,8 +22,15 @@ class Format(object):
     line_template = "* {line}"
     line_delimiter = "\n"
 
-    def __init__(self, checklist):
+    def __init__(self, checklist, include_ids=True):
         self.checklist = checklist
+        self.include_ids = include_ids
+
+    def render_line(self, line):
+        if self.include_ids:
+            return "{} {}".format(line.line_id, line.line)
+        else:
+            return line.line
 
     def render(self):
         """ Uses the checklist and templates to render
@@ -32,11 +39,12 @@ class Format(object):
         rendered_sections = []
         for section in self.checklist.sections:
             rendered_lines = self.line_delimiter.join(
-                [self.line_template.format(line=l) for l in section.lines]
+                [self.line_template.format(line=self.render_line(l)) for l in section.lines]
             )
 
             rendered_section = self.section_template.format(
-                title=section.title,
+                title=(section.title if not self.include_ids
+                       else "{}. {}".format(section.section_id, section.title)),
                 lines=rendered_lines
             )
 
@@ -189,14 +197,14 @@ class Html(Format):
 
 FORMATS = {
     'markdown': Markdown,
-    'restructuredtext': Rst,
+    'rst': Rst,
     'jupyter': JupyterNotebook,
     'html': Html,
 }
 
 EXTENSIONS = {
     '.md': 'markdown',
-    '.rst': 'restructuredtext',
+    '.rst': 'rst',
     '.ipynb': 'jupyter',
     '.html': 'html',
 }
