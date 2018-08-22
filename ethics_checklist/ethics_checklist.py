@@ -13,7 +13,7 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 
 @click.command()
-@click.option('--checklist', '-i', default=None, type=click.Path(exists=True), help='Override checklist file.')
+@click.option('--checklist', '-l', default=None, type=click.Path(exists=True), help='Override checklist file.')
 @click.option('--format', '-f', default=None, type=str, help='Output format. Default is "markdown". \
                                                         File extesion used if --output is passed.')
 @click.option('--output', '-o', default=None, type=click.Path(), help='Output file path.')
@@ -36,7 +36,7 @@ def main(checklist, format, output, clipboard, overwrite):
         else:
             raise click.UsageError('Output requires a file name with a supported extension.')
     elif format:
-        if format in FORMATS.keys():
+        if format in FORMATS:
             output_format = format
         else:
             raise click.UsageError('File format is not supported.')

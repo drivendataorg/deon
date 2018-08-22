@@ -142,7 +142,7 @@ def test_checklist(tmpdir, test_dict):
     runner = CliRunner()
     result = runner.invoke(main, ['--checklist', abridged_checklist])
     assert result.exit_code == 0
-    result = runner.invoke(main, ['-i', abridged_checklist])
+    result = runner.invoke(main, ['-l', abridged_checklist])
     assert result.exit_code == 0
 
 
