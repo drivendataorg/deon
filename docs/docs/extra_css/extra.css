@@ -1,3 +1,5 @@
+@import url('https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+
 div.sphinxsidebarwrapper p.blurb {
 	font-style: italic; 
 }
@@ -31,5 +33,7 @@ td ul {
 }
 
 div.document {
-	width: 940px;
+	width: 100%;
+	max-width: 940px;
+	min-width: 320px; /* common phone width */ 
 }
