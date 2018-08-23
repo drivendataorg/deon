@@ -8,7 +8,7 @@
 
 ## B. Data Storage
 ------
- - [ ] B.1 Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls, access logs, and up-to-date software)?
+ - [ ] B.1 Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)?
  - [ ] B.2 Do we have a mechanism through which an individual can request their personal information be removed?
  - [ ] B.3 Is there a schedule or plan to delete the data after it is no longer needed?
 
@@ -32,6 +32,6 @@
 ------
  - [ ] E.1 Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
  - [ ] E.2 Is there a way to turn off or roll back the model in production if necessary?
- - [ ] E.3 Do we test and monitor for model drift to ensure it remains fair over time?
- - [ ] E.4 Have we taken steps to identify and prevent unintended uses and abuse of the model?
+ - [ ] E.3 Do we test and monitor for concept drift to ensure the model remains fair over time?
+ - [ ] E.4 Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
 
