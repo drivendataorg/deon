@@ -1,9 +1,24 @@
-![deon](deon.png)
+<div style="display: inline-block; line-height: 1.8em">&nbsp;</div>
+
+<h1><b>An ethics checklist for data scientists</b></h1>
+
+The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of _deon_ is to push that conversation forward within data teams.
 
 
-# Using this package
+---
 
-The `ethics-checklist` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support appending a checklist to existing analyses in [many formats](#Supported_file_types) or generating new files with a checklist that is ready to fill out or review. The checklist was inspired by an article published by O'Reilly: ["Checklists"]().
+**δέον** • (déon) [n.] (_Ancient Greek_) <small><a href="https://en.wiktionary.org/wiki/%CE%B4%CE%AD%CE%BF%CE%BD#Ancient_Greek" target="_blank" style="text-decoration: none; color: #6d6d6d">wikitionary</a></small>
+ > Duty; that which is binding, needful, right, proper. 
+
+--------
+
+
+
+_deon_ is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis. _deon_ supports generating a checklist in [many common formats](#supported-file-types) that is ready to be incorporated into your project.
+
+The checklist was inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists).
+
+# Using this tool
 
 We recommend adding a checklist as the first step in your data science project. After creating your project folder, you could run:
 
