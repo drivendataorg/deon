@@ -4,7 +4,7 @@ site_name: Ethics Checklist
 repo_url: https://github.com/drivendataorg/ethics-checklist
 copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
 # google_analytics: ['UA-54096005-4', 'auto']
-theme: cosmo
+theme: mkdocs
 nav:
   - Home: index.md
   - Examples: references.md
