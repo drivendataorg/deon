@@ -17,3 +17,5 @@ test: lint
 
 lint:
 	flake8 .
+
+build: test examples docs
