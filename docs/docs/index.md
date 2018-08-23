@@ -1,3 +1,5 @@
+![deon](deon.png)
+
 
 # Using this package
 
@@ -42,7 +44,7 @@ Here are the currently supported file types. We will accept pull requests with n
  - `-c / --clipboard` - Send the checklist to the clipboard rather than to a file
  - `-f / --format [FORMAT]` - Useful with `--clipboard` since format is usually determined from the output file.
  - `-w / --overwrite` - Normally we append to an output file if it exists; if this flag is passed, we write a new file.
- - `-i / --checklist [PATH]` - If you want to override the built-in checklist with your own.
+ - `-l / --checklist [PATH]` - If you want to override the built-in checklist with your own.
 
 # Default checklist
 
@@ -83,7 +85,7 @@ Here are the currently supported file types. We will accept pull requests with n
 
 # Changing the checklist
 
-This is not meant to be the only ethical checklist, but instead we try to capture reasonable defaults that are general enough to be widely useful. For your own projects with particular concerns, we recommend a fork of this repository for long-term maitence. An easy first pass is simply creating a new `checklist.yml` file, and using the `-i` flag.
+This is not meant to be the only ethical checklist, but instead we try to capture reasonable defaults that are general enough to be widely useful. For your own projects with particular concerns, we recommend a fork of this repository for long-term maitence. An easy first pass is simply creating a new `checklist.yml` file, and using the `l` flag.
 
 Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data"). 
 
@@ -113,4 +115,4 @@ We're excited to see so many articles popping up on data ethics! The short list 
 
 ### Where things have gone wrong
 
-To make the ideas contained in the checklist more concrete, we've compiled [examples](docs/docs/references.md) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
+To make the ideas contained in the checklist more concrete, we've compiled [examples](references.md) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
