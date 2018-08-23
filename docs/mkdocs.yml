@@ -6,7 +6,6 @@ copyright: Project maintained by the friendly folks at <a target=_blanks href="h
 # google_analytics: ['UA-54096005-4', 'auto']
 theme: 
   name: alabaster
-  # custom_dir: ../src/mkdocs-alabaster/mkdocs_alabaster/
 nav:
   - Home: index.md
   - Examples: references.md
