@@ -4,7 +4,20 @@ site_name: Ethics Checklist
 repo_url: https://github.com/drivendataorg/ethics-checklist
 copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
 # google_analytics: ['UA-54096005-4', 'auto']
+<<<<<<< HEAD
 theme: mkdocs
 nav:
   - Home: index.md
   - Examples: references.md
+=======
+theme: 
+  name: mkdocs
+  custom_dir: flatly/
+  extra_css:
+    - css/custom.css
+nav:
+  - Home: index.md
+markdown_extensions:
+    - pymdownx.tasklist:
+        clickable_checkbox: true
+>>>>>>> 1cb5667... add checkable check boxes to docs and test with updated index file

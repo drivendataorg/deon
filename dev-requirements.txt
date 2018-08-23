@@ -5,4 +5,6 @@
 flake8==3.5.0
 mkdocs==1.0.1
 mkdocs-bootstrap==0.2.0
+mkdocs-bootswatch==1.0
 pytest==3.6.4
+pymdown-extensions==5.0
