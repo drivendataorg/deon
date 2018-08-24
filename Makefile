@@ -1,15 +1,24 @@
-.PHONY: reqs examples docs test
+.PHONY: register_hook reqs examples docs test render_markdown
 
-reqs:
+# adds git precommit hook
+register_hook:
+	cp .precommithook .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+
+reqs: register_hook
 	pip install -r dev-requirements.txt
 
 examples: reqs
-	ethics-checklist --output examples/ethics.md --overwrite
-	ethics-checklist --output examples/ethics.ipynb --overwrite
-	ethics-checklist --output examples/ethics.html --overwrite
-	ethics-checklist --output examples/ethics.rst --overwrite
+	deon --output examples/ethics.md --overwrite
+	deon --output examples/ethics.ipynb --overwrite
+	deon --output examples/ethics.html --overwrite
+	deon --output examples/ethics.rst --overwrite
 
-docs:
+# generates README.md and documentation md pages
+render_markdown:
+	cd docs && python render_templates.py
+
+docs: render_markdown
 	cd docs && mkdocs build
 
 test: lint

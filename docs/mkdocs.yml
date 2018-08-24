@@ -1,14 +1,26 @@
-site_name: Ethics Checklist
-# site_description: A project template and directory structure for Python data science projects.
+site_name: Deon
+site_description: Deon adds an ethics checklist to your data science project.
 # site_favicon: favicon.ico
-repo_url: https://github.com/drivendataorg/ethics-checklist
+repo_url: https://github.com/drivendataorg/deon
 copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
 # google_analytics: ['UA-54096005-4', 'auto']
 theme: 
   name: alabaster
+  custom_dir: docs/extra_html
+extra:
+  logo: deon.png
+  homepage_sidebars:
+    - about
+    - navigation
+  sidebars:
+    - about
+    - navigation
+extra_css: [extra_css/extra.css]
 nav:
-  - Home: index.md
+  - About: index.md
   - Examples: references.md
 markdown_extensions:
-    - pymdownx.tasklist:
-        clickable_checkbox: true
+  - pymdownx.tasklist:
+      clickable_checkbox: true
+  - toc:
+      permalink: "¶"

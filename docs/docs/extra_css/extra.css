@@ -1,0 +1,39 @@
+@import url('https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+
+div.sphinxsidebarwrapper p.blurb {
+	font-style: italic; 
+}
+
+div.body h1 {
+	font-size: 1.8em;
+	padding-top: 1.3em;
+}
+
+div.sphinxsidebar ul ul li {
+	padding-top: 0.5em;
+}
+
+th {
+	padding: 1em;
+	font-size: 1.3em;
+}
+
+td {
+	border-top: 1px solid #aaaaaa;
+	padding: 1em;
+	vertical-align: top;
+}
+
+td li {
+	padding-bottom: 1em;
+}
+
+td ul {
+	margin: 0;
+}
+
+div.document {
+	width: 100%;
+	max-width: 940px;
+	min-width: 320px; /* common min phone width */ 
+}

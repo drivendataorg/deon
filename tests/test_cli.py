@@ -5,8 +5,8 @@ import yaml
 import json
 import xerox
 
-from ethics_checklist.ethics_checklist import main
-from ethics_checklist import assets
+from deon.ethics_checklist import main
+from deon import assets
 
 
 @fixture

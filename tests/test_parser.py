@@ -1,6 +1,6 @@
 import yaml
 
-from ethics_checklist.parser import Checklist
+from deon.parser import Checklist
 
 
 def test_checklist():

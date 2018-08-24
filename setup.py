@@ -4,13 +4,13 @@ import setuptools
 from setuptools import setup
 
 setup(
-    name='ethics-checklist',
-    url="https://github.com/drivendataorg/ethics-checklist",
+    name='deon',
+    url="https://github.com/drivendataorg/deon",
     version='0.1',
     author="DrivenData",
     author_email="info@drivendata.org",
 
-    description='Data Science Ethics Checklist',
+    description='Deon, a Data Science Ethics Checklist Generator',
     long_description=open('README.md').read(),
 
     license='MIT',
@@ -20,7 +20,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'ethics-checklist=ethics_checklist.ethics_checklist:main',
+            'deon=deon.ethics_checklist:main',
         ]
     },
 

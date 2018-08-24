@@ -1,10 +1,10 @@
 from pytest import fixture
 import json
 
-from ethics_checklist.parser import Checklist, Section, Line
-from ethics_checklist.formats import Format, Markdown, JupyterNotebook, Html, Rst
+from deon.parser import Checklist, Section, Line
+from deon.formats import Format, Markdown, JupyterNotebook, Html, Rst
 
-from ethics_checklist import assets
+from deon import assets
 
 
 @fixture
