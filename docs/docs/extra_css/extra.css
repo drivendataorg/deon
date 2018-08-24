@@ -35,5 +35,5 @@ td ul {
 div.document {
 	width: 100%;
 	max-width: 940px;
-	min-width: 320px; /* common phone width */ 
+	min-width: 320px; /* common min phone width */ 
 }

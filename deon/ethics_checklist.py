@@ -14,9 +14,12 @@ CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 @click.command()
 @click.option('--checklist', '-l', default=None, type=click.Path(exists=True), help='Override checklist file.')
-@click.option('--format', '-f', default=None, type=str, help='Output format. Default is "markdown". \
-                                                        File extesion used if --output is passed.')
-@click.option('--output', '-o', default=None, type=click.Path(), help='Output file path.')
+@click.option('--format', '-f', default=None, type=str,
+              help='Output format. Default is "markdown". ' +
+                   'Can be one of [{}]. '.format(', '.join(EXTENSIONS.values())) +
+                   'File extension used if --output is passed.')
+@click.option('--output', '-o', default=None, type=click.Path(),
+              help='Output file path. Extension can be one of [{}]'.format(', '.join(EXTENSIONS.keys())))
 @click.option('--clipboard', '-c', is_flag=True, default=False, help='Whether or not to output to clipboard.')
 @click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
                                                                       Default is False.')
