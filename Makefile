@@ -3,6 +3,7 @@
 # adds git precommit hook
 register_hook:
 	cp .precommithook .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
 
 reqs: register_hook
 	pip install -r dev-requirements.txt
