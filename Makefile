@@ -4,10 +4,10 @@ reqs:
 	pip install -r dev-requirements.txt
 
 examples: reqs
-	ethics-checklist --output examples/ethics.md --overwrite
-	ethics-checklist --output examples/ethics.ipynb --overwrite
-	ethics-checklist --output examples/ethics.html --overwrite
-	ethics-checklist --output examples/ethics.rst --overwrite
+	deon --output examples/ethics.md --overwrite
+	deon --output examples/ethics.ipynb --overwrite
+	deon --output examples/ethics.html --overwrite
+	deon --output examples/ethics.rst --overwrite
 
 # generates README.md and documentation md pages
 render_markdown:
