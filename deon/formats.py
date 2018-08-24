@@ -78,7 +78,6 @@ class Markdown(Format):
     """
     template = "# {title}\n\n{sections}\n\n"
     section_template = """## {title}
-------
 {lines}"""
 
     line_template = " - [ ] {line}"
@@ -87,8 +86,8 @@ class Markdown(Format):
 class Rst(Format):
     """reStructuredText template items
     """
-    template = "\n{title}\n============\n\n{sections}\n\n"
-    section_template = """{title}\n---------\n\n----\n\n{lines}"""
+    template = "{title}\n============\n\n{sections}\n\n"
+    section_template = """{title}\n---------\n\n{lines}"""
     line_template = "* [ ] {line}"
 
 
