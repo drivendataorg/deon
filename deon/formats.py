@@ -13,10 +13,10 @@ class Format(object):
         below. For other formats, override `render`
         and `write`.
     """
-    template = "{title}:\n{sections}"
+    template = "{title}\n\n{sections}"
     append_delimiter = "\n\n"
 
-    section_template = "{title}:\n{lines}"
+    section_template = "{title}\n{lines}"
     section_delimiter = "\n\n"
 
     line_template = "* {line}"
@@ -200,6 +200,7 @@ FORMATS = {
     'rst': Rst,
     'jupyter': JupyterNotebook,
     'html': Html,
+    'ascii': Format,
 }
 
 EXTENSIONS = {
@@ -207,4 +208,5 @@ EXTENSIONS = {
     '.rst': 'rst',
     '.ipynb': 'jupyter',
     '.html': 'html',
+    '.txt': 'ascii',
 }

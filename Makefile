@@ -13,6 +13,8 @@ examples: reqs
 	deon --output examples/ethics.ipynb --overwrite
 	deon --output examples/ethics.html --overwrite
 	deon --output examples/ethics.rst --overwrite
+	deon --output examples/ethics.txt --overwrite
+
 
 # generates README.md and documentation md pages
 render_markdown:

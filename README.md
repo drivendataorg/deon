@@ -81,6 +81,7 @@ Here are the currently supported file types. We will accept pull requests with n
 - `.rst`: rst
 - `.ipynb`: jupyter
 - `.html`: html
+- `.txt`: ascii
 
 # Command line options
 
@@ -90,10 +91,10 @@ Usage: main [OPTIONS]
 Options:
   -l, --checklist PATH  Override checklist file.
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
-                        [markdown, rst, jupyter, html]. File extension used if
-                        --output is passed.
+                        [markdown, rst, jupyter, html, ascii]. File extension
+                        used if --output is passed.
   -o, --output PATH     Output file path. Extension can be one of [.md, .rst,
-                        .ipynb, .html]
+                        .ipynb, .html, .txt]
   -c, --clipboard       Whether or not to output to clipboard.
   -w, --overwrite       Overwrite output file if it exists.
                         Default is False.

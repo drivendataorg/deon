@@ -1,11 +1,12 @@
 existing_text = 'There is existing text in this file.'
 
-known_good_default = """My Checklist:
-A. First section:
+known_good_ascii = """My Checklist
+
+A. First section
 * A.1 First A line
 * A.2 Second A line
 
-B. Second section:
+B. Second section
 * B.1 First B line
 * B.2 Second B line"""
 
