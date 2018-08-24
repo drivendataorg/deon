@@ -22,22 +22,17 @@ known_good_markdown = """# My Checklist
 
 """
 
-known_good_rst = """
-My Checklist
+known_good_rst = """My Checklist
 ============
 
 A. First section
 ---------
-
-----
 
 * [ ] A.1 First A line
 * [ ] A.2 Second A line
 
 B. Second section
 ---------
-
-----
 
 * [ ] B.1 First B line
 * [ ] B.2 Second B line

@@ -1,11 +1,8 @@
-
 Data Science Ethics Checklist
 ============
 
 A. Data Collection
 ---------
-
-----
 
 * [ ] A.1 If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
 * [ ] A.2 Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
@@ -14,16 +11,12 @@ A. Data Collection
 B. Data Storage
 ---------
 
-----
-
 * [ ] B.1 Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)?
 * [ ] B.2 Do we have a mechanism through which an individual can request their personal information be removed?
 * [ ] B.3 Is there a schedule or plan to delete the data after it is no longer needed?
 
 C. Analysis
 ---------
-
-----
 
 * [ ] C.1 Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g., affected community and subject matter experts)?
 * [ ] C.2 Have we examined the data for possible sources of bias and taken steps to mitigate or address these biases (e.g., stereotype perpetuation, confirmation bias, imbalanced classes, or omitted confounding variables)?
@@ -34,8 +27,6 @@ C. Analysis
 D. Modeling
 ---------
 
-----
-
 * [ ] D.1 Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
 * [ ] D.2 Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
 * [ ] D.3 Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
@@ -44,8 +35,6 @@ D. Modeling
 
 E. Deployment
 ---------
-
-----
 
 * [ ] E.1 Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
 * [ ] E.2 Is there a way to turn off or roll back the model in production if necessary?
