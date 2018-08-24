@@ -16,7 +16,7 @@ env = Environment(
 
 TEMPLATE_AND_OUTPUT = {
     'index.tpl': Path('docs/index.md'),
-    'references.tpl': Path('docs/references.md'),
+    'examples.tpl': Path('docs/examples.md'),
     'readme.tpl': Path('../README.md'),
 }
 
@@ -53,7 +53,7 @@ def make_table_of_links():
     for s in cl.sections:
         section_dict[s.section_id] = s.title
 
-    with open(root / 'references.yml', 'r') as f:
+    with open(root / 'examples.yml', 'r') as f:
         refs = yaml.load(f)
 
     template = """<center>Checklist Question</center> | <center>Examples of Ethical Issues</center>

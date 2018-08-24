@@ -16,7 +16,7 @@ The conversation about ethics in data science, machine learning, and AI is incre
 
 --------
 
-_deon_ is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis. _deon_ supports generating a checklist in [many common formats](#supported-file-types) that is ready to be incorporated into your project.
+`deon` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis. `deon` supports generating a checklist in [many common formats](#supported-file-types) that is ready to be incorporated into your project.
 
 The checklist was inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists).
 
@@ -175,8 +175,9 @@ To request a change, please file an issue with a title that starts with one of: 
  - A consideration of related items that already exist, and why this change is different from what exists
 
  A pull request to add an item should change:
+ 
   - [`checklist.yml`](https://github.com/drivendataorg/deon/blob/master/checklist.yml): contains the default checklist items
-  - [`references.yml`](https://github.com/drivendataorg/deon/blob/master/references.yml): contains example of harms caused when the item was not considered
+  - [`examples.yml`](https://github.com/drivendataorg/deon/blob/master/examples.yml): contains example of harms caused when the item was not considered
 
 # Discussion and commentary
 
@@ -202,4 +203,4 @@ We're excited to see so many articles popping up on data ethics! The short list 
 
 ## Where things have gone wrong
 
-To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/references/) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
+To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.

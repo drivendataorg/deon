@@ -18,7 +18,7 @@ extra:
 extra_css: [extra_css/extra.css]
 nav:
   - About: index.md
-  - Examples: references.md
+  - Examples: examples.md
 markdown_extensions:
   - pymdownx.tasklist:
       clickable_checkbox: true
