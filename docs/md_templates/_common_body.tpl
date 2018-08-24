@@ -71,8 +71,7 @@ This checklist can be used by individuals or teams to ensure that reviewing the 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
 {% for f, n in supported_formats.items() %}
-	- `{{ f }}`: {{ n }}
-{% endfor %}
+- `{{ f }}`: {{ n }}{% endfor %}
 
 # CommandLine Options
 

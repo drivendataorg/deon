@@ -78,14 +78,10 @@ This checklist can be used by individuals or teams to ensure that reviewing the 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
 
-	- `.md`: markdown
-
-	- `.rst`: rst
-
-	- `.ipynb`: jupyter
-
-	- `.html`: html
-
+- `.md`: markdown
+- `.rst`: rst
+- `.ipynb`: jupyter
+- `.html`: html
 
 # CommandLine Options
 
