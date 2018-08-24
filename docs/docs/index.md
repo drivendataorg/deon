@@ -2,7 +2,7 @@
 
 <h1><b>An ethics checklist for data scientists</b></h1>
 
-The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of _deon_ is to push that conversation forward within data teams.
+The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of _deon_ is to push that conversation forward within data science teams.
 
 ---
 
@@ -17,17 +17,17 @@ The checklist was inspired by an article written by Mike Loukides, Hilary Mason,
 
 # Background and perspective
 
-We have a very particular perspective with this package that we want to share. This is the position from which we make decisions about contributions, issues, PRs, and other activities in maintaining and supporting the package.
+We have a particular perspective with this package from which we will make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
 First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom cheklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate. 
 
-Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). We owe a great debt to the thinking that proceeded this, and we look forward to the thoughtful.
+Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
 
 Third, we can't define exhaustively every term that appears in the checklist. Some of these terms are open to interpretation or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
 
 Fourth, we are working at a level of abstraction that cannot concretely recommend a specific action (e.g., "remove variable X from your model"). Nearly all of the items on the checklist are meant to provoke discussion among good-faith actors who take their ethical responsibilities seriously. Because of this, most of the items are framed as prompts to discuss or consider. Teams will want to document these discussions and decisions for posterity.
 
-Fifth, we believe the primary benefit of a checklist is ensuring that we don't overlook important work. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to make it easier to find the time to have those discussions. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
+Fifth, we believe the primary benefit of a checklist is ensuring that we don't overlook important work. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
 
 Sixth, we want all the checklist items to be as simple as possible (but no simpler), and to be actionable.
 
@@ -55,14 +55,14 @@ $ deon -o ETHICS.md
 
 This will create a markdown file called `ETHICS.md` that you can add directly to your project.
 
-For simple one-off analyses, you can append the checklist to a Jupyter notebook or RMarkdown file.
+For simple one-off analyses, you can append the checklist to a Jupyter notebook or RMarkdown file using the `-o` flag to indicate the output file. `deon` will automatically append if that file already exists
 
 ```
 $ jupyter notebook my-analysis.ipynb
 
 ...
 
-$ deon -o my-analysis.ipynb  # appends cells to end of notebook
+$ deon -o my-analysis.ipynb  # append cells to existing output file
 ```
 
 This checklist can be used by individuals or teams to ensure that reviewing the ethical implications of their work is part of every project. The checklist is meant as a jumping-off point, and it should spark deeper and more thourough discussions rather than replace those discussions.
@@ -78,7 +78,7 @@ Here are the currently supported file types. We will accept pull requests with n
 - `.ipynb`: jupyter
 - `.html`: html
 
-# CommandLine options
+# Command line options
 
 ```
 Usage: main [OPTIONS]
@@ -166,16 +166,26 @@ To request a change, please file an issue with a title that starts with one of: 
 
  - A justification for the change
  - At least 10 thumbs up from the community for the issue
- - A published example (academic or press article) of where neglecting the principle has lead to harm
+ - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that dicuss potentia or hypothetical will not be considered sufficient)
  - A consideration of related items that already exist, and why this change is different from what exists
 
-# References, reading, and more!
+ A pull request to add an item should change:
+  - [`checklist.yml`](https://github.com/drivendataorg/deon/blob/master/checklist.yml): contains the default checklist items
+  - [`references.yml`](https://github.com/drivendataorg/deon/blob/master/references.yml): contains example of harms caused when the item was not considered
+
+# Discussion and commentary
+
+In addition to this documentation, the [wiki pages for the GitHub repository](https://github.com/drivendataorg/deon/wiki) are enabled. This is a good place for sharing of links and discussion of how the checklsits are used in practice.
+
+If you have a topic, idea, or comment that doesn't seem right for the documentation, please add it to the wiki!
+
+# References, reading, and more
 
  A robust discussion of data ethics is important for the profession. The goal of this tool is to make it easier to implement ethics review within technical projects. There are lots of great resources if you want to think about data ethics, and we encourage you to do so!
 
 ## Checklist citations
 
-We're excited to see so many articles popping up on data ethics! The short list below includes articles that directly informed the content in the checklist as well case studies and discussion provoking 'big-picture' articles.
+We're excited to see so many articles popping up on data ethics! The short list below includes articles that directly informed the checklist content as well as a few case studies and thought-provoking pieces on the big picture.
 
 - [Of oaths and checklists](https://www.oreilly.com/ideas/of-oaths-and-checklists)
 - How to build ethics into AI ([Part I](https://medium.com/salesforce-ux/how-to-build-ethics-into-ai-part-i-bf35494cce9) and [Part II](https://medium.com/salesforce-ux/how-to-build-ethics-into-ai-part-ii-a563f3372447))
@@ -187,4 +197,4 @@ We're excited to see so many articles popping up on data ethics! The short list 
 
 ## Where things have gone wrong
 
-To make the ideas contained in the checklist more concrete, we've compiled [examples](references.md) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
+To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/references/) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
