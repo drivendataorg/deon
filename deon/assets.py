@@ -13,12 +13,10 @@ B. Second section
 known_good_markdown = """# My Checklist
 
 ## A. First section
-------
  - [ ] A.1 First A line
  - [ ] A.2 Second A line
 
 ## B. Second section
-------
  - [ ] B.1 First B line
  - [ ] B.2 Second B line
 
@@ -51,12 +49,10 @@ known_good_jupyter = ({'cell_type': 'markdown',
                        'source': ['# My Checklist\n',
                                   '\n',
                                   '## A. First section\n',
-                                  '------\n',
                                   ' - [ ] A.1 First A line\n',
                                   ' - [ ] A.2 Second A line\n',
                                   '\n',
                                   '## B. Second section\n',
-                                  '------\n',
                                   ' - [ ] B.1 First B line\n',
                                   ' - [ ] B.2 Second B line\n',
                                   '\n',

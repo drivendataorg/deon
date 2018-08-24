@@ -78,7 +78,6 @@ class Markdown(Format):
     """
     template = "# {title}\n\n{sections}\n\n"
     section_template = """## {title}
-------
 {lines}"""
 
     line_template = " - [ ] {line}"
