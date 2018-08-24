@@ -38,6 +38,7 @@ def create_context():
         'links_table': table,
     }
 
+
 def make_table_of_links():
     root = Path(__file__).absolute().parents[1]
     cl = Checklist.read(root / 'checklist.yml')
