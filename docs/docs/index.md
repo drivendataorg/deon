@@ -55,7 +55,7 @@ $ deon -o ETHICS.md
 
 This will create a markdown file called `ETHICS.md` that you can add directly to your project.
 
-For simple one-off analyses, you can append the checklist to a Jupyter notebook or RMarkdown file using the `-o` flag to indicate the output file. `deon` will automatically append if that file already exists
+For simple one-off analyses, you can append the checklist to a Jupyter notebook or RMarkdown file using the `-o` flag to indicate the output file. `deon` will automatically append if that file already exists.
 
 ```
 $ jupyter notebook my-analysis.ipynb
@@ -166,7 +166,7 @@ To request a change, please file an issue with a title that starts with one of: 
 
  - A justification for the change
  - At least 10 thumbs up from the community for the issue
- - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that dicuss potentia or hypothetical will not be considered sufficient)
+ - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that dicuss potential or hypothetical will not be considered sufficient)
  - A consideration of related items that already exist, and why this change is different from what exists
 
  A pull request to add an item should change:
