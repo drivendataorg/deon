@@ -12,25 +12,27 @@
 
 --------
 
-The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of `deon` is to push that conversation forward within data science teams.
+The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of `deon` is to push that conversation forward and provide concrete, actionable reminders to the developers that have influence over how data science gets done.
 
 # Background and perspective
 
-We have a particular perspective with this package from which we will make decisions about contributions, issues, PRs, and other maintenance and support activities.
+We have a particular perspective with this package that we will use to make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
 First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate. 
 
 Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). This checklist was heavily inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
 
-Third, we can't define exhaustively every term that appears in the checklist. Some of these terms are open to interpretation or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
+Third, we believe in the power of examples to bring the principles of data ethics to bear on human experience. This repository includes a [list of real-world examples](http://deon.drivendata.org/examples/) connected with each item in the default checklist. We encourage you to contribute relevant use cases that you believe can benefit the community by their example. In addition, if you have a topic, idea, or comment that doesn't seem right for the documentation, please add it to the [wiki page](https://github.com/drivendataorg/deon/wiki) for this project!
 
-Fourth, we are working at a level of abstraction that cannot concretely recommend a specific action (e.g., "remove variable X from your model"). Nearly all of the items on the checklist are meant to provoke discussion among good-faith actors who take their ethical responsibilities seriously. Because of this, most of the items are framed as prompts to discuss or consider. Teams will want to document these discussions and decisions for posterity.
+Fourth, we can't define exhaustively every term that appears in the checklist. Some of these terms are open to interpretation or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
 
-Fifth, we believe the primary benefit of a checklist is ensuring that we don't overlook important work. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
+Fifth, we are working at a level of abstraction that cannot concretely recommend a specific action (e.g., "remove variable X from your model"). Nearly all of the items on the checklist are meant to provoke discussion among good-faith actors who take their ethical responsibilities seriously. Because of this, most of the items are framed as prompts to discuss or consider. Teams will want to document these discussions and decisions for posterity.
 
-Sixth, we want all the checklist items to be as simple as possible (but no simpler), and to be actionable.
+Sixth, we believe the primary benefit of a checklist is ensuring that we don't overlook important work. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
 
-Seventh, we want to avoid any items that strictly fall into the realm of statistical best practices. Instead, we want to highlight the areas where we need to pay particular attention above and beyond best practices.
+Seventh, we want all the checklist items to be as simple as possible (but no simpler), and to be actionable.
+
+Eighth, we want to avoid any items that strictly fall into the realm of statistical best practices. Instead, we want to highlight the areas where we need to pay particular attention above and beyond best practices.
 
 # Using this tool
 
