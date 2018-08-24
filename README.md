@@ -20,7 +20,7 @@ _deon_ is a command-line tool that allows you to easily add an ethics checklist 
 
 The checklist was inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists).
 
-# Background and Perspective
+# Background and perspective
 
 We have a very particular perspective with this package that we want to share. This is the position from which we make decisions about contributions, issues, PRs, and other activities in maintaining and supporting the package.
 
@@ -38,7 +38,7 @@ Sixth, we want all the checklist items to be as simple as possible (but no simpl
 
 Seventh, we want to avoid any items that strictly fall into the realm of statistical best practices. Instead, we want to highlight the areas where we need to pay particular attention above and beyond best practices.
 
-# Using this Tool
+# Using this tool
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ $ deon -o my-analysis.ipynb  # appends cells to end of notebook
 This checklist can be used by individuals or teams to ensure that reviewing the ethical implications of their work is part of every project. The checklist is meant as a jumping-off point, and it should spark deeper and more thourough discussions rather than replace those discussions.
 
 
-# Supported File Types
+# Supported file types
 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
@@ -83,7 +83,7 @@ Here are the currently supported file types. We will accept pull requests with n
 - `.ipynb`: jupyter
 - `.html`: html
 
-# CommandLine Options
+# CommandLine options
 
 ```
 Usage: main [OPTIONS]
@@ -102,7 +102,7 @@ Options:
 
 ```
 
-# Default Checklist
+# Default checklist
 
 # Data Science Ethics Checklist
 
@@ -143,7 +143,7 @@ Options:
 
 
 
-# Custom Checklists
+# Custom checklists
 
 This is not meant to be the only ethical checklist, but instead we try to capture reasonable defaults that are general enough to be widely useful. For your own projects with particular concerns, we recommend your own `checklist.yml` file that is maintained by your team and passed to this tool with the `-l` flag.
 
@@ -159,7 +159,7 @@ sections:
           line: LINE CONTENT
 ```
 
-# Changing the Checklist
+# Changing the checklist
 
 Please see [the framing](#background-and-perspective) for an understanding of our perspective. Given this perspective, we will consider changes to the default checklist that fit with that perspective and follow this process.
 
