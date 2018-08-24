@@ -42,7 +42,8 @@ def test_dict():
         'markdown': ['test.md', assets.known_good_markdown],
         'html': ['test.html', assets.known_good_html],
         'rst': ['test.rst', assets.known_good_rst],
-        'jupyter': ['test.ipynb', assets.known_good_jupyter]
+        'jupyter': ['test.ipynb', assets.known_good_jupyter],
+        'ascii': ['test.txt', assets.known_good_ascii],
     }
     return test_files_dict
 
@@ -155,5 +156,5 @@ def test_default(checklist):
 
 def test_multiple_options(checklist):
     runner = CliRunner()
-    runner.invoke(main, ['--checklist', checklist, '-c', '-f', 'rst'])
-    assert xerox.paste() == assets.known_good_rst
+    runner.invoke(main, ['--checklist', checklist, '-c', '-f', 'ascii'])
+    assert xerox.paste() == assets.known_good_ascii

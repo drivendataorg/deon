@@ -18,7 +18,7 @@ def checklist():
 
 
 def test_format(checklist, tmpdir):
-    known_good = assets.known_good_default
+    known_good = assets.known_good_ascii
     existing_text = assets.existing_text
 
     t = Format(checklist)
