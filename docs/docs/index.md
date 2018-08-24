@@ -2,7 +2,8 @@
 
 <h1><b>An ethics checklist for data scientists</b></h1>
 
-The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of _deon_ is to push that conversation forward within data science teams.
+
+`deon` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
 ---
 
@@ -11,9 +12,7 @@ The conversation about ethics in data science, machine learning, and AI is incre
 
 --------
 
-`deon` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis. `deon` supports generating a checklist in [many common formats](#supported-file-types) that is ready to be incorporated into your project.
-
-The checklist was inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists).
+The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of `deon` is to push that conversation forward within data science teams.
 
 # Background and perspective
 
@@ -21,7 +20,7 @@ We have a particular perspective with this package from which we will make decis
 
 First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom cheklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate. 
 
-Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
+Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). This checklist was heavily inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
 
 Third, we can't define exhaustively every term that appears in the checklist. Some of these terms are open to interpretation or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
 
@@ -170,7 +169,7 @@ To request a change, please file an issue with a title that starts with one of: 
  - A consideration of related items that already exist, and why this change is different from what exists
 
  A pull request to add an item should change:
- 
+
   - [`checklist.yml`](https://github.com/drivendataorg/deon/blob/master/checklist.yml): contains the default checklist items
   - [`examples.yml`](https://github.com/drivendataorg/deon/blob/master/examples.yml): contains example of harms caused when the item was not considered
 
