@@ -1,7 +1,7 @@
 <h1><b>An ethics checklist for data scientists</b></h1>
 
 
-`deon` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
+`deon` is a command line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
 ---
 
@@ -37,6 +37,7 @@ Eighth, we want to avoid any items that strictly fall into the realm of statisti
 ## Prerequisites
 
  - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
+ - _(Linux Specific)_: using the `--clipboard` option requires the [`xclip`](https://github.com/astrand/xclip) package, which is easily installable on most distributions (e.g., `sudo apt-get install xclip`).
 
 ## Installation
 
@@ -82,7 +83,11 @@ Here are the currently supported file types. We will accept pull requests with n
 
 # Default checklist
 
+<hr class="checklist-buffer"/>
+
 {{ default_checklist }}
+
+<hr class="checklist-buffer"/>
 
 # Custom checklists
 
@@ -106,7 +111,7 @@ Please see [the framing](#background-and-perspective) for an understanding of ou
 
 Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data"). 
 
-**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid :flame: wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
+**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
 
 To request a change, please file an issue with a title that starts with one of: "CREATE, UPDATE, DELETE". There are FOUR requirements for an issue requesting a change to the checklist:
 

@@ -4,7 +4,7 @@ import json
 from deon.parser import Checklist, Section, Line
 from deon.formats import Format, Markdown, JupyterNotebook, Html, Rst
 
-from deon import assets
+import assets
 
 
 @fixture
@@ -49,6 +49,11 @@ def test_markdown(checklist, tmpdir):
 
     # no existing file
     temp_file_path = tmpdir.join('test.md')
+    m.write(temp_file_path)
+    assert temp_file_path.read() == known_good
+
+    # Rmd also works
+    temp_file_path = tmpdir.join('test.Rmd')
     m.write(temp_file_path)
     assert temp_file_path.read() == known_good
 

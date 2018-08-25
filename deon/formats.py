@@ -202,7 +202,9 @@ FORMATS = {
     'ascii': Format,
 }
 
+# keep all extensions lowercase
 EXTENSIONS = {
+    '.rmd': 'markdown',
     '.md': 'markdown',
     '.rst': 'rst',
     '.ipynb': 'jupyter',

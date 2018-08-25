@@ -6,7 +6,7 @@ import json
 import xerox
 
 from deon.ethics_checklist import main
-from deon import assets
+import assets
 
 
 @fixture
@@ -37,30 +37,32 @@ def checklist(tmpdir):
 
 
 @fixture
-def test_dict():
-    test_files_dict = {
-        'markdown': ['test.md', assets.known_good_markdown],
-        'html': ['test.html', assets.known_good_html],
-        'rst': ['test.rst', assets.known_good_rst],
-        'jupyter': ['test.ipynb', assets.known_good_jupyter],
-        'ascii': ['test.txt', assets.known_good_ascii],
-    }
-    return test_files_dict
+def test_format_configs():
+    test_format_config = [
+        ('markdown', 'test.md', assets.known_good_markdown),
+        ('markdown', 'test.Rmd', assets.known_good_markdown),
+        ('html', 'test.html', assets.known_good_html),
+        ('rst', 'test.rst', assets.known_good_rst),
+        ('jupyter', 'test.ipynb', assets.known_good_jupyter),
+        ('ascii', 'test.txt', assets.known_good_ascii),
+    ]
+    return test_format_config
 
 
-def test_output(checklist, tmpdir, test_dict):
+def test_output(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
-    for k, v in test_dict.items():
-        temp_file_path = tmpdir.join(v[0])
+    for frmt, fpath, known_good in test_format_configs:
+        temp_file_path = tmpdir.join(fpath)
         result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path])
+        print(result.output)
         assert result.exit_code == 0
 
-        if k != 'jupyter':
-            assert temp_file_path.read() == v[1]
+        if frmt != 'jupyter':
+            assert temp_file_path.read() == known_good
         else:
             with open(temp_file_path, 'r') as f:
                 nbdata = json.load(f)
-            assert nbdata['cells'][0] == v[1]
+            assert nbdata['cells'][0] == known_good
 
     unsupported_output = tmpdir.join('test.doc')
     result = runner.invoke(main, ['--checklist', checklist, '--output', unsupported_output])
@@ -72,14 +74,14 @@ def test_output(checklist, tmpdir, test_dict):
     assert temp_file_path.read() == assets.known_good_html
 
 
-def test_format(checklist, tmpdir, test_dict):
+def test_format(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
-    for k, v in test_dict.items():
-        result = runner.invoke(main, ['--checklist', checklist, '--format', k])
+    for frmt, fpath, known_good in test_format_configs:
+        result = runner.invoke(main, ['--checklist', checklist, '--format', frmt])
         assert result.exit_code == 0
-        if k != 'html':  # full doc for html not returned with format
+        if frmt != 'html':  # full doc for html not returned with format
             # echo includes new line at end hence checking if known asset is in stdout
-            assert str(v[1]) in result.output  # requires string for testing as jupyter known asset is a dict
+            assert str(known_good) in result.output  # requires string for testing as jupyter known asset is a dict
 
     result = runner.invoke(main, ['--checklist', checklist, '--format', 'doc'])
     assert result.exit_code == 2
@@ -89,21 +91,21 @@ def test_format(checklist, tmpdir, test_dict):
     assert assets.known_good_rst in result.output
 
 
-def test_overwrite(checklist, tmpdir, test_dict):
+def test_overwrite(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
-    for k, v in test_dict.items():
-        temp_file_path = tmpdir.join(v[0])
+    for frmt, fpath, known_good in test_format_configs:
+        temp_file_path = tmpdir.join(fpath)
         with open(temp_file_path, 'w') as f:
             f.write(assets.existing_text)
         result = runner.invoke(main, ['--checklist', checklist, '--output', temp_file_path, '--overwrite'])
         assert result.exit_code == 0
 
-        if k != 'jupyter':
-            assert temp_file_path.read() == v[1]
+        if frmt != 'jupyter':
+            assert temp_file_path.read() == known_good
         else:
             with open(temp_file_path, 'r') as f:
                 nbdata = json.load(f)
-            assert nbdata['cells'][0] == v[1]
+            assert nbdata['cells'][0] == known_good
 
     temp_file_path = tmpdir.join('checklist.md')
     with open(temp_file_path, 'w') as f:
@@ -112,20 +114,20 @@ def test_overwrite(checklist, tmpdir, test_dict):
     assert temp_file_path.read() == assets.known_good_markdown
 
 
-def test_clipboard(checklist, tmpdir, test_dict):
+def test_clipboard(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
-    for k, v in test_dict.items():
-        result = runner.invoke(main, ['--checklist', checklist, '--clipboard', '--format', k])
+    for frmt, fpath, known_good in test_format_configs:
+        result = runner.invoke(main, ['--checklist', checklist, '--clipboard', '--format', frmt])
         assert result.exit_code == 0
-        if k != 'html':  # full doc for html not returned with format
-            assert xerox.paste() == str(v[1])
+        if frmt != 'html':  # full doc for html not returned with format
+            assert xerox.paste() == str(known_good)
 
     result = runner.invoke(main, ['--checklist', checklist, '-c'])
     assert result.exit_code == 0
     assert xerox.paste() == assets.known_good_markdown
 
 
-def test_checklist(tmpdir, test_dict):
+def test_checklist(tmpdir, test_format_configs):
     abridged_checklist = tmpdir.join('abridged_checklist.yml')
     with open(abridged_checklist, 'w') as f:
         data = {'title': 'My Checklist',
