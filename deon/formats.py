@@ -28,7 +28,7 @@ class Format(object):
 
     def render_line(self, line):
         if self.include_ids:
-            return "{} {}".format(line.line_id, line.line)
+            return "{} {}: {}".format(line.line_id, line.line_summary, line.line)
         else:
             return line.line
 

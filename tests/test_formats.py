@@ -9,10 +9,10 @@ import assets
 
 @fixture
 def checklist():
-    s1 = Section('First section', 'A', [Line('A.1', 'First A line'),
-                                        Line('A.2', 'Second A line')])
-    s2 = Section('Second section', 'B', [Line('B.1', 'First B line'),
-                                         Line('B.2', 'Second B line')])
+    s1 = Section('First section', 'A', [Line('A.1', 'A1sum', 'First A line'),
+                                        Line('A.2', 'A2sum', 'Second A line')])
+    s2 = Section('Second section', 'B', [Line('B.1', 'B1sum', 'First B line'),
+                                         Line('B.2', 'B2sum', 'Second B line')])
     cl = Checklist('My Checklist', [s1, s2])
     return cl
 

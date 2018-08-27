@@ -3,22 +3,22 @@ existing_text = 'There is existing text in this file.'
 known_good_ascii = """My Checklist
 
 A. First section
-* A.1 First A line
-* A.2 Second A line
+* A.1 A1sum: First A line
+* A.2 A2sum: Second A line
 
 B. Second section
-* B.1 First B line
-* B.2 Second B line"""
+* B.1 B1sum: First B line
+* B.2 B2sum: Second B line"""
 
 known_good_markdown = """# My Checklist
 
 ## A. First section
- - [ ] A.1 First A line
- - [ ] A.2 Second A line
+ - [ ] A.1 A1sum: First A line
+ - [ ] A.2 A2sum: Second A line
 
 ## B. Second section
- - [ ] B.1 First B line
- - [ ] B.2 Second B line
+ - [ ] B.1 B1sum: First B line
+ - [ ] B.2 B2sum: Second B line
 
 """
 
@@ -28,14 +28,14 @@ known_good_rst = """My Checklist
 A. First section
 ---------
 
-* [ ] A.1 First A line
-* [ ] A.2 Second A line
+* [ ] A.1 A1sum: First A line
+* [ ] A.2 A2sum: Second A line
 
 B. Second section
 ---------
 
-* [ ] B.1 First B line
-* [ ] B.2 Second B line
+* [ ] B.1 B1sum: First B line
+* [ ] B.2 B2sum: Second B line
 
 """
 
@@ -44,12 +44,12 @@ known_good_jupyter = ({'cell_type': 'markdown',
                        'source': ['# My Checklist\n',
                                   '\n',
                                   '## A. First section\n',
-                                  ' - [ ] A.1 First A line\n',
-                                  ' - [ ] A.2 Second A line\n',
+                                  ' - [ ] A.1 A1sum: First A line\n',
+                                  ' - [ ] A.2 A2sum: Second A line\n',
                                   '\n',
                                   '## B. Second section\n',
-                                  ' - [ ] B.1 First B line\n',
-                                  ' - [ ] B.2 Second B line\n',
+                                  ' - [ ] B.1 B1sum: First B line\n',
+                                  ' - [ ] B.2 B2sum: Second B line\n',
                                   '\n',
                                   '\n']})
 
@@ -67,11 +67,11 @@ known_good_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    A.1 First A line
+    A.1 A1sum: First A line
    </li>
    <li>
     <input type="checkbox"/>
-    A.2 Second A line
+    A.2 A2sum: Second A line
    </li>
   </ul>
   <br/>
@@ -83,11 +83,11 @@ known_good_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    B.1 First B line
+    B.1 B1sum: First B line
    </li>
    <li>
     <input type="checkbox"/>
-    B.2 Second B line
+    B.2 B2sum: Second B line
    </li>
   </ul>
   <br/>
@@ -118,11 +118,11 @@ known_good_inserted_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    A.1 First A line
+    A.1 A1sum: First A line
    </li>
    <li>
     <input type="checkbox"/>
-    A.2 Second A line
+    A.2 A2sum: Second A line
    </li>
   </ul>
   <br/>
@@ -134,11 +134,11 @@ known_good_inserted_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    B.1 First B line
+    B.1 B1sum: First B line
    </li>
    <li>
     <input type="checkbox"/>
-    B.2 Second B line
+    B.2 B2sum: Second B line
    </li>
   </ul>
   <br/>

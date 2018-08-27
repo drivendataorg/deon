@@ -17,7 +17,7 @@ class Checklist(object):
 
         sections = []
         for s in data['sections']:
-            lines = [Line(l['line_id'], l['line']) for l in s['lines']]
+            lines = [Line(l['line_id'], l['line_summary'], l['line']) for l in s['lines']]
             sections.append(Section(s['title'], s['section_id'], lines))
 
         return cls(title, sections)
@@ -35,6 +35,7 @@ class Section(object):
 
 class Line(object):
     """ Store information about a line in a section."""
-    def __init__(self, line_id, line):
+    def __init__(self, line_id, line_summary, line):
         self.line_id = line_id
+        self.line_summary = line_summary
         self.line = line

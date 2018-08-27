@@ -19,16 +19,20 @@ def checklist(tmpdir):
                      'section_id': 'A',
                      'lines': [
                         {'line_id': 'A.1',
+                         'line_summary': 'A1sum',
                          'line': 'First A line'},
                         {'line_id': 'A.2',
+                         'line_summary': 'A2sum',
                          'line': 'Second A line'}
                      ]},
                     {'title': 'Second section',
                      'section_id': 'B',
                      'lines': [
                         {'line_id': 'B.1',
+                         'line_summary': 'B1sum',
                          'line': 'First B line'},
                         {'line_id': 'B.2',
+                         'line_summary': 'B2sum',
                          'line': "Second B line"}
                      ]}
                 ]}
@@ -136,8 +140,10 @@ def test_checklist(tmpdir, test_format_configs):
                      'section_id': 'A',
                      'lines': [
                         {'line_id': 'A.1',
+                         'line_summary': 'A1sum',
                          'line': 'First A line'},
                         {'line_id': 'A.2',
+                         'line_summary': 'A2sum',
                          'line': 'Second A line'}
                      ]}
                 ]}
