@@ -40,7 +40,7 @@ def checklist(tmpdir):
 def test_format_configs():
     test_format_config = [
         ('markdown', 'test.md', assets.known_good_markdown),
-        ('markdown', 'test.Rmd', assets.known_good_markdown),
+        ('rmarkdown', 'test.Rmd', assets.known_good_markdown),
         ('html', 'test.html', assets.known_good_html),
         ('rst', 'test.rst', assets.known_good_rst),
         ('jupyter', 'test.ipynb', assets.known_good_jupyter),
