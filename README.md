@@ -82,7 +82,7 @@ This checklist can be used by individuals or teams to ensure that reviewing the 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
 
-- `.rmd`: markdown
+- `.rmd`: rmarkdown
 - `.md`: markdown
 - `.rst`: rst
 - `.ipynb`: jupyter
@@ -98,8 +98,8 @@ Options:
   -l, --checklist PATH  Override default checklist file with a path to a custom
                         checklist.yml file.
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
-                        [markdown, markdown, rst, jupyter, html, ascii]. Ignored
-                        and file extension used if --output is passed.
+                        [rmarkdown, markdown, rst, jupyter, html, ascii].
+                        Ignored and file extension used if --output is passed.
   -o, --output PATH     Output file path. Extension can be one of [.rmd, .md,
                         .rst, .ipynb, .html, .txt] The checklist is appended if
                         the file exists.
