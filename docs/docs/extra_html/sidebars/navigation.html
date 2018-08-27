@@ -32,14 +32,28 @@
   {{ nav_tree(nav) }}
 
   {% if theme.extra_nav_links %}
-    <hr>
     <ul>
-      {% for text, uri in theme.extra_nav_links.items() %}
-        <li class="toctree-l1"><a href="{{ uri }}">{{ text }}</a></li>
-      {% endfor %}
+      <li style="font-size: 1.5em">
+        <a href="https://github.com/drivendataorg/deon/tree/master/examples" target="_blank">Rendered Versions</a>
+      </li>
+      <ul>
+        {% for text, uri in theme.extra_nav_links.items() %}
+          <li><a href="{{ uri }}" target="_blank">{{ text }}</a></li>
+        {% endfor %}
+      </ul>
     </ul>
   {% endif %}
+  
+  <br/>
+  <br/>
+
   <a href="{{ config.repo_url }}" target="_blank" style="border-bottom: 0">
     <i class="fab fa-github fa-2x"></i> Check out deon on GitHub
+  </a>
+  <br/>
+  <br/>
+  <hr>
+  <a href="https://www.drivendata.org/" target="_blank" style="border-bottom: 0">
+    <img style="width: 75%" src="https://s3.amazonaws.com/drivendata/images/drivendata-logo.svg"/>
   </a>
 </nav>

@@ -9,8 +9,17 @@ div.body h1 {
 	padding-top: 1.3em;
 }
 
+div.body h2 {
+	font-size: 1.3em;
+}
+
 div.sphinxsidebar ul ul li {
 	padding-top: 0.5em;
+}
+
+/* shrink so horiz scroll is not necessary */
+div.body pre {
+	padding: 5px 5px;
 }
 
 th {
@@ -36,4 +45,10 @@ div.document {
 	width: 100%;
 	max-width: 940px;
 	min-width: 320px; /* common min phone width */ 
+}
+
+hr.checklist-buffer {
+	 margin-top: 3em;
+	 border: none;
+	 border-top: medium double #888;
 }

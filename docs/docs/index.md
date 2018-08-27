@@ -3,7 +3,7 @@
 <h1><b>An ethics checklist for data scientists</b></h1>
 
 
-`deon` is a command-line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
+`deon` is a command line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
 ---
 
@@ -39,6 +39,7 @@ Eighth, we want to avoid any items that strictly fall into the realm of statisti
 ## Prerequisites
 
  - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
+ - _(Linux Specific)_: using the `--clipboard` option requires the [`xclip`](https://github.com/astrand/xclip) package, which is easily installable on most distributions (e.g., `sudo apt-get install xclip`).
 
 ## Installation
 
@@ -74,6 +75,7 @@ This checklist can be used by individuals or teams to ensure that reviewing the 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
 
+- `.rmd`: rmarkdown
 - `.md`: markdown
 - `.rst`: rst
 - `.ipynb`: jupyter
@@ -83,23 +85,28 @@ Here are the currently supported file types. We will accept pull requests with n
 # Command line options
 
 ```
-Usage: main [OPTIONS]
+Usage: deon [OPTIONS]
 
 Options:
-  -l, --checklist PATH  Override checklist file.
+  -l, --checklist PATH  Override default checklist file with a path to a custom
+                        checklist.yml file.
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
-                        [markdown, rst, jupyter, html, ascii]. File extension
-                        used if --output is passed.
-  -o, --output PATH     Output file path. Extension can be one of [.md, .rst,
-                        .ipynb, .html, .txt]
-  -c, --clipboard       Whether or not to output to clipboard.
+                        [rmarkdown, markdown, rst, jupyter, html, ascii].
+                        Ignored and file extension used if --output is passed.
+  -o, --output PATH     Output file path. Extension can be one of [.rmd, .md,
+                        .rst, .ipynb, .html, .txt] The checklist is appended if
+                        the file exists.
+  -c, --clipboard       Whether or not to copy the output to the clipboard.
   -w, --overwrite       Overwrite output file if it exists.
-                        Default is False.
+                        Default is False , which will append
+                        to existing file.
   --help                Show this message and exit.
 
 ```
 
 # Default checklist
+
+<hr class="checklist-buffer"/>
 
 # Data Science Ethics Checklist
 
@@ -135,6 +142,8 @@ Options:
 
 
 
+<hr class="checklist-buffer"/>
+
 # Custom checklists
 
 This is not meant to be the only ethical checklist, but instead we try to capture reasonable defaults that are general enough to be widely useful. For your own projects with particular concerns, we recommend your own `checklist.yml` file that is maintained by your team and passed to this tool with the `-l` flag.
@@ -157,7 +166,7 @@ Please see [the framing](#background-and-perspective) for an understanding of ou
 
 Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data"). 
 
-**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid :flame: wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
+**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
 
 To request a change, please file an issue with a title that starts with one of: "CREATE, UPDATE, DELETE". There are FOUR requirements for an issue requesting a change to the checklist:
 

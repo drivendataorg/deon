@@ -12,17 +12,21 @@ DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.yml'
 CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
 
-@click.command()
-@click.option('--checklist', '-l', default=None, type=click.Path(exists=True), help='Override checklist file.')
+@click.command('deon')
+@click.option('--checklist', '-l', default=None, type=click.Path(exists=True),
+              help='Override default checklist file with a path to a custom checklist.yml file.')
 @click.option('--format', '-f', default=None, type=str,
               help='Output format. Default is "markdown". ' +
                    'Can be one of [{}]. '.format(', '.join(EXTENSIONS.values())) +
-                   'File extension used if --output is passed.')
+                   'Ignored and file extension used if --output is passed.')
 @click.option('--output', '-o', default=None, type=click.Path(),
-              help='Output file path. Extension can be one of [{}]'.format(', '.join(EXTENSIONS.keys())))
-@click.option('--clipboard', '-c', is_flag=True, default=False, help='Whether or not to output to clipboard.')
+              help='Output file path. Extension can be one of [{}] '.format(', '.join(EXTENSIONS.keys())) +
+                   'The checklist is appended if the file exists.')
+@click.option('--clipboard', '-c', is_flag=True, default=False,
+              help='Whether or not to copy the output to the clipboard.')
 @click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
-                                                                      Default is False.')
+                                                                      Default is False , which will append \
+                                                                      to existing file.')
 def main(checklist, format, output, clipboard, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
@@ -33,7 +37,7 @@ def main(checklist, format, output, clipboard, overwrite):
     # output extension is given priority if differing format is included
     if output:
         # get format by file extension
-        ext = output.suffix
+        ext = output.suffix.lower()
         if ext in EXTENSIONS.keys():
             output_format = EXTENSIONS[ext]
         else:
