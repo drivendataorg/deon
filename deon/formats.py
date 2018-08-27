@@ -194,20 +194,20 @@ class Html(Format):
 
 
 FORMATS = {
+    'ascii': Format,
+    'html': Html,
+    'jupyter': JupyterNotebook,
     'markdown': Markdown,
     'rmarkdown': Markdown,
     'rst': Rst,
-    'jupyter': JupyterNotebook,
-    'html': Html,
-    'ascii': Format,
 }
 
 # keep all extensions lowercase
 EXTENSIONS = {
-    '.rmd': 'rmarkdown',
-    '.md': 'markdown',
-    '.rst': 'rst',
-    '.ipynb': 'jupyter',
-    '.html': 'html',
     '.txt': 'ascii',
+    '.html': 'html',
+    '.ipynb': 'jupyter',
+    '.md': 'markdown',
+    '.rmd': 'rmarkdown',
+    '.rst': 'rst',
 }

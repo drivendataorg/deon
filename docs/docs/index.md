@@ -75,12 +75,12 @@ This checklist can be used by individuals or teams to ensure that reviewing the 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
 
 
-- `.rmd`: rmarkdown
-- `.md`: markdown
-- `.rst`: rst
-- `.ipynb`: jupyter
-- `.html`: html
 - `.txt`: ascii
+- `.html`: html
+- `.ipynb`: jupyter
+- `.md`: markdown
+- `.rmd`: rmarkdown
+- `.rst`: rst
 
 # Command line options
 
@@ -91,10 +91,10 @@ Options:
   -l, --checklist PATH  Override default checklist file with a path to a custom
                         checklist.yml file.
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
-                        [rmarkdown, markdown, rst, jupyter, html, ascii].
+                        [ascii, html, jupyter, markdown, rmarkdown, rst].
                         Ignored and file extension used if --output is passed.
-  -o, --output PATH     Output file path. Extension can be one of [.rmd, .md,
-                        .rst, .ipynb, .html, .txt] The checklist is appended if
+  -o, --output PATH     Output file path. Extension can be one of [.txt, .html,
+                        .ipynb, .md, .rmd, .rst] The checklist is appended if
                         the file exists.
   -c, --clipboard       Whether or not to copy the output to the clipboard.
   -w, --overwrite       Overwrite output file if it exists.
