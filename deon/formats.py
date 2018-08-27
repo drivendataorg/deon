@@ -19,16 +19,17 @@ class Format(object):
     section_template = "{title}\n{lines}"
     section_delimiter = "\n\n"
 
-    line_template = "* {line}"
+    line_template = "* {line_id} {line_summary}: {line}"
     line_delimiter = "\n"
 
-    def __init__(self, checklist, include_ids=True):
+    def __init__(self, checklist, include_ids=True, include_summaries=True):
         self.checklist = checklist
         self.include_ids = include_ids
+        self.include_summaries = include_summaries
 
     def render_line(self, line):
-        if self.include_ids:
-            return "{} {}: {}".format(line.line_id, line.line_summary, line.line)
+        if self.include_ids and self.include_summaries:
+            return self.line_template.format(line_id=line.line_id, line_summary=line.line_summary, line=line.line)
         else:
             return line.line
 
@@ -38,9 +39,7 @@ class Format(object):
         """
         rendered_sections = []
         for section in self.checklist.sections:
-            rendered_lines = self.line_delimiter.join(
-                [self.line_template.format(line=self.render_line(l)) for l in section.lines]
-            )
+            rendered_lines = self.line_delimiter.join([self.render_line(l) for l in section.lines])
 
             rendered_section = self.section_template.format(
                 title=(section.title if not self.include_ids
@@ -80,7 +79,7 @@ class Markdown(Format):
     section_template = """## {title}
 {lines}"""
 
-    line_template = " - [ ] {line}"
+    line_template = " - [ ] **{line_id} {line_summary}**: {line}"
 
 
 class Rst(Format):
@@ -88,7 +87,7 @@ class Rst(Format):
     """
     template = "{title}\n============\n\n{sections}\n\n"
     section_template = """{title}\n---------\n\n{lines}"""
-    line_template = "* [ ] {line}"
+    line_template = "* [ ] **{line_id} {line_summary}**: {line}"
 
 
 class JupyterNotebook(Markdown):
@@ -155,10 +154,10 @@ class Html(Format):
 </ul>"""
 
     section_delimiter = """
-<br/><br/>
+<br/>
 """
 
-    line_template = "<li><input type='checkbox'>{line}</input></li>"
+    line_template = "<li><input type='checkbox'><strong>{line_id} {line_summary}:</strong> {line}</input></li>"
     line_delimiter = "\n"
 
     doc_template = """<html>
