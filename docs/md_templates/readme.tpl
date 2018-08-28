@@ -2,6 +2,8 @@
 
 [ ![Codeship Status for drivendataorg/ethics-checklist](https://app.codeship.com/projects/135521f0-7e42-0136-9aaf-1a6489acace4/status?branch=master)](https://app.codeship.com/projects/301313)
 
+[![PyPI](https://img.shields.io/pypi/v/deon.svg)](https://pypi.org/project/deon/)
+
  > [Read more about `deon` on the project homepage](http://deon.drivendata.org/)
 
 ------
