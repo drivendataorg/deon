@@ -3,24 +3,26 @@ existing_text = 'There is existing text in this file.'
 known_good_ascii = """My Checklist
 
 A. First section
-* A.1 First A line
-* A.2 Second A line
+* A.1 A1sum: First A line
+* A.2 A2sum: Second A line
 
 B. Second section
-* B.1 First B line
-* B.2 Second B line"""
+* B.1 B1sum: First B line
+* B.2 B2sum: Second B line
+
+Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."""
 
 known_good_markdown = """# My Checklist
 
 ## A. First section
- - [ ] A.1 First A line
- - [ ] A.2 Second A line
+ - [ ] **A.1 A1sum**: First A line
+ - [ ] **A.2 A2sum**: Second A line
 
 ## B. Second section
- - [ ] B.1 First B line
- - [ ] B.2 Second B line
+ - [ ] **B.1 B1sum**: First B line
+ - [ ] **B.2 B2sum**: Second B line
 
-"""
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""
 
 known_good_rst = """My Checklist
 ============
@@ -28,30 +30,32 @@ known_good_rst = """My Checklist
 A. First section
 ---------
 
-* [ ] A.1 First A line
-* [ ] A.2 Second A line
+* [ ] **A.1 A1sum**: First A line
+* [ ] **A.2 A2sum**: Second A line
 
 B. Second section
 ---------
 
-* [ ] B.1 First B line
-* [ ] B.2 Second B line
+* [ ] **B.1 B1sum**: First B line
+* [ ] **B.2 B2sum**: Second B line
 
-"""
+*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."""
 
 known_good_jupyter = ({'cell_type': 'markdown',
                        'metadata': {},
                        'source': ['# My Checklist\n',
                                   '\n',
                                   '## A. First section\n',
-                                  ' - [ ] A.1 First A line\n',
-                                  ' - [ ] A.2 Second A line\n',
+                                  ' - [ ] **A.1 A1sum**: First A line\n',
+                                  ' - [ ] **A.2 A2sum**: Second A line\n',
                                   '\n',
                                   '## B. Second section\n',
-                                  ' - [ ] B.1 First B line\n',
-                                  ' - [ ] B.2 Second B line\n',
+                                  ' - [ ] **B.1 B1sum**: First B line\n',
+                                  ' - [ ] **B.2 B2sum**: Second B line\n',
                                   '\n',
-                                  '\n']})
+                                  "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
+                                  "\n"
+                                  ]})
 
 known_good_html = """<html>
  <body>
@@ -67,14 +71,19 @@ known_good_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    A.1 First A line
+    <strong>
+     A.1 A1sum:
+    </strong>
+    First A line
    </li>
    <li>
     <input type="checkbox"/>
-    A.2 Second A line
+    <strong>
+     A.2 A2sum:
+    </strong>
+    Second A line
    </li>
   </ul>
-  <br/>
   <br/>
   <h2>
    B. Second section
@@ -83,15 +92,27 @@ known_good_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    B.1 First B line
+    <strong>
+     B.1 B1sum:
+    </strong>
+    First B line
    </li>
    <li>
     <input type="checkbox"/>
-    B.2 Second B line
+    <strong>
+     B.2 B2sum:
+    </strong>
+    Second B line
    </li>
   </ul>
   <br/>
   <br/>
+  <em>
+   Data Science Ethics Checklist generated with
+   <a href="http://deon.drivendata.org">
+    deon.
+   </a>
+  </em>
  </body>
 </html>
 """
@@ -118,14 +139,19 @@ known_good_inserted_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    A.1 First A line
+    <strong>
+     A.1 A1sum:
+    </strong>
+    First A line
    </li>
    <li>
     <input type="checkbox"/>
-    A.2 Second A line
+    <strong>
+     A.2 A2sum:
+    </strong>
+    Second A line
    </li>
   </ul>
-  <br/>
   <br/>
   <h2>
    B. Second section
@@ -134,15 +160,27 @@ known_good_inserted_html = """<html>
   <ul>
    <li>
     <input type="checkbox"/>
-    B.1 First B line
+    <strong>
+     B.1 B1sum:
+    </strong>
+    First B line
    </li>
    <li>
     <input type="checkbox"/>
-    B.2 Second B line
+    <strong>
+     B.2 B2sum:
+    </strong>
+    Second B line
    </li>
   </ul>
   <br/>
   <br/>
+  <em>
+   Data Science Ethics Checklist generated with
+   <a href="http://deon.drivendata.org">
+    deon.
+   </a>
+  </em>
  </body>
 </html>
 """

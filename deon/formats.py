@@ -13,24 +13,18 @@ class Format(object):
         below. For other formats, override `render`
         and `write`.
     """
-    template = "{title}\n\n{sections}"
+    template = "{title}\n\n{sections}\n\n{docs_link}"
     append_delimiter = "\n\n"
 
     section_template = "{title}\n{lines}"
     section_delimiter = "\n\n"
 
-    line_template = "* {line}"
+    line_template = "* {line_id} {line_summary}: {line}"
     line_delimiter = "\n"
+    docs_link = "Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."
 
-    def __init__(self, checklist, include_ids=True):
+    def __init__(self, checklist):
         self.checklist = checklist
-        self.include_ids = include_ids
-
-    def render_line(self, line):
-        if self.include_ids:
-            return "{} {}".format(line.line_id, line.line)
-        else:
-            return line.line
 
     def render(self):
         """ Uses the checklist and templates to render
@@ -38,13 +32,13 @@ class Format(object):
         """
         rendered_sections = []
         for section in self.checklist.sections:
-            rendered_lines = self.line_delimiter.join(
-                [self.line_template.format(line=self.render_line(l)) for l in section.lines]
-            )
+            rendered_lines = self.line_delimiter.join([self.line_template.format(line_id=l.line_id,
+                                                                                 line_summary=l.line_summary,
+                                                                                 line=l.line)
+                                                       for l in section.lines])
 
             rendered_section = self.section_template.format(
-                title=(section.title if not self.include_ids
-                       else "{}. {}".format(section.section_id, section.title)),
+                title=("{}. {}".format(section.section_id, section.title)),
                 lines=rendered_lines
             )
 
@@ -52,7 +46,7 @@ class Format(object):
 
         all_sections = self.section_delimiter.join(rendered_sections)
 
-        return self.template.format(title=self.checklist.title, sections=all_sections)
+        return self.template.format(title=self.checklist.title, sections=all_sections, docs_link=self.docs_link)
 
     def write(self, filepath, overwrite=False):
         """ Renders template and writes to `filepath`.
@@ -76,19 +70,21 @@ class Format(object):
 class Markdown(Format):
     """ Markdown template items
     """
-    template = "# {title}\n\n{sections}\n\n"
+    template = "# {title}\n\n{sections}\n\n{docs_link}"
     section_template = """## {title}
 {lines}"""
 
-    line_template = " - [ ] {line}"
+    line_template = " - [ ] **{line_id} {line_summary}**: {line}"
+    docs_link = "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
 
 
 class Rst(Format):
     """reStructuredText template items
     """
-    template = "{title}\n============\n\n{sections}\n\n"
+    template = "{title}\n============\n\n{sections}\n\n{docs_link}"
     section_template = """{title}\n---------\n\n{lines}"""
-    line_template = "* [ ] {line}"
+    line_template = "* [ ] **{line_id} {line_summary}**: {line}"
+    docs_link = "*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."
 
 
 class JupyterNotebook(Markdown):
@@ -147,7 +143,8 @@ class Html(Format):
     template = """<h1>{title}</h1>
 <br/> <br/>
 {sections}
-<br/> <br/>"""
+<br/> <br/>
+<em>Data Science Ethics Checklist generated with <a href="http://deon.drivendata.org">deon.</a></em>"""
     section_template = """<h2>{title}</h2>
 <hr/>
 <ul>
@@ -155,10 +152,10 @@ class Html(Format):
 </ul>"""
 
     section_delimiter = """
-<br/><br/>
+<br/>
 """
 
-    line_template = "<li><input type='checkbox'>{line}</input></li>"
+    line_template = "<li><input type='checkbox'><strong>{line_id} {line_summary}:</strong> {line}</input></li>"
     line_delimiter = "\n"
 
     doc_template = """<html>
@@ -195,20 +192,20 @@ class Html(Format):
 
 
 FORMATS = {
+    'ascii': Format,
+    'html': Html,
+    'jupyter': JupyterNotebook,
     'markdown': Markdown,
     'rmarkdown': Markdown,
     'rst': Rst,
-    'jupyter': JupyterNotebook,
-    'html': Html,
-    'ascii': Format,
 }
 
 # keep all extensions lowercase
 EXTENSIONS = {
-    '.rmd': 'rmarkdown',
-    '.md': 'markdown',
-    '.rst': 'rst',
-    '.ipynb': 'jupyter',
-    '.html': 'html',
     '.txt': 'ascii',
+    '.html': 'html',
+    '.ipynb': 'jupyter',
+    '.md': 'markdown',
+    '.rmd': 'rmarkdown',
+    '.rst': 'rst',
 }

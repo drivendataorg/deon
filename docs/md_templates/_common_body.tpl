@@ -93,7 +93,7 @@ Here are the currently supported file types. We will accept pull requests with n
 
 This is not meant to be the only ethical checklist, but instead we try to capture reasonable defaults that are general enough to be widely useful. For your own projects with particular concerns, we recommend your own `checklist.yml` file that is maintained by your team and passed to this tool with the `-l` flag.
 
-Custom checklists must follow the same schema as `checklist.yml`. There must be a top-level `title` which is a string, and `sections` which is a list. Each section in the list `sections` must have a `title`, a `section_id`, and then a list of `lines`. Each line must have a `line_id` and a `line` string which is the content. The format is as follows:
+Custom checklists must follow the same schema as `checklist.yml`. There must be a top-level `title` which is a string, and `sections` which is a list. Each section in the list `sections` must have a `title`, a `section_id`, and then a list of `lines`. Each line must have a `line_id`, a `line_summary` which is a 1-3 word shorthand, and a `line` string which is the content. The format is as follows:
 
 ```
 title: TITLE
@@ -102,6 +102,7 @@ sections:
     section_id: SECTION NUMBER
     lines:
         - line_id: LINE NUMBER
+          line_summary: LINE SUMMARY
           line: LINE CONTENT
 ```
 
