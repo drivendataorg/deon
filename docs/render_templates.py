@@ -22,7 +22,7 @@ TEMPLATE_AND_OUTPUT = {
 
 
 def create_context():
-    cl = Checklist.read(Path(__file__).absolute().parents[1] / 'checklist.yml')
+    cl = Checklist.read(Path(__file__).absolute().parents[1] / 'deon' / 'assets' / 'checklist.yml')
     checklist_template = Markdown(cl)
     rendered_checklist = checklist_template.render()
 
@@ -44,11 +44,11 @@ def make_table_of_links():
     Generates table where lefthand column contains checklist items (from checklist.yml) and righthand column contains
     hyperlinks to examples where things have gone wrong (from examples.yml). Table appears in docs/docs/examples.md.
     """
-    root = Path(__file__).absolute().parents[1]
+    root = Path(__file__).absolute().parents[1] / 'deon' / 'assets'
 
     cl = Checklist.read(root / 'checklist.yml')
 
-    with open(root / 'examples.yml', 'r') as f:
+    with open(root / 'examples_of_ethical_issues.yml', 'r') as f:
         refs = yaml.load(f)
 
     refs_dict = dict()

@@ -1,12 +1,14 @@
+from pathlib import Path
 import yaml
 
 from deon.parser import Checklist
 
 
 def test_checklist():
-    c = Checklist.read('checklist.yml')
+    checklist_path = Path(__file__).parents[1] / 'deon' / 'assets' / 'checklist.yml'
+    c = Checklist.read(checklist_path)
 
-    with open('checklist.yml', "r") as f:
+    with open(checklist_path, "r") as f:
         raw_parsed = yaml.load(f)
 
     assert c.title == raw_parsed['title']

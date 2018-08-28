@@ -186,8 +186,8 @@ To request a change, please file an issue with a title that starts with one of: 
 
  A pull request to add an item should change:
 
-  - [`checklist.yml`](https://github.com/drivendataorg/deon/blob/master/checklist.yml): contains the default checklist items
-  - [`examples.yml`](https://github.com/drivendataorg/deon/blob/master/examples.yml): contains example of harms caused when the item was not considered
+  - [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/master/deon/assets/checklist.yml): contains the default checklist items
+  - [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/master/deon/assets/examples_of_ethical_issues.yml): contains example of harms caused when the item was not considered
 
 # Discussion and commentary
 
