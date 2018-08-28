@@ -13,7 +13,7 @@ class Format(object):
         below. For other formats, override `render`
         and `write`.
     """
-    template = "{title}\n\n{sections}"
+    template = "{title}\n\n{sections}\n\n{docs_link}"
     append_delimiter = "\n\n"
 
     section_template = "{title}\n{lines}"
@@ -21,6 +21,7 @@ class Format(object):
 
     line_template = "* {line_id} {line_summary}: {line}"
     line_delimiter = "\n"
+    docs_link = "Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."
 
     def __init__(self, checklist):
         self.checklist = checklist
@@ -45,7 +46,7 @@ class Format(object):
 
         all_sections = self.section_delimiter.join(rendered_sections)
 
-        return self.template.format(title=self.checklist.title, sections=all_sections)
+        return self.template.format(title=self.checklist.title, sections=all_sections, docs_link=self.docs_link)
 
     def write(self, filepath, overwrite=False):
         """ Renders template and writes to `filepath`.
@@ -69,19 +70,22 @@ class Format(object):
 class Markdown(Format):
     """ Markdown template items
     """
-    template = "# {title}\n\n{sections}\n\n"
+    template = "# {title}\n\n{sections}\n\n{docs_link}"
     section_template = """## {title}
 {lines}"""
 
     line_template = " - [ ] **{line_id} {line_summary}**: {line}"
+    docs_link = "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
 
 
 class Rst(Format):
     """reStructuredText template items
     """
-    template = "{title}\n============\n\n{sections}\n\n"
+    template = "{title}\n============\n\n{sections}\n\n{docs_link}"
     section_template = """{title}\n---------\n\n{lines}"""
     line_template = "* [ ] **{line_id} {line_summary}**: {line}"
+    # rst cannot be nested so docs_link is not italicized, just hyperlinked
+    docs_link = "Data Science Ethics Checklist generated with `deon <http://deon.drivendata.org>`_."
 
 
 class JupyterNotebook(Markdown):
@@ -140,7 +144,8 @@ class Html(Format):
     template = """<h1>{title}</h1>
 <br/> <br/>
 {sections}
-<br/> <br/>"""
+<br/> <br/>
+<em>Data Science Ethics Checklist generated with <a href="http://deon.drivendata.org">deon.</a></em>"""
     section_template = """<h2>{title}</h2>
 <hr/>
 <ul>

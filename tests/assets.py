@@ -8,7 +8,9 @@ A. First section
 
 B. Second section
 * B.1 B1sum: First B line
-* B.2 B2sum: Second B line"""
+* B.2 B2sum: Second B line
+
+Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."""
 
 known_good_markdown = """# My Checklist
 
@@ -20,7 +22,7 @@ known_good_markdown = """# My Checklist
  - [ ] **B.1 B1sum**: First B line
  - [ ] **B.2 B2sum**: Second B line
 
-"""
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""
 
 known_good_rst = """My Checklist
 ============
@@ -37,7 +39,7 @@ B. Second section
 * [ ] **B.1 B1sum**: First B line
 * [ ] **B.2 B2sum**: Second B line
 
-"""
+Data Science Ethics Checklist generated with `deon <http://deon.drivendata.org>`_."""
 
 known_good_jupyter = ({'cell_type': 'markdown',
                        'metadata': {},
@@ -51,7 +53,9 @@ known_good_jupyter = ({'cell_type': 'markdown',
                                   ' - [ ] **B.1 B1sum**: First B line\n',
                                   ' - [ ] **B.2 B2sum**: Second B line\n',
                                   '\n',
-                                  '\n']})
+                                  "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
+                                  "\n"
+                                  ]})
 
 known_good_html = """<html>
  <body>
@@ -103,6 +107,12 @@ known_good_html = """<html>
   </ul>
   <br/>
   <br/>
+  <em>
+   Data Science Ethics Checklist generated with
+   <a href="http://deon.drivendata.org">
+    deon.
+   </a>
+  </em>
  </body>
 </html>
 """
@@ -165,6 +175,12 @@ known_good_inserted_html = """<html>
   </ul>
   <br/>
   <br/>
+  <em>
+   Data Science Ethics Checklist generated with
+   <a href="http://deon.drivendata.org">
+    deon.
+   </a>
+  </em>
  </body>
 </html>
 """
