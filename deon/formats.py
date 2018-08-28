@@ -85,7 +85,7 @@ class Rst(Format):
     section_template = """{title}\n---------\n\n{lines}"""
     line_template = "* [ ] **{line_id} {line_summary}**: {line}"
     # rst cannot be nested so docs_link is not italicized, just hyperlinked
-    docs_link = "Data Science Ethics Checklist generated with `deon <http://deon.drivendata.org>`_."
+    docs_link = "*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."
 
 
 class JupyterNotebook(Markdown):

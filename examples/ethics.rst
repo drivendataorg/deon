@@ -41,4 +41,4 @@ E. Deployment
 * [ ] **E.3 Concept drift**: Do we test and monitor for concept drift to ensure the model remains fair over time?
 * [ ] **E.4 Unintended use**: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
 
-Data Science Ethics Checklist generated with `deon <http://deon.drivendata.org>`_.
+*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_.

@@ -39,7 +39,7 @@ B. Second section
 * [ ] **B.1 B1sum**: First B line
 * [ ] **B.2 B2sum**: Second B line
 
-Data Science Ethics Checklist generated with `deon <http://deon.drivendata.org>`_."""
+*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."""
 
 known_good_jupyter = ({'cell_type': 'markdown',
                        'metadata': {},
