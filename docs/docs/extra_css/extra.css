@@ -13,6 +13,14 @@ div.body h2 {
 	font-size: 1.3em;
 }
 
+
+div.body li.task-list-item {
+	text-indent: -1.4em;
+	list-style: none;
+	padding-top: 0.5em;
+}
+
+
 div.sphinxsidebar ul ul li {
 	padding-top: 0.5em;
 }
