@@ -40,6 +40,10 @@ def create_context():
 
 
 def make_table_of_links():
+    """
+    Generates table where lefthand column contains checklist items (from checklist.yml) and righthand column contains
+    hyperlinks to examples where things have gone wrong (from examples.yml). Table appears in docs/docs/examples.md.
+    """
     root = Path(__file__).absolute().parents[1]
 
     cl = Checklist.read(root / 'checklist.yml')
@@ -68,7 +72,7 @@ def make_table_of_links():
         for l in s.lines:
             # create bulleted list of links for each checklist item in that section
             bulleted_list = []
-            for i, link in enumerate(refs_dict[l.line_id]):
+            for link in refs_dict[l.line_id]:
                 text = link['text']
                 url = link['url']
                 bullet_hyperlink = f"<li>[{text}]({url})</li>"

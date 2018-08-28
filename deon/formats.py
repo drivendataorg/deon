@@ -22,16 +22,8 @@ class Format(object):
     line_template = "* {line_id} {line_summary}: {line}"
     line_delimiter = "\n"
 
-    def __init__(self, checklist, include_ids=True, include_summaries=True):
+    def __init__(self, checklist):
         self.checklist = checklist
-        self.include_ids = include_ids
-        self.include_summaries = include_summaries
-
-    def render_line(self, line):
-        if self.include_ids and self.include_summaries:
-            return self.line_template.format(line_id=line.line_id, line_summary=line.line_summary, line=line.line)
-        else:
-            return line.line
 
     def render(self):
         """ Uses the checklist and templates to render
@@ -39,11 +31,13 @@ class Format(object):
         """
         rendered_sections = []
         for section in self.checklist.sections:
-            rendered_lines = self.line_delimiter.join([self.render_line(l) for l in section.lines])
+            rendered_lines = self.line_delimiter.join([self.line_template.format(line_id=l.line_id,
+                                                                                 line_summary=l.line_summary,
+                                                                                 line=l.line)
+                                                       for l in section.lines])
 
             rendered_section = self.section_template.format(
-                title=(section.title if not self.include_ids
-                       else "{}. {}".format(section.section_id, section.title)),
+                title=("{}. {}".format(section.section_id, section.title)),
                 lines=rendered_lines
             )
 

@@ -133,7 +133,7 @@ def test_html(checklist, tmpdir):
     with open(temp_file_path, 'r') as tempf:
         assert tempf.read() == known_good
 
-    # # append to existing file
+    # append to existing file
     with open(temp_file_path, 'w') as tempf:
         tempf.write(existing_text)
     h.write(temp_file_path, overwrite=False)
