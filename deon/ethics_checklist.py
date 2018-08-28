@@ -7,7 +7,7 @@ import xerox
 from .parser import Checklist
 from .formats import FORMATS, EXTENSIONS
 
-DEFAULT_CHECKLIST = Path(__file__).parent.parent / 'checklist.yml'
+DEFAULT_CHECKLIST = Path(__file__).parent / 'assets' / 'checklist.yml'
 
 CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
 
