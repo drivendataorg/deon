@@ -3,7 +3,7 @@ site_description: Deon adds an ethics checklist to your data science projects.
 # site_favicon: favicon.ico
 repo_url: https://github.com/drivendataorg/deon
 copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
-# google_analytics: ['UA-54096005-4', 'auto']
+google_analytics: ['UA-54096005-9', 'auto']
 theme: 
   name: alabaster
   custom_dir: docs/extra_html
