@@ -88,7 +88,7 @@ def test_format(checklist, tmpdir, test_format_configs):
             assert str(known_good) in result.output  # requires string for testing as jupyter known asset is a dict
 
     result = runner.invoke(main, ['--checklist', checklist, '--format', 'doc'])
-    assert result.exit_code == 2
+    assert result.exit_code == 1
     assert "File format is not supported" in result.output
 
     result = runner.invoke(main, ['--checklist', checklist, '-f', 'rst'])
