@@ -70,7 +70,7 @@ def test_output(checklist, tmpdir, test_format_configs):
 
     unsupported_output = tmpdir.join('test.doc')
     result = runner.invoke(main, ['--checklist', checklist, '--output', unsupported_output])
-    assert result.exit_code == 2
+    assert result.exit_code == 1
     assert "Error" in result.output
 
     temp_file_path = tmpdir.join('checklist.html')
