@@ -46,7 +46,9 @@ def main(checklist, format, output, clipboard, overwrite):
         if format in FORMATS:
             output_format = format
         else:
-            raise click.UsageError('File format is not supported.')
+            with click.get_current_context() as ctx:
+                msg = "File format is not supported. Please See "
+                raise click.ClickException(msg + ctx.get_help())
     else:
         output_format = 'markdown'
 
