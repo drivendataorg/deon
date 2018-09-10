@@ -41,13 +41,15 @@ def main(checklist, format, output, clipboard, overwrite):
         if ext in EXTENSIONS.keys():
             output_format = EXTENSIONS[ext]
         else:
-            raise click.UsageError('Output requires a file name with a supported extension.')
+            with click.get_current_context() as ctx:
+                msg = 'Output requires a file name with a supported extension.\n'
+                raise click.ClickException(msg + ctx.get_help())
     elif format:
         if format in FORMATS:
             output_format = format
         else:
             with click.get_current_context() as ctx:
-                msg = "File format is not supported. Please See "
+                msg = "File format is not supported.\n"
                 raise click.ClickException(msg + ctx.get_help())
     else:
         output_format = 'markdown'
