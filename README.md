@@ -215,6 +215,15 @@ We're excited to see so many articles popping up on data ethics! The short list 
 
 To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when things have gone wrong. They're paired these with the checklist questions to help illuminate where in process ethics discussions may have helped provide a course correction.
 
+## Related tools
+
+There are other groups working on data ethics and thinking about how tools can help in this space. Here are a few we've seen so far:
+
+- [Aequitas](https://dsapp.uchicago.edu/aequitas/) ([github](https://github.com/dssg/aequitas))
+- [Ethical OS Toolkit](https://ethicalos.org/)
+- [Ethics & Algorithms Toolkit: A risk management framework for governments](http://ethicstoolkit.ai/)
+- Ethics and Data Science ([free ebook](https://www.amazon.com/dp/B07GTC8ZN7/ref=cm_sw_r_cp_ep_dp_klAOBb4Z72B4G)) and ([write-up](https://medium.com/@sjgadler/care-about-ai-ethics-what-you-can-do-starting-today-882a0e63d828))
+
 
 -------
 
