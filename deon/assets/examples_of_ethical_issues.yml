@@ -60,6 +60,8 @@
       url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
     - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
+    - text: Amazon scraps AI recruiting tool that showed bias against women.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
     - text: Criminal sentencing risk asessments don't ask directly about race or income, but other demographic factors can end up being proxies.
       url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
     - text: Creditworthiness algorithms based on nontraditional criteria such as grammatic habits, preferred grocery stores, and friends' credit scores can perpetuate systemic bias.
@@ -68,7 +70,7 @@
   links:
     - text: Google Photos tags two African-Americans as gorillas.
       url: https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
-    - text: With COMPAS, a risk-assessment algorithm used in criminal sentencing, black defendants are more likely to be mislabeled as likely to reoffend than white defendants.
+    - text: With COMPAS, a risk-assessment algorithm used in criminal sentencing, black defendants are almost twice as likely as white defendants to be mislabeled as likely to reoffend.
       url: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
     - text: -- Northpointe's rebuttal to ProPublica article.
       url: https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html
@@ -118,5 +120,5 @@
   links:
     - text: Microsoft's Twitter chatbot Tay quickly becomes racist.
       url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
-    - text: Deepfakes—realistic but fake videos generated through AI—span the gammut from celebrity porn to presidential statements.
+    - text: Deepfakes—realistic but fake videos generated with AI—span the gamut from celebrity porn to presidential statements.
       url: http://theweek.com/articles/777592/rise-deepfakes
