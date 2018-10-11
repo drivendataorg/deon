@@ -140,6 +140,7 @@ class JupyterNotebook(Markdown):
 
 
 class Html(Format):
+    """HTML template items"""
     template = """<h1>{title}</h1>
 <br/> <br/>
 {sections}
@@ -166,10 +167,6 @@ class Html(Format):
 """
 
     def write(self, filepath, overwrite=False):
-        """ If notebook does not exist (or `overwrite=True`), create a blank
-            notebook and add the checklist. Otherwise append a cell with a
-            horizontal rule and another cell with the checklist.
-        """
         filepath = Path(filepath)
 
         if filepath.exists() and not overwrite:
