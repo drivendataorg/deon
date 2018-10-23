@@ -34,7 +34,7 @@ def test_cli_output(checklist, tmpdir, test_format_configs):
     assert temp_file_path.read() == assets.known_good_html
 
 
-def test_format(checklist, tmpdir, test_format_configs):
+def test_cli_format(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
     for frmt, fpath, known_good in test_format_configs:
         result = runner.invoke(main, ['--checklist', checklist, '--format', frmt])
@@ -51,7 +51,7 @@ def test_format(checklist, tmpdir, test_format_configs):
     assert assets.known_good_rst in result.output
 
 
-def test_overwrite(checklist, tmpdir, test_format_configs):
+def test_cli_overwrite(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
     for frmt, fpath, known_good in test_format_configs:
         temp_file_path = tmpdir.join(fpath)
@@ -74,7 +74,7 @@ def test_overwrite(checklist, tmpdir, test_format_configs):
     assert temp_file_path.read() == assets.known_good_markdown
 
 
-def test_clipboard(checklist, tmpdir, test_format_configs):
+def test_cli_clipboard(checklist, tmpdir, test_format_configs):
     runner = CliRunner()
     for frmt, fpath, known_good in test_format_configs:
         result = runner.invoke(main, ['--checklist', checklist, '--clipboard', '--format', frmt])
