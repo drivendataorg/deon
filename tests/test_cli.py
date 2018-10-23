@@ -5,7 +5,7 @@ import yaml
 import json
 import xerox
 
-from deon.ethics_checklist import main
+from deon.cli import main
 import assets
 
 
