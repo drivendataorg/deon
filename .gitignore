@@ -5,3 +5,5 @@ __pycache__/
 docs/site/
 dist/
 .vscode
+htmlcov
+.coverage
