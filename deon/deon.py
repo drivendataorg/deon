@@ -19,7 +19,7 @@ class FormatException(Exception):
     pass
 
 
-def create(checklist, format, output, clipboard, overwrite):
+def create(checklist, output_format, output, clipboard, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
     cl = Checklist.read(cl_path)
@@ -34,10 +34,8 @@ def create(checklist, format, output, clipboard, overwrite):
             output_format = EXTENSIONS[ext]
         else:
             raise ExtensionException
-    elif format:
-        if format in FORMATS:
-            output_format = format
-        else:
+    elif output_format:
+        if output_format not in FORMATS:
             raise FormatException
     else:
         output_format = 'markdown'

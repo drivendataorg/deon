@@ -8,7 +8,7 @@ from .formats import EXTENSIONS
 @click.command('deon')
 @click.option('--checklist', '-l', default=None, type=click.Path(exists=True),
               help='Override default checklist file with a path to a custom checklist.yml file.')
-@click.option('--format', '-f', default=None, type=str,
+@click.option('--format', '-f', 'output_format', default=None, type=str,
               help='Output format. Default is "markdown". ' +
                    'Can be one of [{}]. '.format(', '.join(EXTENSIONS.values())) +
                    'Ignored and file extension used if --output is passed.')
@@ -20,9 +20,9 @@ from .formats import EXTENSIONS
 @click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
                                                                       Default is False , which will append \
                                                                       to existing file.')
-def main(checklist, format, output, clipboard, overwrite):
+def main(checklist, output_format, output, clipboard, overwrite):
     try:
-        result = create(checklist, format, output, clipboard, overwrite)
+        result = create(checklist, output_format, output, clipboard, overwrite)
     except ExtensionException:
         with click.get_current_context() as ctx:
                 msg = 'Output requires a file name with a supported extension.\n\n'
