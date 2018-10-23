@@ -31,10 +31,10 @@ def main(checklist, format, output, clipboard, overwrite):
         with click.get_current_context() as ctx:
                 msg = "File format is not supported.\n\n"
                 raise click.ClickException(msg + ctx.get_help())
-
-    # write output or print to stdout
-    if result:
-        click.echo(result)
+    else:
+        # write output or print to stdout
+        if result:
+            click.echo(result)
 
 
 if __name__ == '__main__':
