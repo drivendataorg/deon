@@ -33,10 +33,10 @@ def create(checklist, output_format, output, clipboard, overwrite):
         if ext in EXTENSIONS.keys():
             output_format = EXTENSIONS[ext]
         else:
-            raise ExtensionException
+            raise ExtensionException(ext)
     elif output_format:
         if output_format not in FORMATS:
-            raise FormatException
+            raise FormatException(output_format)
     else:
         output_format = 'markdown'
 
