@@ -35,6 +35,10 @@ def main(checklist, output_format, output, clipboard, overwrite):
         # write output or print to stdout
         if result:
             click.echo(result)
+        elif clipboard:
+            click.echo("Checklist successfully copied to clipboard.")
+        else:
+            click.echo(f"Checklist successfully written to file {output}.")
 
 
 if __name__ == '__main__':
