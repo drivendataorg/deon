@@ -29,7 +29,7 @@ def main(checklist, output_format, output, clipboard, overwrite):
                 raise click.ClickException(msg + ctx.get_help())
     except FormatException:
         with click.get_current_context() as ctx:
-                msg = "File format is not supported.\n\n"
+                msg = f"File format {output_format} is not supported.\n\n"
                 raise click.ClickException(msg + ctx.get_help())
     else:
         # write output or print to stdout

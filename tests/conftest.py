@@ -3,6 +3,7 @@ import yaml
 
 import assets
 
+
 @pytest.fixture
 def checklist(tmpdir):
     temp_checklist = tmpdir.join('checklist.yml')
@@ -32,6 +33,7 @@ def checklist(tmpdir):
                 ]}
         yaml.dump(data, f)
     return temp_checklist
+
 
 @pytest.fixture
 def test_format_configs():
