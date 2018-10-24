@@ -49,7 +49,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'deon=deon.ethics_checklist:main',
+            'deon=deon.cli:main',
         ]
     },
 
