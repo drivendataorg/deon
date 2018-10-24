@@ -3,7 +3,6 @@ import json
 import xerox
 import yaml
 from click.testing import CliRunner
-from pytest import fixture
 
 import assets
 from deon.cli import main
