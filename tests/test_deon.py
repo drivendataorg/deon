@@ -27,7 +27,9 @@ def test_output(checklist, tmpdir, test_format_configs):
 def test_format(checklist, tmpdir, test_format_configs):
     for frmt, _, known_good in test_format_configs:
         result = deon.create(checklist, frmt, None, False, False)
-        print(result)
+
+        assert result is not None
+
         if frmt != 'html':  # full doc for html not returned with format
             # echo includes new line at end hence checking if known asset is in stdout
             assert known_good == result

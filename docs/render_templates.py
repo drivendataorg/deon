@@ -5,7 +5,7 @@ from click.testing import CliRunner
 from jinja2 import Environment, FileSystemLoader
 import yaml
 
-from deon.ethics_checklist import main as deon_command
+from deon.cli import main as deon_command
 from deon.formats import Markdown, EXTENSIONS
 from deon.parser import Checklist
 
