@@ -5,13 +5,13 @@ sections:
     lines:
         - line_id: A.1
           line_summary: Informed consent
-          line: If there are human subjects, have those subjects have given informed consent, where users clearly understand what they are consenting to and there was a mechanism in place for gathering consent?
+          line: If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
         - line_id: A.2
           line_summary: Collection bias
           line: Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
         - line_id: A.3
           line_summary: Limit PII exposure
-          line: Have we considered ways to to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+          line: Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
   - title: Data Storage
     section_id: B
     lines:
