@@ -45,6 +45,8 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 
 # Using this tool
 
+<script id="asciicast-UybEm8Er5BGiIxvbgbcrPvloZ" src="https://asciinema.org/a/UybEm8Er5BGiIxvbgbcrPvloZ.js" async data-rows=25 data-loop=1  data-autoplay=1 data-preload=1></script>
+
 ## Prerequisites
 
  - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
