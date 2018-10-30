@@ -11,7 +11,7 @@ sections:
           line: Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
         - line_id: A.3
           line_summary: Limit PII exposure
-          line: Have we considered ways to to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+          line: Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
   - title: Data Storage
     section_id: B
     lines:
