@@ -38,7 +38,7 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 
 # Using this tool
 
-<img src="https://s3.amazonaws.com/drivendata-public-assets/deon_demo.svg"</a>
+<img src="https://s3.amazonaws.com/drivendata-public-assets/deon_demo.svg">
 
 ## Prerequisites
 
