@@ -36,6 +36,8 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 
 # Using this tool
 
+<img src="https://s3.amazonaws.com/drivendata-public-assets/deon_demo.svg">
+
 ## Prerequisites
 
  - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
