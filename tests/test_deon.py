@@ -25,7 +25,7 @@ def test_output(checklist, tmpdir, test_format_configs):
 
 
 def test_format(checklist, tmpdir, test_format_configs):
-    for frmt, fpath, known_good in test_format_configs:
+    for frmt, _, known_good in test_format_configs:
         result = deon.create(checklist, frmt, None, False, False)
 
         assert result is not None
@@ -54,7 +54,7 @@ def test_overwrite(checklist, tmpdir, test_format_configs):
 
 
 def test_clipboard(checklist, tmpdir, test_format_configs):
-    for frmt, fpath, known_good in test_format_configs:
+    for frmt, _, known_good in test_format_configs:
         deon.create(checklist, frmt, None, True, False)
 
         if frmt != 'html':  # full doc for html not returned with format
