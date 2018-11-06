@@ -64,6 +64,11 @@ known_good_html = """<html>
   </h1>
   <br/>
   <br/>
+  <a href="http://deon.drivendata.org/">
+   <img alt="Deon badge" src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square"/>
+  </a>
+  <br/>
+  <br/>
   <h2>
    A. First section
   </h2>
@@ -115,7 +120,7 @@ known_good_html = """<html>
   </em>
  </body>
 </html>
-"""
+"""  # noqa: E501
 
 existing_text_html = """<html>
 <body>
@@ -132,6 +137,11 @@ known_good_inserted_html = """<html>
   </h1>
   <br/>
   <br/>
+  <a href="http://deon.drivendata.org/">
+   <img alt="Deon badge" src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square"/>
+  </a>
+  <br/>
+  <br/>
   <h2>
    A. First section
   </h2>
@@ -183,4 +193,4 @@ known_good_inserted_html = """<html>
   </em>
  </body>
 </html>
-"""
+"""  # noqa: E501
