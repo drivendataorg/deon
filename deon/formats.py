@@ -22,6 +22,7 @@ class Format(object):
     line_template = "* {line_id} {line_summary}: {line}"
     line_delimiter = "\n"
     docs_link = "Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."
+    badge = None
 
     def __init__(self, checklist):
         self.checklist = checklist
@@ -46,7 +47,7 @@ class Format(object):
 
         all_sections = self.section_delimiter.join(rendered_sections)
 
-        return self.template.format(title=self.checklist.title, sections=all_sections, docs_link=self.docs_link)
+        return self.template.format(title=self.checklist.title, sections=all_sections, docs_link=self.docs_link, badge=self.badge)  # noqa: E501
 
     def write(self, filepath, overwrite=False):
         """ Renders template and writes to `filepath`.
