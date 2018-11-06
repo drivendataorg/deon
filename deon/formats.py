@@ -71,7 +71,7 @@ class Format(object):
 class Markdown(Format):
     """ Markdown template items
     """
-    template = "# {title}\n\n{badge}\n\n{sections}\n\n{docs_link}"
+    template = "# {title}\n{badge}\n{sections}\n\n{docs_link}"
     section_template = """## {title}
 {lines}"""
 

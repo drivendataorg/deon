@@ -14,6 +14,8 @@ Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."
 
 known_good_markdown = """# My Checklist
 
+[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
+
 ## A. First section
  - [ ] **A.1 A1sum**: First A line
  - [ ] **A.2 A2sum**: Second A line
@@ -22,7 +24,7 @@ known_good_markdown = """# My Checklist
  - [ ] **B.1 B1sum**: First B line
  - [ ] **B.2 B2sum**: Second B line
 
-*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""  # noqa: E501
 
 known_good_rst = """My Checklist
 ============
