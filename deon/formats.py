@@ -89,10 +89,8 @@ class Rst(Format):
     section_template = """{title}\n---------\n\n{lines}"""
     line_template = "* [ ] **{line_id} {line_summary}**: {line}"
     docs_link = "*Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."
-    badge = """
-.. image:: https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square
-   :target: http://deon.drivendata.org
-    """
+    badge = """.. image:: https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square
+   :target: http://deon.drivendata.org"""
 
 
 class JupyterNotebook(Markdown):

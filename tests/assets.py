@@ -27,6 +27,9 @@ known_good_markdown = """# My Checklist
 known_good_rst = """My Checklist
 ============
 
+.. image:: https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square
+   :target: http://deon.drivendata.org
+
 A. First section
 ---------
 
