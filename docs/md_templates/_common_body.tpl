@@ -72,7 +72,7 @@ $ deon -o my-analysis.ipynb  # append cells to existing output file
 This checklist can be used by individuals or teams to ensure that reviewing the ethical implications of their work is part of every project. The checklist is meant as a jumping-off point, and it should spark deeper and more thourough discussions rather than replace those discussions.
 
 ## Proudly display your Deon badge
-You can add a Deon badge to your project documentation, such as the README, to incourage wider adoption of these ethical practices in the data science community.
+You can add a Deon badge to your project documentation, such as the README, to encourage wider adoption of these ethical practices in the data science community.
 
 ### HTML badge
 ```html
