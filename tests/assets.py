@@ -14,6 +14,8 @@ Data Science Ethics Checklist generated with deon (http://deon.drivendata.org)."
 
 known_good_markdown = """# My Checklist
 
+[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
+
 ## A. First section
  - [ ] **A.1 A1sum**: First A line
  - [ ] **A.2 A2sum**: Second A line
@@ -22,10 +24,13 @@ known_good_markdown = """# My Checklist
  - [ ] **B.1 B1sum**: First B line
  - [ ] **B.2 B2sum**: Second B line
 
-*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""  # noqa: E501
 
 known_good_rst = """My Checklist
 ============
+
+.. image:: https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square
+   :target: http://deon.drivendata.org
 
 A. First section
 ---------
@@ -44,6 +49,8 @@ B. Second section
 known_good_jupyter = ({'cell_type': 'markdown',
                        'metadata': {},
                        'source': ['# My Checklist\n',
+                                  '\n',
+                                  '[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)\n',  # noqa: E501
                                   '\n',
                                   '## A. First section\n',
                                   ' - [ ] **A.1 A1sum**: First A line\n',
@@ -64,6 +71,11 @@ known_good_html = """<html>
   </h1>
   <br/>
   <br/>
+  <a href="http://deon.drivendata.org/">
+   <img alt="Deon badge" src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square"/>
+  </a>
+  <br/>
+  <br/>
   <h2>
    A. First section
   </h2>
@@ -115,7 +127,7 @@ known_good_html = """<html>
   </em>
  </body>
 </html>
-"""
+"""  # noqa: E501
 
 existing_text_html = """<html>
 <body>
@@ -132,6 +144,11 @@ known_good_inserted_html = """<html>
   </h1>
   <br/>
   <br/>
+  <a href="http://deon.drivendata.org/">
+   <img alt="Deon badge" src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square"/>
+  </a>
+  <br/>
+  <br/>
   <h2>
    A. First section
   </h2>
@@ -183,4 +200,4 @@ known_good_inserted_html = """<html>
   </em>
  </body>
 </html>
-"""
+"""  # noqa: E501

@@ -1,6 +1,9 @@
 Data Science Ethics Checklist
 ============
 
+.. image:: https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square
+   :target: http://deon.drivendata.org
+
 A. Data Collection
 ---------
 

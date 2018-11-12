@@ -80,6 +80,22 @@ $ deon -o my-analysis.ipynb  # append cells to existing output file
 
 This checklist can be used by individuals or teams to ensure that reviewing the ethical implications of their work is part of every project. The checklist is meant as a jumping-off point, and it should spark deeper and more thourough discussions rather than replace those discussions.
 
+## Proudly display your Deon badge
+You can add a Deon badge to your project documentation, such as the README, to encourage wider adoption of these ethical practices in the data science community.
+
+### HTML badge
+```html
+<a href="http://deon.drivendata.org/">
+    <img src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square" alt="Deon badge" />
+</a>
+```
+
+### Markdown badge
+
+```
+[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
+```
+
 # Supported file types
 
 Here are the currently supported file types. We will accept pull requests with new file types if there is a strong case for widespread use of that filetype.
@@ -119,6 +135,8 @@ Options:
 <hr class="checklist-buffer"/>
 
 # Data Science Ethics Checklist
+
+[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
 
 ## A. Data Collection
  - [ ] **A.1 Informed consent**: If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
