@@ -49,7 +49,7 @@ def make_table_of_links():
     cl = Checklist.read(root / 'checklist.yml')
 
     with open(root / 'examples_of_ethical_issues.yml', 'r') as f:
-        refs = yaml.load(f)
+        refs = yaml.load(f, Loader=yaml.SafeLoader)
 
     refs_dict = dict()
     for r in refs:
