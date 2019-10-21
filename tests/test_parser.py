@@ -9,7 +9,7 @@ def test_checklist():
     c = Checklist.read(checklist_path)
 
     with open(checklist_path, "r") as f:
-        raw_parsed = yaml.load(f)
+        raw_parsed = yaml.load(f, Loader=yaml.SafeLoader)
 
     assert c.title == raw_parsed['title']
 

@@ -11,7 +11,7 @@ class Checklist(object):
     @classmethod
     def read(cls, filepath):
         with open(filepath, "r") as f:
-            data = yaml.load(f)
+            data = yaml.load(f, Loader=yaml.SafeLoader)
 
         title = data['title']
 
