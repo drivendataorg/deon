@@ -3,7 +3,7 @@
 -e .
 
 flake8==3.5.0
-jinja2==2.10
+jinja2==2.10.1
 mkdocs==1.0.1
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
 pytest==3.6.4
