@@ -17,7 +17,7 @@ def test_output(checklist, tmpdir, test_format_configs):
         else:
             with open(temp_file_path, 'r') as f:
                 nbdata = json.load(f)
-            assert nbdata['cells'][0] == known_good
+            assert nbdata == known_good
 
     unsupported_output = tmpdir.join('test.doc')
     with pytest.raises(deon.ExtensionException):
@@ -50,7 +50,7 @@ def test_overwrite(checklist, tmpdir, test_format_configs):
         else:
             with open(temp_file_path, 'r') as f:
                 nbdata = json.load(f)
-            assert nbdata['cells'][0] == known_good
+            assert nbdata == known_good
 
 
 def test_clipboard(checklist, tmpdir, test_format_configs):

@@ -102,14 +102,14 @@ def test_jupyter(checklist, tmpdir):
     j.write(temp_file_path)
     with open(temp_file_path, 'r') as f:
         nbdata = json.load(f)
-    assert nbdata['cells'] == [known_good]
+    assert nbdata == known_good
 
     # append to existing file
     j.write(temp_file_path, overwrite=False)
     with open(temp_file_path, 'r') as f:
         nbdata = json.load(f)
     assert len(nbdata['cells']) == 3
-    assert nbdata['cells'][0] == known_good
+    assert nbdata['cells'][0] == known_good['cells'][0]
     assert nbdata['cells'][1] == JupyterNotebook.append_delimiter
     assert nbdata['cells'][0] == nbdata['cells'][-1]
 
@@ -118,7 +118,7 @@ def test_jupyter(checklist, tmpdir):
     with open(temp_file_path, 'r') as f:
         nbdata = json.load(f)
     print(json.dumps(nbdata, indent=4))
-    assert nbdata['cells'] == [known_good]
+    assert nbdata == known_good
 
 
 def test_html(checklist, tmpdir):
