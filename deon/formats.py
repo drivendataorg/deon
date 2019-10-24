@@ -98,6 +98,7 @@ class Rst(Format):
 
 
 class JsonDict(dict):
+    """Suclass of dict with valid json string representation."""
     def __str__(self):
         return json.dumps(self)
 
