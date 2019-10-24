@@ -1,4 +1,5 @@
 import json
+from bs4 import BeautifulSoup
 
 import pytest
 import xerox
@@ -57,5 +58,16 @@ def test_clipboard(checklist, tmpdir, test_format_configs):
     for frmt, _, known_good in test_format_configs:
         deon.create(checklist, frmt, None, True, False)
 
-        if frmt != 'html':  # full doc for html not returned with format
+        if frmt == 'jupyter':
+            # Jupyter requires json.dumps for double-quoting
+            assert xerox.paste() == json.dumps(known_good)
+            # Check that it's also valid json
+            assert json.loads(xerox.paste()) == known_good
+        elif frmt == 'html':
+            # Ensure valid html
+            clipboard_html = BeautifulSoup(xerox.paste(), 'html.parser')
+            known_good_html = BeautifulSoup(known_good, 'html.parser')
+            # Check html are equivalent ignoring formatting
+            assert clipboard_html.prettify() == known_good_html.prettify()
+        else:
             assert xerox.paste() == str(known_good)

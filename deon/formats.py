@@ -97,6 +97,14 @@ class Rst(Format):
    :target: http://deon.drivendata.org"""
 
 
+class JsonDict(dict):
+    def __str__(self):
+        return json.dumps(self)
+
+    def __repr__(self):
+        return json.dumps(self)
+
+
 class JupyterNotebook(Markdown):
     """ Jupyter notebook template items
     """
@@ -128,7 +136,7 @@ class JupyterNotebook(Markdown):
             'cells': [checklist_cell]
         }
 
-        return blank_jupyter_notebook
+        return JsonDict(blank_jupyter_notebook)
 
     def write(self, filepath, overwrite=False):
         """ If notebook does not exist (or `overwrite=True`), write new

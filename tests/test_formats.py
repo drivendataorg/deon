@@ -1,5 +1,6 @@
 from pytest import fixture
 import json
+from bs4 import BeautifulSoup
 
 from deon.parser import Checklist, Section, Line
 from deon.formats import Format, Markdown, JupyterNotebook, Html, Rst
@@ -131,16 +132,25 @@ def test_html(checklist, tmpdir):
     temp_file_path = tmpdir.join('test.html')
     h.write(temp_file_path)
     with open(temp_file_path, 'r') as tempf:
-        assert tempf.read() == known_good
+        # Read back in bs4 to ensure valid html
+        temp_soup = BeautifulSoup(tempf, 'html.parser')
+        known_good_soup = BeautifulSoup(known_good, 'html.parser')
+        assert temp_soup.prettify() == known_good_soup.prettify()
 
     # append to existing file
     with open(temp_file_path, 'w') as tempf:
         tempf.write(existing_text)
     h.write(temp_file_path, overwrite=False)
     with open(temp_file_path, 'r') as tempf:
-        assert tempf.read() == inserted_known_good
+        # Read back in bs4 to ensure valid html
+        temp_soup = BeautifulSoup(tempf, 'html.parser')
+        known_good_soup = BeautifulSoup(inserted_known_good, 'html.parser')
+        assert temp_soup.prettify() == known_good_soup.prettify()
 
     # overwrite existing file
     h.write(temp_file_path, overwrite=True)
     with open(temp_file_path, 'r') as tempf:
-        assert tempf.read() == known_good
+        # Read back in bs4 to ensure valid html
+        temp_soup = BeautifulSoup(tempf, 'html.parser')
+        known_good_soup = BeautifulSoup(known_good, 'html.parser')
+        assert temp_soup.prettify() == known_good_soup.prettify()
