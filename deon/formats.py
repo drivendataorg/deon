@@ -151,7 +151,7 @@ class JupyterNotebook(Markdown):
         if filepath.exists() and not overwrite:
             with open(filepath, 'r') as f:
                 existing_nbdata = json.load(f)
-            # Append cells into existing notebook'd vrlld
+            # Append cells into existing notebook's cells array
             existing_nbdata['cells'].append(self.append_delimiter)
             existing_nbdata['cells'].extend(nbdata['cells'])
             nbdata = existing_nbdata
