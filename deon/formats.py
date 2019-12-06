@@ -12,6 +12,10 @@ class Format(object):
         For text formats, simply override the templates
         below. For other formats, override `render`
         and `write`.
+
+        `render` should return an object whose string
+        representation is a fully valid document of
+        that format.
     """
     template = "{title}\n\n{sections}\n\n{docs_link}"
     append_delimiter = "\n\n"
@@ -93,6 +97,15 @@ class Rst(Format):
    :target: http://deon.drivendata.org"""
 
 
+class JsonDict(dict):
+    """Suclass of dict with valid json string representation."""
+    def __str__(self):
+        return json.dumps(self)
+
+    def __repr__(self):
+        return json.dumps(self)
+
+
 class JupyterNotebook(Markdown):
     """ Jupyter notebook template items
     """
@@ -104,11 +117,12 @@ class JupyterNotebook(Markdown):
     }
 
     def render(self):
-        """ Creates a cell with rendered Markdown of the
-            checklist.
+        """ Creates json for a valid blank Jupyter notebook with a cell
+            containing the rendered Markdown of the checklist.
         """
         text = super().render()
-        return {
+
+        checklist_cell = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
@@ -116,30 +130,31 @@ class JupyterNotebook(Markdown):
             ]
         }
 
+        blank_jupyter_notebook = {
+            'nbformat': 4,
+            'nbformat_minor': 2,
+            'metadata': {},
+            'cells': [checklist_cell]
+        }
+
+        return JsonDict(blank_jupyter_notebook)
+
     def write(self, filepath, overwrite=False):
-        """ If notebook does not exist (or `overwrite=True`), create a blank
-            notebook and add the checklist. Otherwise append a cell with a
+        """ If notebook does not exist (or `overwrite=True`), write new
+            notebook with checklist. Otherwise append a cell with a
             horizontal rule and another cell with the checklist.
         """
+        nbdata = self.render()
+
         filepath = Path(filepath)
 
         if filepath.exists() and not overwrite:
             with open(filepath, 'r') as f:
-                nbdata = json.load(f)
-
-            nbdata['cells'].append(self.append_delimiter)
-        else:
-            # if new notebook, needs these properties
-            blank_jupyter_notebook = {
-                'nbformat': 4,
-                'nbformat_minor': 2,
-                'metadata': {},
-                'cells': []
-            }
-            nbdata = blank_jupyter_notebook
-
-        cell = self.render()
-        nbdata['cells'].append(cell)
+                existing_nbdata = json.load(f)
+            # Append cells into existing notebook's cells array
+            existing_nbdata['cells'].append(self.append_delimiter)
+            existing_nbdata['cells'].extend(nbdata['cells'])
+            nbdata = existing_nbdata
 
         with open(filepath, "w") as f:
             json.dump(nbdata, f)
@@ -181,21 +196,31 @@ class Html(Format):
 </html>
 """
 
+    def render(self):
+        """ Create a new blank HTML document with checklist as the body.
+            Returned as a BeautifulSoup object.
+        """
+        rendered_html = self.doc_template.format(text=super().render())
+        soup = BeautifulSoup(rendered_html, 'html.parser')
+        # string representation of soup is the raw html, so we can return it
+        return soup
+
     def write(self, filepath, overwrite=False):
+        """ If html document does not exist (or `overwrite=True`), write new
+            html file with checklist. Otherwise append checklist to the end of
+            the body of the existing html file.
+        """
         filepath = Path(filepath)
 
-        if filepath.exists() and not overwrite:
-            # insert at end of body
-            checklist = self.render()
+        soup = self.render()
 
+        if filepath.exists() and not overwrite:
             with open(filepath, "r") as f:
-                soup = BeautifulSoup(f, 'html.parser')
+                existing_soup = BeautifulSoup(f, 'html.parser')
 
             # add checklist to end of body
-            soup.body.append(BeautifulSoup(checklist, 'html.parser'))
-        else:
-            rendered_html = self.doc_template.format(text=self.render())
-            soup = BeautifulSoup(rendered_html, 'html.parser')
+            existing_soup.body.contents.extend(soup.body.contents)
+            soup = existing_soup
 
         text = soup.prettify()
 

@@ -46,7 +46,12 @@ B. Second section
 
 *Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."""
 
-known_good_jupyter = ({'cell_type': 'markdown',
+known_good_jupyter = ({
+    'nbformat': 4,
+    'nbformat_minor': 2,
+    'metadata': {},
+    'cells': [
+        {'cell_type': 'markdown',
                        'metadata': {},
                        'source': ['# My Checklist\n',
                                   '\n',
@@ -62,7 +67,9 @@ known_good_jupyter = ({'cell_type': 'markdown',
                                   '\n',
                                   "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
                                   "\n"
-                                  ]})
+                                  ]}
+    ]
+})
 
 known_good_html = """<html>
  <body>
