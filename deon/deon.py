@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
 
-import xerox
-
 from .formats import EXTENSIONS, FORMATS
 from .parser import Checklist
 
@@ -19,7 +17,7 @@ class FormatException(Exception):
     pass
 
 
-def create(checklist, output_format, output, clipboard, overwrite):
+def create(checklist, output_format, output, overwrite):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
     cl = Checklist.read(cl_path)
@@ -45,7 +43,5 @@ def create(checklist, output_format, output, clipboard, overwrite):
     # write output or print to stdout
     if output:
         template.write(output, overwrite=overwrite)
-    elif clipboard:
-        xerox.copy(str(template.render()))
     else:
         return template.render()

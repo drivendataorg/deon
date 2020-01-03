@@ -23,17 +23,10 @@ def test_cli_errors(runner, arg, value, expected):
     assert expected in result.output
 
 
-def test_default(runner, checklist):
+def test_cli_default(runner, checklist):
     result = runner.invoke(main, ['--checklist', checklist])
     assert result.exit_code == 0
     assert assets.known_good_markdown in result.output
-
-
-@pytest.mark.parametrize("arg", ['--clipboard', '-c'])
-def test_cli_clipboard(runner, checklist, arg):
-    result = runner.invoke(main, ['--checklist', checklist, arg])
-    assert result.exit_code == 0
-    assert "Checklist successfully copied to clipboard." in result.output
 
 
 @pytest.mark.parametrize("arg", ['--output', '-o'])

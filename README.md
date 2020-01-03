@@ -113,6 +113,11 @@ Here are the currently supported file types. We will accept pull requests with n
 ```
 Usage: deon [OPTIONS]
 
+  Easily create an ethics checklist for your data science project.
+
+  The checklist will be printed to standard output by default. Use the
+  --output option to write to a file instead.
+
 Options:
   -l, --checklist PATH  Override default checklist file with a path to a custom
                         checklist.yml file.
@@ -122,7 +127,6 @@ Options:
   -o, --output PATH     Output file path. Extension can be one of [.txt, .html,
                         .ipynb, .md, .rmd, .rst] The checklist is appended if
                         the file exists.
-  -c, --clipboard       Whether or not to copy the output to the clipboard.
   -w, --overwrite       Overwrite output file if it exists.
                         Default is False , which will append
                         to existing file.
