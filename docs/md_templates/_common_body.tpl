@@ -6,7 +6,7 @@
 ---
 
 **δέον** • (déon) [n.] (_Ancient Greek_) <small><a href="https://en.wiktionary.org/wiki/%CE%B4%CE%AD%CE%BF%CE%BD#Ancient_Greek" target="_blank" style="text-decoration: none; color: #6d6d6d">wikitionary</a></small>
- > Duty; that which is binding, needful, right, proper. 
+ > Duty; that which is binding, needful, right, proper.
 
 --------
 
@@ -16,7 +16,7 @@ The conversation about ethics in data science, machine learning, and AI is incre
 
 We have a particular perspective with this package that we will use to make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
-First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate. 
+First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
 
 Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). This checklist was heavily inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
 
@@ -41,7 +41,6 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 ## Prerequisites
 
  - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
- - _(Linux Specific)_: using the `--clipboard` option requires the [`xclip`](https://github.com/astrand/xclip) package, which is easily installable on most distributions (e.g., `sudo apt-get install xclip`).
 
 ## Installation
 
@@ -116,7 +115,7 @@ Custom checklists must follow the same schema as `checklist.yml`. There must be 
 
 ```
 title: TITLE
-sections: 
+sections:
   - title: SECTION TITLE
     section_id: SECTION NUMBER
     lines:
@@ -129,7 +128,7 @@ sections:
 
 Please see [the framing](#background-and-perspective) for an understanding of our perspective. Given this perspective, we will consider changes to the default checklist that fit with that perspective and follow this process.
 
-Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data"). 
+Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
 **Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
 
