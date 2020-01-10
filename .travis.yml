@@ -6,12 +6,17 @@ jobs:
     - name: "Python 3.6 on Linux"
       os: linux
       python: 3.6
+      script:
+        - make examples
+        - make docs
     - name: "Python 3.8 on Linux"
       os: linux
       python: 3.8
     - name: "Python 3 stable on macOS"
       os: osx
       language: shell       # 'language: python' isn't directly supported by Travis CI for osx
+      before_install:
+        - brew upgrade python
     - name: "Python 3.8 on Windows"
       os: windows
       language: shell       # 'language: python' isn't directly supported by Travis CI for windows
@@ -24,7 +29,7 @@ install:
   - pip install -r dev-requirements.txt
 
 script:
-  - make test && make examples && make docs
+  - make test
 
 # Build fails as soon as any job fails
 # https://blog.travis-ci.com/2013-11-27-fast-finishing-builds
