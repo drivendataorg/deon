@@ -25,7 +25,7 @@ docs: render_markdown
 	cd docs && mkdocs build
 
 test: lint
-	py.test -vv
+	pytest -vv
 
 lint:
 	flake8 .
