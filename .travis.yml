@@ -12,13 +12,12 @@ jobs:
     - name: "Python 3 stable on macOS"
       os: osx
       language: shell       # 'language: python' isn't directly supported by Travis CI for osx
-      before_install:
-        - brew install python
     - name: "Python 3.8 on Windows"
       os: windows
       language: shell       # 'language: python' isn't directly supported by Travis CI for windows
       before_install:
         - choco install python3 --version 3.8
+        - choco install make
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
 install:
