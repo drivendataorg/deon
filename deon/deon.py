@@ -4,9 +4,9 @@ from pathlib import Path
 from .formats import EXTENSIONS, FORMATS
 from .parser import Checklist
 
-DEFAULT_CHECKLIST = Path(__file__).parent / 'assets' / 'checklist.yml'
+DEFAULT_CHECKLIST = Path(__file__).parent / "assets" / "checklist.yml"
 
-CHECKLIST_FILE = Path(os.environ.get('ETHICS_CHECKLIST', DEFAULT_CHECKLIST))
+CHECKLIST_FILE = Path(os.environ.get("ETHICS_CHECKLIST", DEFAULT_CHECKLIST))
 
 
 class ExtensionException(Exception):
@@ -36,7 +36,7 @@ def create(checklist, output_format, output, overwrite):
         if output_format not in FORMATS:
             raise FormatException(output_format)
     else:
-        output_format = 'markdown'
+        output_format = "markdown"
 
     template = FORMATS[output_format](cl)
 
