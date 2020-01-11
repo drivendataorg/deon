@@ -24,14 +24,14 @@ def test_cli_errors(runner, arg, value, expected):
 
 
 def test_cli_default(runner, checklist):
-    result = runner.invoke(main, ['--checklist', checklist])
+    result = runner.invoke(main, ["--checklist", checklist])
     assert result.exit_code == 0
     assert assets.known_good_markdown in result.output
 
 
-@pytest.mark.parametrize("arg", ['--output', '-o'])
+@pytest.mark.parametrize("arg", ["--output", "-o"])
 def test_cli_output(runner, checklist, tmpdir, test_format_configs, arg):
-    temp_file_path = tmpdir.join('checklist.html')
-    result = runner.invoke(main, ['--checklist', checklist, arg, temp_file_path])
+    temp_file_path = tmpdir.join("checklist.html")
+    result = runner.invoke(main, ["--checklist", checklist, arg, temp_file_path])
     assert result.exit_code == 0
     assert temp_file_path.read() == assets.known_good_html

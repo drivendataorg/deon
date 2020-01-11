@@ -5,19 +5,41 @@ from .deon import ExtensionException, FormatException, create
 from .formats import EXTENSIONS
 
 
-@click.command('deon')
-@click.option('--checklist', '-l', default=None, type=click.Path(exists=True),
-              help='Override default checklist file with a path to a custom checklist.yml file.')
-@click.option('--format', '-f', 'output_format', default=None, type=str,
-              help='Output format. Default is "markdown". ' +
-                   'Can be one of [{}]. '.format(', '.join(EXTENSIONS.values())) +
-                   'Ignored and file extension used if --output is passed.')
-@click.option('--output', '-o', default=None, type=click.Path(),
-              help='Output file path. Extension can be one of [{}] '.format(', '.join(EXTENSIONS.keys())) +
-                   'The checklist is appended if the file exists.')
-@click.option('--overwrite', '-w', is_flag=True, default=False, help='Overwrite output file if it exists. \
+@click.command("deon")
+@click.option(
+    "--checklist",
+    "-l",
+    default=None,
+    type=click.Path(exists=True),
+    help="Override default checklist file with a path to a custom checklist.yml file.",
+)
+@click.option(
+    "--format",
+    "-f",
+    "output_format",
+    default=None,
+    type=str,
+    help='Output format. Default is "markdown". '
+    + "Can be one of [{}]. ".format(", ".join(EXTENSIONS.values()))
+    + "Ignored and file extension used if --output is passed.",
+)
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    type=click.Path(),
+    help="Output file path. Extension can be one of [{}] ".format(", ".join(EXTENSIONS.keys()))
+    + "The checklist is appended if the file exists.",
+)
+@click.option(
+    "--overwrite",
+    "-w",
+    is_flag=True,
+    default=False,
+    help="Overwrite output file if it exists. \
                                                                       Default is False , which will append \
-                                                                      to existing file.')
+                                                                      to existing file.",
+)
 def main(checklist, output_format, output, overwrite):
     """Easily create an ethics checklist for your data science project.
 
@@ -27,7 +49,7 @@ def main(checklist, output_format, output, overwrite):
         result = create(checklist, output_format, output, overwrite)
     except ExtensionException:
         with click.get_current_context() as ctx:
-            msg = 'Output requires a file name with a supported extension.\n\n'
+            msg = "Output requires a file name with a supported extension.\n\n"
             raise click.ClickException(msg + ctx.get_help())
     except FormatException:
         with click.get_current_context() as ctx:
@@ -41,5 +63,5 @@ def main(checklist, output_format, output, overwrite):
             click.echo(f"Checklist successfully written to file {output}.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -10,32 +10,30 @@ from deon.formats import Markdown, EXTENSIONS
 from deon.parser import Checklist
 
 
-env = Environment(
-    loader=FileSystemLoader('md_templates'),
-)
+env = Environment(loader=FileSystemLoader("md_templates"),)
 
 TEMPLATE_AND_OUTPUT = {
-    'index.tpl': Path('docs/index.md'),
-    'examples.tpl': Path('docs/examples.md'),
-    'readme.tpl': Path('../README.md'),
+    "index.tpl": Path("docs/index.md"),
+    "examples.tpl": Path("docs/examples.md"),
+    "readme.tpl": Path("../README.md"),
 }
 
 
 def create_context():
-    cl = Checklist.read(Path(__file__).absolute().parents[1] / 'deon' / 'assets' / 'checklist.yml')
+    cl = Checklist.read(Path(__file__).absolute().parents[1] / "deon" / "assets" / "checklist.yml")
     checklist_template = Markdown(cl)
     rendered_checklist = checklist_template.render()
 
     runner = CliRunner()
-    result = runner.invoke(deon_command, ['--help'])
+    result = runner.invoke(deon_command, ["--help"])
 
     table = make_table_of_links()
 
     return {
-        'default_checklist': rendered_checklist,
-        'cli_options': result.output,
-        'supported_formats': EXTENSIONS,
-        'links_table': table,
+        "default_checklist": rendered_checklist,
+        "cli_options": result.output,
+        "supported_formats": EXTENSIONS,
+        "links_table": table,
     }
 
 
@@ -44,16 +42,16 @@ def make_table_of_links():
     Generates table where lefthand column contains checklist items (from checklist.yml) and righthand column contains
     hyperlinks to examples where things have gone wrong (from examples.yml). Table appears in docs/docs/examples.md.
     """
-    root = Path(__file__).absolute().parents[1] / 'deon' / 'assets'
+    root = Path(__file__).absolute().parents[1] / "deon" / "assets"
 
-    cl = Checklist.read(root / 'checklist.yml')
+    cl = Checklist.read(root / "checklist.yml")
 
-    with open(root / 'examples_of_ethical_issues.yml', 'r') as f:
+    with open(root / "examples_of_ethical_issues.yml", "r") as f:
         refs = yaml.load(f, Loader=yaml.SafeLoader)
 
     refs_dict = dict()
     for r in refs:
-        refs_dict[r['line_id']] = r['links']
+        refs_dict[r["line_id"]] = r["links"]
 
     template = """<center>Checklist Question</center> | <center>Examples of Ethical Issues</center>
 --- | ---
@@ -73,15 +71,18 @@ def make_table_of_links():
             # create bulleted list of links for each checklist item in that section
             bulleted_list = []
             for link in refs_dict[l.line_id]:
-                text = link['text']
-                url = link['url']
+                text = link["text"]
+                url = link["url"]
                 bullet_hyperlink = f"<li>[{text}]({url})</li>"
                 bulleted_list.append(bullet_hyperlink)
-            formatted_bullets = ''.join(bulleted_list)
+            formatted_bullets = "".join(bulleted_list)
 
-            row = (line_template.format(
-                    line_id=l.line_id, line_summary=l.line_summary, line=l.line,
-                    row_text=f"<ul>{formatted_bullets}</ul>"))
+            row = line_template.format(
+                line_id=l.line_id,
+                line_summary=l.line_summary,
+                line=l.line,
+                row_text=f"<ul>{formatted_bullets}</ul>",
+            )
             formatted_rows.append(row)
 
     # bring all the rows together
@@ -96,10 +97,9 @@ def main():
     for t, o in TEMPLATE_AND_OUTPUT.items():
         tmpl = env.get_template(t)
 
-        with open(o, 'w') as f:
-            (tmpl.stream(**ctx)
-                 .dump(f))
+        with open(o, "w") as f:
+            (tmpl.stream(**ctx).dump(f))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

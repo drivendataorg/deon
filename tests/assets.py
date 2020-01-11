@@ -1,4 +1,4 @@
-existing_text = 'There is existing text in this file.'
+existing_text = "There is existing text in this file."
 
 known_good_ascii = """My Checklist
 
@@ -46,30 +46,33 @@ B. Second section
 
 *Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_."""
 
-known_good_jupyter = ({
-    'nbformat': 4,
-    'nbformat_minor': 2,
-    'metadata': {},
-    'cells': [
-        {'cell_type': 'markdown',
-                       'metadata': {},
-                       'source': ['# My Checklist\n',
-                                  '\n',
-                                  '[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)\n',  # noqa: E501
-                                  '\n',
-                                  '## A. First section\n',
-                                  ' - [ ] **A.1 A1sum**: First A line\n',
-                                  ' - [ ] **A.2 A2sum**: Second A line\n',
-                                  '\n',
-                                  '## B. Second section\n',
-                                  ' - [ ] **B.1 B1sum**: First B line\n',
-                                  ' - [ ] **B.2 B2sum**: Second B line\n',
-                                  '\n',
-                                  "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
-                                  "\n"
-                                  ]}
-    ]
-})
+known_good_jupyter = {
+    "nbformat": 4,
+    "nbformat_minor": 2,
+    "metadata": {},
+    "cells": [
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "# My Checklist\n",
+                "\n",
+                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)\n",  # noqa: E501
+                "\n",
+                "## A. First section\n",
+                " - [ ] **A.1 A1sum**: First A line\n",
+                " - [ ] **A.2 A2sum**: Second A line\n",
+                "\n",
+                "## B. Second section\n",
+                " - [ ] **B.1 B1sum**: First B line\n",
+                " - [ ] **B.2 B2sum**: Second B line\n",
+                "\n",
+                "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"
+                "\n",
+            ],
+        }
+    ],
+}
 
 known_good_html = """<html>
  <body>
