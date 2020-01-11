@@ -3,6 +3,7 @@
 -e .
 
 flake8
+black
 jinja2==2.10.1
 mkdocs==1.0.1
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
