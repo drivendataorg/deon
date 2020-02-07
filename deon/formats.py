@@ -170,6 +170,28 @@ class JupyterNotebook(Markdown):
             json.dump(nbdata, f)
 
 
+class JupyterNotebookMulticell(JupyterNotebook):
+    """ Jupyter notebook multiple cell format
+    """
+
+    def render(self):
+        text = super(JupyterNotebook, self).render()
+        checklist_cells = [
+            {"cell_type": "markdown", "metadata": {}, "source": [line]}
+            for line in text.split("\n")
+            if line != ""
+        ]
+
+        blank_jupyter_notebook = {
+            "nbformat": 4,
+            "nbformat_minor": 2,
+            "metadata": {},
+            "cells": checklist_cells,
+        }
+
+        return JsonDict(blank_jupyter_notebook)
+
+
 class Html(Format):
     """HTML template items"""
 
@@ -245,6 +267,7 @@ FORMATS = {
     "ascii": Format,
     "html": Html,
     "jupyter": JupyterNotebook,
+    "jupyter-multicell": JupyterNotebookMulticell,
     "markdown": Markdown,
     "rmarkdown": Markdown,
     "rst": Rst,

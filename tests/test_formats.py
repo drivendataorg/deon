@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 from deon.parser import Checklist, Section, Line
-from deon.formats import Format, Markdown, JupyterNotebook, Html, Rst
+from deon.formats import Format, Markdown, JupyterNotebook, JupyterNotebookMulticell, Html, Rst
 
 import assets
 
@@ -119,6 +119,39 @@ def test_jupyter(checklist, tmpdir):
     assert nbdata["cells"][0] == known_good["cells"][0]
     assert nbdata["cells"][1] == JupyterNotebook.append_delimiter
     assert nbdata["cells"][0] == nbdata["cells"][-1]
+
+    # overwrite existing file
+    j.write(temp_file_path, overwrite=True)
+    with open(temp_file_path, "r") as f:
+        nbdata = json.load(f)
+    print(json.dumps(nbdata, indent=4))
+    assert nbdata == known_good
+
+
+def test_jupyter_multicell(checklist, tmpdir):
+    known_good = assets.known_good_jupyter_multicell
+
+    j = JupyterNotebookMulticell(checklist)
+    assert j.render() == known_good
+    temp_file_path = tmpdir.join("test.ipynb")
+
+    # no existing file
+    j.write(temp_file_path)
+    with open(temp_file_path, "r") as f:
+        nbdata = json.load(f)
+    assert nbdata == known_good
+
+    # append to existing file
+    j.write(temp_file_path, overwrite=False)
+    with open(temp_file_path, "r") as f:
+        nbdata = json.load(f)
+    known_good_length = len(known_good["cells"])
+    # length should be prev checklist + delimiter + new checklist
+    assert len(nbdata["cells"]) == known_good_length * 2 + 1
+    assert nbdata["cells"][known_good_length] == JupyterNotebook.append_delimiter
+    for index, cell in enumerate(known_good["cells"]):
+        assert nbdata["cells"][index] == cell
+        assert nbdata["cells"][index + known_good_length + 1] == cell
 
     # overwrite existing file
     j.write(temp_file_path, overwrite=True)

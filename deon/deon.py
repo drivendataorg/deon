@@ -17,7 +17,11 @@ class FormatException(Exception):
     pass
 
 
-def create(checklist, output_format, output, overwrite):
+class MulticellException(Exception):
+    pass
+
+
+def create(checklist, output_format, output, overwrite, multicell):
     # load checklist
     cl_path = Path(checklist) if checklist else DEFAULT_CHECKLIST
     cl = Checklist.read(cl_path)
@@ -37,6 +41,12 @@ def create(checklist, output_format, output, overwrite):
             raise FormatException(output_format)
     else:
         output_format = "markdown"
+
+    # multicell flag
+    if multicell:
+        if not output_format == "jupyter":
+            raise MulticellException(output_format)
+        output_format = "jupyter-multicell"
 
     template = FORMATS[output_format](cl)
 
