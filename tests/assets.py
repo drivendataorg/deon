@@ -74,6 +74,51 @@ known_good_jupyter = {
     ],
 }
 
+known_good_jupyter_multicell = {
+    "nbformat": 4,
+    "nbformat_minor": 2,
+    "metadata": {},
+    "cells": [
+        {"cell_type": "markdown", "metadata": {}, "source": ["# My Checklist"]},
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)",  # noqa: E501
+            ],
+        },
+        {"cell_type": "markdown", "metadata": {}, "source": ["## A. First section"]},
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [" - [ ] **A.1 A1sum**: First A line"],
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [" - [ ] **A.2 A2sum**: Second A line"],
+        },
+        {"cell_type": "markdown", "metadata": {}, "source": ["## B. Second section"]},
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [" - [ ] **B.1 B1sum**: First B line"],
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [" - [ ] **B.2 B2sum**: Second B line"],
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*",
+            ],
+        },
+    ],
+}
+
 known_good_html = """<html>
  <body>
   <h1>

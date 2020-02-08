@@ -124,11 +124,13 @@ Options:
                         [ascii, html, jupyter, markdown, rmarkdown, rst].
                         Ignored and file extension used if --output is passed.
   -o, --output PATH     Output file path. Extension can be one of [.txt, .html,
-                        .ipynb, .md, .rmd, .rst] The checklist is appended if
+                        .ipynb, .md, .rmd, .rst]. The checklist is appended if
                         the file exists.
-  -w, --overwrite       Overwrite output file if it exists.
-                        Default is False , which will append
-                        to existing file.
+  -w, --overwrite       Overwrite output file if it exists. Default is False,
+                        which will append to existing file.
+  -m, --multicell       For use with Jupyter format only. Write checklist with
+                        multiple cells, one item per cell. Default is False,
+                        which will write the checklist in a single cell.
   --help                Show this message and exit.
 
 ```
