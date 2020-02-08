@@ -32,7 +32,7 @@ setup(
         "Source Code": "https://github.com/drivendataorg/deon",
         "DrivenData": "http://drivendata.co",
     },
-    version="0.2.0",
+    version="0.2.1",
     author="DrivenData",
     author_email="info@drivendata.org",
     include_package_data=True,
