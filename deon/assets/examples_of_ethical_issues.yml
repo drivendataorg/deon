@@ -1,5 +1,7 @@
 - line_id: A.1
   links:
+    - text: Facebook uses phone numbers provided for two-factor authentication to target users with ads.
+      url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
     - text: African-American men were enrolled in the Tuskagee Study on the progression of syphilis without being told the true purpose of the study or that treatment for syphilis was being withheld.
       url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
 - line_id: A.2
@@ -9,7 +11,7 @@
     - text: Facial recognition cameras used for passport control register Asian's eyes as closed.
       url: http://content.time.com/time/business/article/0,8599,1954643,00.html
 - line_id: A.3
-  links: 
+  links:
     - text: Personal information on taxi drivers can be accessed in poorly anonymized taxi trips dataset released by New York City.
       url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
     - text: Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.
@@ -36,6 +38,8 @@
       url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
 - line_id: C.2
   links:
+    - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients, assigning them lower risk scores compared to equivalently sick white patients.
+      url: https://science.sciencemag.org/content/366/6464/447
     - text: word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
     - text: -- Related academic study.
@@ -111,7 +115,7 @@
     - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology.
       url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
 - line_id: E.3
-  links: 
+  links:
     - text: Sending police officers to areas of high predicted crime skews future training data collection as police are repeatedly sent back to the same neighborhoods regardless of the true crime rate.
       url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
     - text: -- Related academic study.
