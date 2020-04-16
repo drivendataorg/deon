@@ -39,6 +39,8 @@
 - line_id: C.2
   links:
     - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients, assigning them lower risk scores compared to equivalently sick white patients.
+      url: https://www.nature.com/articles/d41586-019-03228-6
+    - text: -- Related academic study.
       url: https://science.sciencemag.org/content/366/6464/447
     - text: word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
