@@ -18,7 +18,9 @@ class Checklist(object):
 
         sections = []
         for s in data["sections"]:
-            lines = [Line(l["line_id"], l["line_summary"], l["line"]) for l in s["lines"]]
+            lines = [
+                Line(line["line_id"], line["line_summary"], line["line"]) for line in s["lines"]
+            ]
             sections.append(Section(s["title"], s["section_id"], lines))
 
         return cls(title, sections)

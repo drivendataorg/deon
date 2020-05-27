@@ -41,9 +41,9 @@ class Format(object):
             rendered_lines = self.line_delimiter.join(
                 [
                     self.line_template.format(
-                        line_id=l.line_id, line_summary=l.line_summary, line=l.line
+                        line_id=line.line_id, line_summary=line.line_summary, line=line.line
                     )
-                    for l in section.lines
+                    for line in section.lines
                 ]
             )
 
@@ -137,7 +137,7 @@ class JupyterNotebook(Markdown):
         checklist_cell = {
             "cell_type": "markdown",
             "metadata": {},
-            "source": [l + "\n" for l in text.split("\n")],
+            "source": [line + "\n" for line in text.split("\n")],
         }
 
         blank_jupyter_notebook = {
