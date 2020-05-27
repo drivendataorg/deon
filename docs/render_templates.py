@@ -67,10 +67,10 @@ def make_table_of_links():
         row = section_title_template.format(section_title=s.title)
         formatted_rows.append(row)
 
-        for l in s.lines:
+        for line in s.lines:
             # create bulleted list of links for each checklist item in that section
             bulleted_list = []
-            for link in refs_dict[l.line_id]:
+            for link in refs_dict[line.line_id]:
                 text = link["text"]
                 url = link["url"]
                 bullet_hyperlink = f"<li>[{text}]({url})</li>"
@@ -78,9 +78,9 @@ def make_table_of_links():
             formatted_bullets = "".join(bulleted_list)
 
             row = line_template.format(
-                line_id=l.line_id,
-                line_summary=l.line_summary,
-                line=l.line,
+                line_id=line.line_id,
+                line_summary=line.line_summary,
+                line=line.line,
                 row_text=f"<ul>{formatted_bullets}</ul>",
             )
             formatted_rows.append(row)
