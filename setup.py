@@ -32,11 +32,7 @@ setup(
         "Source Code": "https://github.com/drivendataorg/deon",
         "DrivenData": "http://drivendata.co",
     },
-<<<<<<< HEAD
     version="0.2.1",
-=======
-    version="0.2.0",
->>>>>>> bb208a5... Formatted files with black
     author="DrivenData",
     author_email="info@drivendata.org",
     include_package_data=True,

@@ -50,6 +50,12 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 $ pip install deon
 ```
 
+or
+
+```
+$ conda install deon -c conda-forge
+```
+
 ## Simple usage
 
 We recommend adding a checklist as the first step in your data science project. After creating your project folder, you could run:

@@ -1,6 +1,6 @@
 <a href="http://deon.drivendata.org/"><img src="https://s3.amazonaws.com/drivendata-public-assets/deon.png" width=200/></a>
 
-[![Build Status](https://travis-ci.org/drivendataorg/deon.svg?branch=master)](https://travis-ci.org/drivendataorg/deon) [![PyPI](https://img.shields.io/pypi/v/deon.svg)](https://pypi.org/project/deon/)
+[![Build Status](https://travis-ci.org/drivendataorg/deon.svg?branch=master)](https://travis-ci.org/drivendataorg/deon) [![PyPI](https://img.shields.io/pypi/v/deon.svg)](https://pypi.org/project/deon/) [![Conda Version](https://img.shields.io/conda/vn/conda-forge/deon.svg)](https://anaconda.org/conda-forge/deon)
 
  > [Read more about `deon` on the project homepage](http://deon.drivendata.org/)
 
@@ -55,6 +55,12 @@ Ninth, we want all the checklist items to be as simple as possible (but no simpl
 
 ```
 $ pip install deon
+```
+
+or
+
+```
+$ conda install deon -c conda-forge
 ```
 
 ## Simple usage
