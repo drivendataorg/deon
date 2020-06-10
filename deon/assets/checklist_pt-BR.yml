@@ -1,0 +1,78 @@
+title: Checklist de Ética na Ciência de Dados
+sections: 
+  - title: Coleta de dados
+    section_id: A
+    lines:
+        - line_id: A.1
+          line_summary: Consentimento informado
+          line: se houver sujeitos humanos, eles deram consentimento informado, onde os sujeitos afirmativamente optaram por se inscrever e têm uma compreensão clara dos usos dos dados para que consentiram?
+        - line_id: A.2
+          line_summary: Viés de coleta
+          line: Consideramos as fontes de viés que poderiam ser introduzidas durante a coleta de dados e o desenho da pesquisa e tomamos medidas para mitigá-los?
+        - line_id: A.3
+          line_summary: Limitação de exposição de IIP
+          line: Consideramos maneiras de minimizar a exposição de informação de identificação pessoal (IIP), por exemplo através de anonimização ou por não coletar informação irrelevante para a análise?
+  - title: Armazenamento de dados
+    section_id: B
+    lines:
+        - line_id: B.1
+          line_summary: Segurança de dados
+          line: Temos um plano para proteger e dar segurança aos dados (por exemplo, criptografia no armazenamento e em trânsito, controles de acesso dos usuários internos e terceiros, registros de acesso e softwares atualizados)?
+        - line_id: B.2
+          line_summary: Direito ao esquecimento
+          line: Temos um mecanismo pelo qual um indivíduo pode requerer a remoção de sua informação pessoal?
+        - line_id: B.3
+          line_summary: Plano de retenção de dados
+          line: Há uma agenda ou plano para apagar os dados uma vez que não seja mais necessário?
+  - title: Análise
+    section_id: C
+    lines:
+        - line_id: C.1
+          line_summary: Perspectivas faltantes
+          line: buscamos abordar pontos-cegos na análise através de reuniões com partes interessadas (por exemplo, checando presunções e discutindo as implicações com as comunidades afetadas e especialistas na matéria)?
+        - line_id: C.2
+          line_summary: Viés do conjunto de dados
+          line: Examinamos os dados para possíveis fontes de viés e tomamos medidas para mitigar ou abordar esses vieses (por exemplo, perpetuação de estereótipos, viés de confirmação, classes desequilibradas ou omissão de variáveis de confusão)?
+        - line_id: C.3
+          line_summary: Representação honesta
+          line: Nossas visualizações, sumários estatísticos e relatórios são desenhados de forma a honestamente representar os dados que lhes embasam?
+        - line_id: C.4
+          line_summary: Privacidade na análise
+          line: Nos certificamos de de que os dados com IIP não são usados ou mostrados a não ser que necessários para a análise?
+        - line_id: C.5
+          line_summary: Auditabilidade
+          line: O processo de geração da análise é bem documentado e reproduzível se descobrirmos problemas futuramente?
+  - title: Modelagem
+    section_id: D
+    lines:
+        - line_id: D.1
+          line_summary: Discriminação por procuração
+          line: Nos certificamos de que o modelos não depende de variáveis ou representantes de variáveis que são injustamente discriminatórias?
+        - line_id: D.2
+          line_summary: Justiça entre grupos
+          line: Testamos os resultados de modelos para justiça com respeito a diferentes grupos afetados (por exemplo, testamos para taxas de erro díspares)?
+        - line_id: D.3
+          line_summary: Seleção de métrica:
+          line: Consideramos os efeitos da otimização para nossa métrica definida e consideramos métricas adicionais?
+        - line_id: D.4
+          line_summary: Explicabilidade
+          line: Podemos explicar em termos compreensíveis uma decisão que o modelo fez em casos onde uma justificativa seja necessária?
+        - line_id: D.5
+          line_summary: Viés de comunicação
+          line: Consideramos os entraves, limitações e vieses do modelo para partes interessadas relevantes de formas que possam ser geralmente compreendidas?
+  - title: Desdobramento
+    section_id: E
+    lines:
+        - line_id: E.1
+          line_summary: Revisitação
+          line: Discutimos com nossa organização um plano de resposta se os usuários forem afetados negativamente pelos resultados (por exemplo, como a equipe de ciência de dados avalia esses casos e aprimora as análises e modelos para evitar futuros danos)?
+        - line_id: E.2
+          line_summary: Reversão
+          line: Há uma maneira de desligar ou reverter o modelo em produção se necessário?
+        - line_id: E.3
+          line_summary: Deriva de conceitos
+          line: Testamos e monitoramos a deriva de conceitos para nos certificar de que o modelo permanece justo ao longo do tempo?
+        - line_id: E.4
+          line_summary: Usos não intencionais
+          line: Tomamos medidas para identificar e prevenir usos não intencionais e abuso do modelo e temos um plano para monitorar tudo isso uma vez que o modelo seja entregue?
+
