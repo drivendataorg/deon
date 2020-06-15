@@ -1,0 +1,130 @@
+- line_id: A.1
+  links:
+    - text: o Facebook usa os números de telefone fornecidos para autenticação em dois fatores para fazer anúncios específicos aos usuários
+      url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
+    - text: homens Afro-Americanos foram inscritos no Estudo Tuskagee sobre a progressão da sífilis sem que tivessem ciência do real propósito do estudo ou de que não estavam recebendo tratamento para a sífilis.
+      url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
+- line_id: A.2
+  links:
+    - text: StreetBump, um aplicativo de celular para detectar buracos na via, pode deixar de direcionar recursos públicos para áreas onde a penetração de telefones celulares seja mais baixa, como áreas de renda mais baixa ou com uma parcela maior de idosos na população.
+      url: https://hbr.org/2013/04/the-hidden-biases-in-big-data
+    - text: o reconhecimento facial por câmeras usado para controle de passaporte registra Asiáticos como se seus olhos estivessem fechados.
+      url: http://content.time.com/time/business/article/0,8599,1954643,00.html
+- line_id: A.3
+  links:
+    - text: informações pessoais de taxistas podem ser acessadas em dados fracamente anonimizados liberados pela Cidade de Nova Iorque.
+      url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
+    - text: os dados de rankings de filmes do Netflix são facilmente desanonimizados por referência cruzada com outros dados publicamente disponíveis.
+      url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+- line_id: B.1
+  links:
+    - text: dados pessoais e financeiros de mais de 146 milhões de pessoas foram roubados no vazamento de dados da Equifax.
+      url: https://www.nbcnews.com/news/us-news/equifax-breaks-down-just-how-bad-last-year-s-data-n872496
+    - text: a Cambridge Analytica colheu informações privadas de mais de 50 milhões de perfis do Facebook sem a permissão dos usuários.
+      url: https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html
+    - text: a AOL acidentalmente liberou 20 milhões de buscas de 658 mil clientes.
+      url: https://www.wired.com/2006/08/faq-aols-search-gaffe-and-you/
+- line_id: B.2
+  links:
+    - text: a Lei Geral de Proteção de Dados da União Europeia (GDPR) inclui o “direito ao esquecimento”.
+      url: https://www.eugdpr.org/the-regulation.html
+- line_id: B.3
+  links:
+    - text: o FedEx expôs informações privadas de milhares de consumidores depois que um servidor s3 legado foi deixado aberto sem senha.
+      url: https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/
+- line_id: C.1
+  links:
+    - text: quando o Apple HealthKit foi lançado em 2014, as mulheres não podiam acompanhar a menstruação.
+      url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
+- line_id: C.2
+  links:
+    - text: um algoritmo comercial largamente utilizado no ramo de saúde subestima as necessidades de cuidado de pacientes negros, atribuindo a eles pontuação de risco inferiores aos de pacientes brancos equivalentemente doentes.
+      url: https://www.nature.com/articles/d41586-019-03228-6
+    - text: -- estudo acadêmico relacionado.
+      url: https://science.sciencemag.org/content/366/6464/447
+    - text: o word2vec, treinado no corpus do Google News, reforça estereótipos de gênero.
+      url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
+    - text: -- estudo acadêmico relacionado.
+      url: https://arxiv.org/abs/1607.06520
+    - text: é mais provável que mulheres vejam ofertas de emprego de menor salário que os homens nos anúncios Google.
+      url: https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study
+- line_id: C.3
+  links:
+    - text: um gráfico enganoso mostrado na audiência da Planned Parenthood distorceu as reais tendências de exames e serviços de prevenção de aborto vs câncer.
+      url: https://www.politifact.com/truth-o-meter/statements/2015/oct/01/jason-chaffetz/chart-shown-planned-parenthood-hearing-misleading-/
+- line_id: C.4
+  links:
+    - text: o mapa de calor das rotas de exercício do Strava revela informações sensíveis sobre bases militares e postos de espionagem.
+      url: https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases
+- line_id: C.5
+  links:
+    - text: um erro de Excel num artigo bem conhecido de economia desgasta a justificativa das medidas de austeridade.
+      url: https://www.bbc.com/news/magazine-22223190
+- line_id: D.1
+  links:
+    - text: em seis grandes cidades, os serviços de entrega no mesmo dia da Amazon excluem bairros predominantemente negros.
+      url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
+    - text: variáveis usadas para predizer abuso e negligência infantis são medidas diretas de pobreza, visando de forma injusta famílias de baixa renda para escrutínio.
+      url: https://www.wired.com/story/excerpt-from-automating-inequality/
+    - text: ferramenta de inteligência artificial de recrutamento da Amazon demonstrou viés contra mulheres.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
+    - text: análise de risco de sentenciamento criminal não pergunta diretamente sobre raça ou renda, mas outros fatores demográficos podem acabar servindo de apontamento indireto.
+      url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
+    - text: algoritmos de concessão de créditos baseados em critérios não tradicionais como hábitos gramaticais, lojas preferidas e pontuações de crédito de amigos podem perpetuar vieses sistêmicos.
+      url: https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
+- line_id: D.2
+  links:
+    - text: o Google Fotos rotulou dois Afro-Americanos como gorilas.
+      url: https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
+    - text: com o COMPAS, um algoritmo de análise de risco utilizado no sentenciamento criminal, réus negros têm quase o dobro da probabilidade de serem falsamente rotulados como prováveis reincidentes.
+      url: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+    - text: -- contraponto da Northpointe ao artigo da ProPublica.
+      url: https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html
+    - text: -- estudo acadêmico relacionado.
+      url: https://www.liebertpub.com/doi/pdf/10.1089/big.2016.0047
+    - text: o software de reconhecimento de voz da Google não reconhece vozes femininas tão bem quanto masculinas.
+      url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
+    - text: o software de reconhecimento facial é significativamente pior para identificar pessoas com pele mais escura.
+      url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
+    - text: -- estudo acadêmico relacionado.
+      url: http://proceedings.mlr.press/v81/buolamwini18a.html
+    - text: as buscas no Google envolvendo nomes tipicamente negros têm maior chance de mostrar anúncios sugestivos de uma ficha criminal do que nomes tipicamente brancos.
+      url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
+    - text: -- estudo acadêmico relacionado.
+      url: https://arxiv.org/abs/1301.6822
+- line_id: D.3
+  links:
+    - text: o Facebook busca otimizar o “tempo bem gasto”, priorizando interação à popularidade.
+      url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
+    - text: o auto-preenchimento da busca do Youtube sugere frases pedófilas por conta da grande visualização de vídeos relacionados.
+      url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
+- line_id: D.4
+  links:
+    - text: pacientes com pneumonia com histórico de asma são normalmente admitivos na UTI porque têm um risco maior de morrer de pneumonia. Dado o sucesso do tratamento intensivo, as redes neurais predisseram que os asmáticos têm um baixo risco de morte e poderiam portanto ser mandados pra casa. Sem modelos explicativos para identificar esse problema, pacientes podem ter sido mandados pra casa pra morrer.
+      url: http://people.dbmi.columbia.edu/noemie/papers/15kdd.pdf
+    - text: a GDPR inclui um “direito à explicação”, ou seja, informação significativa da lógica por trás de decisões automáticas.
+      url: https://academic.oup.com/idpl/article/7/4/233/4762325
+- line_id: D.5
+  links:
+    - text: o Google Flu afirmou predizer de forma precisa a atividade semanal da gripe, só que perdeu a pandemia de gripe A/H1N1 de 2009.
+      url: https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/#6fa6a1925535
+- line_id: E.1
+  links:
+    - text: erros de software resultaram no corte de cuidados de saúde para pessoas diabéticas ou com paralisia cerebral.
+      url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
+- line_id: E.2
+  links:
+    - text: o Google “consertou” o algoritmo racista removendo os gorilas da tecnologia de rotulagem de imagens.
+      url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
+- line_id: E.3
+  links:
+    - text: mandar policiais para áreas previstas como de alto crime enviesa a futura coleta de dados de treinamento já que a polícia é repetidamente enviada para os mesmos bairros independentemente da verdadeira taxa de criminalidade.
+      url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
+    - text: -- estudo acadêmico relacionado.
+      url: https://arxiv.org/abs/1706.09847
+- line_id: E.4
+  links:
+    - text: Tay, o chatbot do Twitter da Microsoft, rapidamente se tornou racista.
+      url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
+    - text: os chamados Deepfakes - vídeos realistas, mas falsos, gerados com inteligência artificial - vão desde pornografia com celebridades a pronunciamentos presidenciais.
+      url: http://theweek.com/articles/777592/rise-deepfakes
