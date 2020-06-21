@@ -19,7 +19,7 @@ extra:
   extra_nav_links:
     Markdown: https://github.com/drivendataorg/deon/blob/master/examples/ethics.md
     HTML: https://github.com/drivendataorg/deon/blob/master/examples/ethics.html
-    Jupyter Notebok: https://github.com/drivendataorg/deon/blob/master/examples/ethics.ipynb
+    Jupyter Notebook: https://github.com/drivendataorg/deon/blob/master/examples/ethics.ipynb
     RST: https://github.com/drivendataorg/deon/blob/master/examples/ethics.rst
     Text: https://github.com/drivendataorg/deon/blob/master/examples/ethics.txt
 
