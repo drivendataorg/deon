@@ -1,4 +1,5 @@
 import pytest
+import subprocess
 from click.testing import CliRunner
 
 import assets
@@ -35,3 +36,9 @@ def test_cli_output(runner, checklist, tmpdir, test_format_configs, arg):
     result = runner.invoke(main, ["--checklist", checklist, arg, temp_file_path])
     assert result.exit_code == 0
     assert temp_file_path.read() == assets.known_good_html
+
+
+@pytest.mark.parametrize("call", [["deon"], ["python", "-m",  "deon"]])
+def test_base_call_no_error(call):
+    status = subprocess.run(call)
+    assert status.returncode == 0
