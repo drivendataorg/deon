@@ -1,4 +1,6 @@
 import pytest
+import subprocess
+import itertools as it
 from click.testing import CliRunner
 
 import assets
@@ -35,3 +37,15 @@ def test_cli_output(runner, checklist, tmpdir, test_format_configs, arg):
     result = runner.invoke(main, ["--checklist", checklist, arg, temp_file_path])
     assert result.exit_code == 0
     assert temp_file_path.read() == assets.known_good_html
+
+
+@pytest.mark.parametrize(
+    "call,format",
+    it.product(
+        [["deon"], ["python", "-m", "deon"]],
+        ["ascii", "html", "jupyter", "markdown", "rmarkdown", "rst"],
+    ),
+)
+def test_base_call_no_error(call, format):
+    status = subprocess.run(call + ["--format", format])
+    assert status.returncode == 0
