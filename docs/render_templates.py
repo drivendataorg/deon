@@ -97,7 +97,7 @@ def main():
     for t, o in TEMPLATE_AND_OUTPUT.items():
         tmpl = env.get_template(t)
 
-        with open(o, "w") as f:
+        with open(o, "w", encoding="utf-8") as f:
             (tmpl.stream(**ctx).dump(f))
 
 
