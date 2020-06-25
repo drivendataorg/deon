@@ -35,8 +35,3 @@ install:
 
 script:
   - make test
-
-# Build fails as soon as any job fails
-# https://blog.travis-ci.com/2013-11-27-fast-finishing-builds
-matrix:
-  fast_finish: true
