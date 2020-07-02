@@ -14,8 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
         os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: [3.6, 3.7, 3.8]
 
     steps:
 
@@ -34,6 +34,13 @@ jobs:
     - name: Lint and Test Package
       run: |
         make test
+
+    - name: Upload coverage to codecov
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == 3.8 }}
 
     - name: Test Building Docs
       run: |
