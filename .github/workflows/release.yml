@@ -54,7 +54,7 @@ jobs:
       with:
         tag_name: v${{ steps.build_package.outputs.version }}
         release_name: v${{ steps.build_package.outputs.version }}
-        draft: true
+        draft: false
 
     - name: Upload tarball to release
       uses: actions/upload-release-asset@v1
