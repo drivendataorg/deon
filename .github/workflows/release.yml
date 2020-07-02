@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: [ automate-release ]
+    branches: [ master ]
     paths:
       - "VERSION"
 
@@ -39,6 +39,14 @@ jobs:
         password: ${{ secrets.PYPI_TEST_PASSWORD }}
         repository_url: ${{ secrets.PYPI_TEST_REPOSITORY }}
         skip_existing: true
+
+    - name: Publish to Production PyPI
+      uses: pypa/gh-action-pypi-publish@v1.3.0
+      with:
+        user: ${{ secrets.PYPI_PROD_USERNAME }}
+        password: ${{ secrets.PYPI_PROD_PASSWORD }}
+        repository_url: ${{ secrets.PYPI_PROD_REPOSITORY }}
+        skip_existing: false
 
     - name: Tag commit
       uses: tvdias/github-tagger@v0.0.1
