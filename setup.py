@@ -23,6 +23,8 @@ requirements = load_reqs(req_path)
 
 long_description = open(Path(__file__).parent / "README.md").read()
 
+with (Path(__file__).parent / "VERSION").open("r") as fp:
+    version = fp.read().strip()
 
 setup(
     name="deon",
@@ -32,7 +34,7 @@ setup(
         "Source Code": "https://github.com/drivendataorg/deon",
         "DrivenData": "http://drivendata.co",
     },
-    version="0.2.1",
+    version=version,
     author="DrivenData",
     author_email="info@drivendata.org",
     include_package_data=True,
