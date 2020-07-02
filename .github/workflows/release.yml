@@ -1,0 +1,76 @@
+name: release
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "VERSION"
+
+jobs:
+  build:
+    name: Build and publish new release
+    runs-on: "ubuntu-latest"
+    if: github.repository == 'drivendataorg/deon'
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r dev-requirements.txt
+
+    - name: Build package
+      id: build_package
+      run: |
+        cat VERSION
+        echo "::set-output name=version::$(cat VERSION)"
+        make package
+
+    - name: Publish to Test PyPI
+      uses: pypa/gh-action-pypi-publish@v1.3.0
+      with:
+        user: ${{ secrets.PYPI_TEST_USERNAME }}
+        password: ${{ secrets.PYPI_TEST_PASSWORD }}
+        repository_url: ${{ secrets.PYPI_TEST_REPOSITORY }}
+        skip_existing: true
+
+    - name: Publish to Production PyPI
+      uses: pypa/gh-action-pypi-publish@v1.3.0
+      with:
+        user: ${{ secrets.PYPI_PROD_USERNAME }}
+        password: ${{ secrets.PYPI_PROD_PASSWORD }}
+        repository_url: ${{ secrets.PYPI_PROD_REPOSITORY }}
+        skip_existing: false
+
+    - name: Tag commit
+      uses: tvdias/github-tagger@v0.0.1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        tag: v${{ steps.build_package.outputs.version }}
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.build_package.outputs.version }}
+        release_name: v${{ steps.build_package.outputs.version }}
+        draft: false
+
+    - name: Upload tarball to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/deon-${{ steps.build_package.outputs.version }}.tar.gz
+        asset_name: deon-${{ steps.build_package.outputs.version }}.tar.gz
+        asset_content_type: application/gzip
