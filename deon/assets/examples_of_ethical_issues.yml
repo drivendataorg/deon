@@ -18,8 +18,8 @@
       url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
 - line_id: A.4
   links:
-    - text: Amazon scraps AI recruiting tool that showed bias against women.
-      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
+    - text: Reports of credit bias in Apple card credit limits spark negative press and investigation.
+      url: https://www.wired.com/story/the-apple-card-didnt-see-genderand-thats-the-problem/
     - text: Facial recognition software is significanty worse at identifying people with darker skin.
       url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
     - text: -- Related academic study.
@@ -90,6 +90,8 @@
       url: https://www.liebertpub.com/doi/pdf/10.1089/big.2016.0047
     - text: Google's speech recognition software doesn't recognize women's voices as well as men's.
       url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
+    - text: Amazon scraps AI recruiting tool that showed bias against women.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
     - text: Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names.
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
     - text: -- Related academic study.
