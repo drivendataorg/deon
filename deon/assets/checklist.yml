@@ -12,6 +12,9 @@ sections:
         - line_id: A.3
           line_summary: Limit PII exposure
           line: Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+        - line_id: A.4
+          line_summary: Downstream bias mitigation
+          line: Have we considered ways to include demographic data (e.g. race, gender) where possible to enable testing downstream results for biased outcomes?
   - title: Data Storage
     section_id: B
     lines:

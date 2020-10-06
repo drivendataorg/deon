@@ -16,6 +16,14 @@
       url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
     - text: Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.
       url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+- line_id: A.4
+  links:
+    - text: Amazon scraps AI recruiting tool that showed bias against women.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
+    - text: Facial recognition software is significanty worse at identifying people with darker skin.
+      url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
+    - text: -- Related academic study.
+      url: http://proceedings.mlr.press/v81/buolamwini18a.html 
 - line_id: B.1
   links:
     - text: Personal and financial data for more than 146 million people was stolen in Equifax data breach.
@@ -66,8 +74,6 @@
       url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
     - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
-    - text: Amazon scraps AI recruiting tool that showed bias against women.
-      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
     - text: Criminal sentencing risk asessments don't ask directly about race or income, but other demographic factors can end up being proxies.
       url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
     - text: Creditworthiness algorithms based on nontraditional criteria such as grammatic habits, preferred grocery stores, and friends' credit scores can perpetuate systemic bias.
@@ -84,10 +90,6 @@
       url: https://www.liebertpub.com/doi/pdf/10.1089/big.2016.0047
     - text: Google's speech recognition software doesn't recognize women's voices as well as men's.
       url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
-    - text: Facial recognition software is significanty worse at identifying people with darker skin.
-      url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
-    - text: -- Related academic study.
-      url: http://proceedings.mlr.press/v81/buolamwini18a.html
     - text: Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names.
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
     - text: -- Related academic study.
