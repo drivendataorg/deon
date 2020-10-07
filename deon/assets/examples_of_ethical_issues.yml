@@ -60,6 +60,8 @@
   links:
     - text: Misleading chart shown at Planned Parenthood hearing distorts actual trends of abortions vs. cancer screenings and preventative services.
       url: https://www.politifact.com/truth-o-meter/statements/2015/oct/01/jason-chaffetz/chart-shown-planned-parenthood-hearing-misleading-/
+    - text: Georgia Dept. of Health graph of COVID-19 cases falsely suggests a steeper decline when dates are ordered by total cases rather than chronologically
+      url: https://www.vox.com/covid-19-coronavirus-us-response-trump/2020/5/18/21262265/georgia-covid-19-cases-declining-reopening
 - line_id: C.4
   links:
     - text: Strava heatmap of exercise routes reveals sensitive information on military bases and spy outposts.
