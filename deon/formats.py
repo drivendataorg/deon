@@ -60,7 +60,7 @@ class Format(object):
             sections=all_sections,
             docs_link=self.docs_link,
             badge=self.badge,
-        )  # noqa: E501
+        )
 
     def write(self, filepath, overwrite=False):
         """ Renders template and writes to `filepath`.
@@ -95,7 +95,7 @@ class Markdown(Format):
     )
     badge = """
 [![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
-"""  # noqa: E501
+"""
 
 
 class Rst(Format):

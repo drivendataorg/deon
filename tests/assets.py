@@ -24,7 +24,7 @@ known_good_markdown = """# My Checklist
  - [ ] **B.1 B1sum**: First B line
  - [ ] **B.2 B2sum**: Second B line
 
-*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""  # noqa: E501
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*"""
 
 known_good_rst = """My Checklist
 ============
@@ -57,7 +57,7 @@ known_good_jupyter = {
             "source": [
                 "# My Checklist\n",
                 "\n",
-                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)\n",  # noqa: E501
+                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)\n",
                 "\n",
                 "## A. First section\n",
                 " - [ ] **A.1 A1sum**: First A line\n",
@@ -84,7 +84,7 @@ known_good_jupyter_multicell = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)",  # noqa: E501
+                "[![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)",
             ],
         },
         {"cell_type": "markdown", "metadata": {}, "source": ["## A. First section"]},
@@ -182,7 +182,7 @@ known_good_html = """<html>
   </em>
  </body>
 </html>
-"""  # noqa: E501
+"""
 
 existing_text_html = """<html>
 <body>
@@ -255,4 +255,4 @@ known_good_inserted_html = """<html>
   </em>
  </body>
 </html>
-"""  # noqa: E501
+"""
