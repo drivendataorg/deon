@@ -2,8 +2,7 @@ import yaml
 
 
 class Checklist(object):
-    """ Stores a checklist data parsed from a yaml file.
-    """
+    """Stores a checklist data parsed from a yaml file."""
 
     def __init__(self, title, sections):
         self.title = title
@@ -27,8 +26,8 @@ class Checklist(object):
 
 
 class Section(object):
-    """ Stores the sections of the checklist that are read in
-        from a file.
+    """Stores the sections of the checklist that are read in
+    from a file.
     """
 
     def __init__(self, title, section_id, lines):

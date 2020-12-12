@@ -10,7 +10,9 @@ from deon.formats import Markdown, EXTENSIONS
 from deon.parser import Checklist
 
 
-env = Environment(loader=FileSystemLoader("md_templates"),)
+env = Environment(
+    loader=FileSystemLoader("md_templates"),
+)
 
 TEMPLATE_AND_OUTPUT = {
     "index.tpl": Path("docs/index.md"),
