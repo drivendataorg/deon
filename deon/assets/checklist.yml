@@ -1,5 +1,5 @@
 title: Data Science Ethics Checklist
-sections: 
+sections:
   - title: Data Collection
     section_id: A
     lines:
@@ -12,6 +12,9 @@ sections:
         - line_id: A.3
           line_summary: Limit PII exposure
           line: Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+        - line_id: A.4
+          line_summary: Downstream bias mitigation
+          line: Have we considered ways to enable testing downstream results for biased outcomes (e.g., collecting data on protected group status like race or gender)?
   - title: Data Storage
     section_id: B
     lines:
