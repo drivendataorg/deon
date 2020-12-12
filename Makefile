@@ -28,6 +28,7 @@ test: lint
 	pytest -vv
 
 lint:
+	black --check deon tests docs
 	flake8 .
 
 ## Run tests and build rendered examples and docs

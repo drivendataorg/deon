@@ -6,16 +6,16 @@ from bs4 import BeautifulSoup
 
 # File types
 class Format(object):
-    """ Template for a specific file type; renders and
-        writes out to file.
+    """Template for a specific file type; renders and
+    writes out to file.
 
-        For text formats, simply override the templates
-        below. For other formats, override `render`
-        and `write`.
+    For text formats, simply override the templates
+    below. For other formats, override `render`
+    and `write`.
 
-        `render` should return an object whose string
-        representation is a fully valid document of
-        that format.
+    `render` should return an object whose string
+    representation is a fully valid document of
+    that format.
     """
 
     template = "{title}\n\n{sections}\n\n{docs_link}"
@@ -33,8 +33,8 @@ class Format(object):
         self.checklist = checklist
 
     def render(self):
-        """ Uses the checklist and templates to render
-            all of the components for this format.
+        """Uses the checklist and templates to render
+        all of the components for this format.
         """
         rendered_sections = []
         for section in self.checklist.sections:
@@ -60,14 +60,14 @@ class Format(object):
             sections=all_sections,
             docs_link=self.docs_link,
             badge=self.badge,
-        )  # noqa: E501
+        )
 
     def write(self, filepath, overwrite=False):
-        """ Renders template and writes to `filepath`.
+        """Renders template and writes to `filepath`.
 
-            If `overwrite=True`, write over anything at
-            `filepath`. Else, if the file exists append to
-            the end of file.
+        If `overwrite=True`, write over anything at
+        `filepath`. Else, if the file exists append to
+        the end of file.
         """
         filepath = Path(filepath)
 
@@ -82,8 +82,7 @@ class Format(object):
 
 
 class Markdown(Format):
-    """ Markdown template items
-    """
+    """Markdown template items"""
 
     template = "# {title}\n{badge}\n{sections}\n\n{docs_link}"
     section_template = """## {title}
@@ -95,12 +94,11 @@ class Markdown(Format):
     )
     badge = """
 [![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
-"""  # noqa: E501
+"""
 
 
 class Rst(Format):
-    """reStructuredText template items
-    """
+    """reStructuredText template items"""
 
     template = "{title}\n============\n\n{badge}\n\n{sections}\n\n{docs_link}"
     section_template = """{title}\n---------\n\n{lines}"""
@@ -123,14 +121,13 @@ class JsonDict(dict):
 
 
 class JupyterNotebook(Markdown):
-    """ Jupyter notebook template items
-    """
+    """Jupyter notebook template items"""
 
     append_delimiter = {"cell_type": "markdown", "metadata": {}, "source": ["-----\n"]}
 
     def render(self):
-        """ Creates json for a valid blank Jupyter notebook with a cell
-            containing the rendered Markdown of the checklist.
+        """Creates json for a valid blank Jupyter notebook with a cell
+        containing the rendered Markdown of the checklist.
         """
         text = super().render()
 
@@ -150,9 +147,9 @@ class JupyterNotebook(Markdown):
         return JsonDict(blank_jupyter_notebook)
 
     def write(self, filepath, overwrite=False):
-        """ If notebook does not exist (or `overwrite=True`), write new
-            notebook with checklist. Otherwise append a cell with a
-            horizontal rule and another cell with the checklist.
+        """If notebook does not exist (or `overwrite=True`), write new
+        notebook with checklist. Otherwise append a cell with a
+        horizontal rule and another cell with the checklist.
         """
         nbdata = self.render()
 
@@ -171,8 +168,7 @@ class JupyterNotebook(Markdown):
 
 
 class JupyterNotebookMulticell(JupyterNotebook):
-    """ Jupyter notebook multiple cell format
-    """
+    """Jupyter notebook multiple cell format"""
 
     def render(self):
         text = super(JupyterNotebook, self).render()
@@ -232,8 +228,8 @@ class Html(Format):
 """
 
     def render(self):
-        """ Create a new blank HTML document with checklist as the body.
-            Returned as a BeautifulSoup object.
+        """Create a new blank HTML document with checklist as the body.
+        Returned as a BeautifulSoup object.
         """
         rendered_html = self.doc_template.format(text=super().render())
         soup = BeautifulSoup(rendered_html, "html.parser")
@@ -241,9 +237,9 @@ class Html(Format):
         return soup
 
     def write(self, filepath, overwrite=False):
-        """ If html document does not exist (or `overwrite=True`), write new
-            html file with checklist. Otherwise append checklist to the end of
-            the body of the existing html file.
+        """If html document does not exist (or `overwrite=True`), write new
+        html file with checklist. Otherwise append checklist to the end of
+        the body of the existing html file.
         """
         filepath = Path(filepath)
 
