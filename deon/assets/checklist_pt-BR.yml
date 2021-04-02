@@ -12,6 +12,9 @@ sections:
         - line_id: A.3
           line_summary: Limitação de exposição de IIP
           line: Consideramos maneiras de minimizar a exposição de informação de identificação pessoal (IIP), por exemplo através de anonimização ou por não coletar informação irrelevante para a análise?
+        - line_id: A.4
+          line_summary: 
+          line: Consideramos maneiras de habilitar o teste de resultados tendenciosos mais adiante no processo (p.ex. coletando dados de grupos protegidos como raça ou gênero)?
   - title: Armazenamento de dados
     section_id: B
     lines:
@@ -75,4 +78,3 @@ sections:
         - line_id: E.4
           line_summary: Usos não intencionais
           line: Tomamos medidas para identificar e prevenir usos não intencionais e abuso do modelo e temos um plano para monitorar tudo isso uma vez que o modelo seja entregue?
-
