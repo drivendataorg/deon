@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Checklist Homepage</title>
+</head>
+
+<body>
+<h1>Checklists:</h1>
+{% for file in files %}
+    <br>    
+        <h2>{{ file.file_num }}. <a href="{{ file.link }}">{{ file.title }}</a></h2>
+        
+    </br>
+{% endfor %}
+<a href="http://deon.drivendata.org/">
+    <img src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square" alt="Deon badge" />
+</a>
+</body>
+</html>

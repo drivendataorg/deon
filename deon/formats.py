@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 
 from bs4 import BeautifulSoup
+import jinja2
+from .parser import Checklist
 
 
 # File types
@@ -17,7 +19,6 @@ class Format(object):
     representation is a fully valid document of
     that format.
     """
-
     template = "{title}\n\n{sections}\n\n{docs_link}"
     append_delimiter = "\n\n"
 
@@ -61,6 +62,9 @@ class Format(object):
             docs_link=self.docs_link,
             badge=self.badge,
         )
+
+    def checklist(self):
+        return self.checklist
 
     def write(self, filepath, overwrite=False):
         """Renders template and writes to `filepath`.
@@ -258,6 +262,24 @@ class Html(Format):
         with open(filepath, "w") as f:
             f.write(text)
 
+class Latex(Format):
+    """Latex formatted."""
+
+    def render(self):
+        print("implement")
+
+    
+    def write(self, filepath, overwrite=False):
+        template_loader = jinja2.FileSystemLoader("deon/templates")
+        env = jinja2.Environment(
+            loader=template_loader
+        )
+        template = env.get_template('latex.txt')
+
+        if not Path(filepath).exists():
+            Path(filepath).touch()
+        template = template.render(super().checklist())
+        Path(filepath).write_text(template)
 
 FORMATS = {
     "ascii": Format,
@@ -267,6 +289,7 @@ FORMATS = {
     "markdown": Markdown,
     "rmarkdown": Markdown,
     "rst": Rst,
+    "latex": Latex
 }
 
 # keep all extensions lowercase
@@ -277,4 +300,5 @@ EXTENSIONS = {
     ".md": "markdown",
     ".rmd": "rmarkdown",
     ".rst": "rst",
+    ".tex": "latex"
 }

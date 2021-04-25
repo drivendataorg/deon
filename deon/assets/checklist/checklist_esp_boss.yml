@@ -1,0 +1,80 @@
+title: Data Science Ethics Checklist - Boss (ESP)
+sections:
+  - title: Data Collection
+    section_id: A
+    lines:
+        - line_id: A.1
+          line_summary: Informed consent
+          line: If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
+        - line_id: A.2
+          line_summary: Collection bias
+          line: Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+        - line_id: A.3
+          line_summary: Limit PII exposure
+          line: Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+        - line_id: A.4
+          line_summary: Downstream bias mitigation
+          line: Have we considered ways to enable testing downstream results for biased outcomes (e.g., collecting data on protected group status like race or gender)?
+  - title: Data Storage
+    section_id: B
+    lines:
+        - line_id: B.1
+          line_summary: Data security
+          line: Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)?
+        - line_id: B.2
+          line_summary: Right to be forgotten
+          line: Do we have a mechanism through which an individual can request their personal information be removed?
+        - line_id: B.3
+          line_summary: Data retention plan
+          line: Is there a schedule or plan to delete the data after it is no longer needed?
+  - title: Analysis
+    section_id: C
+    lines:
+        - line_id: C.1
+          line_summary: Missing perspectives
+          line: Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g., checking assumptions and discussing implications with affected communities and subject matter experts)?
+        - line_id: C.2
+          line_summary: Dataset bias
+          line: Have we examined the data for possible sources of bias and taken steps to mitigate or address these biases (e.g., stereotype perpetuation, confirmation bias, imbalanced classes, or omitted confounding variables)?
+        - line_id: C.3
+          line_summary: Honest representation
+          line: Are our visualizations, summary statistics, and reports designed to honestly represent the underlying data?
+        - line_id: C.4
+          line_summary: Privacy in analysis
+          line: Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
+        - line_id: C.5
+          line_summary: Auditability
+          line: Is the process of generating the analysis well documented and reproducible if we discover issues in the future?
+  - title: Modeling
+    section_id: D
+    lines:
+        - line_id: D.1
+          line_summary: Proxy discrimination
+          line: Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
+        - line_id: D.2
+          line_summary: Fairness across groups
+          line: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
+        - line_id: D.3
+          line_summary: Metric selection
+          line: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
+        - line_id: D.4
+          line_summary: Explainability
+          line: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+        - line_id: D.5
+          line_summary: Communicate bias
+          line: Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
+  - title: Deployment
+    section_id: E
+    lines:
+        - line_id: E.1
+          line_summary: Redress
+          line: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
+        - line_id: E.2
+          line_summary: Roll back
+          line: Is there a way to turn off or roll back the model in production if necessary?
+        - line_id: E.3
+          line_summary: Concept drift
+          line: Do we test and monitor for concept drift to ensure the model remains fair over time?
+        - line_id: E.4
+          line_summary: Unintended use
+          line: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?

@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\begin{document}
+{{ title }}
+
+\begin{itemize}
+  \begin{todolist}
+    {% for section in sections %}
+    \item {{ section.section_id }}. {{ section.title }}
+    \begin{todolist}
+    {% for line in section.lines %}
+      \item {{ line.line_id }}. {{ line.line_summary }}: {{ line.line }}
+    {% endfor %}
+    \end{todolist}
+    {% endfor %}
+  \end{todolist}
+
+\end{itemize}
+\end{document}

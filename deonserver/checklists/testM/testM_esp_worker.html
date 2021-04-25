@@ -1,0 +1,203 @@
+<html>
+ <body>
+  <h1>
+   Data Science Ethics Checklist - Worker (ESP)
+  </h1>
+  <br/>
+  <br/>
+  <a href="http://deon.drivendata.org/">
+   <img alt="Deon badge" src="https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square"/>
+  </a>
+  <br/>
+  <br/>
+  <h2>
+   A. Data Collection
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     A.1 Informed consent:
+    </strong>
+    If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     A.2 Collection bias:
+    </strong>
+    Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     A.3 Limit PII exposure:
+    </strong>
+    Have we considered ways to minimize exposure of personally identifiable information (PII) for example through anonymization or not collecting information that isn't relevant for analysis?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     A.4 Downstream bias mitigation:
+    </strong>
+    Have we considered ways to enable testing downstream results for biased outcomes (e.g., collecting data on protected group status like race or gender)?
+   </li>
+  </ul>
+  <br/>
+  <h2>
+   B. Data Storage
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     B.1 Data security:
+    </strong>
+    Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     B.2 Right to be forgotten:
+    </strong>
+    Do we have a mechanism through which an individual can request their personal information be removed?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     B.3 Data retention plan:
+    </strong>
+    Is there a schedule or plan to delete the data after it is no longer needed?
+   </li>
+  </ul>
+  <br/>
+  <h2>
+   C. Analysis
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     C.1 Missing perspectives:
+    </strong>
+    Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g., checking assumptions and discussing implications with affected communities and subject matter experts)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     C.2 Dataset bias:
+    </strong>
+    Have we examined the data for possible sources of bias and taken steps to mitigate or address these biases (e.g., stereotype perpetuation, confirmation bias, imbalanced classes, or omitted confounding variables)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     C.3 Honest representation:
+    </strong>
+    Are our visualizations, summary statistics, and reports designed to honestly represent the underlying data?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     C.4 Privacy in analysis:
+    </strong>
+    Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     C.5 Auditability:
+    </strong>
+    Is the process of generating the analysis well documented and reproducible if we discover issues in the future?
+   </li>
+  </ul>
+  <br/>
+  <h2>
+   D. Modeling
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     D.1 Proxy discrimination:
+    </strong>
+    Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     D.2 Fairness across groups:
+    </strong>
+    Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     D.3 Metric selection:
+    </strong>
+    Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     D.4 Explainability:
+    </strong>
+    Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     D.5 Communicate bias:
+    </strong>
+    Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
+   </li>
+  </ul>
+  <br/>
+  <h2>
+   E. Deployment
+  </h2>
+  <hr/>
+  <ul>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     E.1 Redress:
+    </strong>
+    Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     E.2 Roll back:
+    </strong>
+    Is there a way to turn off or roll back the model in production if necessary?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     E.3 Concept drift:
+    </strong>
+    Do we test and monitor for concept drift to ensure the model remains fair over time?
+   </li>
+   <li>
+    <input type="checkbox"/>
+    <strong>
+     E.4 Unintended use:
+    </strong>
+    Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
+   </li>
+  </ul>
+  <br/>
+  <br/>
+  <em>
+   Data Science Ethics Checklist generated with
+   <a href="http://deon.drivendata.org">
+    deon.
+   </a>
+  </em>
+ </body>
+</html>
