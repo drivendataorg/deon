@@ -31,6 +31,9 @@ lint:
 	black --check deon tests docs
 	flake8 .
 
+format:
+	black deon tests docs
+
 ## Run tests and build rendered examples and docs
 build: test examples docs
 

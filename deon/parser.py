@@ -37,7 +37,7 @@ class Section(object):
 
 
 class Line(object):
-    """ Store information about a line in a section."""
+    """Store information about a line in a section."""
 
     def __init__(self, line_id, line_summary, line):
         self.line_id = line_id
