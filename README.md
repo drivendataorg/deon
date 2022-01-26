@@ -21,6 +21,26 @@
 
 The conversation about ethics in data science, machine learning, and AI is increasingly important. The goal of `deon` is to push that conversation forward and provide concrete, actionable reminders to the developers that have influence over how data science gets done.
 
+# Quickstart
+
+You only need two lines of code to get started!
+
+First, install deon:
+
+```
+$ pip install deon
+```
+
+Then, write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`:
+
+```
+$ deon -o ETHICS.md
+```
+
+Dig into the checklist questions to identify and navigate the ethical considerations in your data science project.
+
+For more configuration details, see the sections on [command line options](#command-line-options), [supported output file types](#supported-file-types), and [custom checklists](#custom-checklists).
+
 # Background and perspective
 
 We have a particular perspective with this package that we will use to make decisions about contributions, issues, PRs, and other maintenance and support activities.
