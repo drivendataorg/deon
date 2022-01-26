@@ -4,7 +4,7 @@ site_description: Deon adds an ethics checklist to your data science projects.
 repo_url: https://github.com/drivendataorg/deon
 copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
 google_analytics: ['UA-54096005-9', 'auto']
-theme: 
+theme:
   name: alabaster
   custom_dir: docs/extra_html
 extra:
@@ -17,11 +17,11 @@ extra:
     - navigation
   # just used for rendered versions
   extra_nav_links:
-    Markdown: https://github.com/drivendataorg/deon/blob/master/examples/ethics.md
-    HTML: https://github.com/drivendataorg/deon/blob/master/examples/ethics.html
-    Jupyter Notebook: https://github.com/drivendataorg/deon/blob/master/examples/ethics.ipynb
-    RST: https://github.com/drivendataorg/deon/blob/master/examples/ethics.rst
-    Text: https://github.com/drivendataorg/deon/blob/master/examples/ethics.txt
+    Markdown: https://github.com/drivendataorg/deon/blob/main/examples/ethics.md
+    HTML: https://github.com/drivendataorg/deon/blob/main/examples/ethics.html
+    Jupyter Notebook: https://github.com/drivendataorg/deon/blob/main/examples/ethics.ipynb
+    RST: https://github.com/drivendataorg/deon/blob/main/examples/ethics.rst
+    Text: https://github.com/drivendataorg/deon/blob/main/examples/ethics.txt
 
 extra_css: [extra_css/extra.css]
 nav:
