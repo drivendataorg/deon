@@ -31,7 +31,7 @@ jobs:
       run: |
         cat VERSION
         echo "::set-output name=version::$(cat VERSION)"
-        make package
+        make dist
 
     - name: Publish to Test PyPI
       uses: pypa/gh-action-pypi-publish@v1.3.0

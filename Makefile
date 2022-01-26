@@ -47,12 +47,10 @@ clean: clean_pycache
 package: build clean
 	python setup.py sdist
 
-distribute_pypitest: package
-	twine upload --repository pypitest dist/*.tar.gz
-
-distribute_pypi: package
-	twine upload --repository pypi dist/*.tar.gz
-
+dist: clean ## builds source and wheel package
+	python setup.py sdist
+	python setup.py bdist_wheel
+	ls -l dist
 
 #################################################################################
 # Self Documenting Commands                                                                #
