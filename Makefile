@@ -44,9 +44,6 @@ clean: clean_pycache
 	rm -rf dist
 	rm -rf deon.egg-info
 
-package: build clean
-	python setup.py sdist
-
 dist: clean ## builds source and wheel package
 	python setup.py sdist
 	python setup.py bdist_wheel
