@@ -44,15 +44,10 @@ clean: clean_pycache
 	rm -rf dist
 	rm -rf deon.egg-info
 
-package: build clean
+dist: clean ## builds source and wheel package
 	python setup.py sdist
-
-distribute_pypitest: package
-	twine upload --repository pypitest dist/*.tar.gz
-
-distribute_pypi: package
-	twine upload --repository pypi dist/*.tar.gz
-
+	python setup.py bdist_wheel
+	ls -l dist
 
 #################################################################################
 # Self Documenting Commands                                                                #
