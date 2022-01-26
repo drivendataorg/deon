@@ -24,7 +24,7 @@ render_markdown:
 docs: render_markdown
 	cd docs && mkdocs build
 
-test: lint
+test:
 	pytest -vv
 
 lint:
@@ -35,7 +35,7 @@ format:
 	black deon tests docs
 
 ## Run tests and build rendered examples and docs
-build: test examples docs
+build: lint test examples docs
 
 clean_pycache:
 	find . -name *.pyc -delete && find . -name __pycache__ -delete
