@@ -146,8 +146,8 @@ Para requisitar uma mudança, por favor crie uma issue que comece com uma dessas
 
 Um pull request para acrescentar um item deveria mudar:
 
-  - [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/master/deon/assets/checklist.yml): contém os itens da checklist padrão
-  - [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/master/deon/assets/examples_of_ethical_issues.yml): contém exemplos de danos causados quando o item não foi tomado em conta.
+  - [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml): contém os itens da checklist padrão
+  - [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml): contém exemplos de danos causados quando o item não foi tomado em conta.
 
 # Discussão e comentário
 
@@ -186,4 +186,3 @@ There are other groups working on data ethics and thinking about how tools can h
 - [Ethical OS Toolkit](https://ethicalos.org/)
 - [Ethics & Algorithms Toolkit: A risk management framework for governments](http://ethicstoolkit.ai/)
 - Ethics and Data Science ([ebook gratuito](https://www.amazon.com/dp/B07GTC8ZN7/ref=cm_sw_r_cp_ep_dp_klAOBb4Z72B4G)) and ([write-up](https://medium.com/@sjgadler/care-about-ai-ethics-what-you-can-do-starting-today-882a0e63d828))
-

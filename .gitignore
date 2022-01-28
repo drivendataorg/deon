@@ -2,7 +2,7 @@ docs/site/
 .vscode
 .idea
 
-### FROM https://github.com/github/gitignore/blob/master/Python.gitignore ###
+### FROM https://github.com/github/gitignore/blob/main/Python.gitignore ###
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
