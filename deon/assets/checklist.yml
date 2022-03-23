@@ -4,7 +4,7 @@ sections:
     section_id: A
     lines:
         - line_id: A.1
-          line_summary: Informed consent
+          line_summary: TEST Informed consent
           line: If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
         - line_id: A.2
           line_summary: Collection bias
