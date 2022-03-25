@@ -26,3 +26,4 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Add rendered files from build
+        file_pattern: examples/* docs/docs/*.md README.md
