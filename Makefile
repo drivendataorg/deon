@@ -1,12 +1,7 @@
-.PHONY: register_hook reqs examples docs test render_markdown
-
-# adds git precommit hook
-register_hook:
-	cp .precommithook .git/hooks/pre-commit
-	chmod +x .git/hooks/pre-commit
+.PHONY: reqs examples docs test render_markdown
 
 ## Install python dependencies
-reqs: register_hook
+reqs:
 	pip install -r dev-requirements.txt
 
 examples: reqs
