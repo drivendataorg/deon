@@ -38,7 +38,7 @@ As part of Deon's goal to provide concrete, actionable reminders of the influenc
 The steps for this contribution are:
 - [ ] Edit the `checklist.yml` file
 - [ ] Add an example to the `examples_of_ethical_issues.yml` file
-- [ ] Open a PR that follows the guidelines
+- [ ] Open a PR that follows the guidelines below
 
 #### How to edit the checklist yaml
 
