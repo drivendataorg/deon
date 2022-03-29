@@ -11,12 +11,12 @@ To get started, first `git clone` the [Deon repository](https://github.com/drive
 ### 1. Adding an example
 
 The steps for this contribution are:
-- [ ] Add an example to the [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) file
+- [ ] Add an example to the [`examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) file
 - [ ] Open a pull request with the change to the yaml file
 
 #### How to edit the examples table yaml
 
-Navigate to the section of [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent). You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then:
+Navigate to the section of [`examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent). You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then:
 
 1. Create a new bullet in the `links` section for that line ID, following the format of other examples.
 2. After `text`:, write a succinct one sentence summary of what went wrong.
@@ -36,13 +36,13 @@ Given [our defined perspective on the checklist](#background-and-perspective), w
 As part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
-- [ ] Edit the [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) file
+- [ ] Edit the [`checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) file
 - [ ] Add an example to the [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) file
 - [ ] Open a PR that follows the guidelines
 
 #### How to edit the checklist yaml
 
-Navigate to the section of [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
+Navigate to the section of [`checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
 
 1. Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
 2. After `line_summary`, describe the topic of your question in a few words
