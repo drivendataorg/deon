@@ -133,28 +133,23 @@ Usage: deon [OPTIONS]
 
   Easily create an ethics checklist for your data science project.
 
-  The checklist will be printed to standard output by default. Use the
-  --output option to write to a file instead.
+  The checklist will be printed to standard output by default. Use the --output
+  option to write to a file instead.
 
 Options:
   -l, --checklist PATH  Override default checklist file with a path to a custom
                         checklist.yml file.
-
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
                         [ascii, html, jupyter, markdown, rmarkdown, rst].
                         Ignored and file extension used if --output is passed.
-
   -o, --output PATH     Output file path. Extension can be one of [.txt, .html,
                         .ipynb, .md, .rmd, .rst]. The checklist is appended if
                         the file exists.
-
   -w, --overwrite       Overwrite output file if it exists. Default is False,
                         which will append to existing file.
-
   -m, --multicell       For use with Jupyter format only. Write checklist with
                         multiple cells, one item per cell. Default is False,
                         which will write the checklist in a single cell.
-
   --help                Show this message and exit.
 
 ```
@@ -227,17 +222,16 @@ Our goal is to have checklist items that are actionable as part of a review of d
 
 **Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
 
-To request a change, please file an issue with a title that starts with one of: "CREATE, UPDATE, DELETE". There are FOUR requirements for an issue requesting a change to the checklist:
-
- - A justification for the change
- - At least 10 thumbs up from the community for the issue
- - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
- - A consideration of related items that already exist, and why this change is different from what exists
-
  A pull request to add an item should change:
 
   - [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml): contains the default checklist items
   - [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml): contains example of harms caused when the item was not considered
+
+  The description in the pull request must include:
+
+  - A justification for the change
+  - A consideration of related items that already exist, and why this change is different from what exists
+  - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
 
 # Discussion and commentary
 
