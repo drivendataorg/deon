@@ -16,7 +16,7 @@ The steps for this contribution are:
 
 #### How to edit the examples table yaml
 
-Navigate to the section of `examples_of_ethical_issues.yml` corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent. You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then,
+Navigate to the section of `examples_of_ethical_issues.yml` corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent). You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then:
 
 1. Create a new bullet in the `links` section for that line ID, following the format of other examples.
 2. After `text`:, write a succinct one sentence summary of what went wrong.
@@ -33,7 +33,7 @@ Your change to the `examples_of_ethical_issues.yml` should look something like t
 
 Given [our defined perspective on the checklist](#background-and-perspective), we will consider changes to the default checklist that fit with that perspective and follow this process. Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
-As a part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
+As part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
 - [ ] Edit the `checklist.yml` file
@@ -50,7 +50,7 @@ Navigate to the section of `checklist.yml` where your addition or change applies
 
 #### Pull request guidelines
 
- A pull request to add an item to the checklist should change:
+ A pull request to add an item to the checklist should change the following files:
 
   1. [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml): contains the default checklist items
   2. [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml): contains example of harms caused when the item was not considered
