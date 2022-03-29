@@ -5,7 +5,7 @@
 flake8
 black
 jinja2
-mkdocs
+mkdocs==1.2.4
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
 pytest==3.6.4
 pymdown-extensions==5.0

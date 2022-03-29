@@ -1,0 +1,29 @@
+name: examples
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  examples:
+    name: Build and commit examples
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Build examples and docs
+      run: |
+        make examples
+        make docs
+
+    - name: Commit changed files from build
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Add rendered files from build
+        file_pattern: examples/* docs/docs/*.md README.md
