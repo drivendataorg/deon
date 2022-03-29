@@ -36,8 +36,8 @@ Given [our defined perspective on the checklist](#background-and-perspective), w
 As part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
-- [ ] Edit the [`checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) file
-- [ ] Add an example to the [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) file
+- [ ] [Edit the `checklist.yml`](#how-to-edit-the-checklist-yaml)
+- [ ] Add an example to the [`examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) file
 - [ ] Open a PR that follows the guidelines
 
 #### How to edit the checklist yaml
