@@ -8,15 +8,16 @@ Contributors can add to Deon by (1) adding an example that helps illustrate the 
 
 To get started, first `git clone` the [Deon repository](https://github.com/drivendataorg/deon/). 
 
-### 1. Adding an example
+### 1. Adding a new item to the examples table
 
 The steps for this contribution are:
-- [ ] Add an example to the `examples_of_ethical_issues.yml` file
+- [ ] Use the [examples table]((https://deon.drivendata.org/examples/)) to determine the checklist item to which your article applies
+- [ ] Add the example to the `examples_of_ethical_issues.yml` file
 - [ ] Open a pull request with the change to the yaml file
 
 #### How to edit the examples table yaml
 
-Navigate to the section of [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent). You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then:
+In [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml), locate the section for the relevant checklist item. Each checklist item corresponds to a specific `line_id` (e.g. "Informed Consent" is A.1). Then:
 
 - [ ] Create a new bullet in the `links` section for that line ID, following the format of other examples.
 - [ ] After `text`:, write a succinct one sentence summary of what went wrong.
@@ -44,7 +45,7 @@ The steps for this contribution are:
 
 Navigate to the section of [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
 
-- [ ] Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
+- [ ] Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items. Ensure the numbering of all line_ids in the section is sequential.
 - [ ] After `line_summary`, describe the topic of your question in a few words
 - [ ] After `line`, add the new checklist question
 
