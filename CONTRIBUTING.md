@@ -2,34 +2,34 @@
 
 Contributions are welcome, and they are greatly appreciated! Did you read an interesting article about a time where data ethics went awry? Do you see an area the checklist doesn't fully cover? Submit a PR to make an addition!
 
-## Types of Contributions
+## Types of contributions
 
 Contributors can add to Deon by (1) adding an example that helps illustrate the different realms and ramifications of data ethics practices and/or (2) changing or adding an item to the checklist.
 
 To get started, first `git clone` the [Deon repository](https://github.com/drivendataorg/deon/). 
 
-### 1. Additions to the examples table
+### 1. Adding an example
 
 The steps for this contribution are:
 - [ ] Add an example to the `examples_of_ethical_issues.yml` file
 - [ ] Open a pull request with the change to the yaml file
 
-#### Editing the examples table yaml
+#### How to edit the examples table yaml
 
-Navigate to the section of `examples_of_ethical_issues.yml` corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent - you can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies), and follow the format of the other examples listed. 
+Navigate to the section of `examples_of_ethical_issues.yml` corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent. You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then,
 
 1. Create a new bullet in the `links` section for that line ID, following the format of other examples.
 2. After `text`:, write a succinct one sentence summary of what went wrong.
 3. After `url`:, paste the url to the article or research paper.
 
-Your change to the examples_of_ethical_issues.yml should look something like this:
+Your change to the `examples_of_ethical_issues.yml` should look something like this:
 
 ```
 - text: Facebook uses phone numbers provided for two-factor authentication to target users with ads.
   url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
 ```
 
-### 2. Changes to the Checklist
+### 2. Changing the checklist
 
 Given [our defined perspective on the checklist](#background-and-perspective), we will consider changes to the default checklist that fit with that perspective and follow this process. Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
@@ -40,14 +40,15 @@ The steps for this contribution are:
 - [ ] Add an example to the `examples_of_ethical_issues.yml` file
 - [ ] Open a PR that follows the guidelines
 
-#### Editing the checklist yaml
+#### How to edit the checklist yaml
 
-In the section corresponding to your contribution (Data Collection, Data Storage, Analysis, Modeling, or Deployment) in `deon/deon/assets/checklist.yml` you'll need to enter three components:
-1. `line_id`: Combine the section ID with the number of the item on the list - for example, "Downstream bias mitigation" under "Data Collection" is A.4. 
-2. `line_summary`: Describe the topic of your question in a few words
-3. `line`: Enter the question you wish to add to the checklist.
+Navigate to the section of `checklist.yml` where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
 
-#### Pull request guideline
+1. Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
+2. After `line_summary`, describe the topic of your question in a few words
+3. After `line`, add the new checklist question
+
+#### Pull request guidelines
 
  A pull request to add an item to the checklist should change:
 
