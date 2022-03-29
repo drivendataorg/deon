@@ -11,7 +11,7 @@ To get started, first `git clone` the [Deon repository](https://github.com/drive
 ### 1. Adding an example
 
 The steps for this contribution are:
-- [ ] [Add an example to the `examples_of_ethical_issues.yml` file](#how-to-edit-the-examples-table-yaml)
+- [ ] Add an example to the `examples_of_ethical_issues.yml` file
 - [ ] Open a pull request with the change to the yaml file
 
 #### How to edit the examples table yaml
@@ -36,9 +36,9 @@ Given [our defined perspective on the checklist](#background-and-perspective), w
 As part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
-- [ ] [Edit the `checklist.yml` file](#how-to-edit-the-checklist-yaml)
-- [ ] [Add an example to the `examples_of_ethical_issues.yml` file](#how-to-edit-the-examples-table-yaml)
-- [ ] [Open a PR that follows the guidelines](#pull-request-guidelines)
+- [ ] Edit the `checklist.yml` file
+- [ ] Add an example to the `examples_of_ethical_issues.yml` file
+- [ ] Open a PR that follows the guidelines
 
 #### How to edit the checklist yaml
 
@@ -47,6 +47,10 @@ Navigate to the section of [`checklist.yml`](https://github.com/drivendataorg/de
 - [ ] Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
 - [ ] After `line_summary`, describe the topic of your question in a few words
 - [ ] After `line`, add the new checklist question
+
+#### How to edit the examples table yaml
+
+[See this section above](#how-to-edit-the-examples-table-yaml).
 
 #### Pull request guidelines
 
