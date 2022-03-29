@@ -18,9 +18,9 @@ The steps for this contribution are:
 
 Navigate to the section of [`examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml) corresponding to your example (e.g., `line_id` A.1 for examples related to informed consent). You can use the [current table](https://deon.drivendata.org/examples/) to determine the checklist item to which your example applies. Then:
 
-1. Create a new bullet in the `links` section for that line ID, following the format of other examples.
-2. After `text`:, write a succinct one sentence summary of what went wrong.
-3. After `url`:, paste the url to the article or research paper.
+- [ ] Create a new bullet in the `links` section for that line ID, following the format of other examples.
+- [ ] After `text`:, write a succinct one sentence summary of what went wrong.
+- [ ] After `url`:, paste the url to the article or research paper.
 
 Your change to the `examples_of_ethical_issues.yml` should look something like this:
 
@@ -44,9 +44,9 @@ The steps for this contribution are:
 
 Navigate to the section of [`checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
 
-1. Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
-2. After `line_summary`, describe the topic of your question in a few words
-3. After `line`, add the new checklist question
+- [ ] Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items.
+- [ ] After `line_summary`, describe the topic of your question in a few words
+- [ ] After `line`, add the new checklist question
 
 #### Pull request guidelines
 
