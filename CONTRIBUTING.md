@@ -11,9 +11,9 @@ To get started, first `git clone` the [deon repository](https://github.com/drive
 ### 1. Adding a new item to the examples table
 
 To add an example:
-- [ ] Use the [examples table](https://deon.drivendata.org/examples/) to determine the checklist item to which your article applies
-- [ ] Add the example to the `examples_of_ethical_issues.yml` file
-- [ ] Open a pull request with the change to the yaml file
+- [ ] Use the [examples table](https://deon.drivendata.org/examples/) to determine the checklist item to which your article applies.
+- [ ] Add the example to the `examples_of_ethical_issues.yml` file.
+- [ ] Open a pull request with the change to the yaml file.
 
 #### How to edit the examples table yaml
 
@@ -37,17 +37,17 @@ Given [our defined perspective on the checklist](#background-and-perspective), w
 As part of deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
-- [ ] Edit the `checklist.yml` file
-- [ ] Add an example to the `examples_of_ethical_issues.yml` file
-- [ ] Open a PR that follows the guidelines below
+- [ ] Edit the `checklist.yml` file.
+- [ ] Add an example to the `examples_of_ethical_issues.yml` file.
+- [ ] Open a PR that follows the guidelines below.
 
 #### How to edit the checklist yaml
 
 Navigate to the section of [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml) where your addition or change applies (e.g. Data Storage). Then follow the format of the other checklist items in making your contribution:
 
 - [ ] Create a new bullet in the `lines` section for that `line_id`, following the format of other checklist items. Ensure the numbering of all line_ids in the section is sequential.
-- [ ] After `line_summary`, describe the topic of your question in a few words
-- [ ] After `line`, add the new checklist question
+- [ ] After `line_summary`, describe the topic of your question in a few words.
+- [ ] After `line`, add the new checklist question.
 
 #### How to edit the examples table yaml
 
@@ -65,7 +65,7 @@ The description in the pull request must include:
   - A consideration of related items that already exist, and why this change is different from what exists
   - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
 
-## Release Process (for maintainers)
+## Release process (for maintainers)
 
 The [`release`](https://github.com/drivendataorg/deon/blob/main/.github/workflows/release.yml) GitHub Actions workflow automates the process of releasing a new version of `deon`.
 
