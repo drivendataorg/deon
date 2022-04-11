@@ -4,7 +4,7 @@ Contributions are welcome, and they are greatly appreciated! Did you read an int
 
 ## Types of contributions
 
-Contributors can add to Deon by (1) adding an example that helps illustrate the different realms and ramifications of data ethics practices and/or (2) changing or adding an item to the checklist.
+Contributors can add to Deon by (1) adding an [example](https://deon.drivendata.org/examples/) that helps illustrate the different realms and ramifications of data ethics practices from the checklist and/or (2) changing or adding an item to the [checklist](https://deon.drivendata.org/#data-science-ethics-checklist) itself.
 
 To get started, first `git clone` the [Deon repository](https://github.com/drivendataorg/deon/). 
 
