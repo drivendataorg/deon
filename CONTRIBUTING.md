@@ -4,9 +4,9 @@ Contributions are welcome, and they are greatly appreciated! Did you read an int
 
 ## Types of contributions
 
-Contributors can add to Deon by (1) adding an [example](https://deon.drivendata.org/examples/) that helps illustrate the different realms and ramifications of data ethics practices from the checklist and/or (2) changing or adding an item to the [checklist](https://deon.drivendata.org/#data-science-ethics-checklist) itself.
+Contributors can add to `deon` by (1) adding an [example](https://deon.drivendata.org/examples/) that helps illustrate the different realms and ramifications of data ethics practices from the checklist and/or (2) changing or adding an item to the [checklist](https://deon.drivendata.org/#data-science-ethics-checklist) itself.
 
-To get started, first `git clone` the [Deon repository](https://github.com/drivendataorg/deon/). 
+To get started, first `git clone` the [deon repository](https://github.com/drivendataorg/deon/). 
 
 ### 1. Adding a new item to the examples table
 
@@ -34,7 +34,7 @@ Your change to the `examples_of_ethical_issues.yml` should look something like t
 
 Given [our defined perspective on the checklist](#background-and-perspective), we will consider changes to the default checklist that fit with that perspective and follow this process. Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
-As part of Deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
+As part of deon's goal to provide concrete, actionable reminders of the influence of data scientists' choices on the ethics of data science projects, each addition to to the checklist must be accompanied by an example.
 
 The steps for this contribution are:
 - [ ] Edit the `checklist.yml` file
