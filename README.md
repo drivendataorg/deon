@@ -227,7 +227,7 @@ Please see [the framing](#background-and-perspective) for an understanding of ou
 
 Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
-**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
+**Note: This process is an experiment and is subject to change based on how well it works.**
 
  A pull request to add an item should change:
 
@@ -239,6 +239,8 @@ Our goal is to have checklist items that are actionable as part of a review of d
   - A justification for the change
   - A consideration of related items that already exist, and why this change is different from what exists
   - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
+
+See detailed [contributing instructions here](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md).
 
 # Discussion and commentary
 
