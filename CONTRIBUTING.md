@@ -10,7 +10,7 @@ To get started, first `git clone` the [Deon repository](https://github.com/drive
 
 ### 1. Adding a new item to the examples table
 
-The steps for this contribution are:
+To add an example:
 - [ ] Use the [examples table](https://deon.drivendata.org/examples/) to determine the checklist item to which your article applies
 - [ ] Add the example to the `examples_of_ethical_issues.yml` file
 - [ ] Open a pull request with the change to the yaml file
