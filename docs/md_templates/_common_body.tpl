@@ -156,19 +156,20 @@ Please see [the framing](#background-and-perspective) for an understanding of ou
 
 Our goal is to have checklist items that are actionable as part of a review of data science work or as part of a plan. Please avoid suggesting items that are too vague (e.g., "do no harm") or too specific (e.g., "remove social security numbers from data").
 
-**Note: This process is an experiment and is subject to change based on how well it works. Our goal is to avoid flame wars in the issue threads while still making a tool that will make adding an ethics checklist to a project easy.**
-
-To request a change, please file an issue with a title that starts with one of: "CREATE, UPDATE, DELETE". There are FOUR requirements for an issue requesting a change to the checklist:
-
- - A justification for the change
- - At least 10 thumbs up from the community for the issue
- - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
- - A consideration of related items that already exist, and why this change is different from what exists
+**Note: This process is an experiment and is subject to change based on how well it works.**
 
  A pull request to add an item should change:
 
   - [`deon/assets/checklist.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/checklist.yml): contains the default checklist items
   - [`deon/assets/examples_of_ethical_issues.yml`](https://github.com/drivendataorg/deon/blob/main/deon/assets/examples_of_ethical_issues.yml): contains example of harms caused when the item was not considered
+
+  The description in the pull request must include:
+
+  - A justification for the change
+  - A consideration of related items that already exist, and why this change is different from what exists
+  - A published example (academic or press article) of where neglecting the principle has lead to concrete harm (articles that discuss potential or hypothetical harm will not be considered sufficient)
+
+See detailed [contributing instructions here](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md).
 
 # Discussion and commentary
 
