@@ -68,7 +68,7 @@ sections:
     lines:
         - line_id: E.1
           line_summary: Monitoring and evaluation
-          line: How are we planning to monitor and review the model after it is deployed (e.g., performance monitoring, regular audit of random predictions, human review of high-stakes decisions, downstream impacts of wrong or low-confidence decisions, testing for concept drift)?
+          line: How are we planning to monitor the model and its impacts after it is deployed (e.g., performance monitoring, regular audit of sample predictions, human review of high-stakes decisions, reviewing downstream impacts of wrong or low-confidence decisions, testing for concept drift)?
         - line_id: E.2
           line_summary: Redress
           line: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
