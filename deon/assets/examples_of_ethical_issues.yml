@@ -118,6 +118,8 @@
   links:
     - text: Dutch Prime Minister and entire cabinet resign after investigations reveal that 26,000 innocent families were wrongly accused of social benefits fraud partially due to a discriminatory algorithm.
       url: https://www.vice.com/en/article/jgq35d/how-a-discriminatory-algorithm-wrongly-accused-thousands-of-families-of-fraud
+    - text: Sending police officers to areas of high predicted crime skews future training data collection as police are repeatedly sent back to the same neighborhoods regardless of the true crime rate.
+      url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
 - line_id: E.2
   links:
     - text: Software mistakes result in healthcare cuts for people with diabetes or cerebral palsy.
@@ -127,12 +129,6 @@
     - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology.
       url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
 - line_id: E.4
-  links:
-    - text: Sending police officers to areas of high predicted crime skews future training data collection as police are repeatedly sent back to the same neighborhoods regardless of the true crime rate.
-      url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
-    - text: -- Related academic study.
-      url: https://arxiv.org/abs/1706.09847
-- line_id: E.5
   links:
     - text: Microsoft's Twitter chatbot Tay quickly becomes racist.
       url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
