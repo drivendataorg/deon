@@ -40,9 +40,9 @@ D. Modeling
 E. Deployment
 ---------
 
-* [ ] **E.1 Redress**: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
-* [ ] **E.2 Roll back**: Is there a way to turn off or roll back the model in production if necessary?
-* [ ] **E.3 Concept drift**: Do we test and monitor for concept drift to ensure the model remains fair over time?
+* [ ] **E.1 Monitoring and evaluation**: How are we planning to monitor the model and its impacts after it is deployed (e.g., performance monitoring, regular audit of sample predictions, human review of high-stakes decisions, reviewing downstream impacts of errors or low-confidence decisions, testing for concept drift)?
+* [ ] **E.2 Redress**: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
+* [ ] **E.3 Roll back**: Is there a way to turn off or roll back the model in production if necessary?
 * [ ] **E.4 Unintended use**: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
 
 *Data Science Ethics Checklist generated with* `deon <http://deon.drivendata.org>`_.
