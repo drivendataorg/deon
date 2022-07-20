@@ -5,10 +5,10 @@
 flake8
 black
 jinja2
-mkdocs==1.2.4
+mkdocs
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
-pytest==3.6.4
-pymdown-extensions==5.0
-twine==1.11.0
-pytest-cov==2.6.0
+pytest
+pymdown-extensions
+twine
+pytest-cov
 wheel
