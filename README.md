@@ -12,8 +12,6 @@
 
 `deon` is a command line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
-To help get started, `deon ` includes a default [Data Science Ethics Checklist](#data-science-ethics-checklist) along with a list of [real-world examples](http://deon.drivendata.org/examples/) connected with each item. Users can draw on the default list or develop their own.
-
 ---
 
 **δέον** • (déon) [n.] (_Ancient Greek_) <small><a href="https://en.wiktionary.org/wiki/%CE%B4%CE%AD%CE%BF%CE%BD#Ancient_Greek" target="_blank" style="text-decoration: none; color: #6d6d6d">wikitionary</a></small>
