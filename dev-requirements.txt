@@ -10,5 +10,5 @@ git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
 pytest
 pymdown-extensions
 twine
-pytest-cov
+pytest-cov<7
 wheel
