@@ -4,6 +4,7 @@
 
 flake8
 black
+coverage<7
 jinja2
 mkdocs
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
