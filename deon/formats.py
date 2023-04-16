@@ -250,7 +250,7 @@ class Html(Format):
                 existing_soup = BeautifulSoup(f, "html.parser")
 
             # add checklist to end of body
-            existing_soup.body.contents.extend(soup.body.contents)
+            existing_soup.body.extend(soup.body.contents)
             soup = existing_soup
 
         text = soup.prettify()
