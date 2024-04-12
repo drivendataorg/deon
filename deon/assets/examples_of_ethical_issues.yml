@@ -102,12 +102,16 @@
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
     - text: -- Related academic study.
       url: https://arxiv.org/abs/1301.6822
+    - text: When screening resumes to select top candidates for a job posting, ChatGPT 3.5 favored certain names based on their demographics to an extent that would fail job discrimination benchmarks.
+      url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/
 - line_id: D.3
   links:
     - text: Facebook seeks to optimize "time well spent", prioritizing interaction over popularity.
       url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
     - text: YouTube's search autofill suggests pedophiliac phrases due to high viewership of related videos.
       url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
+    - text: A widely used health system model underpredicts the need of Black patients because it uses spending as a proxy for health need. Cost as a metric introduces racial bias because of unequal access to care.
+      url: https://www.science.org/doi/10.1126/science.aax2342
 - line_id: D.4
   links:
     - text: Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit as they have a high risk of dying from pneumonia. Given the success of the intensive care, neural networks predicted asthmatics had a low risk of dying and could therefore be sent home. Without explanatory models to identify this issue, patients may have been sent home to die.
@@ -130,8 +134,6 @@
       url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
 - line_id: E.3
   links:
-    - text: Google stops Gemini, its generative AI chatbot, from generating any images from people after it began generating historically inaccurate images in an attempt to combat amplification of racial stereotypes. 
-      url: https://apnews.com/article/google-gemini-ai-chatbot-image-generation-1bd45f1e67dfe0f88e5419a6efe3e06f
     - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology.
       url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
 - line_id: E.4
