@@ -102,7 +102,6 @@
       url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
     - text: YouTube's search autofill suggests pedophiliac phrases due to high viewership of related videos.
       url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
-    - text: A widely used health system model underpredicts the need of Black patients because it uses spending as a proxy for health need. Cost as a metric introduces racial bias because of unequal access to care.
     - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients compared to equivalently sick white patients. The model uses spending as a proxy for health need, introducing racial bias due to unequal access to care.
       url: https://www.science.org/doi/10.1126/science.aax2342
 - line_id: D.4
@@ -133,7 +132,7 @@
       url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
 - line_id: E.4
   links:
-    - text: Generative AI can be exploited to create more convincing scams, such as "virtual kidnapping".
+    - text: Generative AI can be exploited to create convincing scams like "virtual kidnapping".
       url: https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/how-cybercriminals-can-perform-virtual-kidnapping-scams-using-ai-voice-cloning-tools-and-chatgpt
     - text: Deepfakes—realistic but fake videos generated with AI—span the gamut from celebrity porn to presidential statements.
       url: http://theweek.com/articles/777592/rise-deepfakes
