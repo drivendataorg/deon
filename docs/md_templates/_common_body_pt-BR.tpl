@@ -175,7 +175,7 @@ Estamos entusiasmados de ver tantos artigos surgindo sobre ética de dados! A cu
 
 Para tornar as ideias contidas na checklist mais concretas, compilamos [exemplos](http://deon.drivendata.org/examples/) de situações em que as coisas deram errado. Estão vinculadas a questões da checklist para ajudar a iluminar onde no processo as discussões éticas poderiam ter ajudado a criar uma correção no curso.
 
-Nós aceitamos contribuições! Siga [estas instruções](https://github.com/drivendataorg/deon/wiki/Add-a-new-item-to-the-examples-table) para acrescentar um exemplo.
+Nós aceitamos contribuições! Siga [estas instruções](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md) para acrescentar um exemplo.
 
 ## Ferramentas relacionadas
 

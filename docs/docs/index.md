@@ -263,7 +263,7 @@ We're excited to see so many articles popping up on data ethics! The short list 
 
 To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when things have gone wrong. They're paired with the checklist questions to help illuminate where in the process ethics discussions may have helped provide a course correction.
 
-We welcome contributions! Follow [these instructions](https://github.com/drivendataorg/deon/wiki/Add-a-new-item-to-the-examples-table) to add an example.
+We welcome contributions! Follow [these instructions](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md) to add an example.
 
 ## Related tools
 
