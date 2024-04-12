@@ -4,6 +4,8 @@
       url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
     - text: African-American men were enrolled in the Tuskegee Study on the progression of syphilis without being told the true purpose of the study or that treatment for syphilis was being withheld.
       url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
+    - text: OpenAI's ChatGPT memorized and regurgitated entire poems without checking for copyright permissions.
+      url: https://news.cornell.edu/stories/2024/01/chatgpt-memorizes-and-spits-out-entire-poems
 - line_id: A.2
   links:
     - text: StreetBump, a smartphone app to passively detect potholes, may fail to direct public resources to areas where smartphone penetration is lower, such as lower income areas or areas with a larger elderly population.
@@ -22,8 +24,6 @@
       url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
     - text: Facial recognition software is significanty worse at identifying people with darker skin.
       url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
-    - text: -- Related academic study.
-      url: http://proceedings.mlr.press/v81/buolamwini18a.html
 - line_id: B.1
   links:
     - text: Personal and financial data for more than 146 million people was stolen in Equifax data breach.
@@ -46,14 +46,8 @@
       url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
 - line_id: C.2
   links:
-    - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients, assigning them lower risk scores compared to equivalently sick white patients.
-      url: https://www.nature.com/articles/d41586-019-03228-6
-    - text: -- Related academic study.
-      url: https://science.sciencemag.org/content/366/6464/447
     - text: word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
-    - text: -- Related academic study.
-      url: https://arxiv.org/abs/1607.06520
     - text: Women are more likely to be shown lower-paying jobs than men in Google ads.
       url: https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study
 - line_id: C.3
@@ -72,6 +66,8 @@
       url: https://www.bbc.com/news/magazine-22223190
 - line_id: D.1
   links:
+    - text: In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.    
+      url: https://arxiv.org/abs/2403.00742
     - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
     - text: Amazon scraps AI recruiting tool that showed bias against women.
@@ -98,12 +94,16 @@
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
     - text: -- Related academic study.
       url: https://arxiv.org/abs/1301.6822
+    - text: OpenAI's GPT models show racial bias in ranking job applications based on candidate names.
+      url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/
 - line_id: D.3
   links:
     - text: Facebook seeks to optimize "time well spent", prioritizing interaction over popularity.
       url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
     - text: YouTube's search autofill suggests pedophiliac phrases due to high viewership of related videos.
       url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
+    - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients because it optimizes for spending as a proxy for need, introducing racial bias due to unequal access to care.
+      url: https://www.science.org/doi/10.1126/science.aax2342
 - line_id: D.4
   links:
     - text: Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit as they have a high risk of dying from pneumonia. Given the success of the intensive care, neural networks predicted asthmatics had a low risk of dying and could therefore be sent home. Without explanatory models to identify this issue, patients may have been sent home to die.
@@ -128,9 +128,11 @@
   links:
     - text: Google "fixes" racist algorithm by removing gorillas from image-labeling technology.
       url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
-- line_id: E.4
-  links:
     - text: Microsoft's Twitter chatbot Tay quickly becomes racist.
       url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
+- line_id: E.4
+  links:
+    - text: Generative AI can be exploited to create convincing scams like "virtual kidnapping".
+      url: https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/how-cybercriminals-can-perform-virtual-kidnapping-scams-using-ai-voice-cloning-tools-and-chatgpt
     - text: Deepfakes—realistic but fake videos generated with AI—span the gamut from celebrity porn to presidential statements.
       url: http://theweek.com/articles/777592/rise-deepfakes
