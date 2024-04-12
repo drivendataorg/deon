@@ -72,8 +72,6 @@
       url: https://www.bbc.com/news/magazine-22223190
 - line_id: D.1
   links:
-    - text: OpenAI's GPT models show racial bias in ranking job applications based on candidate names.
-      url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTcwOTg1NjE0OCwiZXhwIjoxNzEwNDYwOTQ4LCJhcnRpY2xlSWQiOiJTQTA1Q1FUMEFGQjQwMCIsImJjb25uZWN0SWQiOiI2NDU1MEM3NkRFMkU0QkM1OEI0OTI5QjBDQkIzRDlCRCJ9.MdkSGC3HMwwUYtltWq6WxWg3vULNeCTJcjacB-DNi8k
     - text: In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.    
       url: https://arxiv.org/abs/2403.00742
     - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
@@ -102,7 +100,7 @@
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
     - text: -- Related academic study.
       url: https://arxiv.org/abs/1301.6822
-    - text: When screening resumes to select top candidates for a job posting, ChatGPT 3.5 favored certain names based on their demographics to an extent that would fail job discrimination benchmarks.
+    - text: OpenAI's GPT models show racial bias in ranking job applications based on candidate names.
       url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/
 - line_id: D.3
   links:
