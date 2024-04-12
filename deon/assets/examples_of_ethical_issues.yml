@@ -102,7 +102,7 @@
       url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
     - text: YouTube's search autofill suggests pedophiliac phrases due to high viewership of related videos.
       url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
-    - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients compared to equivalently sick white patients. The model uses spending as a proxy for health need, introducing racial bias due to unequal access to care.
+    - text: A widely used commercial algorithm in the healthcare industry underestimates the care needs of black patients because it optimizes for spending as a proxy for need, introducing racial bias due to unequal access to care.
       url: https://www.science.org/doi/10.1126/science.aax2342
 - line_id: D.4
   links:
