@@ -74,7 +74,7 @@
   links:
     - text: OpenAI's GPT models show racial bias in ranking job applications based on candidate names.
       url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTcwOTg1NjE0OCwiZXhwIjoxNzEwNDYwOTQ4LCJhcnRpY2xlSWQiOiJTQTA1Q1FUMEFGQjQwMCIsImJjb25uZWN0SWQiOiI2NDU1MEM3NkRFMkU0QkM1OEI0OTI5QjBDQkIzRDlCRCJ9.MdkSGC3HMwwUYtltWq6WxWg3vULNeCTJcjacB-DNi8k
-    - text: In hypothetical trials, language models assign the death penalty more frequently for defendants using African American English than those using Standard American English.  
+    - text: In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.    
       url: https://arxiv.org/abs/2403.00742
     - text: Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
