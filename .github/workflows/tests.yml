@@ -76,11 +76,11 @@ jobs:
             PYTHON_BIN=bin/python
           fi
           echo "=== Testing wheel installation ==="
-          uv virtualenv .venv-whl
+          uv virtualenv .venv-whl --seed
           uv pip install dist/deon-*.whl --python=.venv-whl/$PYTHON_BIN
           .venv-whl/$PYTHON_BIN -m deon --help
           echo "=== Testing source installation ==="
-          uv virtualenv .venv-sdist
+          uv virtualenv .venv-sdist --seed
           uv pip install dist/deon-*.tar.gz --python=.venv-sdist/$PYTHON_BIN
           .venv-sdist/$PYTHON_BIN -m deon --help
 
