@@ -4,7 +4,7 @@
 reqs:
 	pip install -r dev-requirements.txt
 
-examples: reqs
+examples:
 	deon --output examples/ethics.md --overwrite
 	deon --output examples/ethics.ipynb --overwrite
 	deon --output examples/ethics.html --overwrite

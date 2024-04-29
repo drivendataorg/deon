@@ -1,5 +1,6 @@
 import pytest
 import subprocess
+import sys
 import itertools as it
 from click.testing import CliRunner
 
@@ -42,7 +43,7 @@ def test_cli_output(runner, checklist, tmpdir, test_format_configs, arg):
 @pytest.mark.parametrize(
     "call,format",
     it.product(
-        [["deon"], ["python", "-m", "deon"]],
+        [["deon"], [sys.executable, "-m", "deon"]],
         ["ascii", "html", "jupyter", "markdown", "rmarkdown", "rst"],
     ),
 )
