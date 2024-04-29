@@ -19,15 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.11 with uv
+        uses: drivendataorg/setup-python-uv-action@v1
         with:
-          python-version: 3.8
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r dev-requirements.txt
+          uv pip install -r dev-requirements.txt
 
       - name: Lint package
         run: |
@@ -40,21 +39,20 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9, "3.10"]
+        python-version: [3.8, 3.9, "3.10", "3.11", "3.12"]
 
     steps:
 
       - uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - name: Set up Python ${{ matrix.python-version }} with uv
+        uses: drivendataorg/setup-python-uv-action@v1
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r dev-requirements.txt
+          uv pip install -r dev-requirements.txt
 
       - name: Test Package
         run: |
@@ -78,14 +76,12 @@ jobs:
             PYTHON_BIN=bin/python
           fi
           echo "=== Testing wheel installation ==="
-          python -m venv .venv-whl
-          .venv-whl/$PYTHON_BIN -m pip install --upgrade pip
-          .venv-whl/$PYTHON_BIN -m pip install dist/deon-*.whl
+          uv virtualenv .venv-whl
+          uv pip install dist/deon-*.whl --python=.venv-whl/$PYTHON_BIN
           .venv-whl/$PYTHON_BIN -m deon --help
           echo "=== Testing source installation ==="
-          python -m venv .venv-sdist
-          .venv-sdist/$PYTHON_BIN -m pip install --upgrade pip
-          .venv-sdist/$PYTHON_BIN -m pip install dist/deon-*.tar.gz --force-reinstall
+          uv virtualenv .venv-sdist
+          uv pip install dist/deon-*.tar.gz --python=.venv-sdist/$PYTHON_BIN
           .venv-sdist/$PYTHON_BIN -m deon --help
 
       - name: Test Building Docs

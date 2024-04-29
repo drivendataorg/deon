@@ -12,10 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - name: Set up Python 3.11 with uv
+      uses: drivendataorg/setup-python-uv-action@v1
       with:
-        python-version: 3.8
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        uv pip install -r dev-requirements.txt
 
     - name: Build examples and docs
       run: |
