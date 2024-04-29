@@ -72,7 +72,7 @@ jobs:
           uv pip install setuptools  # Need this because we still use setup.py
           make dist
           if [[ ${{ matrix.os }} == "windows-latest" ]]; then
-            PYTHON_BIN=Scripts/python
+            PYTHON_BIN=Scripts/python.exe
           else
             PYTHON_BIN=bin/python
           fi
