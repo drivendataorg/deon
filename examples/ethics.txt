@@ -23,10 +23,10 @@ D. Modeling
 * D.2 Fairness across groups: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
 * D.3 Metric selection: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
 * D.4 Explainability: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
-* D.5 Communicate bias: Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
+* D.5 Communicate limitations: Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
 
 E. Deployment
-* E.1 Monitoring and evaluation: How are we planning to monitor the model and its impacts after it is deployed (e.g., performance monitoring, regular audit of sample predictions, human review of high-stakes decisions, reviewing downstream impacts of errors or low-confidence decisions, testing for concept drift)?
+* E.1 Monitoring and evaluation: Do we have a clear plan to monitor the model and its impacts after it is deployed (e.g., performance monitoring, regular audit of sample predictions, human review of high-stakes decisions, reviewing downstream impacts of errors or low-confidence decisions, testing for concept drift)?
 * E.2 Redress: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
 * E.3 Roll back: Is there a way to turn off or roll back the model in production if necessary?
 * E.4 Unintended use: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
