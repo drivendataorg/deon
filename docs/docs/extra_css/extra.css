@@ -56,9 +56,10 @@ div.document {
 }
 
 hr.checklist-buffer {
-	 margin-top: 3em;
+	 margin-top: 10em;
 	 border: none;
 	 border-top: medium double #888;
+	 color: red;
 }
 
 ul.bad {
