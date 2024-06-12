@@ -269,9 +269,9 @@ We're excited to see so many articles popping up on data ethics! The short list 
 - [Technology is biased too. How do we fix it?](https://fivethirtyeight.com/features/technology-is-biased-too-how-do-we-fix-it/)
 - [The dark secret at the heart of AI](https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/)
 
-## Where things have gone wrong
+## Data ethics in the real world
 
-To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when things have gone wrong. They're paired with the checklist questions to help illuminate where in the process ethics discussions may have helped provide a course correction.
+To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when tradoffs were handled well, and times when things have gone wrong. They're paired with the checklist questions to help illuminate where in the process ethics discussions may have helped provide a course correction.
 
 We welcome contributions! Follow [these instructions](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md) to add an example.
 
