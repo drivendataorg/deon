@@ -6,11 +6,6 @@
 
 ------
 
-<ul class="bad">
-  <li>item 1</li>
-  <li>item 2</li>
-</ul>
-
 
 <h1><b>An ethics checklist for data scientists</b></h1>
 
