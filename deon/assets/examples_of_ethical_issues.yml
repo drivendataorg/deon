@@ -44,10 +44,14 @@
       url: https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/
 - line_id: C.1
   links:
+    - text: ✅ Code for America programmatically cleared >140,000 eligible criminal records by collaborating with multiple relevant stakeholders like policymakers, advocacy groups, and courts.
+      url: https://codeforamerica.org/programs/criminal-justice/automatic-record-clearance/
     - text: ⛔ When Apple's HealthKit came out in 2014, women couldn't track menstruation.
       url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
 - line_id: C.2
   links:
+    - text: ✅ A study by Park et al shows how reweighting can effectively mitigate algorithmic racial bias when predicting risk of postpartum depression.
+      url: https://doi.org/10.1001/jamanetworkopen.2021.3909 
     - text: ⛔ word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
     - text: ⛔ Women are more likely to be shown lower-paying jobs than men in Google ads.
@@ -80,6 +84,8 @@
       url: https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
 - line_id: D.2
   links:
+    - text: ✅ A study by Garriga et al uses ML best practices to test for and communicate fairness across racial groups for a model that predicts mental health crises. 
+      url: https://www.nature.com/articles/s41591-022-01811-5
     - text: ⛔ Apple credit card offers smaller lines of credit to women than men.
       url: https://www.wired.com/story/the-apple-card-didnt-see-genderand-thats-the-problem/
     - text: ⛔ With COMPAS, a risk-assessment algorithm used in criminal sentencing, black defendants are almost twice as likely as white defendants to be mislabeled as likely to reoffend.
