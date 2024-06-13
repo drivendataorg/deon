@@ -1,5 +1,7 @@
 - line_id: A.1
   links:
+    - text: ✅ A voiceover studio is now required to get informed consent from a performer before using their likeness in AI-generated content.
+      url: https://variety.com/2024/biz/news/sag-aftra-ai-voiceover-studio-video-games-1235866313/
     - text: ⛔ Facebook uses phone numbers provided for two-factor authentication to target users with ads.
       url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
     - text: ⛔ African-American men were enrolled in the Tuskegee Study on the progression of syphilis without being told the true purpose of the study or that treatment for syphilis was being withheld.
@@ -14,6 +16,8 @@
       url: http://content.time.com/time/business/article/0,8599,1954643,00.html
 - line_id: A.3
   links:
+    - text: ✅ DuckDuckGo enables users to anonymously access ChatGPT by *not* collecting user IP addresses along with queries.
+      url: https://www.theverge.com/2024/6/6/24172719/duckduckgo-private-ai-chats-anonymous-gpt-3-5
     - text: ⛔ Personal information on taxi drivers can be accessed in poorly anonymized taxi trips dataset released by New York City.
       url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
     - text: ⛔ Netflix prize dataset of movie rankings by 500,000 customers is easily de-anonymized through cross referencing with other publicly available datasets.
@@ -50,7 +54,7 @@
       url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
 - line_id: C.2
   links:
-    - text: ✅ A study by Park et al shows how reweighting can effectively mitigate algorithmic racial bias when predicting risk of postpartum depression.
+    - text: ✅ A study by Park et al shows how reweighting can effectively mitigate racial bias when predicting risk of postpartum depression.
       url: https://doi.org/10.1001/jamanetworkopen.2021.3909 
     - text: ⛔ word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
