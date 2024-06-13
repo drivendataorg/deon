@@ -60,8 +60,3 @@ hr.checklist-buffer {
 	 border: none;
 	 border-top: medium double #888;
 }
-
-ul.bad {
-	list-style-type: upper-roman;
-	color: red;
-}
