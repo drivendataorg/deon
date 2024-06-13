@@ -41,7 +41,7 @@ For more configuration details, see the sections on [command line options](#comm
 We created `deon` with the goal of helping data scientists across the sector to be more intentional in their choices, and more aware of the ethical implications of their work. We use that perspective to make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
 
-1. 🔓 First and foremost, **our goal is not to be arbitrators of what ethical concerns merit inclusion**. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
+1. 🔓 **Our goal is not to be arbitrators of what ethical concerns merit inclusion**. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
 
 2. 📊 This checklist is designed to provoke conversations around **issues where data scientists have particular responsibility and perspective**. It's not up to data scientists alone to decide what the ethical course of action is. This has always been a responsibility of organizations that are part of civil society. Conversations should be part of a larger organizational commitment to doing what is right.
 
@@ -49,7 +49,7 @@ We created `deon` with the goal of helping data scientists across the sector to 
 
 4. 🌎 We believe in the **power of examples** to bring the principles of data ethics to bear on human experience. This repository includes a [list of real-world examples](http://deon.drivendata.org/examples/) connected with each item in the default checklist. We encourage you to contribute relevant use cases that you believe can benefit the community by their example. In addition, if you have a topic, idea, or comment that doesn't seem right for the documentation, please add it to the [wiki page](https://github.com/drivendataorg/deon/wiki) for this project!
 
-5. 🔍 We believe the primary benefit of a checklist is **ensuring that we don't overlook important work**. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
+5. 🔍 We believe the primary benefit of a checklist is **ensuring that we don't overlook important work**. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments.
 
 6. ❓ We can't define exhaustively every term that appears in the checklist. Some of these **terms are open to interpretation** or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
 
