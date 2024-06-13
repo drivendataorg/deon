@@ -38,7 +38,7 @@ For more configuration details, see the sections on [command line options](#comm
 
 # What is `deon` designed to do?
 
-We created `deon` with the goal of helping data scientists across the sector to be more intentional in their choices, and more aware of the ethical implications of their work. We use that perspective to make decisions about contributions, issues, PRs, and other maintenance and support activities.
+We created `deon` to help data scientists across the sector be more intentional in their choices, and more aware of the ethical implications of their work. We use that perspective to make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
 
 1. 🔓 **Our goal is not to be arbitrators of what ethical concerns merit inclusion**. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
