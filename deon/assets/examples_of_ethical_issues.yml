@@ -54,7 +54,7 @@
       url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
 - line_id: C.2
   links:
-    - text: ✅ A study by Park et al shows how reweighting can effectively mitigate racial bias when predicting risk of postpartum depression.
+    - text: ✅ A study by Park et al shows how reweighting can mitigate racial bias when predicting risk of postpartum depression.
       url: https://doi.org/10.1001/jamanetworkopen.2021.3909 
     - text: ⛔ word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
@@ -72,16 +72,20 @@
       url: https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases
 - line_id: C.5
   links:
+    - text: ✅ NASA's Transform to Open Science initiative is working to make research more reproducible and accessible.
+      url: https://nasa.github.io/Transform-to-Open-Science/
+    - text: ✅ Medic's Community Health Tooklit supports health workers in hard-to-reach areas. The toolkit is fully open source on Github for anyone to view or collaborate.
+      url: https://communityhealthtoolkit.org/
     - text: ⛔ Excel error in well-known economics paper undermines justification of austerity measures.
       url: https://www.bbc.com/news/magazine-22223190
 - line_id: D.1
   links:
+    - text: ✅ Amazon developed an experimental AI recruiting tool, but did not deploy it because it learned to perpetuate bias against women.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
     - text: ⛔ In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.    
       url: https://arxiv.org/abs/2403.00742
     - text: ⛔ Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
-    - text: ⛔ Amazon scraps AI recruiting tool that showed bias against women.
-      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
     - text: ⛔ Criminal sentencing risk asessments don't ask directly about race or income, but other demographic factors can end up being proxies.
       url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
     - text: ⛔ Creditworthiness algorithms based on nontraditional criteria such as grammatic habits, preferred grocery stores, and friends' credit scores can perpetuate systemic bias.
@@ -102,8 +106,6 @@
       url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
     - text: ⛔ Google searches involving black-sounding names are more likely to serve up ads suggestive of a criminal record than white-sounding names.
       url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
-    - text: -- Related academic study.
-      url: https://arxiv.org/abs/1301.6822
     - text: ⛔ OpenAI's GPT models show racial bias in ranking job applications based on candidate names.
       url: https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/
 - line_id: D.3
@@ -136,6 +138,8 @@
       url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
 - line_id: E.2
   links:
+    - text: ✅ Healing ARC uses a targeted, race-conscious algorithm to counteract documented inequities in access to heart failure care for Black and Latinx patients.
+      url: https://catalyst.nejm.org/doi/full/10.1056/CAT.22.0076
     - text: ⛔ Software mistakes result in healthcare cuts for people with diabetes or cerebral palsy.
       url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
 - line_id: E.3
