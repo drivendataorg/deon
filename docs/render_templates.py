@@ -55,7 +55,7 @@ def make_table_of_links():
     for r in refs:
         refs_dict[r["line_id"]] = r["links"]
 
-    template = """<center>Checklist Question</center> | <center>Examples of Ethical Issues</center>
+    template = """<center>Checklist Question</center> | <center>Examples</center>
 --- | ---
 {lines}
 """
