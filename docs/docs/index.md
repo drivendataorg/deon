@@ -36,27 +36,30 @@ Dig into the checklist questions to identify and navigate the ethical considerat
 
 For more configuration details, see the sections on [command line options](#command-line-options), [supported output file types](#supported-file-types), and [custom checklists](#custom-checklists).
 
-# Background and perspective
+# What is `deon` designed to do?
 
-We have a particular perspective with this package that we will use to make decisions about contributions, issues, PRs, and other maintenance and support activities.
+We created `deon` to help data scientists across the sector be more intentional in their choices, and more aware of the ethical implications of their work. We use that perspective to make decisions about contributions, issues, PRs, and other maintenance and support activities.
 
-First and foremost, our goal is not to be arbitrators of what ethical concerns merit inclusion. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
 
-Second, we built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). This checklist was heavily inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
+1. 🔓 **Our goal is not to be arbitrators of what ethical concerns merit inclusion**. We have a [process for changing the default checklist](#changing-the-checklist), but we believe that many domain-specific concerns are not included and teams will benefit from developing [custom checklists](#custom-checklists). Not every checklist item will be relevant. We encourage teams to remove items, sections, or mark items as `N/A` as the concerns of their projects dictate.
 
-Third, we believe in the power of examples to bring the principles of data ethics to bear on human experience. This repository includes a [list of real-world examples](http://deon.drivendata.org/examples/) connected with each item in the default checklist. We encourage you to contribute relevant use cases that you believe can benefit the community by their example. In addition, if you have a topic, idea, or comment that doesn't seem right for the documentation, please add it to the [wiki page](https://github.com/drivendataorg/deon/wiki) for this project!
+2. 📊 This checklist is designed to provoke conversations around **issues where data scientists have particular responsibility and perspective**. It's not up to data scientists alone to decide what the ethical course of action is. This has always been a responsibility of organizations that are part of civil society. Conversations should be part of a larger organizational commitment to doing what is right.
 
-Fourth, it's not up to data scientists alone to decide what the ethical course of action is. This has always been a responsibility of organizations that are part of civil society. This checklist is designed to provoke conversations around issues where data scientists have particular responsibility and perspective. This conversation should be part of a larger organizational commitment to doing what is right.
+3. 💬 Items on the checklist are **meant to provoke discussion** among good-faith actors who take their ethical responsibilities seriously. We are working at a level of abstraction that cannot concretely recommend a specific action (e.g., "remove variable X from your model"). Because of this, most of the items are framed as prompts to discuss or consider. Teams will want to document these discussions and decisions for posterity.
 
-Fifth, we believe the primary benefit of a checklist is ensuring that we don't overlook important work. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments. Ethics is hard, and we expect some of the conversations that arise from this checklist may also be hard.
+4. 🌎 We believe in the **power of examples** to bring the principles of data ethics to bear on human experience. This repository includes a [list of real-world examples](http://deon.drivendata.org/examples/) connected with each item in the default checklist. We encourage you to contribute relevant use cases that you believe can benefit the community by their example. In addition, if you have a topic, idea, or comment that doesn't seem right for the documentation, please add it to the [wiki page](https://github.com/drivendataorg/deon/wiki) for this project!
 
-Sixth, we are working at a level of abstraction that cannot concretely recommend a specific action (e.g., "remove variable X from your model"). Nearly all of the items on the checklist are meant to provoke discussion among good-faith actors who take their ethical responsibilities seriously. Because of this, most of the items are framed as prompts to discuss or consider. Teams will want to document these discussions and decisions for posterity.
+5. 🔍 We believe the primary benefit of a checklist is **ensuring that we don't overlook important work**. Sometimes it is difficult with pressing deadlines and a demand to multitask to make sure we do the hard work to think about the big picture. This package is meant to help ensure that those discussions happen, even in fast-moving environments.
 
-Seventh, we can't define exhaustively every term that appears in the checklist. Some of these terms are open to interpretation or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
+6. ❓ We can't define exhaustively every term that appears in the checklist. Some of these **terms are open to interpretation** or mean different things in different contexts. We recommend that when relevant, users create their own glossary for reference.
 
-Eighth, we want to avoid any items that strictly fall into the realm of statistical best practices. Instead, we want to highlight the areas where we need to pay particular attention above and beyond best practices.
+7. ✨ We want to avoid any items that strictly fall into the realm of statistical best practices. Instead, we want to highlight the areas where we need to pay particular attention **above and beyond best practices**.
 
-Ninth, we want all the checklist items to be as simple as possible (but no simpler), and to be actionable.
+8. ✅ We want all the checklist items to be **as simple as possible** (but no simpler), and to be actionable.
+
+## Sources
+
+We built our initial list from a set of proposed items on [multiple checklists that we referenced](#checklist-citations). This checklist was heavily inspired by an article written by Mike Loukides, Hilary Mason, and DJ Patil and published by O'Reilly: ["Of Oaths and Checklists"](https://www.oreilly.com/ideas/of-oaths-and-checklists). We owe a great debt to the thinking that proceeded this, and we look forward to thoughtful engagement with the ongoing discussion about checklists for data science ethics.
 
 # Using this tool
 
@@ -259,9 +262,9 @@ We're excited to see so many articles popping up on data ethics! The short list 
 - [Technology is biased too. How do we fix it?](https://fivethirtyeight.com/features/technology-is-biased-too-how-do-we-fix-it/)
 - [The dark secret at the heart of AI](https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-of-ai/)
 
-## Where things have gone wrong
+## Data ethics in the real world
 
-To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when things have gone wrong. They're paired with the checklist questions to help illuminate where in the process ethics discussions may have helped provide a course correction.
+To make the ideas contained in the checklist more concrete, we've compiled [examples](http://deon.drivendata.org/examples/) of times when tradoffs were handled well, and times when things have gone wrong. They're paired with the checklist questions to help illuminate where in the process ethics discussions may have helped provide a course correction.
 
 We welcome contributions! Follow [these instructions](https://github.com/drivendataorg/deon/blob/main/CONTRIBUTING.md) to add an example.
 
