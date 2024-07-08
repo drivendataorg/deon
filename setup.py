@@ -21,7 +21,7 @@ def load_reqs(path):
 req_path = Path(__file__).parent / "requirements.txt"
 requirements = load_reqs(req_path)
 
-long_description = open(Path(__file__).parent / "README.md").read()
+long_description = (Path(__file__).parent / "README.md").read_text(encoding="utf-8")
 
 with (Path(__file__).parent / "VERSION").open("r") as fp:
     version = fp.read().strip()
