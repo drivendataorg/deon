@@ -1,0 +1,144 @@
+- line_id: A.1
+  links:
+    - text: Facebook folosește numerele de telefon furnizate pentru autentificarea cu doi factori pentru a viza utilizatorii cu reclame.
+      url: https://techcrunch.com/2018/09/27/yes-facebook-is-using-your-2fa-phone-number-to-target-you-with-ads/
+    - text: Bărbații afro-americani au fost înscriși în studiul Tuskegee privind progresia sifilisului fără să li se spună adevăratul scop al studiului sau că tratamentul pentru sifilis a fost reținut.
+      url: https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment
+- line_id: A.2
+  links:
+    - text: StreetBump, o aplicație pentru smartphone pentru detectarea pasivă a gropilor, ar putea să nu direcționeze resursele publice către zonele în care folosirea smartphone-urilor este mai mică, cum ar fi zonele cu venituri mai mici sau zonele cu o populație mai în vârstă mai mare.
+      url: https://hbr.org/2013/04/the-hidden-biases-in-big-data
+    - text: Camerele de recunoaștere facială utilizate pentru controlul pașapoartelor înregistrează ochii asiatici închiși.
+      url: http://content.time.com/time/business/article/0,8599,1954643,00.html
+- line_id: A.3
+  links:
+    - text: Informațiile personale despre șoferii de taxi pot fi accesate în setul de date despre călătorii de taxi slab anonimizat publicat de New York City.
+      url: https://www.theguardian.com/technology/2014/jun/27/new-york-taxi-details-anonymised-data-researchers-warn
+    - text: Setul de premii Netflix al clasamentelor filmelor de către 500.000 de clienți este ușor dezanonimat prin referințe încrucișate cu alte seturi de date disponibile publicului.
+      url: https://www.wired.com/2007/12/why-anonymous-data-sometimes-isnt/
+- line_id: A.4
+  links:
+    - text: În șase orașe importante, serviciul de livrare în aceeași zi al Amazonului exclude multe cartiere predominant de culoare.
+      url: https://www.bloomberg.com/graphics/2016-amazon-same-day/
+    - text: Software-ul de recunoaștere facială este semnificativ mai rău la identificarea persoanelor cu pielea mai închisă.
+      url: https://www.theregister.co.uk/2018/02/13/facial_recognition_software_is_better_at_white_men_than_black_women/
+    - text: -- Studiu academic conex.
+      url: http://proceedings.mlr.press/v81/buolamwini18a.html
+- line_id: B.1
+  links:
+    - text: Datele personale și financiare pentru mai mult de 146 de milioane de persoane au fost furate în urma scurgerilor de datelor in Equifax.
+      url: https://www.nbcnews.com/news/us-news/equifax-breaks-down-just-how-bad-last-year-s-data-n872496
+    - text: Cambridge Analytica a recoltat informații private de la peste 50 de milioane de profiluri Facebook fără permisiunea utilizatorilor.
+      url: https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html
+    - text: AOL a lansat accidental 20 de milioane de interogări de căutare de la 658.000 de clienți.
+      url: https://www.wired.com/2006/08/faq-aols-search-gaffe-and-you/
+- line_id: B.2
+  links:
+    - text: Regulamentul general privind protecția datelor din UE (GDPR) include „dreptul de a fi uitat”.
+      url: https://www.eugdpr.org/the-regulation.html
+- line_id: B.3
+  links:
+    - text: FedEx expune informații private despre mii de clienți după ce un server veche S3 a fost lăsat deschis fără o parolă.
+      url: https://www.zdnet.com/article/unsecured-server-exposes-fedex-customer-records/
+- line_id: C.1
+  links:
+    - text: Când Kit-ul de Sanatate Apple a apărut în 2014, femeile nu puteau urmări menstruația.
+      url: https://www.theverge.com/2014/9/25/6844021/apple-promised-an-expansive-health-app-so-why-cant-i-track
+- line_id: C.2
+  links:
+    - text: Un algoritm comercial utilizat pe scară largă în industria asistenței medicale subestimează nevoile de îngrijire ale pacienților negri, atribuindu-le scoruri de risc mai mici comparativ cu pacienții albi bolnavi echivalenți.
+      url: https://www.nature.com/articles/d41586-019-03228-6
+    - text: -- Studiu academic conex.
+      url: https://science.sciencemag.org/content/366/6464/447
+    - text: word2vec, instruit în corpusul Google News, întărește stereotipurile de gen.
+      url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
+    - text: --Studiu academic conex.
+      url: https://arxiv.org/abs/1607.06520
+    - text: Este mai probabil ca femeilor să li se afișeze locuri de muncă cu plăți mai mici decât bărbații în anunțurile Google.
+      url: https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-paid-jobs-google-study
+- line_id: C.3
+  links:
+    - text: Diagrama înșelătoare prezentată la audierea Planned Parenthood distorsionează tendințele reale ale avorturilor față de screening-ul cancerului și serviciile preve
+ntive.
+      url: https://www.politifact.com/truth-o-meter/statements/2015/oct/01/jason-chaffetz/chart-shown-planned-parenthood-hearing-misleading-/
+    - text: Graficul Departamentului de Sănătate din Georgia al cazurilor COVID-19 sugerează în mod fals un declin mai accentuat atunci când datele sunt ordonate în funcție d
+e cazuri totale, mai degrabă decât cronologic.
+      url: https://www.vox.com/covid-19-coronavirus-us-response-trump/2020/5/18/21262265/georgia-covid-19-cases-declining-reopening
+- line_id: C.4
+  links:
+    - text: Harta tip "heatmap" de la Strava a rutelor de exerciții dezvăluie informații sensibile cu privire la baze militare și avanposturi de spionaj.
+      url: https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases
+- line_id: C.5
+  links:
+    - text: Eroarea Excel într-o binecunoscută lucrare de economie subminează justificarea măsurilor de austeritate.
+      url: https://www.bbc.com/news/magazine-22223190
+- line_id: D.1
+  links:
+    - text: Variabilele utilizate pentru a prezice abuzul și neglijarea copiilor sunt măsurători directe ale sărăciei, vizând în mod nedrept familiile cu venituri mici pentru
+ controlul bunăstării copiilor.
+      url: https://www.wired.com/story/excerpt-from-automating-inequality/
+    - text: Amazon elimină instrumentul de recrutare AI care arăta reticenta împotriva femeilor.
+      url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
+    - text: Evaluările riscurilor pentru condamnarea penală nu întreabă direct despre rasă sau venituri, dar alți factori demografici pot ajunge să fie reprezentanți.
+      url: https://www.themarshallproject.org/2015/08/04/the-new-science-of-sentencing
+    - text: Algoritmii de solvabilitate pe baza unor criterii netradiționale, cum ar fi obiceiurile gramaticale, magazinele alimentare preferate și scorurile de credit ale pr
+ietenilor, pot perpetua tendința sistemică.
+      url: https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
+- line_id: D.2
+  links:
+    - text: Cardul de credit Apple oferă linii de credit mai mici femeilor decât bărbaților.
+      url: https://www.wired.com/story/the-apple-card-didnt-see-genderand-thats-the-problem/
+    - text: Google Photos etichetează doi afro-americani drept gorile.
+      url: https://www.forbes.com/sites/mzhang/2015/07/01/google-photos-tags-two-african-americans-as-gorillas-through-facial-recognition-software/#12bdb1fd713d
+    - text: Cu COMPAS, un algoritm de evaluare a riscurilor utilizat în condamnarea penală, inculpații negri sunt aproape de două ori mai predispuși decât inculpații albi să
+fie etichetați greșit pe cât probabil să recidiveze.
+      url: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+    - text: -- Refuzul Northpointe la articolul ProPublica.
+      url: https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html
+    - text: -- Studiu academic conex.
+      url: https://www.liebertpub.com/doi/pdf/10.1089/big.2016.0047
+    - text: Software-ul Google de recunoaștere a vorbirii nu recunoaște atât vocile femeilor, cât și bărbații.
+      url: https://www.dailydot.com/debug/google-voice-recognition-gender-bias/
+    - text: Căutările Google care implică nume cu sunete negre sunt mai predispuse să difuzeze reclame care să sugereze cazier judiciar decât numele cu sunete albe.
+      url: https://www.technologyreview.com/s/510646/racism-is-poisoning-online-ad-delivery-says-harvard-professor/
+    - text: -- Studiu academic conex.
+      url: https://arxiv.org/abs/1301.6822
+- line_id: D.3
+  links:
+    - text: Facebook caută să optimizeze „timpul bine petrecut”, prioritizând interacțiunea față de popularitate.
+      url: https://www.wired.com/story/facebook-tweaks-newsfeed-to-favor-content-from-friends-family/
+    - text: Completarea automată a căutării YouTube sugerează fraze pedofiliare datorită vizualizării ridicate a videoclipurilor conexe.
+      url: https://gizmodo.com/youtubes-creepy-kid-problem-was-worse-than-we-thought-1820763240
+- line_id: D.4
+  links:
+    - text: Pacienții cu pneumonie cu antecedente de astm sunt de obicei internați în unitatea de terapie intensivă, deoarece au un risc ridicat de a muri de pneumonie. Având
+ în vedere succesul terapiei intensive, rețelele neuronale au prezis astmaticii cu un risc scăzut de moarte și, prin urmare, ar putea fi trimise acasă. Fără modele explicativ
+e pentru a identifica această problemă, este posibil ca pacienții să fi fost trimiși acasă să moară.
+      url: http://people.dbmi.columbia.edu/noemie/papers/15kdd.pdf
+    - text: GDPR include un „drept la explicație”, adică informații semnificative despre logica care stă la baza deciziilor automatizate.
+      url: hhttps://academic.oup.com/idpl/article/7/4/233/4762325
+- line_id: D.5
+  links:
+    - text: Google Flu susține că prezice cu precizie activitatea săptămânală de gripă și apoi ratează pandemia de gripă porcină din 2009.
+      url: https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/#6fa6a1925535
+- line_id: E.1
+  links:
+    - text: Greșelile software duc la reduceri ale asistenței medicale pentru persoanele cu diabet zaharat sau paralizie cerebrală.
+      url: https://www.theverge.com/2018/3/21/17144260/healthcare-medicaid-algorithm-arkansas-cerebral-palsy
+- line_id: E.2
+  links:
+    - text: Google „remediază” algoritmul rasist eliminând gorilele din tehnologia de etichetare a imaginilor.
+      url: https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai
+- line_id: E.3
+  links:
+    - text: Trimiterea ofițerilor de poliție în zonele cu criminalitate mare previzionată înclină colectarea de date de formare viitoare, deoarece poliția este trimisă în mod
+ repetat în aceleași cartiere, indiferent de rata reală a criminalității.
+      url: https://www.smithsonianmag.com/innovation/artificial-intelligence-is-now-used-predict-crime-is-it-biased-180968337/
+    - text: -- Studiu academic conex.
+      url: https://arxiv.org/abs/1706.09847
+- line_id: E.4
+  links:
+    - text: Chatbot-ul Twitter al Microsoft, Tay, devine rapid rasist.
+      url: https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay
+    - text: Deepfakes - videoclipuri realiste, dar false generate cu AI - se întind de la pornografie la celebrități până la declarații prezidențiale.
+      url: http://theweek.com/articles/777592/rise-deepfakes
