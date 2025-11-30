@@ -1,0 +1,82 @@
+title: Lista de Verificare a Eticii științei datelor
+sections:
+  - title: Colectarea Datelor
+    section_id: A
+    lines:
+        - line_id: A.1
+          line_summary: Consimțământ informat
+          line: Dacă există subiecți umani, au dat consimțământul în cunoștință de cauză, în cazul în care subiecții optează în mod afirmativ și au o înțelegere clară a utilizărilor datelor la care acceptă?
+        - line_id: A.2
+          line_summary: Prejudecata in colectare
+          line: Am luat în considerare sursele de prejudecată care ar putea fi introduse în timpul colectării datelor și al proiectării sondajului și am luat măsuri pentru a le atenua?
+        - line_id: A.3
+          line_summary: Limitați expunerea la PII
+          line: Am luat în considerare modalități de a minimiza expunerea informațiilor de identificare personală (PII), de exemplu, prin anonimizare sau nu colectând informații care nu sunt relevante pentru analiză?
+        - line_id: A.4
+          line_summary: Atenuarea prejudecății în downstream
+          line: Am luat în considerare modalități de a permite testarea rezultatelor din downstream pentru rezultate părtinitoare (de exemplu, colectarea datelor privind statutul grupului protejat, cum ar fi rasa sau sexul)?
+  - title: Stocarea Datelor
+    section_id: B
+    lines:
+        - line_id: B.1
+          line_summary: Securitatea datelor
+          line: Avem un plan de protejare și securizare a datelor (de exemplu, criptare în repaus și în tranzit, controale de acces pentru utilizatori interni și terți, jurnale de acces și software actualizat)?
+        - line_id: B.2
+          line_summary: Dreptul de eliminare
+          line: Avem un mecanism prin care o persoană poate solicita eliminarea informațiilor sale personale?
+        - line_id: B.3
+          line_summary: Planul de păstrare a datelor
+          line: Există un program sau un plan pentru a șterge datele după ce nu mai sunt necesare?
+  - title: Analiză
+    section_id: C
+    lines:
+        - line_id: C.1
+          line_summary: Perspectivele lipsă
+          line: Am căutat să abordăm punctele ne-identificate în analiză prin implicarea cu părțile interesate relevante (de exemplu, verificarea ipotezelor și discutarea implicațiilor cu comunitățile afectate și experți în materie)?
+        - line_id: C.2
+          line_summary: Prejudecății in seturile de date
+          line: Am examinat datele pentru posibile surse de părtinire și am luat măsuri pentru a atenua sau aborda aceste părtiniri (de exemplu, perpetuarea stereotipului, tendința de confirmare, clasele dezechilibrate sau variabilele de confuzie omise)?
+        - line_id: C.3
+          line_summary: Reprezentare onestă
+          line: Vizualizările, statisticile de sinteză și rapoartele noastre sunt concepute pentru a reprezenta cu onestitate setul de datele?
+        - line_id: C.4
+          line_summary: Confidențialitate în analiză
+          line: Ne-am asigurat că datele cu PII nu sunt utilizate sau afișate decât dacă este necesar pentru analiză?
+        - line_id: C.5
+          line_summary: Auditabilitate
+          line: Este procesul de generare a analizei bine documentat și reproductibil dacă descoperim probleme în viitor?
+            - title: Modelare
+    section_id: D
+    lines:
+        - line_id: D.1
+          line_summary: Discriminarea prin proxy
+          line: Ne-am asigurat că modelul nu se bazează pe variabile sau proxy pentru variabile care sunt nedrept discriminatorii?
+        - line_id: D.2
+          line_summary: Corectitudine între grupuri
+          line: Am testat rezultatele modelului pentru corectitudine în ceea ce privește diferitele grupuri afectate (de exemplu, testate pentru rate de eroare disparate)?
+        - line_id: D.3
+          line_summary: Selecția metrică
+          line: Am luat în considerare efectele optimizării pentru valorile noastre definite și am luat în considerare valori suplimentare?
+        - line_id: D.4
+          line_summary: Explicabilitate
+          line: Putem explica în termeni de înțeles o decizie a modelului luat în cazurile în care este necesară o justificare?
+        - line_id: D.5
+          line_summary: Prejudecății comunicate
+          line: Am comunicat deficiențelor, limitărilor și prejudecăților modelului părților interesate relevante în moduri care pot fi înțelese în general?
+  - title: Implementare
+    section_id: E
+    lines:
+        - line_id: E.1
+          line_summary: Redresare
+          line: Am discutat cu organizația noastră un plan de răspuns dacă utilizatorii sunt afectați de rezultate (de exemplu, cum evaluează echipa științei datelor aceste c
+azuri și actualizează analiza și modelele pentru a preveni rănirea viitoare)?
+        - line_id: E.2
+          line_summary: Retragere
+          line: Există o modalitate de a opri sau de a retrage modelul în producție, dacă este necesar?
+        - line_id: E.3
+          line_summary: Deriva conceptului
+          line: Testăm și monitorizăm deriva conceptului pentru a ne asigura că modelul rămâne corect în timp?
+        - line_id: E.4
+          line_summary: Utilizare neintenționată
+          line: Am luat măsuri pentru a identifica și preveni utilizările neintenționate și abuzul modelului și avem un plan pentru a le monitoriza odată ce modelul este impl
+ementat?
