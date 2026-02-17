@@ -95,6 +95,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source_pkgs = ["deon"]
+debug = ["pathmap"]
 
 [tool.coverage.paths]
 deon = [
