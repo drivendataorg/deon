@@ -23,11 +23,12 @@ test:
 	pytest -vv
 
 lint:
-	black --check deon tests docs
-	flake8 .
+	ruff format --check .
+	ruff check .
 
 format:
-	black deon tests docs
+	ruff format .
+	ruff check --fix .
 
 ## Run tests and build rendered examples and docs
 build: lint test examples docs
