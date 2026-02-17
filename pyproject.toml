@@ -96,6 +96,12 @@ testpaths = ["tests"]
 [tool.coverage.run]
 source = ["deon"]
 
+[tool.coverage.paths]
+typenames = [
+  "deon/",
+  "*/site-packages/deon/"
+]
+
 [tool.coverage.report]
 exclude_also = [
   "if TYPE_CHECKING:",
