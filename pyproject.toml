@@ -11,7 +11,7 @@ exclude = '''
 
 [tool.ruff]
 line-length = 99
-src = ["deon/**/*.py", "tests/**/*.py", "docs/**/*.py"]
+src = ["deon", "tests", "docs"]
 
 [tool.ruff.lint]
 select = [
@@ -29,7 +29,7 @@ force-sort-within-sections = true
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov=deon --cov-report=term --cov-report=html --cov-report=xml --cov-append"
+addopts = "--cov=deon --cov-report=term --cov-report=html --cov-report=xml"
 testpaths = ["tests"]
 
 [tool.coverage.run]
