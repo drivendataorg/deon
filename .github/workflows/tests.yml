@@ -49,7 +49,7 @@ jobs:
 
       - name: Test Package
         run: |
-          uv run --isolated --no-editable make test
+          uv run --isolated --no-editable --upgrade make test
 
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v5

@@ -11,24 +11,20 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
-    - name: Set up Python 3.11 with uv
-      uses: drivendataorg/setup-python-uv-action@v1
+    - name: Set up uv
+      uses: astral-sh/setup-uv@v7
       with:
-        python-version: 3.11
-
-    - name: Install dependencies
-      run: |
-        uv sync
+        cache-suffix: dev
 
     - name: Build package
       id: build_package
       run: |
-        VERSION="$(sed -nE 's/^version = \"([^\"]+)\"/\1/p' pyproject.toml | head -n1)"
+        VERSION="$(uv run -m vspect read .)"
         echo "Building version ${VERSION}"
         echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
-        make dist
+        uv run make dist
 
     - name: Publish to Test PyPI
       uses: pypa/gh-action-pypi-publish@v1.13.0
