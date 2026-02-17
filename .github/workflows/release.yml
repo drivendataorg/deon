@@ -1,10 +1,7 @@
 name: release
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - "VERSION"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,13 +20,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv pip install -r dev-requirements.txt
+        uv sync
 
     - name: Build package
       id: build_package
       run: |
-        cat VERSION
-        echo "::set-output name=version::$(cat VERSION)"
+        VERSION="$(sed -nE 's/^version = \"([^\"]+)\"/\1/p' pyproject.toml | head -n1)"
+        echo "Building version ${VERSION}"
+        echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
         make dist
 
     - name: Publish to Test PyPI

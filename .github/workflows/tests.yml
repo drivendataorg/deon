@@ -17,20 +17,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Set up Python 3.11 with uv
-        uses: drivendataorg/setup-python-uv-action@v1
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: 3.11
-
-      - name: Install dependencies
-        run: |
-          uv pip install -r dev-requirements.txt
+          cache-suffix: dev
 
       - name: Lint package
         run: |
-          make lint
+          uv run make lint
 
   tests:
     name: Tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
@@ -39,60 +35,52 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.8, 3.9, "3.10", "3.11", "3.12"]
+        python-version: [3.8, 3.9, "3.10", "3.11", "3.12", "3.13", "3.14"]
 
     steps:
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Set up Python ${{ matrix.python-version }} with uv
-        uses: drivendataorg/setup-python-uv-action@v1
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          uv pip install -r dev-requirements.txt
+          python-version: ${{ matrix.python-version }} # Sets UV_PYTHON for rest of job
+          cache-suffix: tests-${{ matrix.os }}-py${{ matrix.python-version }}
 
       - name: Test Package
         run: |
-          make test
+          uv run --isolated --no-editable make test
 
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
+          files: ./coverage.xml
           fail_ci_if_error: true
         if: matrix.os == 'ubuntu-latest'
 
-      - name: Build distribution and test installation
-        shell: bash
-        run: |
-          uv pip install setuptools  # Need this because we still use setup.py
-          make dist
-          if [[ ${{ matrix.os }} == "windows-latest" ]]; then
-            PYTHON_BIN=Scripts/python.exe
-          else
-            PYTHON_BIN=bin/python
-          fi
-          echo "=== Testing wheel installation ==="
-          uv virtualenv .venv-whl --seed
-          uv pip install dist/deon-*.whl --python=.venv-whl/$PYTHON_BIN
-          .venv-whl/$PYTHON_BIN -m deon --help
-          echo "=== Testing source installation ==="
-          uv virtualenv .venv-sdist --seed
-          uv pip install dist/deon-*.tar.gz --python=.venv-sdist/$PYTHON_BIN
-          .venv-sdist/$PYTHON_BIN -m deon --help
+
+  docs:
+    name: Docs
+    needs: code-quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          cache-suffix: dev
 
       - name: Test Building Docs
         run: |
-          make examples
-          make docs
+          uv run make examples
+          uv run make docs
 
   notify:
     name: Notify failed build
-    needs: [code-quality, tests]
+    needs: [code-quality, tests, docs]
     if: failure() && github.event.pull_request == null
     runs-on: ubuntu-latest
     steps:
