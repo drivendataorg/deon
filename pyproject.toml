@@ -97,7 +97,7 @@ testpaths = ["tests"]
 source = ["deon"]
 
 [tool.coverage.paths]
-typenames = [
+deon = [
   "deon/",
   "*/site-packages/deon/"
 ]
