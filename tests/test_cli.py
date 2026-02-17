@@ -1,8 +1,9 @@
-import pytest
+import itertools as it
 import subprocess
 import sys
-import itertools as it
+
 from click.testing import CliRunner
+import pytest
 
 import assets
 from deon.cli import main

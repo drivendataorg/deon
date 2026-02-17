@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import yaml
 
 from deon.parser import Checklist

@@ -1,4 +1,4 @@
-from .deon import create, ExtensionException, FormatException
+from .deon import ExtensionException, FormatException, create
 
 __all__ = [
     "create",

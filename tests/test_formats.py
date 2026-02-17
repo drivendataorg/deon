@@ -1,11 +1,11 @@
-from pytest import fixture
 import json
-from bs4 import BeautifulSoup
 
-from deon.parser import Checklist, Section, Line
-from deon.formats import Format, Markdown, JupyterNotebook, JupyterNotebookMulticell, Html, Rst
+from bs4 import BeautifulSoup
+from pytest import fixture
 
 import assets
+from deon.formats import Format, Html, JupyterNotebook, JupyterNotebookMulticell, Markdown, Rst
+from deon.parser import Checklist, Line, Section
 
 
 @fixture

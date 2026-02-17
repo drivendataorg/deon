@@ -1,10 +1,10 @@
 import json
-from bs4 import BeautifulSoup
 
+from bs4 import BeautifulSoup
 import pytest
 
-import deon
 import assets
+import deon
 
 
 def test_format(checklist, tmpdir, test_format_configs):
