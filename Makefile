@@ -20,7 +20,7 @@ docs: render_markdown
 	cd docs && mkdocs build
 
 test:
-	pytest -vv
+	python -I -m pytest -vv
 
 lint:
 	ruff format --check .
