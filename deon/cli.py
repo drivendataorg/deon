@@ -1,7 +1,6 @@
 import click
 
 from .deon import ExtensionException, FormatException, MulticellException, create
-
 from .formats import EXTENSIONS
 
 

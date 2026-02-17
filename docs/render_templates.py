@@ -6,9 +6,8 @@ from jinja2 import Environment, FileSystemLoader
 import yaml
 
 from deon.cli import main as deon_command
-from deon.formats import Markdown, EXTENSIONS
+from deon.formats import EXTENSIONS, Markdown
 from deon.parser import Checklist
-
 
 env = Environment(
     loader=FileSystemLoader("md_templates"),
