@@ -2,13 +2,12 @@
 
 -e .
 
-flake8
-black
 jinja2
 mkdocs
 git+https://github.com/drivendataorg/mkdocs-alabaster.git#egg=mkdocs-alabaster
 pytest
 pymdown-extensions
+ruff
 twine
 pytest-cov
 wheel
