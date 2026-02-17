@@ -95,7 +95,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source_pkgs = ["deon"]
-debug = ["pathmap"]
+# debug = ["pathmap"]  # Useful if path mapping isn't working as expected
 
 [tool.coverage.paths]
 deon = [
