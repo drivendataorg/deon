@@ -1,14 +1,12 @@
 <a href="http://deon.drivendata.org/"><img src="https://s3.amazonaws.com/drivendata-public-assets/deon.png" width=200/></a>
 
-[![tests](https://github.com/drivendataorg/deon/workflows/tests/badge.svg?branch=main)](https://github.com/drivendataorg/deon/actions?query=workflow%3A%22tests%22+branch%3Amain) [![codecov](https://codecov.io/gh/drivendataorg/deon/branch/main/graph/badge.svg)](https://codecov.io/gh/drivendataorg/deon) [![PyPI](https://img.shields.io/pypi/v/deon.svg)](https://pypi.org/project/deon/) [![Conda Version](https://img.shields.io/conda/vn/conda-forge/deon.svg)](https://anaconda.org/conda-forge/deon)
+[![tests](https://github.com/drivendataorg/deon/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/drivendataorg/deon/actions/workflows/tests.yml?query=branch%3Amain) [![codecov](https://codecov.io/gh/drivendataorg/deon/branch/main/graph/badge.svg)](https://codecov.io/gh/drivendataorg/deon) [![PyPI](https://img.shields.io/pypi/v/deon.svg)](https://pypi.org/project/deon/) [![Conda Version](https://img.shields.io/conda/vn/conda-forge/deon.svg)](https://anaconda.org/conda-forge/deon)
 
  > [Read more about `deon` on the project homepage](http://deon.drivendata.org/)
 
 ------
 
-
 <h1><b>An ethics checklist for data scientists</b></h1>
-
 
 `deon` is a command line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
@@ -25,18 +23,22 @@ The conversation about ethics in data science, machine learning, and AI is incre
 
 # Quickstart
 
-You only need two lines of code to get started!
+If you have [uv](https://docs.astral.sh/uv/) available, you can use `deon` in one line! To write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`, simply run:
 
-First, install deon:
-
-```
-$ pip install deon
+```sh
+uvx deon -o ETHICS.md
 ```
 
-Then, write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`:
+Otherwise, first install `deon`:
 
+```sh
+pip install deon
 ```
-$ deon -o ETHICS.md
+
+Then, call `deon` to write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`:
+
+```sh
+deon -o ETHICS.md
 ```
 
 Dig into the checklist questions to identify and navigate the ethical considerations in your data science project.
@@ -74,7 +76,7 @@ We built our initial list from a set of proposed items on [multiple checklists t
 
 ## Prerequisites
 
- - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
+ - Python >3.8: Your project need not be Python 3, but you need Python 3 to execute this tool.
 
 ## Installation
 
@@ -283,7 +285,6 @@ There are other groups working on data ethics and thinking about how tools can h
 - [Ethical OS Toolkit](https://ethicalos.org/)
 - [Ethics & Algorithms Toolkit: A risk management framework for governments](http://ethicstoolkit.ai/)
 - Ethics and Data Science ([free ebook](https://www.amazon.com/dp/B07GTC8ZN7/ref=cm_sw_r_cp_ep_dp_klAOBb4Z72B4G)) and ([write-up](https://medium.com/@sjgadler/care-about-ai-ethics-what-you-can-do-starting-today-882a0e63d828))
-
 
 -------
 
