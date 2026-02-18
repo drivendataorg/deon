@@ -2,7 +2,7 @@
 
 ## Install python dependencies
 reqs:
-	pip install -r dev-requirements.txt
+	uv sync
 
 examples:
 	deon --output examples/ethics.md --overwrite
@@ -20,7 +20,7 @@ docs: render_markdown
 	cd docs && mkdocs build
 
 test:
-	pytest -vv
+	python -I -m pytest -vv
 
 lint:
 	ruff format --check .
@@ -41,8 +41,7 @@ clean: clean_pycache
 	rm -rf deon.egg-info
 
 dist: clean ## builds source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
+	uv build
 	ls -l dist
 
 #################################################################################

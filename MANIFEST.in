@@ -1,6 +1,0 @@
-include README.md
-include LICENSE.txt
-include deon/assets/checklist.yml
-include deon/assets/examples_of_ethical_issues.yml
-include requirements.txt
-include VERSION

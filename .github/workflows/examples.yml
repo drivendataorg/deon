@@ -10,24 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-    - name: Set up Python 3.11 with uv
-      uses: drivendataorg/setup-python-uv-action@v1
-      with:
-        python-version: 3.11
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
 
-    - name: Install dependencies
-      run: |
-        uv pip install -r dev-requirements.txt
+      - name: Build examples and docs
+        run: |
+          uv run make examples
+          uv run make docs
 
-    - name: Build examples and docs
-      run: |
-        make examples
-        make docs
-
-    - name: Commit changed files from build
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Add rendered files from build
-        file_pattern: examples/* docs/docs/*.md README.md
+      - name: Commit changed files from build
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add rendered files from build
+          file_pattern: examples/* docs/docs/*.md README.md
