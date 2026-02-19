@@ -1,6 +1,5 @@
 <h1><b>An ethics checklist for data scientists</b></h1>
 
-
 `deon` is a command line tool that allows you to easily add an ethics checklist to your data science projects. We support creating a new, standalone checklist file or appending a checklist to an existing analysis in [many common formats](#supported-file-types).
 
 To help get started, `deon ` includes a default [Data Science Ethics Checklist](#data-science-ethics-checklist) along with a list of [real-world examples](http://deon.drivendata.org/examples/) connected with each item. Users can draw on the default list or develop their own.
@@ -16,18 +15,22 @@ The conversation about ethics in data science, machine learning, and AI is incre
 
 # Quickstart
 
-You only need two lines of code to get started!
+If you have [uv](https://docs.astral.sh/uv/) available, you can use `deon` in one line! To write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`, simply run:
 
-First, install deon:
-
-```
-$ pip install deon
+```sh
+uvx deon -o ETHICS.md
 ```
 
-Then, write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`:
+Otherwise, first install `deon`:
 
+```sh
+pip install deon
 ```
-$ deon -o ETHICS.md
+
+Then, call `deon` to write out the [default checklist](#default-checklist) to a markdown file called `ETHICS.md`:
+
+```sh
+deon -o ETHICS.md
 ```
 
 Dig into the checklist questions to identify and navigate the ethical considerations in your data science project.
@@ -65,7 +68,7 @@ We built our initial list from a set of proposed items on [multiple checklists t
 
 ## Prerequisites
 
- - Python >3.6: Your project need not be Python 3, but you need Python 3 to execute this tool.
+ - Python >3.8: Your project need not be Python 3, but you need Python 3 to execute this tool.
 
 ## Installation
 
