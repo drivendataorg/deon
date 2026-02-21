@@ -187,6 +187,18 @@ class JupyterNotebookMulticell(JupyterNotebook):
 
         return JsonDict(blank_jupyter_notebook)
 
+class Latex(Format):
+    template = """
+\\section*{{{title}}}
+{sections}
+"""
+    section_template = """
+\\subsection*{{{title}}}
+\\begin{{itemize}}
+{lines}
+\\end{{itemize}}
+"""
+    line_template = "\\item {line}"
 
 class Html(Format):
     """HTML template items"""
@@ -267,6 +279,7 @@ FORMATS = {
     "markdown": Markdown,
     "rmarkdown": Markdown,
     "rst": Rst,
+    "latex": Latex,
 }
 
 # keep all extensions lowercase
@@ -277,4 +290,7 @@ EXTENSIONS = {
     ".md": "markdown",
     ".rmd": "rmarkdown",
     ".rst": "rst",
+    ".tex": "latex"
 }
+
+
