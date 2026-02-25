@@ -188,17 +188,30 @@ class JupyterNotebookMulticell(JupyterNotebook):
         return JsonDict(blank_jupyter_notebook)
 
 class Latex(Format):
-    template = """
-\\section*{{{title}}}
+    doc_template = r"""
+\documentclass{article}
+\begin{document}
+{content}
+\end{document}
+"""
+
+    template = r"""
+\section*{{{title}}}
 {sections}
 """
-    section_template = """
-\\subsection*{{{title}}}
-\\begin{{itemize}}
+
+    section_template = r"""
+\subsection*{{{title}}}
+\begin{itemize}
 {lines}
-\\end{{itemize}}
+\end{itemize}
 """
-    line_template = "\\item {line}"
+
+    line_template = r"\item {line}"
+
+    def render(self):
+        content = super().render()
+        return self.doc_template.format(content=content)
 
 class Html(Format):
     """HTML template items"""
