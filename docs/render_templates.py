@@ -54,12 +54,12 @@ def make_table_of_links():
     for r in refs:
         refs_dict[r["line_id"]] = r["links"]
 
-    template = """<center>Checklist Question</center> | <center>Examples</center>
---- | ---
+    template = """| Checklist Question | Examples |
+| --- | --- |
 {lines}
 """
-    line_template = "**{line_id} {line_summary}**: {line} | {row_text}"
-    section_title_template = " | <center>**{section_title}**</center>"
+    line_template = "| **{line_id} {line_summary}**: {line} | {row_text} |"
+    section_title_template = "| **{section_title}** | |"
     line_delimiter = "\n"
 
     formatted_rows = []
@@ -74,7 +74,7 @@ def make_table_of_links():
             for link in refs_dict[line.line_id]:
                 text = link["text"]
                 url = link["url"]
-                bullet_hyperlink = f"<li>[{text}]({url})</li>"
+                bullet_hyperlink = f'<li><a href="{url}" target="_blank" rel="noopener noreferrer">{text}</a></li>'
                 bulleted_list.append(bullet_hyperlink)
             formatted_bullets = "".join(bulleted_list)
 

@@ -55,7 +55,7 @@
 - line_id: C.2
   links:
     - text: ✅ A study by Park et al shows how reweighting can mitigate racial bias when predicting risk of postpartum depression.
-      url: https://doi.org/10.1001/jamanetworkopen.2021.3909 
+      url: https://doi.org/10.1001/jamanetworkopen.2021.3909
     - text: ⛔ word2vec, trained on Google News corpus, reinforces gender stereotypes.
       url: https://www.technologyreview.com/s/602025/how-vector-space-mathematics-reveals-the-hidden-sexism-in-language/
     - text: ⛔ Women are more likely to be shown lower-paying jobs than men in Google ads.
@@ -82,7 +82,7 @@
   links:
     - text: ✅ Amazon developed an experimental AI recruiting tool, but did not deploy it because it learned to perpetuate bias against women.
       url: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G
-    - text: ⛔ In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.    
+    - text: ⛔ In hypothetical trials, language models assign the death penalty more frequently to defendants who use African American dialects.
       url: https://arxiv.org/abs/2403.00742
     - text: ⛔ Variables used to predict child abuse and neglect are direct measurements of poverty, unfairly targeting low-income families for child welfare scrutiny.
       url: https://www.wired.com/story/excerpt-from-automating-inequality/
@@ -92,7 +92,7 @@
       url: https://www.whitecase.com/publications/insight/algorithms-and-bias-what-lenders-need-know
 - line_id: D.2
   links:
-    - text: ✅ A study by Garriga et al uses ML best practices to test for and communicate fairness across racial groups for a model that predicts mental health crises. 
+    - text: ✅ A study by Garriga et al uses ML best practices to test for and communicate fairness across racial groups for a model that predicts mental health crises.
       url: https://www.nature.com/articles/s41591-022-01811-5
     - text: ⛔ Apple credit card offers smaller lines of credit to women than men.
       url: https://www.wired.com/story/the-apple-card-didnt-see-genderand-thats-the-problem/
@@ -119,7 +119,7 @@
 - line_id: D.4
   links:
     - text: ✅ GDPR includes a "right to explanation," i.e. meaningful information on the logic underlying automated decisions.
-      url: hhttps://academic.oup.com/idpl/article/7/4/233/4762325
+      url: https://academic.oup.com/idpl/article/7/4/233/4762325
     - text: ⛔ Patients with pneumonia with a history of asthma are usually admitted to the intensive care unit as they have a high risk of dying from pneumonia. Given the success of the intensive care, neural networks predicted asthmatics had a low risk of dying and could therefore be sent home. Without explanatory models to identify this issue, patients may have been sent home to die.
       url: http://people.dbmi.columbia.edu/noemie/papers/15kdd.pdf
 - line_id: D.5
