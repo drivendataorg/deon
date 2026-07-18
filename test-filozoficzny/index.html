@@ -243,6 +243,29 @@
   .cat-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
   .cat-row .val { flex: 0 0 42px; text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
 
+  .name-card {
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .name-label {
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--text);
+  }
+  .name-input {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-2);
+    color: var(--text);
+    width: 100%;
+  }
+  .name-input:focus { outline: none; border-color: var(--accent); }
+
   .send-form {
     max-width: 420px;
     margin: 30px auto 0;
@@ -302,6 +325,11 @@
   <div class="progress-bar">
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="progress-label" id="progressLabel">Odpowiedziano: 0 / 30</div>
+  </div>
+
+  <div id="nameCard" class="card name-card">
+    <label for="fNameTop" class="name-label">Zanim zaczniesz — podaj swoje imię</label>
+    <input type="text" id="fNameTop" class="name-input" placeholder="Imię i nazwisko" autocomplete="name">
   </div>
 
   <div id="result" class="result">
@@ -681,6 +709,10 @@ function submitTest() {
     document.getElementById('exp' + i).classList.add('show');
   });
 
+  // przenieś imię wpisane na starcie do formularza wysyłki
+  const topName = document.getElementById('fNameTop').value.trim();
+  if (topName) document.getElementById('fName').value = topName;
+
   document.getElementById('controls').style.display = 'none';
   const res = document.getElementById('result');
   res.classList.add('show');
@@ -759,6 +791,7 @@ function resetTest() {
   answers.fill(null);
   document.getElementById('result').classList.remove('show');
   document.getElementById('controls').style.display = 'block';
+  document.getElementById('fNameTop').value = '';
   const form = document.getElementById('sendForm');
   form.reset();
   const sBtn = document.getElementById('sendBtn');
