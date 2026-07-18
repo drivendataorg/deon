@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil uczestnika + Test wiedzy o Claude</title>
+<style>
+  :root {
+    --bg: #eef2f7;
+    --surface: #ffffff;
+    --surface-2: #f5f8fc;
+    --text: #14181f;
+    --muted: #5c6672;
+    --border: #dde4ee;
+    --accent: #cc785c;
+    --accent-2: #4a6bd6;
+    --accent-soft: #f5e7e0;
+    --correct: #2e7d4f;
+    --correct-bg: #e6f4ea;
+    --wrong: #c0392b;
+    --wrong-bg: #fbeae8;
+    --shadow: 0 6px 24px rgba(20, 30, 50, 0.08);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f131a;
+      --surface: #181d26;
+      --surface-2: #1f2530;
+      --text: #e8ecf2;
+      --muted: #9aa4b2;
+      --border: #2c333f;
+      --accent: #e0997c;
+      --accent-2: #8aa0ee;
+      --accent-soft: #2a2019;
+      --correct: #6cc48c;
+      --correct-bg: #1e3327;
+      --wrong: #e8837a;
+      --wrong-bg: #35211f;
+      --shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 16px 80px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  header.hero { text-align: center; margin-bottom: 26px; }
+  header.hero .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  header.hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  header.hero p.sub { color: var(--muted); margin-top: 12px; font-size: 1.02rem; }
+
+  .progress-bar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg); padding: 12px 0 14px; margin-bottom: 8px;
+  }
+  .progress-track { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 99px; transition: width 0.35s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--muted); text-align: right; margin-top: 6px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 24px 20px;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 1.15rem; font-weight: 800; margin-bottom: 4px;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .section-title .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .section-hint { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 6px; }
+  .field label .req { color: var(--wrong); }
+  .field input, .field select {
+    font-family: inherit; font-size: 1rem;
+    padding: 11px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-2);
+    color: var(--text);
+    width: 100%;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+  .field.invalid input { border-color: var(--wrong); background: var(--wrong-bg); }
+  .field .err { display: none; font-size: 0.84rem; color: var(--wrong); margin-top: 5px; }
+  .field.invalid .err { display: block; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .q-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .q-num {
+    font-size: 0.78rem; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); padding: 3px 9px; border-radius: 99px; white-space: nowrap;
+  }
+  .q-cat { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-left: auto; }
+  .q-text { font-size: 1.12rem; font-weight: 700; margin: 10px 0 16px; line-height: 1.4; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 13px 15px; border: 1.5px solid var(--border); border-radius: 10px;
+    background: var(--surface-2); cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.05s; font-size: 1.0rem;
+  }
+  .opt:hover:not(.locked) { border-color: var(--accent); }
+  .opt:active:not(.locked) { transform: scale(0.995); }
+  .opt .marker {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    border: 1.5px solid var(--muted); display: grid; place-items: center;
+    font-size: 0.85rem; font-weight: 700; color: var(--muted); transition: all 0.15s;
+  }
+  .opt.locked { cursor: default; }
+  .opt.selected .marker { border-color: var(--accent); background: var(--accent); color: #fff; }
+  .opt.correct { border-color: var(--correct); background: var(--correct-bg); }
+  .opt.correct .marker { border-color: var(--correct); background: var(--correct); color: #fff; }
+  .opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+  .opt.wrong .marker { border-color: var(--wrong); background: var(--wrong); color: #fff; }
+
+  .explain {
+    margin-top: 14px; padding: 12px 15px; border-left: 3px solid var(--accent);
+    background: var(--surface-2); border-radius: 0 8px 8px 0; font-size: 0.94rem; display: none;
+  }
+  .explain.show { display: block; animation: fade 0.3s ease; }
+  .explain strong { color: var(--accent); }
+  @keyframes fade { from { opacity: 0; transform: translateY(-4px);} to {opacity:1; transform:none;} }
+
+  .controls { text-align: center; margin-top: 26px; }
+  button.btn {
+    font-family: inherit; font-size: 1rem; font-weight: 700;
+    padding: 13px 30px; border-radius: 99px; border: none;
+    background: var(--accent); color: #fff; cursor: pointer;
+    transition: opacity 0.15s, transform 0.05s;
+  }
+  button.btn:hover { opacity: 0.9; }
+  button.btn:active { transform: scale(0.98); }
+  button.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+
+  .result {
+    display: none; text-align: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 36px 26px; margin-bottom: 20px;
+  }
+  .result.show { display: block; animation: fade 0.4s ease; }
+  .result .who { font-size: 0.9rem; color: var(--muted); margin-bottom: 10px; }
+  .result .score-big { font-size: 3.4rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .result .score-sub { color: var(--muted); margin-top: 6px; }
+  .result h2 { margin: 18px 0 8px; font-size: 1.5rem; }
+  .result .verdict { color: var(--muted); font-size: 1.02rem; max-width: 480px; margin: 0 auto 18px; }
+  .cat-breakdown { text-align: left; max-width: 440px; margin: 22px auto 0; }
+  .cat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 0.9rem; }
+  .cat-row .name { flex: 0 0 42%; color: var(--muted); }
+  .cat-row .track { flex: 1; height: 7px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .cat-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
+  .cat-row .val { flex: 0 0 42px; text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
+
+  .send-form {
+    max-width: 440px; margin: 30px auto 0; padding: 22px 20px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--surface-2); display: flex; flex-direction: column; gap: 12px;
+  }
+  .send-form .send-title { font-weight: 800; font-size: 1.05rem; }
+  .send-form input {
+    font-family: inherit; font-size: 1rem; padding: 11px 13px;
+    border: 1.5px solid var(--border); border-radius: 9px;
+    background: var(--surface); color: var(--text); width: 100%;
+  }
+  .send-form input:focus { outline: none; border-color: var(--accent); }
+  .send-form .btn { width: 100%; }
+  .send-status { font-size: 0.88rem; min-height: 1.2em; text-align: center; }
+  .send-status.ok { color: var(--correct); }
+  .send-status.err { color: var(--wrong); }
+
+  footer.foot {
+    text-align: center; color: var(--muted); font-size: 0.8rem;
+    margin-top: 40px; line-height: 1.7;
+  }
+  .disclaimer { font-size: 0.75rem; color: var(--muted); max-width: 560px; margin: 8px auto 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">Profil uczestnika · Quiz</div>
+    <h1>Test wiedzy o Claude</h1>
+    <p class="sub">Najpierw uzupełnij swój profil, a następnie sprawdź, ile wiesz o Claude i Anthropic. 15 pytań jednokrotnego wyboru z natychmiastowym wyjaśnieniem.</p>
+  </header>
+
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">Odpowiedziano: 0 / 15</div>
+  </div>
+
+  <!-- PROFIL UCZESTNIKA -->
+  <div id="profileCard" class="card">
+    <div class="section-title"><span class="dot"></span>Profil uczestnika</div>
+    <div class="section-hint">Pola oznaczone <span style="color:var(--wrong)">*</span> są wymagane.</div>
+
+    <div class="field" id="fldName">
+      <label for="pName">Imię i nazwisko <span class="req">*</span></label>
+      <input type="text" id="pName" placeholder="np. Jan Kowalski" autocomplete="name" required>
+      <div class="err">Podanie imienia jest wymagane, aby zakończyć test.</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label for="pEmail">Adres e-mail</label>
+        <input type="email" id="pEmail" placeholder="opcjonalnie" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="pOrg">Organizacja / firma</label>
+        <input type="text" id="pOrg" placeholder="opcjonalnie" autocomplete="organization">
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="field">
+        <label for="pRole">Rola</label>
+        <select id="pRole">
+          <option value="">— wybierz —</option>
+          <option>Uczeń / student</option>
+          <option>Programista / inżynier</option>
+          <option>Badacz / naukowiec</option>
+          <option>Menedżer / biznes</option>
+          <option>Inna</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pLevel">Znajomość Claude</label>
+        <select id="pLevel">
+          <option value="">— wybierz —</option>
+          <option>Początkująca</option>
+          <option>Średniozaawansowana</option>
+          <option>Zaawansowana</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- WYNIK -->
+  <div id="result" class="result">
+    <div class="who" id="resultWho"></div>
+    <div class="score-big" id="scoreBig">0 / 15</div>
+    <div class="score-sub" id="scorePct">0%</div>
+    <h2 id="verdictTitle">Wynik</h2>
+    <p class="verdict" id="verdictText"></p>
+    <div class="cat-breakdown" id="catBreakdown"></div>
+
+    <form id="sendForm" class="send-form" onsubmit="sendResult(event)">
+      <div class="send-title">Wyślij swój wynik</div>
+      <input type="text" id="fName" name="name" placeholder="Imię i nazwisko" required>
+      <input type="email" id="fEmail" name="email" placeholder="Adres e-mail (opcjonalnie)">
+      <button type="submit" class="btn" id="sendBtn">Wyślij wynik</button>
+      <div class="send-status" id="sendStatus"></div>
+    </form>
+
+    <div style="margin-top:22px;">
+      <button class="btn ghost" onclick="resetTest()">Rozwiąż jeszcze raz</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz"></div>
+
+  <div class="controls" id="controls">
+    <button class="btn" id="submitBtn" onclick="submitTest()">Zakończ i pokaż wynik</button>
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:12px;">
+      Możesz zobaczyć wynik w dowolnym momencie.
+    </p>
+  </div>
+
+  <footer class="foot">
+    Test edukacyjny o Claude i Anthropic · podstawy · modele · funkcje · pojęcia AI<br>
+    Wykonano dla repozytorium <strong>deon</strong>.
+    <div class="disclaimer">
+      Uwaga: świat modeli AI zmienia się szybko. Test skupia się na trwałych,
+      ogólnych faktach; szczegóły wersji i cen sprawdzaj w oficjalnej dokumentacji Anthropic.
+    </div>
+  </footer>
+</div>
+
+<script>
+// ============================================================================
+//  WEB3FORMS — WKLEJ TUTAJ SWÓJ KLUCZ DOSTĘPU (ACCESS KEY)
+//  Klucz pobierzesz na https://web3forms.com — jest publiczny i może
+//  znajdować się w kodzie front-endu. Wyniki testu trafią na e-mail
+//  przypisany do tego klucza.
+const WEB3FORMS_ACCESS_KEY = "55fce01a-74f0-43ac-aa15-8742bead841f";
+// ============================================================================
+
+const QUESTIONS = [
+  {
+    cat: "Podstawy",
+    q: "Która firma tworzy i rozwija modele Claude?",
+    opts: ["OpenAI", "Anthropic", "Google DeepMind", "Meta AI"],
+    correct: 1,
+    exp: "Claude to rodzina modeli językowych rozwijana przez firmę Anthropic, zajmującą się badaniami nad bezpieczeństwem sztucznej inteligencji."
+  },
+  {
+    cat: "Podstawy",
+    q: "Anthropic zostało założone w 2021 roku m.in. przez:",
+    opts: ["Byłych badaczy OpenAI (w tym rodzeństwo Amodei)", "Twórców Linuxa", "Zespół Google Search", "Założycieli Wikipedii"],
+    correct: 0,
+    exp: "Anthropic założyli w 2021 r. byli pracownicy OpenAI, wśród nich Dario i Daniela Amodei. Firma skupia się na bezpiecznej i sterowalnej AI."
+  },
+  {
+    cat: "Podstawy",
+    q: "Metoda treningu Anthropic, w której model uczy się kierować zestawem zasad („konstytucją”), nazywa się:",
+    opts: ["Reinforcement Learning from Human Feedback", "Constitutional AI (konstytucyjna AI)", "Gradient boosting", "Transfer learning"],
+    correct: 1,
+    exp: "Constitutional AI to podejście Anthropic, w którym model kieruje się jawnym zbiorem zasad (konstytucją), co pozwala ograniczyć szkodliwe odpowiedzi przy mniejszym udziale człowieka."
+  },
+  {
+    cat: "Podstawy",
+    q: "Do czego najczęściej odnosi się źródło nazwy „Claude”?",
+    opts: ["Do malarza Claude'a Moneta", "Do Claude'a Shannona, pioniera teorii informacji", "Do miasta we Francji", "Do skrótu technicznego"],
+    correct: 1,
+    exp: "Nazwę „Claude” najczęściej wiąże się z Claude'em Shannonem — twórcą teorii informacji, fundamentu współczesnej informatyki i telekomunikacji."
+  },
+  {
+    cat: "Modele",
+    q: "Rodzina modeli Claude tradycyjnie dzieli się na trzy poziomy. Który z nich jest zaprojektowany jako najszybszy i najbardziej ekonomiczny?",
+    opts: ["Opus", "Sonnet", "Haiku", "Claude Code"],
+    correct: 2,
+    exp: "Haiku to najlżejszy i najszybszy poziom — dobry do zadań o dużej skali i niskim opóźnieniu. Sonnet jest zrównoważony, a Opus najbardziej wydajny."
+  },
+  {
+    cat: "Modele",
+    q: "Który poziom modeli Claude jest zwykle najbardziej wydajny przy złożonych, wymagających zadaniach?",
+    opts: ["Haiku", "Opus", "Nano", "Micro"],
+    correct: 1,
+    exp: "Opus to najmocniejszy poziom rodziny Claude — przeznaczony do najbardziej złożonego rozumowania i trudnych zadań, kosztem większego opóźnienia i ceny."
+  },
+  {
+    cat: "Modele",
+    q: "Nazwy poziomów Claude — Haiku, Sonnet, Opus — układają się według:",
+    opts: ["Kolejności alfabetycznej", "Rosnącej zdolności / złożoności modelu", "Roku wydania", "Liczby parametrów podanej publicznie"],
+    correct: 1,
+    exp: "Nazwy odzwierciedlają rosnącą „objętość” i możliwości: haiku (krótkie), sonet (średni), opus (wielkie dzieło) — od najszybszego do najbardziej wydajnego modelu."
+  },
+  {
+    cat: "Funkcje",
+    q: "Otwarty standard ogłoszony przez Anthropic, który ułatwia łączenie modeli z zewnętrznymi narzędziami i źródłami danych, to:",
+    opts: ["Model Context Protocol (MCP)", "HTTP", "GraphQL", "OAuth"],
+    correct: 0,
+    exp: "Model Context Protocol (MCP) to otwarty protokół Anthropic, standaryzujący sposób, w jaki modele łączą się z narzędziami, danymi i usługami (np. przez serwery MCP)."
+  },
+  {
+    cat: "Funkcje",
+    q: "Claude Code to przede wszystkim:",
+    opts: ["Edytor grafiki", "Narzędzie (agent) do programowania działające w terminalu / CLI", "Arkusz kalkulacyjny", "Komunikator"],
+    correct: 1,
+    exp: "Claude Code to agentowe narzędzie dla programistów, działające w terminalu (oraz w IDE i przeglądarce), które potrafi czytać, pisać i uruchamiać kod w projekcie."
+  },
+  {
+    cat: "Funkcje",
+    q: "Funkcja „Artifacts” (Artefakty) w claude.ai pozwala:",
+    opts: ["Trwale usuwać rozmowy", "Wyświetlać i edytować generowane treści (np. kod, dokumenty, strony) w osobnym panelu", "Zmieniać model na inny", "Szyfrować pliki"],
+    correct: 1,
+    exp: "Artefakty to osobny panel, w którym Claude pokazuje samodzielne treści — kod, dokumenty, strony HTML czy diagramy — które można podglądać i iteracyjnie ulepszać."
+  },
+  {
+    cat: "Funkcje",
+    q: "Zdolność Claude do wywoływania zdefiniowanych przez programistę narzędzi/funkcji to:",
+    opts: ["Tool use (function calling)", "Overclocking", "Indeksowanie", "Kompilacja"],
+    correct: 0,
+    exp: "„Tool use” (wywoływanie narzędzi / function calling) pozwala modelowi poprosić o uruchomienie zdefiniowanej funkcji i wykorzystać jej wynik w odpowiedzi."
+  },
+  {
+    cat: "Funkcje",
+    q: "Mechanizm „prompt caching” (buforowanie promptu) służy głównie do:",
+    opts: ["Ukrywania odpowiedzi", "Ponownego wykorzystania powtarzalnego kontekstu, aby obniżyć koszt i opóźnienie", "Tłumaczenia tekstu", "Zwiększania liczby parametrów modelu"],
+    correct: 1,
+    exp: "Buforowanie promptu pozwala ponownie użyć dużego, powtarzalnego fragmentu kontekstu między zapytaniami, co obniża koszty i przyspiesza odpowiedzi."
+  },
+  {
+    cat: "Pojęcia AI",
+    q: "„Okno kontekstu” (context window) modelu językowego oznacza:",
+    opts: ["Rozmiar ekranu użytkownika", "Maksymalną ilość tekstu (tokenów), którą model może uwzględnić naraz", "Czas działania serwera", "Liczbę użytkowników online"],
+    correct: 1,
+    exp: "Okno kontekstu to maksymalna liczba tokenów (wejście + wyjście), którą model może przetwarzać w jednym żądaniu — im większe, tym więcej treści model „widzi” naraz."
+  },
+  {
+    cat: "Pojęcia AI",
+    q: "„Token” w kontekście modeli językowych to:",
+    opts: ["Hasło dostępu", "Podstawowa jednostka tekstu (często fragment słowa), którą przetwarza model", "Moneta kryptowalutowa", "Rodzaj błędu"],
+    correct: 1,
+    exp: "Token to podstawowa jednostka, na jaką dzielony jest tekst — zwykle fragment słowa. Modele liczą i rozliczają pracę właśnie w tokenach."
+  },
+  {
+    cat: "Pojęcia AI",
+    q: "„Halucynacja” modelu językowego oznacza:",
+    opts: ["Awarię serwera", "Wygenerowanie informacji brzmiącej wiarygodnie, lecz nieprawdziwej", "Zbyt wolną odpowiedź", "Odmowę odpowiedzi"],
+    correct: 1,
+    exp: "Halucynacja to sytuacja, gdy model podaje przekonująco brzmiącą, ale błędną lub zmyśloną informację. Dlatego ważne fakty warto weryfikować u źródła."
+  }
+];
+
+const quizEl = document.getElementById('quiz');
+const answers = new Array(QUESTIONS.length).fill(null);
+let submitted = false;
+
+function render() {
+  quizEl.innerHTML = '';
+  QUESTIONS.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'q' + i;
+
+    const head = document.createElement('div');
+    head.className = 'q-head';
+    head.innerHTML = `<span class="q-num">Pytanie ${i + 1}</span><span class="q-cat">${item.cat}</span>`;
+    card.appendChild(head);
+
+    const qt = document.createElement('div');
+    qt.className = 'q-text';
+    qt.textContent = item.q;
+    card.appendChild(qt);
+
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'options';
+    const letters = ['A', 'B', 'C', 'D'];
+    item.opts.forEach((text, j) => {
+      const opt = document.createElement('div');
+      opt.className = 'opt';
+      opt.innerHTML = `<span class="marker">${letters[j]}</span><span class="otext">${text}</span>`;
+      opt.onclick = () => choose(i, j);
+      optsWrap.appendChild(opt);
+    });
+    card.appendChild(optsWrap);
+
+    const exp = document.createElement('div');
+    exp.className = 'explain';
+    exp.id = 'exp' + i;
+    exp.innerHTML = `<strong>Wyjaśnienie:</strong> ${item.exp}`;
+    card.appendChild(exp);
+
+    quizEl.appendChild(card);
+  });
+  updateProgress();
+}
+
+function choose(qi, oi) {
+  if (submitted) return;
+  answers[qi] = oi;
+  const card = document.getElementById('q' + qi);
+  const opts = card.querySelectorAll('.opt');
+  const correct = QUESTIONS[qi].correct;
+
+  opts.forEach((o, j) => {
+    o.classList.remove('selected', 'correct', 'wrong');
+    o.classList.add('locked');
+    if (j === correct) o.classList.add('correct');
+    if (j === oi && oi !== correct) o.classList.add('wrong');
+    if (j === oi) o.classList.add('selected');
+  });
+  document.getElementById('exp' + qi).classList.add('show');
+  updateProgress();
+}
+
+function updateProgress() {
+  const answered = answers.filter(a => a !== null).length;
+  const pct = Math.round((answered / QUESTIONS.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Odpowiedziano: ${answered} / ${QUESTIONS.length}`;
+}
+
+function score() {
+  return answers.reduce((acc, a, i) => acc + (a === QUESTIONS[i].correct ? 1 : 0), 0);
+}
+
+function profileSummary() {
+  const g = id => (document.getElementById(id).value || '').trim();
+  return {
+    name: g('pName'),
+    email: g('pEmail'),
+    org: g('pOrg'),
+    role: g('pRole'),
+    level: g('pLevel')
+  };
+}
+
+function submitTest() {
+  // imię (profil) jest wymagane
+  const fld = document.getElementById('fldName');
+  const nameInput = document.getElementById('pName');
+  if (!nameInput.value.trim()) {
+    fld.classList.add('invalid');
+    document.getElementById('profileCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    nameInput.focus();
+    return;
+  }
+  fld.classList.remove('invalid');
+
+  submitted = true;
+  const p = profileSummary();
+  const s = score();
+  const total = QUESTIONS.length;
+  const pct = Math.round((s / total) * 100);
+
+  const whoBits = [p.name];
+  if (p.role) whoBits.push(p.role);
+  if (p.org) whoBits.push(p.org);
+  document.getElementById('resultWho').textContent = whoBits.join(' · ');
+
+  document.getElementById('scoreBig').textContent = `${s} / ${total}`;
+  document.getElementById('scorePct').textContent = `${pct}% poprawnych odpowiedzi`;
+
+  let title, text;
+  if (pct >= 90) { title = "Ekspert od Claude!"; text = "Świetnie znasz Claude i Anthropic — od poziomów modeli po pojęcia z zakresu AI."; }
+  else if (pct >= 70) { title = "Bardzo dobra znajomość"; text = "Solidnie orientujesz się w Claude. Kilka szczegółów warto odświeżyć w dokumentacji."; }
+  else if (pct >= 50) { title = "Dobra podstawa"; text = "Znasz najważniejsze fakty — warto zgłębić funkcje (MCP, tool use) i pojęcia AI."; }
+  else { title = "Dobry początek"; text = "Zajrzyj do dokumentacji Anthropic i spróbuj ponownie — szybko nadrobisz podstawy."; }
+  document.getElementById('verdictTitle').textContent = title;
+  document.getElementById('verdictText').textContent = text;
+
+  const cats = {};
+  QUESTIONS.forEach((item, i) => {
+    if (!cats[item.cat]) cats[item.cat] = { correct: 0, total: 0 };
+    cats[item.cat].total++;
+    if (answers[i] === item.correct) cats[item.cat].correct++;
+  });
+  const cb = document.getElementById('catBreakdown');
+  cb.innerHTML = '<div style="font-weight:700; margin-bottom:12px; color:var(--text);">Wynik wg kategorii</div>';
+  Object.keys(cats).sort().forEach(name => {
+    const c = cats[name];
+    const pp = Math.round((c.correct / c.total) * 100);
+    const row = document.createElement('div');
+    row.className = 'cat-row';
+    row.innerHTML = `<span class="name">${name}</span><span class="track"><span class="bar" style="width:${pp}%"></span></span><span class="val">${c.correct}/${c.total}</span>`;
+    cb.appendChild(row);
+  });
+
+  QUESTIONS.forEach((item, i) => {
+    const card = document.getElementById('q' + i);
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((o, j) => {
+      o.classList.add('locked');
+      if (j === item.correct) o.classList.add('correct');
+      if (answers[i] === j && j !== item.correct) o.classList.add('wrong');
+    });
+    document.getElementById('exp' + i).classList.add('show');
+  });
+
+  // przenieś dane profilu do formularza wysyłki
+  document.getElementById('fName').value = p.name;
+  if (p.email) document.getElementById('fEmail').value = p.email;
+
+  document.getElementById('controls').style.display = 'none';
+  const res = document.getElementById('result');
+  res.classList.add('show');
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+async function sendResult(event) {
+  event.preventDefault();
+  const statusEl = document.getElementById('sendStatus');
+  const btn = document.getElementById('sendBtn');
+  statusEl.className = 'send-status';
+
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf('TWOJ_KLUCZ') !== -1) {
+    statusEl.textContent = 'Brak klucza Web3Forms — uzupełnij WEB3FORMS_ACCESS_KEY w kodzie.';
+    statusEl.classList.add('err');
+    return;
+  }
+
+  const p = profileSummary();
+  const s = score();
+  const total = QUESTIONS.length;
+  const pct = Math.round((s / total) * 100);
+
+  const cats = {};
+  QUESTIONS.forEach((item, i) => {
+    if (!cats[item.cat]) cats[item.cat] = { correct: 0, total: 0 };
+    cats[item.cat].total++;
+    if (answers[i] === item.correct) cats[item.cat].correct++;
+  });
+  const catLines = Object.keys(cats).sort()
+    .map(n => `  - ${n}: ${cats[n].correct}/${cats[n].total}`).join('\n');
+
+  const name = document.getElementById('fName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+
+  const payload = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: `Test wiedzy o Claude — ${name || 'uczestnik'}: ${s}/${total} (${pct}%)`,
+    name: name,
+    email: email || 'brak@example.com',
+    message:
+      `=== PROFIL UCZESTNIKA ===\n` +
+      `Imię i nazwisko: ${p.name}\n` +
+      `E-mail: ${p.email || '—'}\n` +
+      `Organizacja: ${p.org || '—'}\n` +
+      `Rola: ${p.role || '—'}\n` +
+      `Znajomość Claude: ${p.level || '—'}\n\n` +
+      `=== WYNIK TESTU ===\n` +
+      `Wynik: ${s}/${total} (${pct}%)\n\n` +
+      `Wynik wg kategorii:\n${catLines}`
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Wysyłanie…';
+  statusEl.textContent = '';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.success) {
+      statusEl.textContent = 'Wynik został wysłany. Dziękujemy!';
+      statusEl.classList.add('ok');
+      btn.textContent = 'Wysłano ✓';
+    } else {
+      throw new Error(data.message || 'Nieznany błąd');
+    }
+  } catch (err) {
+    statusEl.textContent = 'Nie udało się wysłać: ' + err.message;
+    statusEl.classList.add('err');
+    btn.disabled = false;
+    btn.textContent = 'Wyślij wynik';
+  }
+}
+
+function resetTest() {
+  submitted = false;
+  answers.fill(null);
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('controls').style.display = 'block';
+
+  ['pName', 'pEmail', 'pOrg', 'pRole', 'pLevel'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('fldName').classList.remove('invalid');
+
+  const form = document.getElementById('sendForm');
+  form.reset();
+  const sBtn = document.getElementById('sendBtn');
+  sBtn.disabled = false;
+  sBtn.textContent = 'Wyślij wynik';
+  const st = document.getElementById('sendStatus');
+  st.textContent = '';
+  st.className = 'send-status';
+
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('pName').addEventListener('input', function () {
+  if (this.value.trim()) document.getElementById('fldName').classList.remove('invalid');
+});
+
+render();
+</script>
+</body>
+</html>
