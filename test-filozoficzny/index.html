@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test z filozofii — 30 pytań</title>
+<style>
+  :root {
+    --bg: #f5f2ec;
+    --surface: #ffffff;
+    --surface-2: #faf8f4;
+    --text: #1e1b16;
+    --muted: #6b6459;
+    --border: #e4ddd1;
+    --accent: #8a5a2b;
+    --accent-soft: #f0e6d8;
+    --correct: #2e7d4f;
+    --correct-bg: #e6f4ea;
+    --wrong: #c0392b;
+    --wrong-bg: #fbeae8;
+    --shadow: 0 6px 24px rgba(40, 30, 15, 0.08);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17140f;
+      --surface: #211d16;
+      --surface-2: #2a251c;
+      --text: #efe9de;
+      --muted: #a99f8e;
+      --border: #3a3327;
+      --accent: #d6a15f;
+      --accent-soft: #33291b;
+      --correct: #6cc48c;
+      --correct-bg: #1e3327;
+      --wrong: #e8837a;
+      --wrong-bg: #35211f;
+      --shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 16px 80px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  header.hero .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  header.hero h1 {
+    font-size: 2.3rem;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  header.hero p.sub {
+    color: var(--muted);
+    margin-top: 12px;
+    font-size: 1.02rem;
+  }
+
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding: 12px 0 14px;
+    margin-bottom: 8px;
+  }
+  .progress-track {
+    height: 8px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.35s ease;
+  }
+  .progress-label {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: right;
+    margin-top: 6px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 24px 20px;
+    margin-bottom: 18px;
+  }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .q-num {
+    font-family: system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 9px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .q-cat {
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .q-text {
+    font-size: 1.16rem;
+    font-weight: 600;
+    margin: 10px 0 16px;
+    line-height: 1.4;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.05s;
+    font-size: 1.02rem;
+  }
+  .opt:hover:not(.locked) { border-color: var(--accent); }
+  .opt:active:not(.locked) { transform: scale(0.995); }
+  .opt .marker {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--muted);
+    display: grid;
+    place-items: center;
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .opt.locked { cursor: default; }
+  .opt.selected .marker { border-color: var(--accent); background: var(--accent); color: #fff; }
+  .opt.correct { border-color: var(--correct); background: var(--correct-bg); }
+  .opt.correct .marker { border-color: var(--correct); background: var(--correct); color: #fff; }
+  .opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+  .opt.wrong .marker { border-color: var(--wrong); background: var(--wrong); color: #fff; }
+
+  .explain {
+    margin-top: 14px;
+    padding: 12px 15px;
+    border-left: 3px solid var(--accent);
+    background: var(--surface-2);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.96rem;
+    color: var(--text);
+    display: none;
+  }
+  .explain.show { display: block; animation: fade 0.3s ease; }
+  .explain strong { color: var(--accent); }
+  @keyframes fade { from { opacity: 0; transform: translateY(-4px);} to {opacity:1; transform:none;} }
+
+  .controls { text-align: center; margin-top: 26px; }
+  button.btn {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 13px 30px;
+    border-radius: 99px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.05s;
+  }
+  button.btn:hover { opacity: 0.9; }
+  button.btn:active { transform: scale(0.98); }
+  button.btn.ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .result {
+    display: none;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 36px 26px;
+    margin-bottom: 20px;
+  }
+  .result.show { display: block; animation: fade 0.4s ease; }
+  .result .score-big {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .result .score-sub { color: var(--muted); margin-top: 6px; font-family: system-ui, sans-serif; }
+  .result h2 { margin: 18px 0 8px; font-size: 1.6rem; }
+  .result .verdict { color: var(--muted); font-size: 1.05rem; max-width: 480px; margin: 0 auto 18px; }
+  .cat-breakdown {
+    text-align: left;
+    max-width: 440px;
+    margin: 22px auto 0;
+    font-family: system-ui, sans-serif;
+  }
+  .cat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 0.9rem; }
+  .cat-row .name { flex: 0 0 42%; color: var(--muted); }
+  .cat-row .track { flex: 1; height: 7px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .cat-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
+  .cat-row .val { flex: 0 0 42px; text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
+
+  footer.foot {
+    text-align: center;
+    color: var(--muted);
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    margin-top: 40px;
+    line-height: 1.7;
+  }
+  .hidden-until-submit { }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">Interaktywny test wiedzy</div>
+    <h1>30 pytań z filozofii</h1>
+    <p class="sub">Jednokrotny wybór · podstawowe kategorie filozoficzne od starożytności po współczesność. Wybierz odpowiedź, a natychmiast zobaczysz wyjaśnienie.</p>
+  </header>
+
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">Odpowiedziano: 0 / 30</div>
+  </div>
+
+  <div id="result" class="result">
+    <div class="score-big" id="scoreBig">0 / 30</div>
+    <div class="score-sub" id="scorePct">0%</div>
+    <h2 id="verdictTitle">Wynik</h2>
+    <p class="verdict" id="verdictText"></p>
+    <div class="cat-breakdown" id="catBreakdown"></div>
+    <div style="margin-top:26px;">
+      <button class="btn ghost" onclick="resetTest()">Rozwiąż jeszcze raz</button>
+    </div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="controls" id="controls">
+    <button class="btn" id="submitBtn" onclick="submitTest()">Zakończ i pokaż wynik</button>
+    <p style="font-family:system-ui,sans-serif; font-size:0.8rem; color:var(--muted); margin-top:12px;">
+      Możesz też zobaczyć wynik w dowolnym momencie.
+    </p>
+  </div>
+
+  <footer class="foot">
+    Test edukacyjny · metafizyka · epistemologia · etyka · logika · estetyka · filozofia polityczna · filozofia umysłu · filozofia religii<br>
+    Wykonano dla repozytorium <strong>deon</strong>.
+  </footer>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    cat: "Metafizyka",
+    q: "Który z presokratyków twierdził, że pierwszą zasadą (arché) wszechrzeczy jest woda?",
+    opts: ["Heraklit", "Tales z Miletu", "Demokryt", "Pitagoras"],
+    correct: 1,
+    exp: "Tales z Miletu uznawał wodę za arché — praźródło wszystkiego. Był to pierwszy znany zapis próby wyjaśnienia świata bez odwołania do mitologii."
+  },
+  {
+    cat: "Metafizyka",
+    q: "Heraklit z Efezu jest znany z tezy, że:",
+    opts: ["Byt jest jeden, niezmienny i wieczny", "Wszystko płynie (panta rhei) — rzeczywistość jest ciągłą zmianą", "Istnieją tylko atomy i próżnia", "Liczba jest istotą rzeczy"],
+    correct: 1,
+    exp: "„Panta rhei” — wszystko płynie. Heraklit uczynił zmianę i stawanie się fundamentem rzeczywistości; „nie można wejść dwa razy do tej samej rzeki”."
+  },
+  {
+    cat: "Metafizyka",
+    q: "Parmenides z Elei głosił, że:",
+    opts: ["Byt istnieje, a niebytu nie ma — zmiana jest złudzeniem", "Świat składa się z czterech żywiołów", "Dusza jest nieśmiertelna i wędruje", "Poznanie pochodzi wyłącznie ze zmysłów"],
+    correct: 0,
+    exp: "Parmenides twierdził, że „byt jest, a niebytu nie ma”. Skoro niebyt nie istnieje, ruch i zmiana są niemożliwe i stanowią jedynie złudzenie zmysłów."
+  },
+  {
+    cat: "Epistemologia",
+    q: "Sokratejskie „wiem, że nic nie wiem” najlepiej opisuje postawę:",
+    opts: ["Dogmatyzmu poznawczego", "Świadomej niewiedzy jako punktu wyjścia do mądrości", "Całkowitego sceptycyzmu odrzucającego prawdę", "Relatywizmu moralnego"],
+    correct: 1,
+    exp: "Formuła wyraża sokratejską pokorę poznawczą: świadomość własnej niewiedzy jest początkiem prawdziwego dążenia do wiedzy, w odróżnieniu od pozornej mądrości sofistów."
+  },
+  {
+    cat: "Metafizyka",
+    q: "Platońska teoria idei zakłada, że:",
+    opts: ["Realne są tylko rzeczy materialne", "Istnieją wieczne, niezmienne idee, których świat zmysłowy jest odbiciem", "Idee są jedynie nazwami nadawanymi przez umysł", "Poznanie prawdy jest niemożliwe"],
+    correct: 1,
+    exp: "Dla Platona prawdziwie realne są idee (formy) — doskonałe i wieczne wzorce. Świat postrzegany zmysłami to tylko ich niedoskonałe cienie, jak w alegorii jaskini."
+  },
+  {
+    cat: "Logika",
+    q: "Arystoteles jest twórcą pierwszego systemu logiki formalnej, którego podstawą jest:",
+    opts: ["Rachunek zdań", "Sylogizm", "Logika rozmyta", "Metoda dialektyczna"],
+    correct: 1,
+    exp: "Arystoteles skodyfikował sylogizm — wnioskowanie z dwóch przesłanek do wniosku (np. „Każdy człowiek jest śmiertelny; Sokrates jest człowiekiem; więc Sokrates jest śmiertelny”)."
+  },
+  {
+    cat: "Etyka",
+    q: "Arystotelesowska koncepcja cnoty jako „złotego środka” głosi, że cnota to:",
+    opts: ["Całkowite wyzbycie się uczuć", "Umiar między dwoma skrajnościami — nadmiarem i niedostatkiem", "Bezwzględne posłuszeństwo prawu", "Dążenie do przyjemności"],
+    correct: 1,
+    exp: "Cnota (arete) leży pośrodku między skrajnościami — np. odwaga jest środkiem między tchórzostwem a brawurą. To rdzeń etyki cnót Arystotelesa."
+  },
+  {
+    cat: "Etyka",
+    q: "Szkoła stoicka (Zenon z Kition, Epiktet, Marek Aureliusz) zalecała:",
+    opts: ["Maksymalizację przyjemności zmysłowych", "Życie zgodne z rozumem i naturą oraz obojętność wobec tego, co od nas niezależne", "Odrzucenie wszelkich norm moralnych", "Poznanie poprzez wątpienie we wszystko"],
+    correct: 1,
+    exp: "Stoicy uczyli życia zgodnego z rozumem i naturą (logosem) oraz apatii — spokoju wobec rzeczy pozostających poza naszą kontrolą. Cnota jest jedynym prawdziwym dobrem."
+  },
+  {
+    cat: "Etyka",
+    q: "Dla Epikura najwyższym dobrem jest:",
+    opts: ["Obowiązek wobec państwa", "Rozumnie pojęta przyjemność (hedone), zwłaszcza brak cierpienia i niepokoju", "Umartwianie ciała", "Sława i bogactwo"],
+    correct: 1,
+    exp: "Epikureizm to hedonizm, ale wysublimowany: najwyższą przyjemnością jest ataraksja — brak bólu i lęku, osiągany przez umiar i przyjaźń, a nie przez rozpustę."
+  },
+  {
+    cat: "Filozofia religii",
+    q: "Św. Augustyn z Hippony, łącząc chrześcijaństwo z platonizmem, twierdził m.in., że:",
+    opts: ["Świat istnieje wiecznie bez stwórcy", "Prawdę odnajduje się poprzez wewnętrzne oświecenie przez Boga", "Rozum jest całkowicie niezależny od wiary", "Zło jest samodzielną substancją"],
+    correct: 1,
+    exp: "Augustyn uważał, że prawda jest w nas oświecana przez Boga („nie wychodź na zewnątrz, wróć do siebie samego”). Zło pojmował zaś jako brak dobra, nie osobny byt."
+  },
+  {
+    cat: "Filozofia religii",
+    q: "Pięć dróg (quinque viae) św. Tomasza z Akwinu to:",
+    opts: ["Argumenty przeciw istnieniu Boga", "Racjonalne dowody na istnienie Boga oparte na obserwacji świata", "Zasady życia zakonnego", "Reguły logiki średniowiecznej"],
+    correct: 1,
+    exp: "Tomasz z Akwinu przedstawił pięć dróg — dowodów na istnienie Boga (m.in. z ruchu, z przyczyny sprawczej, z celowości), godząc filozofię Arystotelesa z teologią."
+  },
+  {
+    cat: "Epistemologia",
+    q: "Kartezjańskie „Cogito, ergo sum” („Myślę, więc jestem”) jest dla Kartezjusza:",
+    opts: ["Dowodem na istnienie Boga", "Pierwszą niepowątpiewalną prawdą, fundamentem wiedzy", "Zasadą etyczną", "Argumentem o nieśmiertelności duszy"],
+    correct: 1,
+    exp: "Metodyczne wątpienie doprowadziło Kartezjusza do jednej pewności: sam akt myślenia dowodzi istnienia myślącego. To fundament nowożytnego racjonalizmu."
+  },
+  {
+    cat: "Epistemologia",
+    q: "Empiryzm Johna Locke'a zakłada, że umysł przy narodzinach jest:",
+    opts: ["Wyposażony w idee wrodzone", "„Tabula rasa” — czystą tablicą zapisywaną przez doświadczenie", "Odbiciem świata idei", "Niezdolny do poznania czegokolwiek"],
+    correct: 1,
+    exp: "Locke odrzucił idee wrodzone: umysł to „tabula rasa”, a cała wiedza pochodzi z doświadczenia (postrzeżeń zmysłowych i refleksji). To manifest empiryzmu."
+  },
+  {
+    cat: "Epistemologia",
+    q: "David Hume słynie ze sceptycznej analizy pojęcia:",
+    opts: ["Piękna", "Przyczynowości — kwestionował, czy postrzegamy konieczny związek przyczyny i skutku", "Państwa", "Liczby"],
+    correct: 1,
+    exp: "Hume twierdził, że nie obserwujemy koniecznego związku przyczynowego, lecz jedynie stałe następstwo zdarzeń, które przyzwyczajenie każe nam łączyć w związek przyczynowy."
+  },
+  {
+    cat: "Epistemologia",
+    q: "Immanuel Kant dokonał „przewrotu kopernikańskiego” w filozofii, twierdząc, że:",
+    opts: ["To umysł nadaje strukturę poznawanym przedmiotom, a nie odwrotnie", "Poznanie pochodzi wyłącznie ze zmysłów", "Rzecz sama w sobie jest w pełni poznawalna", "Nie istnieją żadne prawa przyrody"],
+    correct: 0,
+    exp: "Kant odwrócił relację: to nie umysł biernie odbija przedmioty, lecz nadaje im formy (czas, przestrzeń, kategorie). Poznajemy zjawiska, nie „rzeczy same w sobie” (noumeny)."
+  },
+  {
+    cat: "Etyka",
+    q: "Imperatyw kategoryczny Kanta w jednej z formuł brzmi:",
+    opts: ["Dąż do jak największego szczęścia jak największej liczby ludzi", "Postępuj tylko wedle takiej maksymy, którą mógłbyś chcieć uczynić prawem powszechnym", "Cel uświęca środki", "Rób to, co przynosi ci przyjemność"],
+    correct: 1,
+    exp: "To etyka deontologiczna: moralność wynika z rozumu i obowiązku, nie ze skutków. Druga formuła nakazuje traktować człowieka zawsze jako cel, nigdy wyłącznie jako środek."
+  },
+  {
+    cat: "Etyka",
+    q: "Utylitaryzm (Jeremy Bentham, John Stuart Mill) ocenia moralność czynu według:",
+    opts: ["Zgodności z obowiązkiem", "Konsekwencji — dobra jest największa suma szczęścia dla największej liczby osób", "Intencji sprawcy", "Zgodności z wolą Boga"],
+    correct: 1,
+    exp: "Utylitaryzm to etyka konsekwencjalistyczna: czyn jest dobry, jeśli maksymalizuje ogólną użyteczność (szczęście, dobrostan). „Największe szczęście największej liczby”."
+  },
+  {
+    cat: "Filozofia polityczna",
+    q: "Według Thomasa Hobbesa („Lewiatan”) stan natury bez władzy państwowej to:",
+    opts: ["Sielankowa harmonia", "„Wojna wszystkich przeciw wszystkim”, w której życie jest samotne i krótkie", "Rządy filozofów", "Wspólnota bez własności"],
+    correct: 1,
+    exp: "Hobbes opisał stan natury jako „bellum omnium contra omnes”. Aby go uniknąć, ludzie zawierają umowę społeczną, przekazując władzę suwerenowi (Lewiatanowi)."
+  },
+  {
+    cat: "Filozofia polityczna",
+    q: "Jean-Jacques Rousseau jest autorem koncepcji:",
+    opts: ["Woli powszechnej jako podstawy prawowitej władzy", "Niewidzialnej ręki rynku", "Podziału władzy na trzy części", "Państwa minimalnego"],
+    correct: 0,
+    exp: "W „Umowie społecznej” Rousseau twierdzi, że suwerenność należy do ludu, a prawowita władza wyraża „wolę powszechną” (volonté générale) ukierunkowaną na dobro wspólne."
+  },
+  {
+    cat: "Metafizyka",
+    q: "Monizm Barucha Spinozy głosi, że:",
+    opts: ["Istnieją dwie odrębne substancje: umysł i ciało", "Istnieje tylko jedna substancja — Bóg albo Natura (Deus sive Natura)", "Świat jest zbiorem niezależnych monad", "Rzeczywistość jest wytworem umysłu"],
+    correct: 1,
+    exp: "Spinoza był monistą i panteistą: istnieje jedna nieskończona substancja — Bóg utożsamiony z Naturą, a myśl i rozciągłość to jedynie jej atrybuty."
+  },
+  {
+    cat: "Metafizyka",
+    q: "„Monady” w filozofii Gottfrieda Leibniza to:",
+    opts: ["Cząstki materialne", "Proste, niepodzielne, duchowe jednostki będące elementami rzeczywistości", "Idee w umyśle Boga", "Formy zmysłowości"],
+    correct: 1,
+    exp: "Monady to niematerialne, bezokienne jednostki-substancje, z których zbudowana jest rzeczywistość; ich harmonię ustanowił Bóg (harmonia przedustawna)."
+  },
+  {
+    cat: "Metafizyka",
+    q: "Georg W. F. Hegel rozwijał metodę dialektyczną, której schemat często streszcza się jako:",
+    opts: ["Obserwacja – hipoteza – eksperyment", "Teza – antyteza – synteza", "Wątpienie – pewność – wiedza", "Przyczyna – skutek – następstwo"],
+    correct: 1,
+    exp: "Hegel ujmował rozwój ducha i historii jako proces dialektyczny, w którym sprzeczność (teza–antyteza) zostaje przezwyciężona na wyższym poziomie (synteza)."
+  },
+  {
+    cat: "Etyka",
+    q: "„Wola mocy” i krytyka „moralności niewolniczej” to idee:",
+    opts: ["Arthura Schopenhauera", "Friedricha Nietzschego", "Karla Marksa", "Sørena Kierkegaarda"],
+    correct: 1,
+    exp: "Nietzsche uczynił „wolę mocy” zasadą życia i krytykował moralność chrześcijańską jako „niewolniczą”; głosił przewartościowanie wartości i ideał nadczłowieka."
+  },
+  {
+    cat: "Filozofia polityczna",
+    q: "Materializm historyczny Karola Marksa zakłada, że motorem dziejów jest przede wszystkim:",
+    opts: ["Rozwój idei i ducha", "Walka klas oparta na stosunkach ekonomicznych i sposobie produkcji", "Wola jednostek wybitnych", "Postęp naukowy"],
+    correct: 1,
+    exp: "Dla Marksa to baza ekonomiczna (siły i stosunki produkcji) kształtuje nadbudowę (prawo, idee), a historia jest dziejami walki klas."
+  },
+  {
+    cat: "Epistemologia",
+    q: "Pragmatyzm (Charles Peirce, William James, John Dewey) głosi, że o prawdziwości idei rozstrzyga:",
+    opts: ["Zgodność z ideami wrodzonymi", "Jej praktyczne skutki i użyteczność w działaniu", "Objawienie", "Czysta dedukcja logiczna"],
+    correct: 1,
+    exp: "Pragmatyzm wiąże znaczenie i prawdziwość pojęć z ich praktycznymi konsekwencjami: prawdziwe jest to, co „działa” i sprawdza się w doświadczeniu."
+  },
+  {
+    cat: "Filozofia umysłu",
+    q: "Zjawisko intencjonalności, kluczowe dla fenomenologii Edmunda Husserla, oznacza, że:",
+    opts: ["Świadomość jest zawsze świadomością „czegoś” — jest skierowana na przedmiot", "Umysł jest maszyną obliczeniową", "Wszystkie sądy są względne", "Poznanie jest niemożliwe"],
+    correct: 0,
+    exp: "Intencjonalność to podstawowa cecha świadomości: zawsze jest ona „świadomością czegoś”. Husserl uczynił z niej fundament fenomenologii i badania czystych struktur przeżycia."
+  },
+  {
+    cat: "Etyka",
+    q: "Egzystencjalistyczne hasło Jean-Paula Sartre'a „istnienie poprzedza istotę” oznacza, że:",
+    opts: ["Człowiek ma z góry ustaloną naturę", "Człowiek najpierw istnieje, a dopiero potem sam siebie określa przez wybory — jest „skazany na wolność”", "Los jest z góry przesądzony", "Istota rzeczy jest ważniejsza od jej istnienia"],
+    correct: 1,
+    exp: "Dla Sartre'a człowiek nie ma zadanej natury — sam tworzy siebie przez wolne wybory i ponosi za nie pełną odpowiedzialność. Stąd „jesteśmy skazani na wolność”."
+  },
+  {
+    cat: "Logika",
+    q: "Zasada falsyfikacji Karla Poppera głosi, że teoria jest naukowa, gdy:",
+    opts: ["Można ją potwierdzić dowolną liczbą obserwacji", "Da się ją w zasadzie obalić (sfalsyfikować) przez doświadczenie", "Jest zgodna z intuicją", "Została ogłoszona przez autorytet"],
+    correct: 1,
+    exp: "Popper zaproponował falsyfikowalność jako kryterium demarkacji nauki: teoria naukowa musi zakazywać pewnych zdarzeń, a więc być testowalna i możliwa do obalenia."
+  },
+  {
+    cat: "Filozofia języka",
+    q: "Ludwig Wittgenstein w „Traktacie logiczno-filozoficznym” napisał, że „granice mojego języka oznaczają granice mojego świata”. Zdanie to podkreśla:",
+    opts: ["Nieograniczoną moc rozumu", "Ścisły związek między językiem a zakresem tego, co możemy pomyśleć i wyrazić", "Wyższość mowy nad pismem", "Że język jest wrodzony"],
+    correct: 1,
+    exp: "Wittgenstein wiązał granice sensownego myślenia z granicami języka; „o czym nie można mówić, o tym trzeba milczeć”. Później rozwinął ideę „gier językowych” i znaczenia jako użycia."
+  },
+  {
+    cat: "Estetyka",
+    q: "Estetyka jako dział filozofii zajmuje się przede wszystkim:",
+    opts: ["Naturą bytu i istnienia", "Pięknem, sztuką oraz sądami i przeżyciami estetycznymi", "Zasadami poprawnego rozumowania", "Ustrojem państwa"],
+    correct: 1,
+    exp: "Estetyka bada piękno, wzniosłość, naturę sztuki oraz doświadczenie i sąd estetyczny. Jako odrębna dyscyplina uformowała się w XVIII w. (m.in. Baumgarten, Kant)."
+  }
+];
+
+const quizEl = document.getElementById('quiz');
+const answers = new Array(QUESTIONS.length).fill(null);
+let submitted = false;
+
+function render() {
+  quizEl.innerHTML = '';
+  QUESTIONS.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'q' + i;
+
+    const head = document.createElement('div');
+    head.className = 'q-head';
+    head.innerHTML = `<span class="q-num">Pytanie ${i + 1}</span><span class="q-cat">${item.cat}</span>`;
+    card.appendChild(head);
+
+    const qt = document.createElement('div');
+    qt.className = 'q-text';
+    qt.textContent = item.q;
+    card.appendChild(qt);
+
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'options';
+    const letters = ['A', 'B', 'C', 'D'];
+    item.opts.forEach((text, j) => {
+      const opt = document.createElement('div');
+      opt.className = 'opt';
+      opt.innerHTML = `<span class="marker">${letters[j]}</span><span class="otext">${text}</span>`;
+      opt.onclick = () => choose(i, j);
+      optsWrap.appendChild(opt);
+    });
+    card.appendChild(optsWrap);
+
+    const exp = document.createElement('div');
+    exp.className = 'explain';
+    exp.id = 'exp' + i;
+    exp.innerHTML = `<strong>Wyjaśnienie:</strong> ${item.exp}`;
+    card.appendChild(exp);
+
+    quizEl.appendChild(card);
+  });
+  updateProgress();
+}
+
+function choose(qi, oi) {
+  if (submitted) return;
+  answers[qi] = oi;
+  const card = document.getElementById('q' + qi);
+  const opts = card.querySelectorAll('.opt');
+  const correct = QUESTIONS[qi].correct;
+
+  opts.forEach((o, j) => {
+    o.classList.remove('selected', 'correct', 'wrong');
+    o.classList.add('locked');
+    if (j === correct) o.classList.add('correct');
+    if (j === oi && oi !== correct) o.classList.add('wrong');
+    if (j === oi) o.classList.add('selected');
+  });
+  document.getElementById('exp' + qi).classList.add('show');
+  updateProgress();
+}
+
+function updateProgress() {
+  const answered = answers.filter(a => a !== null).length;
+  const pct = Math.round((answered / QUESTIONS.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Odpowiedziano: ${answered} / ${QUESTIONS.length}`;
+}
+
+function score() {
+  return answers.reduce((acc, a, i) => acc + (a === QUESTIONS[i].correct ? 1 : 0), 0);
+}
+
+function submitTest() {
+  submitted = true;
+  const s = score();
+  const total = QUESTIONS.length;
+  const pct = Math.round((s / total) * 100);
+
+  document.getElementById('scoreBig').textContent = `${s} / ${total}`;
+  document.getElementById('scorePct').textContent = `${pct}% poprawnych odpowiedzi`;
+
+  let title, text;
+  if (pct >= 90) { title = "Mistrz filozofii!"; text = "Imponująca wiedza — swobodnie poruszasz się od presokratyków po filozofię współczesną."; }
+  else if (pct >= 70) { title = "Bardzo dobry wynik"; text = "Solidne rozeznanie w głównych nurtach i postaciach. Kilka niuansów wartych powtórki."; }
+  else if (pct >= 50) { title = "Dobra podstawa"; text = "Znasz kluczowe idee, ale warto pogłębić poszczególne epoki i kategorie filozoficzne."; }
+  else { title = "Początek drogi"; text = "Filozofia to długa rozmowa trwająca 2500 lat — masz przed sobą fascynującą lekturę. Spróbuj ponownie!"; }
+  document.getElementById('verdictTitle').textContent = title;
+  document.getElementById('verdictText').textContent = text;
+
+  // category breakdown
+  const cats = {};
+  QUESTIONS.forEach((item, i) => {
+    if (!cats[item.cat]) cats[item.cat] = { correct: 0, total: 0 };
+    cats[item.cat].total++;
+    if (answers[i] === item.correct) cats[item.cat].correct++;
+  });
+  const cb = document.getElementById('catBreakdown');
+  cb.innerHTML = '<div style="font-weight:600; margin-bottom:12px; color:var(--text);">Wynik wg kategorii</div>';
+  Object.keys(cats).sort().forEach(name => {
+    const c = cats[name];
+    const p = Math.round((c.correct / c.total) * 100);
+    const row = document.createElement('div');
+    row.className = 'cat-row';
+    row.innerHTML = `<span class="name">${name}</span><span class="track"><span class="bar" style="width:${p}%"></span></span><span class="val">${c.correct}/${c.total}</span>`;
+    cb.appendChild(row);
+  });
+
+  // reveal correct answers for unanswered / show all
+  QUESTIONS.forEach((item, i) => {
+    const card = document.getElementById('q' + i);
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((o, j) => {
+      o.classList.add('locked');
+      if (j === item.correct) o.classList.add('correct');
+      if (answers[i] === j && j !== item.correct) o.classList.add('wrong');
+    });
+    document.getElementById('exp' + i).classList.add('show');
+  });
+
+  document.getElementById('controls').style.display = 'none';
+  const res = document.getElementById('result');
+  res.classList.add('show');
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetTest() {
+  submitted = false;
+  answers.fill(null);
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('controls').style.display = 'block';
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+render();
+</script>
+</body>
+</html>
