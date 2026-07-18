@@ -243,6 +243,43 @@
   .cat-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
   .cat-row .val { flex: 0 0 42px; text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
 
+  .send-form {
+    max-width: 420px;
+    margin: 30px auto 0;
+    padding: 22px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: system-ui, sans-serif;
+  }
+  .send-form .send-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .send-form input {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    padding: 11px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    width: 100%;
+  }
+  .send-form input:focus { outline: none; border-color: var(--accent); }
+  .send-form .btn { width: 100%; }
+  .send-status {
+    font-size: 0.88rem;
+    min-height: 1.2em;
+    text-align: center;
+  }
+  .send-status.ok { color: var(--correct); }
+  .send-status.err { color: var(--wrong); }
+
   footer.foot {
     text-align: center;
     color: var(--muted);
@@ -273,7 +310,16 @@
     <h2 id="verdictTitle">Wynik</h2>
     <p class="verdict" id="verdictText"></p>
     <div class="cat-breakdown" id="catBreakdown"></div>
-    <div style="margin-top:26px;">
+
+    <form id="sendForm" class="send-form" onsubmit="sendResult(event)">
+      <div class="send-title">Wyślij swój wynik</div>
+      <input type="text" id="fName" name="name" placeholder="Imię i nazwisko" required>
+      <input type="email" id="fEmail" name="email" placeholder="Adres e-mail (opcjonalnie)">
+      <button type="submit" class="btn" id="sendBtn">Wyślij wynik</button>
+      <div class="send-status" id="sendStatus"></div>
+    </form>
+
+    <div style="margin-top:22px;">
       <button class="btn ghost" onclick="resetTest()">Rozwiąż jeszcze raz</button>
     </div>
   </div>
@@ -294,6 +340,14 @@
 </div>
 
 <script>
+// ============================================================================
+//  WEB3FORMS — WKLEJ TUTAJ SWÓJ KLUCZ DOSTĘPU (ACCESS KEY)
+//  Klucz pobierzesz na https://web3forms.com — jest publiczny i może
+//  znajdować się w kodzie front-endu. Wyniki testu trafią na e-mail
+//  przypisany do tego klucza.
+const WEB3FORMS_ACCESS_KEY = "55fce01a-74f0-43ac-aa15-8742bead841f";
+// ============================================================================
+
 const QUESTIONS = [
   {
     cat: "Metafizyka",
@@ -633,11 +687,86 @@ function submitTest() {
   res.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+async function sendResult(event) {
+  event.preventDefault();
+  const statusEl = document.getElementById('sendStatus');
+  const btn = document.getElementById('sendBtn');
+  statusEl.className = 'send-status';
+
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf('TWOJ_KLUCZ') !== -1) {
+    statusEl.textContent = 'Brak klucza Web3Forms — uzupełnij WEB3FORMS_ACCESS_KEY w kodzie.';
+    statusEl.classList.add('err');
+    return;
+  }
+
+  const s = score();
+  const total = QUESTIONS.length;
+  const pct = Math.round((s / total) * 100);
+
+  // wynik wg kategorii
+  const cats = {};
+  QUESTIONS.forEach((item, i) => {
+    if (!cats[item.cat]) cats[item.cat] = { correct: 0, total: 0 };
+    cats[item.cat].total++;
+    if (answers[i] === item.correct) cats[item.cat].correct++;
+  });
+  const catLines = Object.keys(cats).sort()
+    .map(n => `  - ${n}: ${cats[n].correct}/${cats[n].total}`).join('\n');
+
+  const name = document.getElementById('fName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+
+  const payload = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: `Wynik testu z filozofii: ${s}/${total} (${pct}%)`,
+    name: name,
+    email: email || 'brak@example.com',
+    message:
+      `Uczestnik: ${name}\n` +
+      (email ? `E-mail: ${email}\n` : '') +
+      `\nWynik: ${s}/${total} (${pct}%)\n\n` +
+      `Wynik wg kategorii:\n${catLines}`
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Wysyłanie…';
+  statusEl.textContent = '';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.success) {
+      statusEl.textContent = 'Wynik został wysłany. Dziękujemy!';
+      statusEl.classList.add('ok');
+      btn.textContent = 'Wysłano ✓';
+    } else {
+      throw new Error(data.message || 'Nieznany błąd');
+    }
+  } catch (err) {
+    statusEl.textContent = 'Nie udało się wysłać: ' + err.message;
+    statusEl.classList.add('err');
+    btn.disabled = false;
+    btn.textContent = 'Wyślij wynik';
+  }
+}
+
 function resetTest() {
   submitted = false;
   answers.fill(null);
   document.getElementById('result').classList.remove('show');
   document.getElementById('controls').style.display = 'block';
+  const form = document.getElementById('sendForm');
+  form.reset();
+  const sBtn = document.getElementById('sendBtn');
+  sBtn.disabled = false;
+  sBtn.textContent = 'Wyślij wynik';
+  const st = document.getElementById('sendStatus');
+  st.textContent = '';
+  st.className = 'send-status';
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

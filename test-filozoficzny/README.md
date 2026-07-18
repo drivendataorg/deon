@@ -30,5 +30,27 @@ Pytania pokrywają główne działy filozofii:
 - Podsumowanie wyniku z rozbiciem na kategorie
 - Tryb jasny i ciemny (dopasowuje się do ustawień systemu)
 - Możliwość rozwiązania testu ponownie
+- Wysyłka wyniku na e-mail przez [Web3Forms](https://web3forms.com)
+
+## Konfiguracja wysyłki wyniku (Web3Forms)
+
+Po zakończeniu testu uczestnik może wysłać swój wynik na e-mail właściciela
+formularza. Wykorzystujemy do tego usługę Web3Forms (bez własnego backendu).
+
+Aby to działało, wystarczy jeden klucz dostępu:
+
+1. Wejdź na https://web3forms.com i wygeneruj **Access Key** (podając e-mail,
+   na który mają przychodzić wyniki).
+2. W pliku `index.html` znajdź na początku sekcji `<script>` linię:
+
+   ```js
+   const WEB3FORMS_ACCESS_KEY = "TWOJ_KLUCZ_TUTAJ";
+   ```
+
+3. Wklej swój klucz między cudzysłowy.
+
+Klucz Web3Forms jest **publiczny** i z założenia umieszcza się go w kodzie
+front-endu — nie jest to sekret. Wyniki (imię, opcjonalny e-mail, punktacja
+oraz rozbicie na kategorie) trafiają na adres przypisany do klucza.
 
 Test ma charakter edukacyjny.
