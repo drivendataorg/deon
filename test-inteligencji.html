@@ -1,0 +1,394 @@
+<!-- ============================================================
+     TEST NA INTELIGENCJĘ — wersja interaktywna (Web3Forms)
+     Jak osadzić:
+       1. Wejdź na https://web3forms.com i wygeneruj Access Key
+          dla adresu mienkowski@gmail.com (klucz przyjdzie mailem).
+       2. Poniżej znajdź  WEB3FORMS_ACCESS_KEY = "TWOJ_ACCESS_KEY"
+          i wklej swój klucz w miejsce TWOJ_ACCESS_KEY.
+       3. Wklej całą zawartość tego pliku na swojej stronie
+          (blok HTML / element "Custom HTML" / iframe).
+     Wynik testu + dane ankiety trafiają na skrzynkę powiązaną
+     z Access Key (czyli mienkowski@gmail.com).
+     ============================================================ -->
+<div id="iq-app">
+<style>
+  #iq-app{
+    --bg:#0b1020; --card:#141a2e; --card2:#1b2340; --line:#2a3355;
+    --txt:#eef1fb; --muted:#9aa3c4; --accent:#6c8cff; --accent2:#9b6cff;
+    --ok:#35d0a5; --err:#ff5d73; --shadow:0 20px 60px rgba(0,0,0,.45);
+    all:initial;
+    display:block; box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--txt);
+    background:radial-gradient(1200px 600px at 15% -10%,#1a2246 0%,transparent 55%),
+               radial-gradient(1000px 500px at 110% 10%,#241a4a 0%,transparent 50%),
+               var(--bg);
+    padding:clamp(16px,4vw,48px);
+    min-height:100%;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  #iq-app *,#iq-app *::before,#iq-app *::after{box-sizing:border-box;}
+  #iq-app .wrap{max-width:720px;margin:0 auto;}
+  #iq-app .card{
+    background:linear-gradient(180deg,var(--card) 0%,var(--card2) 100%);
+    border:1px solid var(--line);
+    border-radius:22px;
+    box-shadow:var(--shadow);
+    padding:clamp(22px,4vw,40px);
+    position:relative;
+    overflow:hidden;
+  }
+  #iq-app .card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(120deg,rgba(108,140,255,.08),transparent 40%);
+  }
+  #iq-app .kicker{
+    display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin-bottom:10px;
+  }
+  #iq-app h1{font-size:clamp(24px,5vw,34px);margin:0 0 8px;font-weight:800;letter-spacing:-.02em;}
+  #iq-app h2{font-size:clamp(19px,3.6vw,23px);margin:0 0 18px;font-weight:700;letter-spacing:-.01em;}
+  #iq-app p.lead{color:var(--muted);margin:0 0 24px;font-size:15.5px;}
+  #iq-app .field{margin-bottom:16px;}
+  #iq-app label.lbl{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:7px;}
+  #iq-app input,#iq-app select{
+    width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);
+    background:#0f1428;color:var(--txt);font-size:15px;outline:none;transition:.18s;
+    font-family:inherit;
+  }
+  #iq-app input:focus,#iq-app select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(108,140,255,.22);}
+  #iq-app input.invalid,#iq-app select.invalid{border-color:var(--err);box-shadow:0 0 0 3px rgba(255,93,115,.18);}
+  #iq-app .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:520px){#iq-app .row2{grid-template-columns:1fr;}}
+  #iq-app .btn{
+    appearance:none;border:none;cursor:pointer;font-family:inherit;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;font-weight:700;font-size:15.5px;padding:14px 24px;border-radius:12px;
+    transition:transform .12s ease,box-shadow .2s,opacity .2s;
+    box-shadow:0 10px 24px rgba(108,140,255,.35);
+    width:100%;
+  }
+  #iq-app .btn:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(108,140,255,.45);}
+  #iq-app .btn:active{transform:translateY(0);}
+  #iq-app .btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
+  #iq-app .btn.ghost{
+    background:transparent;color:var(--muted);border:1px solid var(--line);box-shadow:none;
+  }
+  #iq-app .btn.ghost:hover{color:var(--txt);border-color:var(--accent);}
+  #iq-app .nav{display:flex;gap:12px;margin-top:26px;}
+  #iq-app .nav .btn{width:auto;flex:1;}
+  #iq-app .nav .btn.ghost{flex:0 0 auto;min-width:120px;}
+  #iq-app .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:13px;color:var(--muted);}
+  #iq-app .tag{background:#0f1428;border:1px solid var(--line);padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--accent);}
+  #iq-app .bar{height:8px;background:#0f1428;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-bottom:22px;}
+  #iq-app .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .35s cubic-bezier(.4,0,.2,1);}
+  #iq-app .opts{display:flex;flex-direction:column;gap:11px;}
+  #iq-app .opt{
+    display:flex;align-items:center;gap:13px;padding:14px 16px;border-radius:13px;
+    border:1px solid var(--line);background:#0f1428;cursor:pointer;transition:.16s;
+    font-size:15.5px;user-select:none;
+  }
+  #iq-app .opt:hover{border-color:var(--accent);background:#12182f;}
+  #iq-app .opt.sel{border-color:var(--accent);background:rgba(108,140,255,.14);box-shadow:0 0 0 3px rgba(108,140,255,.14);}
+  #iq-app .opt .mk{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--muted);transition:.16s;
+  }
+  #iq-app .opt.sel .mk{border-color:var(--accent);background:var(--accent);color:#fff;}
+  #iq-app .qtext{font-size:clamp(17px,3.2vw,20px);font-weight:700;margin:0 0 20px;letter-spacing:-.01em;}
+  #iq-app .seq{font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+  #iq-app .result{text-align:center;padding:12px 0 4px;}
+  #iq-app .score{
+    font-size:clamp(52px,14vw,84px);font-weight:900;letter-spacing:-.04em;line-height:1;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    margin:10px 0 4px;
+  }
+  #iq-app .score small{font-size:.4em;color:var(--muted);-webkit-text-fill-color:var(--muted);font-weight:700;}
+  #iq-app .ring{width:150px;height:150px;margin:8px auto 18px;position:relative;}
+  #iq-app .note{color:var(--muted);font-size:14.5px;margin-top:6px;}
+  #iq-app .sending{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:14px;margin-top:18px;}
+  #iq-app .spin{width:16px;height:16px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:iqspin .8s linear infinite;}
+  @keyframes iqspin{to{transform:rotate(360deg);}}
+  #iq-app .status{margin-top:16px;padding:12px 15px;border-radius:11px;font-size:14px;text-align:center;}
+  #iq-app .status.ok{background:rgba(53,208,165,.12);border:1px solid rgba(53,208,165,.4);color:var(--ok);}
+  #iq-app .status.bad{background:rgba(255,93,115,.1);border:1px solid rgba(255,93,115,.4);color:var(--err);}
+  #iq-app .fade{animation:iqfade .35s ease;}
+  @keyframes iqfade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  #iq-app .hidden{display:none;}
+  #iq-app .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:20px;opacity:.75;}
+</style>
+
+<div class="wrap">
+  <div class="card">
+
+    <!-- ====== EKRAN 1: ANKIETA ====== -->
+    <section id="iq-intro" class="fade">
+      <span class="kicker">Test na inteligencję</span>
+      <h1>Sprawdź swoje zdolności poznawcze</h1>
+      <p class="lead">15 pytań jednokrotnego wyboru dla poziomu średnio i zaawansowanego — logika, sekwencje liczbowe, analogie werbalne, zadania przestrzenne i matematyczne. Bez limitu czasu. Zanim zaczniesz, uzupełnij krótką metryczkę.</p>
+
+      <div class="field">
+        <label class="lbl" for="iq-name">Imię i nazwisko</label>
+        <input id="iq-name" type="text" autocomplete="name" placeholder="np. Jan Kowalski" />
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="lbl" for="iq-age">Wiek</label>
+          <input id="iq-age" type="number" min="10" max="120" inputmode="numeric" placeholder="np. 32" />
+        </div>
+        <div class="field">
+          <label class="lbl" for="iq-edu">Wykształcenie</label>
+          <select id="iq-edu">
+            <option value="" selected disabled>Wybierz…</option>
+            <option>Podstawowe</option>
+            <option>Zawodowe</option>
+            <option>Średnie</option>
+            <option>Policealne</option>
+            <option>Wyższe (licencjat/inżynier)</option>
+            <option>Wyższe (magister)</option>
+            <option>Doktorat lub wyżej</option>
+          </select>
+        </div>
+      </div>
+      <p id="iq-intro-err" class="status bad hidden">Uzupełnij wszystkie pola, aby rozpocząć test.</p>
+      <div class="nav">
+        <button class="btn" id="iq-start">Rozpocznij test →</button>
+      </div>
+      <p class="foot">Twoje dane oraz wynik zostaną wysłane na adres e-mail organizatora.</p>
+    </section>
+
+    <!-- ====== EKRAN 2: PYTANIA ====== -->
+    <section id="iq-quiz" class="hidden">
+      <div class="meta">
+        <span>Pytanie <b id="iq-qnum">1</b> / <span id="iq-qtot">15</span></span>
+        <span class="tag" id="iq-cat">Logika</span>
+      </div>
+      <div class="bar"><i id="iq-bar"></i></div>
+      <h2 class="qtext" id="iq-qtext">…</h2>
+      <div class="opts" id="iq-opts"></div>
+      <div class="nav">
+        <button class="btn ghost" id="iq-prev">← Wstecz</button>
+        <button class="btn" id="iq-next" disabled>Dalej →</button>
+      </div>
+    </section>
+
+    <!-- ====== EKRAN 3: WYNIK ====== -->
+    <section id="iq-done" class="hidden fade">
+      <div class="result">
+        <span class="kicker">Twój wynik</span>
+        <div class="score" id="iq-score">0<small>/15</small></div>
+        <p class="note" id="iq-donemsg">Dziękujemy za wypełnienie testu.</p>
+        <div class="sending" id="iq-sending"><span class="spin"></span> Wysyłanie wyniku…</div>
+        <div id="iq-status"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  // ====== KONFIGURACJA ======
+  var WEB3FORMS_ACCESS_KEY = "TWOJ_ACCESS_KEY"; // <-- wklej tutaj swój klucz z web3forms.com
+  var RECIPIENT_HINT = "mienkowski@gmail.com"; // adres powiązany z kluczem (informacyjnie)
+
+  // ====== PYTANIA ======
+  // correct = indeks poprawnej odpowiedzi (0-based)
+  var QUESTIONS = [
+    // --- Logika i sekwencje liczbowe ---
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>2, 6, 12, 20, 30, ?</span>",
+     o:["36","40","42","46"], correct:2},
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>2, 3, 5, 9, 17, ?</span>",
+     o:["25","31","33","34"], correct:2},
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>1, 2, 6, 24, 120, ?</span>",
+     o:["240","360","600","720"], correct:3},
+    {cat:"Logika", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>8, 6, 7, 5, 6, 4, ?</span>",
+     o:["3","4","5","6"], correct:2},
+
+    // --- Werbalne i analogie ---
+    {cat:"Werbalne", q:"Uzupełnij analogię: <b>Ptak</b> ma się do <b>gniazda</b>, tak jak <b>pszczoła</b> do…",
+     o:["pasieki","ula","miodu","plastra"], correct:1},
+    {cat:"Werbalne", q:"Który wyraz jest <b>synonimem</b> słowa „lakoniczny”?",
+     o:["rozwlekły","zwięzły","chaotyczny","wymowny"], correct:1},
+    {cat:"Werbalne", q:"Który wyraz jest <b>antonimem</b> słowa „efemeryczny”?",
+     o:["ulotny","trwały","przezroczysty","nagły"], correct:1},
+    {cat:"Werbalne", q:"Uzupełnij analogię: <b>Sędzia</b> ma się do <b>sądu</b>, tak jak <b>aktor</b> do…",
+     o:["reżysera","widowni","sceny","filmu"], correct:2},
+
+    // --- Przestrzenne i figury ---
+    {cat:"Przestrzenne", q:"Ile <b>krawędzi</b> ma sześcian?",
+     o:["6","8","12","16"], correct:2},
+    {cat:"Przestrzenne", q:"Mała litera „<b>p</b>” obrócona o <b>180°</b> w płaszczyźnie kartki wygląda jak litera:",
+     o:["b","d","q","g"], correct:1},
+    {cat:"Przestrzenne", q:"Ile <b>ścian</b> ma graniastosłup prawidłowy sześciokątny?",
+     o:["6","7","8","12"], correct:2},
+    {cat:"Przestrzenne", q:"Ile <b>przekątnych</b> ma sześciokąt foremny?",
+     o:["6","9","12","15"], correct:1},
+
+    // --- Matematyczno-arytmetyczne ---
+    {cat:"Matematyka", q:"3 maszyny produkują 3 elementy w 3 minuty. Ile <b>minut</b> zajmie 100 maszynom wyprodukowanie 100 elementów?",
+     o:["3","33","100","300"], correct:0},
+    {cat:"Matematyka", q:"Cena towaru spadła o <b>20%</b>, a następnie wzrosła o <b>25%</b>. Cena końcowa względem początkowej jest:",
+     o:["niższa o 5%","taka sama","wyższa o 5%","niższa o 1%"], correct:1},
+    {cat:"Matematyka", q:"Pociąg jedzie ze stałą prędkością <b>90 km/h</b>. Jaki dystans pokona w <b>20 minut</b>?",
+     o:["18 km","30 km","45 km","60 km"], correct:1}
+  ];
+
+  // ====== STAN ======
+  var idx = 0;
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var survey = {};
+
+  // ====== SKRÓTY ======
+  var $ = function(id){ return document.getElementById(id); };
+  var elIntro=$("iq-intro"), elQuiz=$("iq-quiz"), elDone=$("iq-done");
+
+  $("iq-qtot").textContent = QUESTIONS.length;
+
+  // ====== EKRAN 1 -> START ======
+  $("iq-start").addEventListener("click", function(){
+    var name=$("iq-name"), age=$("iq-age"), edu=$("iq-edu");
+    var ok=true;
+    [name,age,edu].forEach(function(f){ f.classList.remove("invalid"); });
+    if(!name.value.trim()){ name.classList.add("invalid"); ok=false; }
+    var a=parseInt(age.value,10);
+    if(!age.value || isNaN(a) || a<10 || a>120){ age.classList.add("invalid"); ok=false; }
+    if(!edu.value){ edu.classList.add("invalid"); ok=false; }
+    $("iq-intro-err").classList.toggle("hidden", ok);
+    if(!ok) return;
+
+    survey = { name:name.value.trim(), age:a, edu:edu.value };
+    elIntro.classList.add("hidden");
+    elQuiz.classList.remove("hidden");
+    elQuiz.classList.add("fade");
+    render();
+  });
+
+  // ====== RENDER PYTANIA ======
+  function render(){
+    var Q = QUESTIONS[idx];
+    $("iq-qnum").textContent = idx+1;
+    $("iq-cat").textContent = Q.cat;
+    $("iq-qtext").innerHTML = Q.q;
+    $("iq-bar").style.width = ((idx)/QUESTIONS.length*100)+"%";
+
+    var box=$("iq-opts"); box.innerHTML="";
+    var letters=["A","B","C","D","E","F"];
+    Q.o.forEach(function(opt,i){
+      var d=document.createElement("div");
+      d.className="opt"+(answers[idx]===i?" sel":"");
+      d.innerHTML='<span class="mk">'+letters[i]+'</span><span>'+opt+'</span>';
+      d.addEventListener("click", function(){
+        answers[idx]=i;
+        Array.prototype.forEach.call(box.children,function(c){c.classList.remove("sel");});
+        d.classList.add("sel");
+        $("iq-next").disabled=false;
+      });
+      box.appendChild(d);
+    });
+
+    $("iq-prev").style.visibility = idx===0 ? "hidden" : "visible";
+    $("iq-next").textContent = (idx===QUESTIONS.length-1) ? "Zakończ i wyślij ✓" : "Dalej →";
+    $("iq-next").disabled = answers[idx]===null;
+  }
+
+  $("iq-prev").addEventListener("click", function(){
+    if(idx>0){ idx--; render(); }
+  });
+  $("iq-next").addEventListener("click", function(){
+    if(answers[idx]===null) return;
+    if(idx < QUESTIONS.length-1){ idx++; render(); }
+    else finish();
+  });
+
+  // ====== ZAKOŃCZENIE + WYSYŁKA ======
+  function finish(){
+    var score=0, breakdown=[];
+    QUESTIONS.forEach(function(Q,i){
+      var good = answers[i]===Q.correct;
+      if(good) score++;
+      breakdown.push(
+        "Q"+(i+1)+" ["+Q.cat+"] "+strip(Q.q)+"\n"+
+        "   Odp. użytkownika: "+(answers[i]!=null?Q.o[answers[i]]:"—")+
+        "  |  Poprawna: "+Q.o[Q.correct]+
+        "  =>  "+(good?"OK":"BŁĄD")
+      );
+    });
+
+    elQuiz.classList.add("hidden");
+    elDone.classList.remove("hidden");
+    $("iq-bar").style.width="100%";
+
+    animateScore(score, QUESTIONS.length);
+    $("iq-donemsg").textContent = "Dziękujemy, "+survey.name.split(" ")[0]+"! Twój wynik został zapisany.";
+
+    sendResult(score, breakdown);
+  }
+
+  function animateScore(score, total){
+    var el=$("iq-score"); var cur=0;
+    var step=function(){
+      cur++;
+      el.innerHTML = cur+"<small>/"+total+"</small>";
+      if(cur<score) requestAnimationFrame(function(){ setTimeout(step,45); });
+    };
+    if(score>0) step(); else el.innerHTML="0<small>/"+total+"</small>";
+  }
+
+  // ====== WYSYŁKA DO WEB3FORMS ======
+  function sendResult(score, breakdown){
+    var status=$("iq-status"); var sending=$("iq-sending");
+
+    var payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "Wynik testu na inteligencję: "+survey.name+" — "+score+"/"+QUESTIONS.length,
+      from_name: "Test na inteligencję",
+      // Pola raportu
+      "Imię i nazwisko": survey.name,
+      "Wiek": survey.age,
+      "Wykształcenie": survey.edu,
+      "WYNIK": score+" / "+QUESTIONS.length,
+      "Procent": Math.round(score/QUESTIONS.length*100)+"%",
+      "Szczegóły odpowiedzi": "\n"+breakdown.join("\n\n")
+    };
+
+    if(WEB3FORMS_ACCESS_KEY === "TWOJ_ACCESS_KEY"){
+      sending.classList.add("hidden");
+      status.className="status bad";
+      status.textContent="⚠ Test działa, ale nie ustawiono klucza Web3Forms — wynik nie został wysłany. Uzupełnij WEB3FORMS_ACCESS_KEY w kodzie.";
+      return;
+    }
+
+    fetch("https://api.web3forms.com/submit", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      sending.classList.add("hidden");
+      if(data.success){
+        status.className="status ok";
+        status.textContent="✓ Wynik został wysłany. Dziękujemy za udział w teście!";
+      } else {
+        status.className="status bad";
+        status.textContent="Nie udało się wysłać wyniku: "+(data.message||"nieznany błąd")+".";
+      }
+    })
+    .catch(function(){
+      sending.classList.add("hidden");
+      status.className="status bad";
+      status.textContent="Błąd połączenia — nie udało się wysłać wyniku. Sprawdź połączenie z internetem.";
+    });
+  }
+
+  // usuwa tagi HTML z treści pytania (do raportu e-mail)
+  function strip(html){
+    var t=document.createElement("div"); t.innerHTML=html;
+    return (t.textContent||t.innerText||"").replace(/\s+/g," ").trim();
+  }
+})();
+</script>
+</div>
