@@ -1,15 +1,16 @@
 <!-- ============================================================
-     TEST NA INTELIGENCJĘ — wersja interaktywna (Web3Forms)
-     Jak osadzić:
-       1. Wejdź na https://web3forms.com i wygeneruj Access Key
+     TEST NA INTELIGENCJ&#280; &#8212; wersja interaktywna (Web3Forms)
+     Jak osadzi&#263;:
+       1. Wejd&#378; na https://web3forms.com i wygeneruj Access Key
           dla adresu mienkowski@gmail.com (klucz przyjdzie mailem).
-       2. Poniżej znajdź  WEB3FORMS_ACCESS_KEY = "TWOJ_ACCESS_KEY"
-          i wklej swój klucz w miejsce TWOJ_ACCESS_KEY.
-       3. Wklej całą zawartość tego pliku na swojej stronie
+       2. Poni&#380;ej znajd&#378;  WEB3FORMS_ACCESS_KEY = "TWOJ_ACCESS_KEY"
+          i wklej sw&#243;j klucz w miejsce TWOJ_ACCESS_KEY.
+       3. Wklej ca&#322;&#261; zawarto&#347;&#263; tego pliku na swojej stronie
           (blok HTML / element "Custom HTML" / iframe).
-     Wynik testu + dane ankiety trafiają na skrzynkę powiązaną
+     Wynik testu + dane ankiety trafiaj&#261; na skrzynk&#281; powi&#261;zan&#261;
      z Access Key (czyli mienkowski@gmail.com).
      ============================================================ -->
+<meta charset="utf-8">
 <div id="iq-app">
 <style>
   #iq-app{
@@ -125,12 +126,12 @@
 
     <!-- ====== EKRAN 1: ANKIETA ====== -->
     <section id="iq-intro" class="fade">
-      <span class="kicker">Test na inteligencję</span>
-      <h1>Sprawdź swoje zdolności poznawcze</h1>
-      <p class="lead">15 pytań jednokrotnego wyboru dla poziomu średnio i zaawansowanego — logika, sekwencje liczbowe, analogie werbalne, zadania przestrzenne i matematyczne. Bez limitu czasu. Zanim zaczniesz, uzupełnij krótką metryczkę.</p>
+      <span class="kicker">Test na inteligencj&#281;</span>
+      <h1>Sprawd&#378; swoje zdolno&#347;ci poznawcze</h1>
+      <p class="lead">15 pyta&#324; jednokrotnego wyboru dla poziomu &#347;rednio i zaawansowanego &#8212; logika, sekwencje liczbowe, analogie werbalne, zadania przestrzenne i matematyczne. Bez limitu czasu. Zanim zaczniesz, uzupe&#322;nij kr&#243;tk&#261; metryczk&#281;.</p>
 
       <div class="field">
-        <label class="lbl" for="iq-name">Imię i nazwisko</label>
+        <label class="lbl" for="iq-name">Imi&#281; i nazwisko</label>
         <input id="iq-name" type="text" autocomplete="name" placeholder="np. Jan Kowalski" />
       </div>
       <div class="row2">
@@ -139,24 +140,24 @@
           <input id="iq-age" type="number" min="10" max="120" inputmode="numeric" placeholder="np. 32" />
         </div>
         <div class="field">
-          <label class="lbl" for="iq-edu">Wykształcenie</label>
+          <label class="lbl" for="iq-edu">Wykszta&#322;cenie</label>
           <select id="iq-edu">
-            <option value="" selected disabled>Wybierz…</option>
+            <option value="" selected disabled>Wybierz&#8230;</option>
             <option>Podstawowe</option>
             <option>Zawodowe</option>
-            <option>Średnie</option>
+            <option>&#346;rednie</option>
             <option>Policealne</option>
-            <option>Wyższe (licencjat/inżynier)</option>
-            <option>Wyższe (magister)</option>
-            <option>Doktorat lub wyżej</option>
+            <option>Wy&#380;sze (licencjat/in&#380;ynier)</option>
+            <option>Wy&#380;sze (magister)</option>
+            <option>Doktorat lub wy&#380;ej</option>
           </select>
         </div>
       </div>
-      <p id="iq-intro-err" class="status bad hidden">Uzupełnij wszystkie pola, aby rozpocząć test.</p>
+      <p id="iq-intro-err" class="status bad hidden">Uzupe&#322;nij wszystkie pola, aby rozpocz&#261;&#263; test.</p>
       <div class="nav">
-        <button class="btn" id="iq-start">Rozpocznij test →</button>
+        <button class="btn" id="iq-start">Rozpocznij test &#8594;</button>
       </div>
-      <p class="foot">Twoje dane oraz wynik zostaną wysłane na adres e-mail organizatora.</p>
+      <p class="foot">Twoje dane oraz wynik zostan&#261; wys&#322;ane na adres e-mail organizatora.</p>
     </section>
 
     <!-- ====== EKRAN 2: PYTANIA ====== -->
@@ -166,21 +167,21 @@
         <span class="tag" id="iq-cat">Logika</span>
       </div>
       <div class="bar"><i id="iq-bar"></i></div>
-      <h2 class="qtext" id="iq-qtext">…</h2>
+      <h2 class="qtext" id="iq-qtext">&#8230;</h2>
       <div class="opts" id="iq-opts"></div>
       <div class="nav">
-        <button class="btn ghost" id="iq-prev">← Wstecz</button>
-        <button class="btn" id="iq-next" disabled>Dalej →</button>
+        <button class="btn ghost" id="iq-prev">&#8592; Wstecz</button>
+        <button class="btn" id="iq-next" disabled>Dalej &#8594;</button>
       </div>
     </section>
 
     <!-- ====== EKRAN 3: WYNIK ====== -->
     <section id="iq-done" class="hidden fade">
       <div class="result">
-        <span class="kicker">Twój wynik</span>
+        <span class="kicker">Tw&#243;j wynik</span>
         <div class="score" id="iq-score">0<small>/15</small></div>
-        <p class="note" id="iq-donemsg">Dziękujemy za wypełnienie testu.</p>
-        <div class="sending" id="iq-sending"><span class="spin"></span> Wysyłanie wyniku…</div>
+        <p class="note" id="iq-donemsg">Dzi&#281;kujemy za wype&#322;nienie testu.</p>
+        <div class="sending" id="iq-sending"><span class="spin"></span> Wysy&#322;anie wyniku&#8230;</div>
         <div id="iq-status"></div>
       </div>
     </section>
@@ -191,48 +192,48 @@
 <script>
 (function(){
   // ====== KONFIGURACJA ======
-  var WEB3FORMS_ACCESS_KEY = "55fce01a-74f0-43ac-aa15-8742bead841f"; // <-- wklej tutaj swój klucz z web3forms.com
-  var RECIPIENT_HINT = "mienkowski@gmail.com"; // adres powiązany z kluczem (informacyjnie)
+  var WEB3FORMS_ACCESS_KEY = "55fce01a-74f0-43ac-aa15-8742bead841f"; // <-- wklej tutaj sw\u00f3j klucz z web3forms.com
+  var RECIPIENT_HINT = "mienkowski@gmail.com"; // adres powi\u0105zany z kluczem (informacyjnie)
 
   // ====== PYTANIA ======
   // correct = indeks poprawnej odpowiedzi (0-based)
   var QUESTIONS = [
     // --- Logika i sekwencje liczbowe ---
-    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>2, 6, 12, 20, 30, ?</span>",
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ci\u0105g?\u00a0\u00a0<span class='seq'>2, 6, 12, 20, 30, ?</span>",
      o:["36","40","42","46"], correct:2},
-    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>2, 3, 5, 9, 17, ?</span>",
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ci\u0105g?\u00a0\u00a0<span class='seq'>2, 3, 5, 9, 17, ?</span>",
      o:["25","31","33","34"], correct:2},
-    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>1, 2, 6, 24, 120, ?</span>",
+    {cat:"Sekwencje", q:"Jaka liczba kontynuuje ci\u0105g?\u00a0\u00a0<span class='seq'>1, 2, 6, 24, 120, ?</span>",
      o:["240","360","600","720"], correct:3},
-    {cat:"Logika", q:"Jaka liczba kontynuuje ciąg?  <span class='seq'>8, 6, 7, 5, 6, 4, ?</span>",
+    {cat:"Logika", q:"Jaka liczba kontynuuje ci\u0105g?\u00a0\u00a0<span class='seq'>8, 6, 7, 5, 6, 4, ?</span>",
      o:["3","4","5","6"], correct:2},
 
     // --- Werbalne i analogie ---
-    {cat:"Werbalne", q:"Uzupełnij analogię: <b>Ptak</b> ma się do <b>gniazda</b>, tak jak <b>pszczoła</b> do…",
+    {cat:"Werbalne", q:"Uzupe\u0142nij analogi\u0119: <b>Ptak</b> ma si\u0119 do <b>gniazda</b>, tak jak <b>pszczo\u0142a</b> do\u2026",
      o:["pasieki","ula","miodu","plastra"], correct:1},
-    {cat:"Werbalne", q:"Który wyraz jest <b>synonimem</b> słowa „lakoniczny”?",
-     o:["rozwlekły","zwięzły","chaotyczny","wymowny"], correct:1},
-    {cat:"Werbalne", q:"Który wyraz jest <b>antonimem</b> słowa „efemeryczny”?",
-     o:["ulotny","trwały","przezroczysty","nagły"], correct:1},
-    {cat:"Werbalne", q:"Uzupełnij analogię: <b>Sędzia</b> ma się do <b>sądu</b>, tak jak <b>aktor</b> do…",
-     o:["reżysera","widowni","sceny","filmu"], correct:2},
+    {cat:"Werbalne", q:"Kt\u00f3ry wyraz jest <b>synonimem</b> s\u0142owa \u201elakoniczny\u201d?",
+     o:["rozwlek\u0142y","zwi\u0119z\u0142y","chaotyczny","wymowny"], correct:1},
+    {cat:"Werbalne", q:"Kt\u00f3ry wyraz jest <b>antonimem</b> s\u0142owa \u201eefemeryczny\u201d?",
+     o:["ulotny","trwa\u0142y","przezroczysty","nag\u0142y"], correct:1},
+    {cat:"Werbalne", q:"Uzupe\u0142nij analogi\u0119: <b>S\u0119dzia</b> ma si\u0119 do <b>s\u0105du</b>, tak jak <b>aktor</b> do\u2026",
+     o:["re\u017cysera","widowni","sceny","filmu"], correct:2},
 
     // --- Przestrzenne i figury ---
-    {cat:"Przestrzenne", q:"Ile <b>krawędzi</b> ma sześcian?",
+    {cat:"Przestrzenne", q:"Ile <b>kraw\u0119dzi</b> ma sze\u015bcian?",
      o:["6","8","12","16"], correct:2},
-    {cat:"Przestrzenne", q:"Mała litera „<b>p</b>” obrócona o <b>180°</b> w płaszczyźnie kartki wygląda jak litera:",
+    {cat:"Przestrzenne", q:"Ma\u0142a litera \u201e<b>p</b>\u201d obr\u00f3cona o <b>180\u00b0</b> w p\u0142aszczy\u017anie kartki wygl\u0105da jak litera:",
      o:["b","d","q","g"], correct:1},
-    {cat:"Przestrzenne", q:"Ile <b>ścian</b> ma graniastosłup prawidłowy sześciokątny?",
+    {cat:"Przestrzenne", q:"Ile <b>\u015bcian</b> ma graniastos\u0142up prawid\u0142owy sze\u015bciok\u0105tny?",
      o:["6","7","8","12"], correct:2},
-    {cat:"Przestrzenne", q:"Ile <b>przekątnych</b> ma sześciokąt foremny?",
+    {cat:"Przestrzenne", q:"Ile <b>przek\u0105tnych</b> ma sze\u015bciok\u0105t foremny?",
      o:["6","9","12","15"], correct:1},
 
     // --- Matematyczno-arytmetyczne ---
-    {cat:"Matematyka", q:"3 maszyny produkują 3 elementy w 3 minuty. Ile <b>minut</b> zajmie 100 maszynom wyprodukowanie 100 elementów?",
+    {cat:"Matematyka", q:"3 maszyny produkuj\u0105 3 elementy w 3 minuty. Ile <b>minut</b> zajmie 100 maszynom wyprodukowanie 100 element\u00f3w?",
      o:["3","33","100","300"], correct:0},
-    {cat:"Matematyka", q:"Cena towaru spadła o <b>20%</b>, a następnie wzrosła o <b>25%</b>. Cena końcowa względem początkowej jest:",
-     o:["niższa o 5%","taka sama","wyższa o 5%","niższa o 1%"], correct:1},
-    {cat:"Matematyka", q:"Pociąg jedzie ze stałą prędkością <b>90 km/h</b>. Jaki dystans pokona w <b>20 minut</b>?",
+    {cat:"Matematyka", q:"Cena towaru spad\u0142a o <b>20%</b>, a nast\u0119pnie wzros\u0142a o <b>25%</b>. Cena ko\u0144cowa wzgl\u0119dem pocz\u0105tkowej jest:",
+     o:["ni\u017csza o 5%","taka sama","wy\u017csza o 5%","ni\u017csza o 1%"], correct:1},
+    {cat:"Matematyka", q:"Poci\u0105g jedzie ze sta\u0142\u0105 pr\u0119dko\u015bci\u0105 <b>90 km/h</b>. Jaki dystans pokona w <b>20 minut</b>?",
      o:["18 km","30 km","45 km","60 km"], correct:1}
   ];
 
@@ -241,7 +242,7 @@
   var answers = new Array(QUESTIONS.length).fill(null);
   var survey = {};
 
-  // ====== SKRÓTY ======
+  // ====== SKR\u00d3TY ======
   var $ = function(id){ return document.getElementById(id); };
   var elIntro=$("iq-intro"), elQuiz=$("iq-quiz"), elDone=$("iq-done");
 
@@ -290,7 +291,7 @@
     });
 
     $("iq-prev").style.visibility = idx===0 ? "hidden" : "visible";
-    $("iq-next").textContent = (idx===QUESTIONS.length-1) ? "Zakończ i wyślij ✓" : "Dalej →";
+    $("iq-next").textContent = (idx===QUESTIONS.length-1) ? "Zako\u0144cz i wy\u015blij \u2713" : "Dalej \u2192";
     $("iq-next").disabled = answers[idx]===null;
   }
 
@@ -303,7 +304,7 @@
     else finish();
   });
 
-  // ====== ZAKOŃCZENIE + WYSYŁKA ======
+  // ====== ZAKO\u0143CZENIE + WYSY\u0141KA ======
   function finish(){
     var score=0, breakdown=[];
     QUESTIONS.forEach(function(Q,i){
@@ -311,9 +312,9 @@
       if(good) score++;
       breakdown.push(
         "Q"+(i+1)+" ["+Q.cat+"] "+strip(Q.q)+"\n"+
-        "   Odp. użytkownika: "+(answers[i]!=null?Q.o[answers[i]]:"—")+
+        "   Odp. u\u017cytkownika: "+(answers[i]!=null?Q.o[answers[i]]:"\u2014")+
         "  |  Poprawna: "+Q.o[Q.correct]+
-        "  =>  "+(good?"OK":"BŁĄD")
+        "  =>  "+(good?"OK":"B\u0141\u0104D")
       );
     });
 
@@ -322,7 +323,7 @@
     $("iq-bar").style.width="100%";
 
     animateScore(score, QUESTIONS.length);
-    $("iq-donemsg").textContent = "Dziękujemy, "+survey.name.split(" ")[0]+"! Twój wynik został zapisany.";
+    $("iq-donemsg").textContent = "Dzi\u0119kujemy, "+survey.name.split(" ")[0]+"! Tw\u00f3j wynik zosta\u0142 zapisany.";
 
     sendResult(score, breakdown);
   }
@@ -337,27 +338,27 @@
     if(score>0) step(); else el.innerHTML="0<small>/"+total+"</small>";
   }
 
-  // ====== WYSYŁKA DO WEB3FORMS ======
+  // ====== WYSY\u0141KA DO WEB3FORMS ======
   function sendResult(score, breakdown){
     var status=$("iq-status"); var sending=$("iq-sending");
 
     var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Wynik testu na inteligencję: "+survey.name+" — "+score+"/"+QUESTIONS.length,
-      from_name: "Test na inteligencję",
+      subject: "Wynik testu na inteligencj\u0119: "+survey.name+" \u2014 "+score+"/"+QUESTIONS.length,
+      from_name: "Test na inteligencj\u0119",
       // Pola raportu
-      "Imię i nazwisko": survey.name,
+      "Imi\u0119 i nazwisko": survey.name,
       "Wiek": survey.age,
-      "Wykształcenie": survey.edu,
+      "Wykszta\u0142cenie": survey.edu,
       "WYNIK": score+" / "+QUESTIONS.length,
       "Procent": Math.round(score/QUESTIONS.length*100)+"%",
-      "Szczegóły odpowiedzi": "\n"+breakdown.join("\n\n")
+      "Szczeg\u00f3\u0142y odpowiedzi": "\n"+breakdown.join("\n\n")
     };
 
     if(WEB3FORMS_ACCESS_KEY === "TWOJ_ACCESS_KEY"){
       sending.classList.add("hidden");
       status.className="status bad";
-      status.textContent="⚠ Test działa, ale nie ustawiono klucza Web3Forms — wynik nie został wysłany. Uzupełnij WEB3FORMS_ACCESS_KEY w kodzie.";
+      status.textContent="\u26a0 Test dzia\u0142a, ale nie ustawiono klucza Web3Forms \u2014 wynik nie zosta\u0142 wys\u0142any. Uzupe\u0142nij WEB3FORMS_ACCESS_KEY w kodzie.";
       return;
     }
 
@@ -371,20 +372,20 @@
       sending.classList.add("hidden");
       if(data.success){
         status.className="status ok";
-        status.textContent="✓ Wynik został wysłany. Dziękujemy za udział w teście!";
+        status.textContent="\u2713 Wynik zosta\u0142 wys\u0142any. Dzi\u0119kujemy za udzia\u0142 w te\u015bcie!";
       } else {
         status.className="status bad";
-        status.textContent="Nie udało się wysłać wyniku: "+(data.message||"nieznany błąd")+".";
+        status.textContent="Nie uda\u0142o si\u0119 wys\u0142a\u0107 wyniku: "+(data.message||"nieznany b\u0142\u0105d")+".";
       }
     })
     .catch(function(){
       sending.classList.add("hidden");
       status.className="status bad";
-      status.textContent="Błąd połączenia — nie udało się wysłać wyniku. Sprawdź połączenie z internetem.";
+      status.textContent="B\u0142\u0105d po\u0142\u0105czenia \u2014 nie uda\u0142o si\u0119 wys\u0142a\u0107 wyniku. Sprawd\u017a po\u0142\u0105czenie z internetem.";
     });
   }
 
-  // usuwa tagi HTML z treści pytania (do raportu e-mail)
+  // usuwa tagi HTML z tre\u015bci pytania (do raportu e-mail)
   function strip(html){
     var t=document.createElement("div"); t.innerHTML=html;
     return (t.textContent||t.innerText||"").replace(/\s+/g," ").trim();
