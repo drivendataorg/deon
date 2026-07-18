@@ -265,6 +265,14 @@
     width: 100%;
   }
   .name-input:focus { outline: none; border-color: var(--accent); }
+  .name-card .req { color: var(--wrong); }
+  .name-error {
+    display: none;
+    font-size: 0.86rem;
+    color: var(--wrong);
+  }
+  .name-card.invalid .name-input { border-color: var(--wrong); background: var(--wrong-bg); }
+  .name-card.invalid .name-error { display: block; }
 
   .send-form {
     max-width: 420px;
@@ -328,8 +336,9 @@
   </div>
 
   <div id="nameCard" class="card name-card">
-    <label for="fNameTop" class="name-label">Zanim zaczniesz — podaj swoje imię</label>
-    <input type="text" id="fNameTop" class="name-input" placeholder="Imię i nazwisko" autocomplete="name">
+    <label for="fNameTop" class="name-label">Zanim zaczniesz — podaj swoje imię <span class="req">*</span></label>
+    <input type="text" id="fNameTop" class="name-input" placeholder="Imię i nazwisko" autocomplete="name" required>
+    <div class="name-error" id="nameError">Wpisanie imienia jest wymagane, aby zakończyć test.</div>
   </div>
 
   <div id="result" class="result">
@@ -663,6 +672,17 @@ function score() {
 }
 
 function submitTest() {
+  // imię jest wymagane, aby zakończyć test
+  const nameCard = document.getElementById('nameCard');
+  const nameInput = document.getElementById('fNameTop');
+  if (!nameInput.value.trim()) {
+    nameCard.classList.add('invalid');
+    nameCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    nameInput.focus();
+    return;
+  }
+  nameCard.classList.remove('invalid');
+
   submitted = true;
   const s = score();
   const total = QUESTIONS.length;
@@ -792,6 +812,7 @@ function resetTest() {
   document.getElementById('result').classList.remove('show');
   document.getElementById('controls').style.display = 'block';
   document.getElementById('fNameTop').value = '';
+  document.getElementById('nameCard').classList.remove('invalid');
   const form = document.getElementById('sendForm');
   form.reset();
   const sBtn = document.getElementById('sendBtn');
@@ -803,6 +824,10 @@ function resetTest() {
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+document.getElementById('fNameTop').addEventListener('input', function () {
+  if (this.value.trim()) document.getElementById('nameCard').classList.remove('invalid');
+});
 
 render();
 </script>
