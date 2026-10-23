@@ -51,14 +51,6 @@ jobs:
         run: |
           uv run --isolated --no-editable --upgrade make test
 
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
-          fail_ci_if_error: true
-        if: matrix.os == 'ubuntu-latest'
-
 
   docs:
     name: Docs
