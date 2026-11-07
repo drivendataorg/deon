@@ -139,6 +139,7 @@ Here are the currently supported file types. We will accept pull requests with n
 - `.md`: markdown
 - `.rmd`: rmarkdown
 - `.rst`: rst
+- `.tex`: latex
 
 # Command line options
 
@@ -154,10 +155,10 @@ Options:
   -l, --checklist PATH  Override default checklist file with a path to a custom
                         checklist.yml file.
   -f, --format TEXT     Output format. Default is "markdown". Can be one of
-                        [ascii, html, jupyter, markdown, rmarkdown, rst].
+                        [ascii, html, jupyter, markdown, rmarkdown, rst, latex].
                         Ignored and file extension used if --output is passed.
   -o, --output PATH     Output file path. Extension can be one of [.txt, .html,
-                        .ipynb, .md, .rmd, .rst]. The checklist is appended if
+                        .ipynb, .md, .rmd, .rst, .tex]. The checklist is appended if
                         the file exists.
   -w, --overwrite       Overwrite output file if it exists. Default is False,
                         which will append to existing file.
