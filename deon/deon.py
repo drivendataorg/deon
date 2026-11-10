@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from .formats import EXTENSIONS, FORMATS
-from .parser import Checklist
+from .parser import Checklist, ChecklistException
 
 DEFAULT_CHECKLIST = Path(__file__).parent / "assets" / "checklist.yml"
 

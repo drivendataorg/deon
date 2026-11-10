@@ -1,6 +1,10 @@
 import yaml
 
 
+class ChecklistException(Exception):
+    pass
+
+
 class Checklist(object):
     """Stores a checklist data parsed from a yaml file."""
 
@@ -12,6 +16,16 @@ class Checklist(object):
     def read(cls, filepath):
         with open(filepath, "r") as f:
             data = yaml.load(f, Loader=yaml.SafeLoader)
+
+        if (
+            not isinstance(data, dict)
+            or "title" not in data
+            or not isinstance(data.get("sections"), list)
+        ):
+            raise ChecklistException(
+                f"Checklist file {filepath} is empty or invalid: "
+                "expected 'title' and 'sections' entries."
+            )
 
         title = data["title"]
 

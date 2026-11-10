@@ -1,6 +1,12 @@
 import click
 
-from .deon import ExtensionException, FormatException, MulticellException, create
+from .deon import (
+    ChecklistException,
+    ExtensionException,
+    FormatException,
+    MulticellException,
+    create,
+)
 from .formats import EXTENSIONS
 
 
@@ -66,6 +72,10 @@ def main(checklist, output_format, output, overwrite, multicell):
     except MulticellException:
         with click.get_current_context() as ctx:
             msg = f"Multicell is for use with jupyter format only. You used: {output_format}.\n\n"
+            raise click.ClickException(msg + ctx.get_help())
+    except ChecklistException as e:
+        with click.get_current_context() as ctx:
+            msg = f"{e}\n\n"
             raise click.ClickException(msg + ctx.get_help())
     else:
         # write output or print to stdout

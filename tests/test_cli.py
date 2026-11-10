@@ -33,6 +33,16 @@ def test_cli_default(runner, checklist):
     assert assets.known_good_markdown in result.output
 
 
+@pytest.mark.parametrize("content", ["", "- just\n- a\n- list\n", "title: No sections here\n"])
+def test_cli_invalid_checklist_file(runner, tmpdir, content):
+    bad_checklist = tmpdir.join("bad.yml")
+    bad_checklist.write(content)
+    result = runner.invoke(main, ["--checklist", str(bad_checklist)])
+    assert result.exit_code == 1
+    assert "empty or invalid" in result.output
+    assert isinstance(result.exception, SystemExit)
+
+
 @pytest.mark.parametrize("arg", ["--output", "-o"])
 def test_cli_output(runner, checklist, tmpdir, test_format_configs, arg):
     temp_file_path = tmpdir.join("checklist.html")
